@@ -27,6 +27,7 @@ public class VehiculePlayer {
     private static final int INCREMENT = 5;
     private int speedX=INCREMENT, speedY=INCREMENT;
     private Boolean switchDirection=false;
+    private final double RATIO=2.6;
 
     // contexte de l'application Android
     // il servira à accéder aux ressources, dont l'image du vehiculePlayer
@@ -48,15 +49,11 @@ public class VehiculePlayer {
         return new BitmapDrawable(c.getResources(), Bitmap.createScaledBitmap(bitmap, w, h, true));
     }
 
-    // retourne 'true' si la vehiculePlayer se déplace automatiquement
-    // 'false' sinon
-    // car on la bloque sous le doigt du joueur lorsqu'il la déplace
+
     public boolean isMoving() {
         return move;
     }
 
-    // définit si oui ou non la vehiculePlayer doit se déplacer automatiquement
-    // car on la bloque sous le doigt du joueur lorsqu'il la déplace
     public void setMove(boolean move) {
         this.move = move;
     }
@@ -69,9 +66,19 @@ public class VehiculePlayer {
         wEcran=wScreen;
         hEcran=hScreen;
 
-        // on définit (au choix) la taille du vehiculePlayer à 1/5ème de la largeur de l'écran
-        vehiculePlayerW=wScreen/8; // 6  pour vehiculeplayer
-        vehiculePlayerH=hScreen/8; // 12 pour vehiculeplayer
+//        Drawable d = mContext.getResources().getDrawable(R.drawable.vehiculeplayer2);
+//
+//        double ratio = d.getIntrinsicWidth()/d.getIntrinsicHeight();
+//        Log.d("ratio",Double.toString(ratio));
+
+        // on définit (au choix) la taille du vehiculePlayer
+        vehiculePlayerW=11*wScreen/64; // 6  pour vehiculeplayer
+        vehiculePlayerH=((int)Math.round(vehiculePlayerW/RATIO));
+        //vehiculePlayerH=hScreen/8;
+        //vehiculePlayerH= ((int) Math.round( vehiculePlayerW/ratio)); // 12 pour vehiculeplayer
+
+        //d=null;
+
 
         img = setImage(mContext,R.drawable.vehiculeplayer2,vehiculePlayerW,vehiculePlayerH); //vehiculePlayer3
 

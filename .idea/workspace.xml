@@ -14,26 +14,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7a7a94-76d8-4b5e-8ec7-1493648ed0d0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/YcQZDZ8bXj3RscGCG0PceqsnquM=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/YcQZDZ8bXj3RscGCG0PceqsnquM=" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/YcQZDZ8bXj3RscGCG0PceqsnquM=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/YcQZDZ8bXj3RscGCG0PceqsnquM=" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Menu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,43 +106,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="319" column="5" selection-start-line="319" selection-start-column="5" selection-end-line="319" selection-end-column="5" />
+            <state relative-caret-position="375">
+              <caret line="264" column="0" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2154#2171#0" expanded="true" />
                 <element signature="e#2229#2237#0" expanded="true" />
-                <element signature="e#11173#11549#0" expanded="true" />
-                <element signature="e#11548#11549#0" expanded="true" />
+                <element signature="e#10911#11287#0" expanded="true" />
+                <element signature="e#11286#11287#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-              <folding>
-                <element signature="e#351#369#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -144,11 +148,38 @@
       <file leaf-file-name="GameView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="-71">
+              <caret line="215" column="103" selection-start-line="215" selection-start-column="103" selection-end-line="215" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vehiculeplayer2.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/vehiculeplayer2.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VehiculePlayer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -176,19 +207,12 @@
       <file leaf-file-name="Profil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state relative-caret-position="-222">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="finish.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/finish.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -2152,26 +2176,26 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/UsersComparator.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/registration.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/profil.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/UserInformation.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Background.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Menu.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="142" />
+    <option name="x" value="-35" />
     <option name="y" value="23" />
-    <option name="width" value="1225" />
+    <option name="width" value="1139" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -2779,12 +2803,19 @@
       <option name="project" value="LOCAL" />
       <updated>1500811012806</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2nd commit">
+      <created>1500815045655</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1500815045657</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="142" y="23" width="1225" height="877" extended-state="0" />
-    <editor active="false" />
+    <frame x="-35" y="23" width="1139" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2799,7 +2830,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4133559" sideWeight="0.48431373" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20328167" sideWeight="0.48431373" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Multi-OS Engine" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2850,7 +2881,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="2nd commit" />
+    <MESSAGE value="Ratio et classement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ratio et classement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2866,17 +2899,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -2899,26 +2921,26 @@
           <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#2262#2263#0" expanded="false" />
-            <element signature="e#2289#2290#0" expanded="false" />
-            <element signature="e#2479#2480#0" expanded="false" />
-            <element signature="e#2511#2512#0" expanded="false" />
-            <element signature="e#3341#3342#0" expanded="false" />
-            <element signature="e#3367#3368#0" expanded="false" />
-            <element signature="e#3447#3448#0" expanded="false" />
-            <element signature="e#3473#3474#0" expanded="false" />
-            <element signature="e#3548#3549#0" expanded="false" />
-            <element signature="e#3572#3573#0" expanded="false" />
-            <element signature="e#3647#3648#0" expanded="false" />
-            <element signature="e#3671#3672#0" expanded="false" />
-            <element signature="e#3764#3765#0" expanded="false" />
-            <element signature="e#3802#3803#0" expanded="false" />
-            <element signature="e#3895#3896#0" expanded="false" />
-            <element signature="e#3933#3934#0" expanded="false" />
-            <element signature="e#5538#5539#0" expanded="false" />
-            <element signature="e#5570#5571#0" expanded="false" />
-            <element signature="e#5602#5603#0" expanded="false" />
-            <element signature="e#5635#5636#0" expanded="false" />
+            <element signature="e#2138#2139#0" expanded="false" />
+            <element signature="e#2165#2166#0" expanded="false" />
+            <element signature="e#2206#2207#0" expanded="false" />
+            <element signature="e#2238#2239#0" expanded="false" />
+            <element signature="e#3409#3410#0" expanded="false" />
+            <element signature="e#3435#3436#0" expanded="false" />
+            <element signature="e#3515#3516#0" expanded="false" />
+            <element signature="e#3541#3542#0" expanded="false" />
+            <element signature="e#3616#3617#0" expanded="false" />
+            <element signature="e#3640#3641#0" expanded="false" />
+            <element signature="e#3715#3716#0" expanded="false" />
+            <element signature="e#3739#3740#0" expanded="false" />
+            <element signature="e#3832#3833#0" expanded="false" />
+            <element signature="e#3870#3871#0" expanded="false" />
+            <element signature="e#3963#3964#0" expanded="false" />
+            <element signature="e#4001#4002#0" expanded="false" />
+            <element signature="e#5606#5607#0" expanded="false" />
+            <element signature="e#5638#5639#0" expanded="false" />
+            <element signature="e#5670#5671#0" expanded="false" />
+            <element signature="e#5703#5704#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2931,8 +2953,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2154#2171#0" expanded="true" />
             <element signature="e#2229#2237#0" expanded="true" />
-            <element signature="e#11173#11549#0" expanded="true" />
-            <element signature="e#11548#11549#0" expanded="true" />
+            <element signature="e#10911#11287#0" expanded="true" />
+            <element signature="e#11286#11287#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3068,36 +3090,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="152" column="9" selection-start-line="152" selection-start-column="9" selection-end-line="152" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2262#2263#0" expanded="false" />
-            <element signature="e#2289#2290#0" expanded="false" />
-            <element signature="e#2479#2480#0" expanded="false" />
-            <element signature="e#2511#2512#0" expanded="false" />
-            <element signature="e#3341#3342#0" expanded="false" />
-            <element signature="e#3367#3368#0" expanded="false" />
-            <element signature="e#3447#3448#0" expanded="false" />
-            <element signature="e#3473#3474#0" expanded="false" />
-            <element signature="e#3548#3549#0" expanded="false" />
-            <element signature="e#3572#3573#0" expanded="false" />
-            <element signature="e#3647#3648#0" expanded="false" />
-            <element signature="e#3671#3672#0" expanded="false" />
-            <element signature="e#3764#3765#0" expanded="false" />
-            <element signature="e#3802#3803#0" expanded="false" />
-            <element signature="e#3895#3896#0" expanded="false" />
-            <element signature="e#3933#3934#0" expanded="false" />
-            <element signature="e#5538#5539#0" expanded="false" />
-            <element signature="e#5570#5571#0" expanded="false" />
-            <element signature="e#5602#5603#0" expanded="false" />
-            <element signature="e#5635#5636#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" />
@@ -3105,14 +3097,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="39" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-25/android/media/MediaPlayer.java">
@@ -3235,16 +3219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
@@ -3268,10 +3242,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state relative-caret-position="-222">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3280,15 +3254,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="319" column="5" selection-start-line="319" selection-start-column="5" selection-end-line="319" selection-end-column="5" />
+        <state relative-caret-position="375">
+          <caret line="264" column="0" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2154#2171#0" expanded="true" />
             <element signature="e#2229#2237#0" expanded="true" />
-            <element signature="e#11173#11549#0" expanded="true" />
-            <element signature="e#11548#11549#0" expanded="true" />
+            <element signature="e#10911#11287#0" expanded="true" />
+            <element signature="e#11286#11287#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-71">
+          <caret line="215" column="103" selection-start-line="215" selection-start-column="103" selection-end-line="215" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/vehiculeplayer2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1661,7 +1661,14 @@
                     "endOffset": 10737
                 },
                 "from": {
-                    "file": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/values/colors.xml"
+                    "file": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 457,
+                        "endColumn": 38,
+                        "endOffset": 491
+                    }
                 }
             },
             {
@@ -3413,14 +3420,7 @@
                     "endOffset": 46242
                 },
                 "from": {
-                    "file": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 1,
-                        "startColumn": 4,
-                        "startOffset": 16,
-                        "endColumn": 45,
-                        "endOffset": 57
-                    }
+                    "file": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/values/strings.xml"
                 }
             },
             {

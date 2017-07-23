@@ -249,19 +249,16 @@ public class Game extends Activity {
                 users.clear();
                 for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
 
-                    if (users.size() != 0) {
-                        for (int i = 0; i < users.size(); i++) {
-                            if (!(users.get(i).getPseudo()).equals(eventSnapshot.getValue(UserInformation.class).pseudo)) {
+                    if(!users.contains(eventSnapshot.getValue(UserInformation.class))){
+                        users.add(eventSnapshot.getValue(UserInformation.class));
+                    } else {
+                        for(int i=0;i<users.size();i++){
+                            if(users.get(i).getHighScore()!=eventSnapshot.getValue(UserInformation.class).getHighScore()){
+                                users.remove(i);
                                 users.add(eventSnapshot.getValue(UserInformation.class));
-                            } else {
-                                if (users.get(i).getHighScore() != (eventSnapshot.getValue(UserInformation.class).highScore)) {
-                                    users.remove(i);
-                                    users.add(eventSnapshot.getValue(UserInformation.class));
-                                }
                             }
                         }
-                    } else {
-                        users.add(eventSnapshot.getValue(UserInformation.class));
+
                     }
 
                 }

@@ -213,7 +213,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     TextPaint textPaintTop1 = new TextPaint();
                     textPaintTop1.setTextSize(pixels5);
                     textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
-                    canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 12 * pixels3, cvH - pixels3, textPaintTop1);
+                    canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
 
                 }
 
@@ -229,13 +229,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         TextPaint textPaintTop1 = new TextPaint();
                         textPaintTop1.setTextSize(pixels5);
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
-                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 12 * pixels3, cvH - pixels3, textPaintTop1);
+                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
 
                         if(users.get(1).getHighScore()!=0) {
                             TextPaint textPaintTop2 = new TextPaint();
                             textPaintTop2.setTextSize(pixels5);
                             textPaintTop2.setColor(ContextCompat.getColor(this.getContext(), R.color.top2));
-                            canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, 26 * pixels3, cvH - pixels3, textPaintTop2);
+                            canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, cvW/2, cvH - pixels3, textPaintTop2);
                         }
                     }
                 } else {
@@ -251,18 +251,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         TextPaint textPaintTop1 = new TextPaint();
                         textPaintTop1.setTextSize(pixels5);
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
-                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 12 * pixels3, cvH - pixels3, textPaintTop1);
+                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
 
                         if(users.get(1).getHighScore()!=0) {
                             TextPaint textPaintTop2 = new TextPaint();
                             textPaintTop2.setTextSize(pixels5);
                             textPaintTop2.setColor(ContextCompat.getColor(this.getContext(), R.color.top2));
-                            canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, 26 * pixels3, cvH - pixels3, textPaintTop2);
+                            canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, cvW/2, cvH - pixels3, textPaintTop2);
                             if(users.get(2).getHighScore()!=0){
                                 TextPaint textPaintTop3 = new TextPaint();
                                 textPaintTop3.setTextSize(pixels5);
                                 textPaintTop3.setColor(ContextCompat.getColor(this.getContext(), R.color.top3));
-                                canvas.drawText( users.get(2).getPseudo() + " : " + users.get(2).highScore, 40 * pixels3, cvH -  pixels3, textPaintTop3);
+                                canvas.drawText( users.get(2).getPseudo() + " : " + users.get(2).highScore, 3*cvW/4, cvH -  pixels3, textPaintTop3);
                             }
                         }
                     }
