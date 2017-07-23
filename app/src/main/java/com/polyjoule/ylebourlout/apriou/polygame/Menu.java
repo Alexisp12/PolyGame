@@ -1,8 +1,11 @@
 package com.polyjoule.ylebourlout.apriou.polygame;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -44,18 +47,6 @@ public class Menu extends AppCompatActivity {
 
         recupData();
 
-        SharedPreferences settings = getSharedPreferences(SETS, 0);
-
-        if(userInfo!=null) {
-            if(userInfo.getPseudo()==null) {
-                userInfo.setPseudo(settings.getString("pseudo", ""));
-                Log.d("pseudoNull","oui");
-            }
-            if(userInfo.getHighScore()==-1) {
-                userInfo.setHighScore(settings.getInt("highScore", 0));
-                Log.d("highscore-1","oui");
-            }
-        }
 
         gameButton = (Button) findViewById(R.id.gamebutton);
 
@@ -65,7 +56,47 @@ public class Menu extends AppCompatActivity {
 
         gameButton.setOnClickListener(new View.OnClickListener() {
             public void onClick (View startview){
+                if(firebaseAuth.getCurrentUser()==null){
+                    AlertDialog.Builder builder;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        builder = new AlertDialog.Builder(Menu.this, android.R.style.Theme_Material_Dialog_Alert);
+                    } else {
+                        builder = new AlertDialog.Builder(Menu.this);
+                    }
+                    builder.setTitle("Joueur non authentifié")
+                            .setMessage("Souhaitez-vous accédez à la page d'authentification ?")
+                            .setMessage("Un joueur non connecté n'aura pas accès au classement général.")
+                            .setPositiveButton("Authentification", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent question1intent = new Intent(Menu.this, Login.class);
+                                    startActivity(question1intent);
+                                }
+                            })
+                            .setNegativeButton("Jouer", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent question1intent = new Intent(Menu.this, Game.class);
+                                    startActivity(question1intent);
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                } else {
+                    SharedPreferences settings = getSharedPreferences(SETS, 0);
 
+                    if(userInfo!=null) {
+                        if(userInfo.getPseudo()==null) {
+                            userInfo.setPseudo(settings.getString("pseudo", ""));
+                            Log.d("pseudoNull","oui");
+                        }
+                        if(userInfo.getHighScore()==-1) {
+                            userInfo.setHighScore(settings.getInt("highScore", 0));
+                            Log.d("highscore-1","oui");
+                        }
+                    }
+
+                    Intent question1intent = new Intent(Menu.this, Game.class);
+                    startActivity(question1intent);
+                }
 //                if(userInfo.getPseudo()=="") {
 //                    //On instancie notre layout en tant que View
 //                    LayoutInflater factory = LayoutInflater.from(Menu.this);
@@ -119,8 +150,7 @@ public class Menu extends AppCompatActivity {
 //                    startActivity(question1intent);
 //                }
                 //Log.d("pseudo",userInfo.getPseudo());
-                Intent question1intent = new Intent(Menu.this, Game.class);
-                startActivity(question1intent);
+
             }
         });
 
@@ -138,7 +168,7 @@ public class Menu extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
 
-                // Attach a listener to read the data at our posts reference
+        // Attach a listener to read the data at our posts reference
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

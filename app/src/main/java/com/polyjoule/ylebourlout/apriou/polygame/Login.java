@@ -30,11 +30,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextPassword;
     private TextView textViewSignup;
 
+
     //firebase auth object
     private FirebaseAuth firebaseAuth;
 
     //progress dialog
     private ProgressDialog progressDialog;
+
+    private Boolean authDone=false;
 
 
     @Override
@@ -50,6 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         if(firebaseAuth.getCurrentUser() != null){
             //close this activity
             finish();
+            authDone=true;
             //opening profile activity
             startActivity(new Intent(getApplicationContext(), Profil.class));
         }
@@ -100,12 +104,66 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         if(task.isSuccessful()){
                             //start the profile activity
                             finish();
+                            authDone=true;
                             startActivity(new Intent(getApplicationContext(), Profil.class));
                         }
                     }
                 });
 
-
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
+//
+//        ref.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
+//                    if(authDone) {
+//                        if ((eventSnapshot.getValue(UserInformation.class).getEmail()).equals(email)) {
+//                            userInfo = eventSnapshot.getValue(UserInformation.class);
+//                            SharedPreferences settings = getSharedPreferences(SETS, 0);
+//                            int highScore = settings.getInt("highscore", 0);
+//                            if (userInfo.getHighScore() < highScore) {
+//                                userInfo.setHighScore(highScore);
+//                            }
+//                            startActivity(new Intent(getApplicationContext(), Profil.class));
+//                        }
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+////                for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
+////                    if(authDone) {
+////                        if ((eventSnapshot.getValue(UserInformation.class).getEmail()).equals(email)) {
+////                            userInfo = eventSnapshot.getValue(UserInformation.class);
+////                            SharedPreferences settings = getSharedPreferences(SETS, 0);
+////                            int highScore = settings.getInt("highscore", 0);
+////                            if (userInfo.getHighScore() < highScore) {
+////                                userInfo.setHighScore(highScore);
+////                            }
+////                            startActivity(new Intent(getApplicationContext(), Profil.class));
+////                        }
+////                    }
+////                }
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
     }
 
     @Override

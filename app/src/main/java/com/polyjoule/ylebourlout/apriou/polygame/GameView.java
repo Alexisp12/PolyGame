@@ -8,18 +8,17 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.COEFVEHICULESEVITES;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DEPLACEMENTBG;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGEGO;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.GAINCARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
-import static com.polyjoule.ylebourlout.apriou.polygame.Game.alertDialogDone;
-import static com.polyjoule.ylebourlout.apriou.polygame.Game.highScore;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.rangJoueur;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.users;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
 
@@ -57,6 +56,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int coinDPause;
     private int coinHPause;
     private int coinBPause;
+    private int coinGRestart;
+    private int coinDRestart;
+    private int coinHRestart;
+    private int coinBRestart;
     private int levelCarburantMinInit;
     private int levelVieMinInit;
     private int tempsAffichageGO=0;
@@ -71,6 +74,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private String textPerdu="GAME OVER";
     private String textHS="Record personnel : ";
     private String classementText="Classement :";
+    private String textDistance="Distance parcourue";
+    private String textVoitureEvites="Collisions évités";
+    private String textScoreTotal="Score total";
+    private String textRestart="Restart !";
+    private int nbVehicules=0;
+    private int comptageScore=0;
+    private int scorefinal=0;
+    private Boolean restartEnable=false;
+    private int distanceDoigtVoiture=0;
+
     //private String textRestart="Record : ";
 
 
@@ -157,73 +170,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
 
-
-        // Bouton pause
-        if(!pause) {
-            Drawable pauseDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.pause);
-            //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
-            pauseDraw.setBounds(coinGPause, coinHPause, coinDPause, coinBPause);
-            pauseDraw.draw(canvas);
-        } else {
-            Drawable pauseDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.lecture);
-            //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
-            pauseDraw.setBounds(coinGPause, coinHPause, coinDPause, coinBPause);
-            pauseDraw.draw(canvas);
-
-            TextPaint textPaintPause = new TextPaint();
-            textPaintPause.setTextSize(pixels);
-            textPaintPause.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
-            canvas.drawText(textPause, cvW/2-cvW/16, cvH/2, textPaintPause);
-
-
-            TextPaint textPaintHS = new TextPaint();
-            textPaintHS.setTextSize(pixels4);
-            textPaintHS.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
-
-            if(userInfo!=null) {
-                canvas.drawText(textHS + userInfo.getHighScore(), cvW / 2 - 5*cvW / 32, 3 * cvH / 4-cvH/32, textPaintHS);
-            }
-
-        }
-
-
-        if(perdu){
-            Game.pauseMusique();
-
-            if(dureeAffichageGO==DUREEAFFICHAGEGO) {
-                if (userInfo != null) { // + registered//true
-                    Log.d("score",Integer.toString(score));
-                    Log.d("HighScore",Integer.toString(highScore));
-                    if (score > userInfo.getHighScore()) {
-                        Game.update(score);
-                        userInfo.setHighScore(score);
-                        Game.saveUserInformation(userInfo);
-                    }
-                }
-            }
-            dureeAffichageGO--;
-
-            // Game over
-            TextPaint textPaintGO = new TextPaint();
-            textPaintGO.setTextSize(pixels);
-            textPaintGO.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
-            canvas.drawText(textPerdu, cvW/2-cvW/8, cvH/2, textPaintGO);
-
-            // Durée avant restart
-            TextPaint textPaintHS = new TextPaint();
-            textPaintHS.setTextSize(pixels4);
-            textPaintHS.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
-            canvas.drawText(Integer.toString(dureeAffichageGO/10), cvW/2-cvW/64, 3*cvH/4, textPaintHS);
-
-            if(tempsAffichageGO==dureeAffichageGO){
-                bg=null;
-                alertDialogDone=false;
-                dureeAffichageGO=DUREEAFFICHAGEGO;
-                Game.restart();
-            }
-        }
-
-
         // ScoreText
         TextPaint textPaintScore = new TextPaint();
         textPaintScore.setTextSize(pixels);
@@ -242,17 +188,17 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         carburantDraw.setBounds(levelCarburantMinInit-pixels2/5-carburant.getcarburantW()/2,pixels3,levelCarburantMinInit-pixels2/5,pixels3+pixels/2);
         carburantDraw.draw(canvas);
 
-        // Level Vie
-        TextPaint paintlevelVie = new TextPaint();
-        paintlevelVie.setTextSize(pixels);
-        paintlevelVie.setColor(Color.RED);
-        canvas.drawRect(levelVieMinInit-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW()/2)),pixels3,levelVie-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW()/2)),pixels3+pixels/2,paintlevelVie);
-
-        // Image vie
-        Drawable vieDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.coeur);
-        //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
-        vieDraw.setBounds(levelVieMinInit-pixels2/2-carburant.getcarburantW()/2-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW())),pixels3,levelVieMinInit-(pixels3/2)-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW()/2)),pixels3+pixels/2);
-        vieDraw.draw(canvas);
+//        // Level Vie
+//        TextPaint paintlevelVie = new TextPaint();
+//        paintlevelVie.setTextSize(pixels);
+//        paintlevelVie.setColor(Color.RED);
+//        canvas.drawRect(levelVieMinInit-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW()/2)),pixels3,levelVie-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW()/2)),pixels3+pixels/2,paintlevelVie);
+//
+//        // Image vie
+//        Drawable vieDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.coeur);
+//        //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+//        vieDraw.setBounds(levelVieMinInit-pixels2/2-carburant.getcarburantW()/2-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW())),pixels3,levelVieMinInit-(pixels3/2)-(cvW-(levelVieMinInit-pixels2/5-carburant.getcarburantW()/2)),pixels3+pixels/2);
+//        vieDraw.draw(canvas);
 
         if(users.size()!=0) {
             if (users.size() == 1) {
@@ -285,12 +231,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
                         canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 12 * pixels3, cvH - pixels3, textPaintTop1);
 
-                    if(users.get(1).getHighScore()!=0) {
-                        TextPaint textPaintTop2 = new TextPaint();
-                        textPaintTop2.setTextSize(pixels5);
-                        textPaintTop2.setColor(ContextCompat.getColor(this.getContext(), R.color.top2));
-                        canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, 26 * pixels3, cvH - pixels3, textPaintTop2);
-                    }
+                        if(users.get(1).getHighScore()!=0) {
+                            TextPaint textPaintTop2 = new TextPaint();
+                            textPaintTop2.setTextSize(pixels5);
+                            textPaintTop2.setColor(ContextCompat.getColor(this.getContext(), R.color.top2));
+                            canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, 26 * pixels3, cvH - pixels3, textPaintTop2);
+                        }
                     }
                 } else {
 
@@ -348,12 +294,112 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         carburant.draw(canvas);
         vehicule.draw(canvas);
 
+        // Bouton pause
+        if(!pause) {
+            Drawable pauseDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.pause);
+            //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+            pauseDraw.setBounds(coinGPause, coinHPause, coinDPause, coinBPause);
+            pauseDraw.draw(canvas);
+        } else {
+            Drawable pauseDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.lecture);
+            //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+            pauseDraw.setBounds(coinGPause, coinHPause, coinDPause, coinBPause);
+            pauseDraw.draw(canvas);
+
+            TextPaint textPaintPause = new TextPaint();
+            textPaintPause.setTextSize(pixels);
+            textPaintPause.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
+            canvas.drawText(textPause, cvW/2-cvW/16, cvH/2, textPaintPause);
+
+
+            TextPaint textPaintHS = new TextPaint();
+            textPaintHS.setTextSize(pixels4);
+            textPaintHS.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
+
+            if(userInfo!=null) {
+                canvas.drawText(textHS + userInfo.getHighScore(), cvW / 2 - 5*cvW / 32, 3 * cvH / 4-cvH/32, textPaintHS);
+            }
+
+        }
+
+
+        if(perdu){
+            Game.pauseMusique();
+
+            // Image Game Over
+            Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
+            //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+            goDraw.setBounds(cvW/16,cvH/16,15*cvW/16,15*cvH/16);
+            goDraw.draw(canvas);
+
+            // Texte tableau score
+            scorefinal=score+(nbVehicules*COEFVEHICULESEVITES);
+
+            if(comptageScore!=scorefinal) {
+                comptageScore++;
+            } else {
+                restartEnable=true;
+                if (userInfo != null) { // + registered//true
+                    //Log.d("score",Integer.toString(score));
+                    //Log.d("HighScore",Integer.toString(highScore));
+                    if (score > userInfo.getHighScore()) {
+                        Game.update(score);
+                        userInfo.setHighScore(score);
+                        Game.saveUserInformation(userInfo);
+                        Game.pullHighScore();
+                    }
+                }
+            }
+
+            int tailleTexte=pixels4;
+            int espaceTexte=pixels5;
+            TextPaint textPaintTableauAffichage = new TextPaint();
+            textPaintTableauAffichage.setTextSize(tailleTexte);
+            textPaintTableauAffichage.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
+            // Distance
+            canvas.drawText(textDistance+" : "+score,cvW/4+tailleTexte,cvH/2,textPaintTableauAffichage);
+            // Collision évités
+            canvas.drawText(textVoitureEvites+" : "+nbVehicules,cvW/4+tailleTexte,cvH/2+tailleTexte+espaceTexte,textPaintTableauAffichage);
+            // Score Total
+            canvas.drawText(textScoreTotal+" : "+comptageScore,cvW/4+tailleTexte,cvH/2+2*(tailleTexte+tailleTexte),textPaintTableauAffichage);
+
+
+            if(restartEnable){
+                TextPaint textPaintRang = new TextPaint();
+                textPaintRang.setTextSize(tailleTexte);
+                textPaintRang.setColor(ContextCompat.getColor(this.getContext(), R.color.accent_material_dark_1));
+
+                if(rangJoueur!=0) {
+                    if (rangJoueur == 1) {
+                        canvas.drawText(rangJoueur + "er", cvW / 2 + 3 * tailleTexte, cvH / 2 + 2 * (tailleTexte + tailleTexte), textPaintRang);
+                    } else {
+                        canvas.drawText(rangJoueur + "ème", cvW / 2 + 3 * tailleTexte, cvH / 2 + 2 * (tailleTexte + tailleTexte), textPaintRang);
+                    }
+                }
+
+
+
+                coinGRestart=cvW/2;
+                coinHRestart=cvH/2+3*(tailleTexte+tailleTexte);
+                coinBRestart=cvH/2+3*(tailleTexte+tailleTexte)+tailleTexte;
+                coinDRestart=cvW/2+4*tailleTexte;
+
+                TextPaint textPaintRestart = new TextPaint();
+                textPaintRestart.setTextSize(tailleTexte);
+                textPaintRestart.setColor(Color.RED);
+                // Distance
+                canvas.drawText(textRestart,coinGRestart,coinHRestart,textPaintRestart);
+
+            }
+        }
+
+
     }
 
     // Fonction appelée par la boucle principale (gameLoopThread)
     // On gère ici le déplacement des objets
     public void update() {
-        //vehicule.moveWithCollisionDetection(); // Useless i think ?
+
         if(bg!=null) {
             bg.update();
         }
@@ -372,7 +418,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 score++;
 
                 if(userInfo!=null) {
-                    if (score > userInfo.getHighScore()) {
+                    if (score > userInfo.getHighScore() && userInfo.getHighScore()!=0) {
                         if (!toastHSdone) {
                             Game.toastHS();
                             toastHSdone = true;
@@ -414,12 +460,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         carburant.move();
 
         if(vehicule.hasBeenTouched(carburant.getX(),carburant.getY(),carburant.getcarburantW(),carburant.getcarburantH())){
-                carburant.disparition();
-                if(levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100<levelCarburantMaxInit) {
-                    levelCarburant = levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100;
-                } else {
-                    levelCarburant=levelCarburantMaxInit;
-                }
+            carburant.disparition();
+            if(levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100<levelCarburantMaxInit) {
+                levelCarburant = levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100;
+            } else {
+                levelCarburant=levelCarburantMaxInit;
+            }
         }
 
 
@@ -497,31 +543,41 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                 pause = false;
                                 Game.startMusique();
                             }
+                        } else {
+                            if(currentY>= vehicule.getY() - vehicule.getvehiculePlayerH()/8 && currentY <= vehicule.getY()+vehicule.getvehiculePlayerH() + vehicule.getvehiculePlayerH()/8){
+                                canMoveVehicule=true;
+                                distanceDoigtVoiture=currentY-vehicule.getY();
+                            } else {
+                                canMoveVehicule=false;
+                            }
+                            break;
+                        }
+
+                    } else {
+                        if(restartEnable) {
+                            if (currentX < coinDRestart && currentX > coinGRestart && currentY> coinHRestart && currentY<coinBRestart){
+                                bg=null;
+                                ////alertDialogDone=false;
+                                Game.restart();
+                            }
                         }
                     }
                 }
-                
-                if(currentY>= vehicule.getY() - vehicule.getvehiculePlayerH()/2 && currentY <= vehicule.getY()+vehicule.getvehiculePlayerH() + vehicule.getvehiculePlayerH()/2){
-                    canMoveVehicule=true;
-                } else {
-                    canMoveVehicule=false;
-                }
-                break;
 
-            // code exécuté lorsque le doight glisse sur l'écran.
+
+
+                // code exécuté lorsque le doight glisse sur l'écran.
             case MotionEvent.ACTION_MOVE:
 
 
                 // Comportement normal
-
-                //vehicule.setX(currentX - (vehicule.getvehiculePlayerW() / 2));
-                if(!pause) {
-                    if (currentY + vehicule.getvehiculePlayerH() / 2 < cvH - cvH / 8 && currentY - vehicule.getvehiculePlayerH() / 2 > cvH / 8) {
-                        if (canMoveVehicule) {
-                            vehicule.setY(currentY - (vehicule.getvehiculePlayerH() / 2));
-                        }
+                //if(!pause) {
+                if (currentY + vehicule.getvehiculePlayerH() / 2 < cvH - cvH / 8 && currentY - vehicule.getvehiculePlayerH() / 2 > cvH / 8) {
+                    if (canMoveVehicule) {
+                        vehicule.setY(currentY  - distanceDoigtVoiture);
                     }
                 }
+                // }
                 break;
 
             // lorsque le doigt quitte l'écran

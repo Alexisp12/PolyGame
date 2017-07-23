@@ -42,10 +42,12 @@ public class Game extends Activity {
     public final static int PERTECARBURANT = 6; // En pourcentage !!! 2 à l'orgine
     public final static int DEPLACEMENTBG = 11;
     public final static int DUREEAFFICHAGEGO = 100;
+    public final static int COEFVEHICULESEVITES=10;
     private static MediaPlayer fondSonore = null;
     public static Boolean alertDialogDone = false;
     public static int highScore = -1;
     public static Toast toast;
+    public static int rangJoueur;
 
 
     //firebase auth object
@@ -75,12 +77,15 @@ public class Game extends Activity {
         playSound(R.raw.son);
 
 
+
         highScore=userInfo.getHighScore();
 
-       // SharedPreferences settings = getSharedPreferences(SETS, 0);
-       // highScore = settings.getInt("highscore", 0);
+        if(firebaseAuth.getCurrentUser()==null) {
+            SharedPreferences settings = getSharedPreferences(SETS, 0);
+            highScore = settings.getInt("highscore", 0);
+        }
 
-        // users = new UserInformation[100];
+        //users = new UserInformation[100];
         // userIUD = new String [100];
 
         //Game.saveUserInformation(userInfo);
@@ -265,7 +270,12 @@ public class Game extends Activity {
 
                 for (int i = 0; i < users.size(); i++) {
                     Log.e("users" + i, users.get(i).getPseudo());
+                    if((users.get(i).getPseudo()).equals(userInfo.getPseudo())){
+                        rangJoueur=i+1;
+                    }
                 }
+
+
 
             }
 
@@ -300,9 +310,7 @@ public class Game extends Activity {
                 if (toast != null) {
                     toast.cancel();
                 }
-                Log.d("users0", "toastHere");
                 if (users != null) {
-                    Log.d("users0", users.get(0).getPseudo());
 
                     toast = Toast.makeText(This, "Nouveau record personnel !!", Toast.LENGTH_SHORT);
                     toast.show();
@@ -314,7 +322,10 @@ public class Game extends Activity {
     @Override
     public void onBackPressed() {
         gameView = null;
+        pauseMusique();
+        fondSonore = null;
         Intent retourMenuIntent = new Intent(Game.this, Menu.class);
+
         startActivity(retourMenuIntent);
     }
 }
