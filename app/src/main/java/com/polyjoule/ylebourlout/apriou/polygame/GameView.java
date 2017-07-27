@@ -655,9 +655,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
                 // Comportement normal
                 //if(!pause) {
-                if (currentY + vehicule.getvehiculePlayerH() / 2 < cvH - cvH / 8 && currentY - vehicule.getvehiculePlayerH() / 2 > cvH / 8) {
-                    if (canMoveVehicule) {
-                        vehicule.setY(currentY  - distanceDoigtVoiture);
+                if(!perdu) {
+                    if (!collisionVehicule) {
+                        if (currentY + vehicule.getvehiculePlayerH() / 2 < cvH - cvH / 8 && currentY - vehicule.getvehiculePlayerH() / 2 > cvH / 8) {
+                            if (canMoveVehicule) {
+                                vehicule.setY(currentY - distanceDoigtVoiture);
+                            }
+                        }
                     }
                 }
                 // }
