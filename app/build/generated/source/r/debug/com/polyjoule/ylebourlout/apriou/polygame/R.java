@@ -2414,13 +2414,14 @@ containing a value of this type.
         public static final int notification_bg_normal=0x7f020089;
         public static final int notification_bg_normal_pressed=0x7f02008a;
         public static final int notification_icon_background=0x7f02008b;
-        public static final int notification_template_icon_bg=0x7f020091;
-        public static final int notification_template_icon_low_bg=0x7f020092;
+        public static final int notification_template_icon_bg=0x7f020092;
+        public static final int notification_template_icon_low_bg=0x7f020093;
         public static final int notification_tile_bg=0x7f02008c;
         public static final int notify_panel_notification_icon_bg=0x7f02008d;
         public static final int pause=0x7f02008e;
-        public static final int vehiculeplayer=0x7f02008f;
-        public static final int vehiculeplayer2=0x7f020090;
+        public static final int vehiculeennemi=0x7f02008f;
+        public static final int vehiculeplayer=0x7f020090;
+        public static final int vehiculeplayer2=0x7f020091;
     }
     public static final class id {
         public static final int action0=0x7f0c0076;

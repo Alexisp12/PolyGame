@@ -31,6 +31,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     // déclaration de l'objet définissant la boucle principale de déplacement et de rendu
     private GameLoopThread gameLoopThread;
     private VehiculePlayer vehicule;
+    private VehiculeEnnemi vehiculeEnnemi1;
     private Carburant carburant;
     private Boolean canMoveVehicule=false;
     private Boolean initialisation=false;
@@ -39,11 +40,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public static int dureeExplo;
     private static int dureeClignotementOn=0;
     private static int dureeClignotementOff=0;
-    public static int nbKilled=0;
-    private int distancebackground=0;
-    private int diffToAdd=0;
-    private boolean touch=false;
-    private Canvas canvasJeu;
     private Background bg;
     private int refreshScore=0;
     private int score=0;
@@ -61,6 +57,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int coinDRestart;
     private int coinHRestart;
     private int coinBRestart;
+    private int routeH;
+    private int routeM;
+    private int routeB;
     private int levelCarburantMinInit;
     private int levelVieMinInit;
     private int tempsAffichageGO=0;
@@ -83,7 +82,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int comptageScore=0;
     private int scorefinal=0;
     private Boolean restartEnable=false;
+    private Boolean repositionnementV1X=false;
+    private Boolean repositionnementV1Y=false;
+    private int positionnementV1X;
+    private int positionnementV1Y;
     private int distanceDoigtVoiture=0;
+    private int tailleTexte;
 
     //private String textRestart="Record : ";
 
@@ -98,6 +102,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // selon la largeur ou la hauteur de l'écran
         vehicule = new VehiculePlayer(this.getContext());
         carburant = new Carburant (this.getContext());
+        vehiculeEnnemi1 = new VehiculeEnnemi(this.getContext());
 
 
     }
@@ -105,7 +110,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     // Fonction qui "dessine" un écran de jeu
     public void doDraw(Canvas canvas) {
         if(canvas==null) {return;}
-        canvasJeu=canvas;
         // Conv dp
         DisplayMetrics metrics = getContext().getResources().getDisplayMetrics();
         float dp = 30f; // 30 dp
@@ -126,6 +130,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         cvH = canvas.getHeight();
         cvW = canvas.getWidth();
 
+        routeH=5*cvH/16-pixels;
+        routeM=cvH/2-pixels;
+        routeB=43*cvH/64-pixels;
 
         if(bg!=null) {
             bg.draw(canvas);
@@ -134,6 +141,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(!initialisation){
             vehicule.setX(cvW/16);
             vehicule.setY((cvH/2)-vehicule.getvehiculePlayerH()/2);
+            
+            vehiculeEnnemi1.setX(cvW);
+            vehiculeEnnemi1.setY(cvH);
+            
             carburant.setX(cvW);
             coinGPause=cvW/2-cvW/64;
             coinHPause=pixels3;
@@ -164,6 +175,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
             if(start) {
                 carburant.setMove(true);
+                vehiculeEnnemi1.setMove(true);
                 initialisation = true;
                 bg.setMove(true);
                 bg.setVector(-DEPLACEMENTBG);
@@ -292,8 +304,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 //            }
 //        }
 
+        // carburant
+        if(carburant.getX()>cvW+carburant.getcarburantW()){
+            // Inutile de draw en dehors de l'écran
+        } else {
+            carburant.draw(canvas);
+        }
+        // vehicule ennemi1
+        if(vehiculeEnnemi1.getX()>cvW+vehiculeEnnemi1.getvehiculeEnnemiW()){
+            // Inutile de draw en dehors de l'écran
+        } else {
+            vehiculeEnnemi1.draw(canvas);
+        }
 
-        carburant.draw(canvas);
+        // Vehicule player
         vehicule.draw(canvas);
 
         // Bouton pause
@@ -331,6 +355,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         if(perdu){
             Game.pauseMusique();
+
+
+            vehiculeEnnemi1.setMove(false);
 
             // Image Game Over
             Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
@@ -371,7 +398,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
 
-            int tailleTexte=pixels4;
+            tailleTexte=pixels4;
             int espaceTexte=pixels5;
             TextPaint textPaintTableauAffichage = new TextPaint();
             textPaintTableauAffichage.setTextSize(tailleTexte);
@@ -412,7 +439,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             }
         }
-
 
     }
 
@@ -466,11 +492,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         if(pause || perdu){
             carburant.setMove(false);
+            vehiculeEnnemi1.setMove(false);
             if(bg!=null) {
                 bg.setMove(false);
             }
         } else {
             carburant.setMove(true);
+            vehiculeEnnemi1.setMove(true);
             if(bg!=null) {
                 bg.setMove(true);
             }
@@ -488,7 +516,40 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
 
+        // Gestion ennemi
+        if(vehiculeEnnemi1.getX()+vehiculeEnnemi1.getvehiculeEnnemiW()<0){
+            positionnementV1X = (int) (Math.random() * (100 + 1));
 
+            if (positionnementV1X < 25) {
+                 vehiculeEnnemi1.setX(cvW+cvW/2);
+            } else {
+                if (positionnementV1X < 50) {
+                    vehiculeEnnemi1.setX(2*cvW);
+                } else {
+                    if(positionnementV1X<75) {
+                        vehiculeEnnemi1.setX(2 * cvW + cvW / 2);
+                    } else {
+                        vehiculeEnnemi1.setX(3 * cvW);
+                    }
+                }
+            }
+
+            positionnementV1Y = (int) (Math.random() * (100 + 1));
+
+            if (positionnementV1Y < 33) {
+                vehiculeEnnemi1.setY(routeB);
+            } else {
+                if (positionnementV1Y < 66) {
+                    vehiculeEnnemi1.setY(routeM);
+                } else {
+                    vehiculeEnnemi1.setY(routeH);
+                }
+            }
+        }
+
+        vehiculeEnnemi1.moveDroiteGauche();
+        
+        
 
 //        if (diffToAdd - bg.getX() < 0) {
 //            diffToAdd = diffToAdd - bg.getX();
@@ -575,7 +636,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
                     } else {
                         if(restartEnable) {
-                            if (currentX < coinDRestart && currentX > coinGRestart && currentY> coinHRestart && currentY<coinBRestart){
+                            if (currentX < coinDRestart && currentX > coinGRestart && currentY> coinHRestart-tailleTexte && currentY<coinBRestart-tailleTexte){
                                 bg=null;
                                 ////alertDialogDone=false;
                                 Game.restart();
@@ -604,7 +665,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             case MotionEvent.ACTION_UP:
                 // on reprend le déplacement de la vehicule
                 vehicule.setMove(false);
-                touch=false;
                 canMoveVehicule=false;
 
         }
@@ -620,6 +680,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int w, int h) {
         vehicule.resize(w,h); // on définit la taille de la vehicule selon la taille de l'écran
         carburant.resize(w,h);
+        vehiculeEnnemi1.resize(w,h);
     }
 
 } // class GameView

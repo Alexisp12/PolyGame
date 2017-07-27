@@ -41,7 +41,7 @@ public class Carburant {
     // Constructeur de l'objet "carburant"
     public Carburant(final Context c)
     {
-        x=cvW; y=cvH; // position de départ
+        x=cvW; y=cvH / 8 + 7*getcarburantH() / 8; // position de départ
         mContext=c; // sauvegarde du contexte
     }
 

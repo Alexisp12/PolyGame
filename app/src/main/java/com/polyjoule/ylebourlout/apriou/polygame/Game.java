@@ -40,7 +40,8 @@ public class Game extends Activity {
     public static int incrementCarburant = 10;
     public final static int GAINCARBURANT = 8; // En pourcentage !!! 10 à l'origine
     public final static int PERTECARBURANT = 6; // En pourcentage !!! 2 à l'orgine
-    public final static int DEPLACEMENTBG = 11;
+    public final static int DEPLACEMENTBG = 8;
+    public final static int VITESSEDEPLACEMENTENNEMI=11;
     public final static int DUREEAFFICHAGEGO = 100;
     public final static int COEFVEHICULESEVITES=10;
     public final static double RATIOTABLEAUSCORE=1.7;
