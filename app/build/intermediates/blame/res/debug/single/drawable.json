@@ -4,12 +4,12 @@
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
-        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_textfield_search_material.xml"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
+        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_textfield_search_material.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
@@ -40,12 +40,12 @@
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/carburant.png"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
-        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/notification_tile_bg.xml"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_light.xml",
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/drawable/common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/notification_tile_bg.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_dark.xml",
@@ -84,6 +84,10 @@
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_item_background_holo_light.xml"
     },
     {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/gooooo.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/gooooo.png"
+    },
+    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_ic_menu_overflow_material.xml"
     },
@@ -98,6 +102,10 @@
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/quatre.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/quatre.png"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
@@ -124,12 +132,20 @@
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/drawable/common_plus_signin_btn_icon_dark.xml"
     },
     {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/trois.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/trois.png"
+    },
+    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_ic_clear_material.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/vehiculeplayer.png",
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/vehiculeplayer.png"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/un.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/un.png"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
@@ -160,6 +176,10 @@
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/vehiculeennemi.png"
     },
     {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/cinq.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/cinq.png"
+    },
+    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/lecture.png",
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/lecture.png"
     },
@@ -180,12 +200,20 @@
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/deux.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/deux.png"
+    },
+    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/bg.jpg",
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/bg.jpg"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/start.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/start.png"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",

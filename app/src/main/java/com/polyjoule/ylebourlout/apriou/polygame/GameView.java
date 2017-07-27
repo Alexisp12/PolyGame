@@ -15,12 +15,13 @@ import android.view.SurfaceView;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.COEFVEHICULESEVITES;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DEPLACEMENTBG;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGEGO;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGETOTALPANNEAUX;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEEXPLOFINAL;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.GAINCARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOSTART;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
-import static com.polyjoule.ylebourlout.apriou.polygame.Game.rangJoueur;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.users;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
 
@@ -58,6 +59,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int coinDRestart;
     private int coinHRestart;
     private int coinBRestart;
+    private int bordStartG;
+    private int bordStartD;
+    private int bordStartB;
+    private int bordStartH;
     private int routeH;
     private int routeM;
     private int routeB;
@@ -80,16 +85,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private String textScoreTotal="Score total";
     private String textRestart="Restart !";
     private int nbVehicules=0;
-    private int comptageScore=0;
+    private int comptageScoreFinal=0;
+    private int comptageDistance=0;
+    private int comptageCollision=0;
     private int scorefinal=0;
+    private int rangScore=0;
     private Boolean restartEnable=false;
-    private Boolean repositionnementV1X=false;
-    private Boolean repositionnementV1Y=false;
     private int positionnementV1X;
     private int positionnementV1Y;
     private int distanceDoigtVoiture=0;
     private int tailleTexte;
     private Boolean collisionVehicule=false;
+    private Boolean comptageVehiculeDone=false;
+    private Boolean depart=false;
+    private int dureeAffichagePanneaux=0;
+    private int longueurStart;
     //private String textRestart="Record : ";
 
 
@@ -147,10 +157,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             vehiculeEnnemi1.setY(cvH);
             
             carburant.setX(cvW);
+
             coinGPause=cvW/2-cvW/64;
             coinHPause=pixels3;
             coinDPause=cvW/2+cvW/64;
             coinBPause=pixels3+pixels/2;
+
+            bordStartG=cvW/4;
+            bordStartD=3*cvW/4;
+            bordStartH=cvH/4;
+            longueurStart=bordStartD-bordStartG;
+            bordStartB=bordStartH + ((int) Math.round(longueurStart/RATIOSTART));
+
             levelCarburantMaxInit=cvW-cvW/40;
             levelCarburantMinInit=cvW-3*cvW/32;
             levelVieMaxInit=cvW-cvW/40;
@@ -159,21 +177,26 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             levelVie=levelVieMaxInit;
             longueurBarreCarburant=levelCarburant-(cvW-3*cvW/32);
             longueurBarreVie=levelVie-(cvW-3*cvW/32);
-            if(dureeClignotementOn%15==0 || dureeClignotementOn==0) {
-                // Cliquez pour commencer
-                TextPaint textPaintStart = new TextPaint();
-                textPaintStart.setTextSize(pixels4);
-                textPaintStart.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
-                canvas.drawText(textStart, 5*cvW / 16, 11 * cvH / 16, textPaintStart);
-                if(dureeClignotementOff%20==0 && dureeClignotementOff!=0) {
-                    dureeClignotementOn++;
-                    dureeClignotementOff=0;
-                } else {
-                    dureeClignotementOff++;
-                }
-            } else {
-                dureeClignotementOn++;
-            }
+
+
+//            if(dureeClignotementOn%15==0 || dureeClignotementOn==0) {
+//                // Cliquez pour commencer
+//                TextPaint textPaintStart = new TextPaint();
+//                textPaintStart.setTextSize(pixels4);
+//                textPaintStart.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
+//                canvas.drawText(textStart, 5*cvW / 16, 11 * cvH / 16, textPaintStart);
+//                if(dureeClignotementOff%20==0 && dureeClignotementOff!=0) {
+//                    dureeClignotementOn++;
+//                    dureeClignotementOff=0;
+//                } else {
+//                    dureeClignotementOff++;
+//                }
+//            } else {
+//                dureeClignotementOn++;
+//            }
+
+
+
             if(start) {
                 carburant.setMove(true);
                 vehiculeEnnemi1.setMove(true);
@@ -182,6 +205,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 bg.setVector(-DEPLACEMENTBG);
                 dureeClignotementOn=0;
             }
+
         }
 
         // ScoreText
@@ -305,6 +329,61 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // Vehicule player
         vehicule.draw(canvas);
 
+
+        if(depart){
+
+            dureeAffichagePanneaux++;
+
+            if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX){
+                Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.cinq);
+                startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+                startDraw.draw(canvas);
+            } else {
+                if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*2){
+                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.quatre);
+                    startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+                    startDraw.draw(canvas);
+                } else {
+                    if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*3){
+                        Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.trois);
+                        startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+                        startDraw.draw(canvas);
+                    } else {
+                        if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*4){
+                            Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.deux);
+                            startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+                            startDraw.draw(canvas);
+                        } else {
+                            if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*5) {
+                                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.un);
+                                startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
+                                startDraw.draw(canvas);
+                            } else {
+                                if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*6) {
+                                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.gooooo);
+                                    startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
+                                    startDraw.draw(canvas);
+                                } else {
+                                    start = true;
+                                    Game.startMusique();
+                                    depart=false;
+                                    dureeAffichagePanneaux=0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            if(!start) {
+                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.start);
+                //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+                startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
+                startDraw.draw(canvas);
+            }
+        }
+
+
         if(collisionVehicule){
             Game.pauseMusique();
             if(dureeExplo!=DUREEEXPLOFINAL) {
@@ -377,20 +456,35 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             goDraw.draw(canvas);
 
             // Texte tableau score
-            scorefinal=score+(nbVehicules*COEFVEHICULESEVITES);
+            scorefinal=score+((nbVehicules-1)*COEFVEHICULESEVITES);
 
-            if(comptageScore!=scorefinal) {
-                comptageScore++;
+            if(comptageDistance!=score){
+                comptageDistance++;
+                comptageScoreFinal++;
             } else {
-                restartEnable=true;
-                if (userInfo != null) { // + registered//true
-                    //Log.d("score",Integer.toString(score));
-                    //Log.d("HighScore",Integer.toString(highScore));
-                    if (score > userInfo.getHighScore()) {
-                        Game.update(score); // update local
-                        userInfo.setHighScore(score);
-                        Game.saveUserInformation(userInfo);
-                        Game.pullHighScore();
+                if(comptageCollision!=nbVehicules-1){
+                    comptageCollision++;
+                    comptageScoreFinal+=COEFVEHICULESEVITES;
+                } else {
+                    if (comptageScoreFinal != scorefinal) {
+                        comptageScoreFinal++;
+                    } else {
+                        for(int i=0; i<users.size();i++){
+                            if(scorefinal>users.get(i).getHighScore()){
+                                rangScore=i+2;
+                            }
+                        }
+                        restartEnable = true;
+                        if (userInfo != null) { // + registered//true
+                            //Log.d("score",Integer.toString(score));
+                            //Log.d("HighScore",Integer.toString(highScore));
+                            if (score > userInfo.getHighScore()) {
+                                Game.update(score); // update local
+                                userInfo.setHighScore(score);
+                                Game.saveUserInformation(userInfo);
+                                Game.pullHighScore();
+                            }
+                        }
                     }
                 }
             }
@@ -401,11 +495,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             textPaintTableauAffichage.setTextSize(tailleTexte);
             textPaintTableauAffichage.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
             // Distance
-            canvas.drawText(textDistance+" : "+score,cvW/4+tailleTexte,cvH/2,textPaintTableauAffichage);
+            canvas.drawText(textDistance+" : "+comptageDistance,cvW/4+tailleTexte,cvH/2,textPaintTableauAffichage);
             // Collision évités
-            canvas.drawText(textVoitureEvites+" : "+nbVehicules,cvW/4+tailleTexte,cvH/2+tailleTexte+espaceTexte,textPaintTableauAffichage);
+            canvas.drawText(textVoitureEvites+" : "+Integer.toString(comptageCollision),cvW/4+tailleTexte,cvH/2+tailleTexte+espaceTexte,textPaintTableauAffichage);
             // Score Total
-            canvas.drawText(textScoreTotal+" : "+comptageScore,cvW/4+tailleTexte,cvH/2+2*(tailleTexte+tailleTexte),textPaintTableauAffichage);
+            canvas.drawText(textScoreTotal+" : "+comptageScoreFinal,cvW/4+tailleTexte,cvH/2+2*(tailleTexte+tailleTexte),textPaintTableauAffichage);
 
 
             if(restartEnable){
@@ -413,11 +507,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 textPaintRang.setTextSize(tailleTexte);
                 textPaintRang.setColor(ContextCompat.getColor(this.getContext(), R.color.accent_material_dark_1));
 
-                if(rangJoueur!=0) {
-                    if (rangJoueur == 1) {
-                        canvas.drawText(rangJoueur + "er", cvW / 2 + 3 * tailleTexte, cvH / 2 + 2 * (tailleTexte + tailleTexte), textPaintRang);
+                if(rangScore!=0) {
+                    if (rangScore == 1) {
+                        canvas.drawText(rangScore + "er", cvW / 2 + 3 * tailleTexte, cvH / 2 + 2 * (tailleTexte + tailleTexte), textPaintRang);
                     } else {
-                        canvas.drawText(rangJoueur + "ème", cvW / 2 + 3 * tailleTexte, cvH / 2 + 2 * (tailleTexte + tailleTexte), textPaintRang);
+                        canvas.drawText(rangScore + "ème", cvW / 2 + 3 * tailleTexte, cvH / 2 + 2 * (tailleTexte + tailleTexte), textPaintRang);
                     }
                 }
 
@@ -515,6 +609,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         // Gestion ennemi
         if(vehiculeEnnemi1.getX()+vehiculeEnnemi1.getvehiculeEnnemiW()<0){
+            if(!comptageVehiculeDone) {
+                nbVehicules++;
+                comptageVehiculeDone=true;
+            }
+
             positionnementV1X = (int) (Math.random() * (100 + 1));
 
             if (positionnementV1X < 25) {
@@ -542,6 +641,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     vehiculeEnnemi1.setY(routeH);
                 }
             }
+        } else {
+            comptageVehiculeDone=false;
         }
 
         vehiculeEnnemi1.moveDroiteGauche();
@@ -612,9 +713,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             // code exécuté lorsque le doigt touche l'écran.
             case MotionEvent.ACTION_DOWN:
                 if(!start){
-                    start=true;
-                    toastHSdone=false;
-                    Game.startMusique();
+                    if(currentX>bordStartG && currentX<bordStartD && currentY<bordStartB && currentY>bordStartH) {
+                        depart=true;
+                        toastHSdone = false;
+                    }
                 } else {
                     if(!perdu) {
                         if(!collisionVehicule) {
