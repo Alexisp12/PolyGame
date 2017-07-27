@@ -17,6 +17,7 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Game.DEPLACEMENTBG;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGEGO;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.GAINCARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.rangJoueur;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.users;
@@ -203,7 +204,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         if(users.size()!=0) {
             if (users.size() == 1) {
-                if(users.get(0).getHighScore()!=0) {
+                if(users.get(0).getHighScore()!=-1) {
                     // Top 1
                     TextPaint textPaintClassement = new TextPaint();
                     textPaintClassement.setTextSize(pixels5);
@@ -220,7 +221,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             } else {
                 if (users.size() == 2) {
-                    if(users.get(0).getHighScore()!=0) {
+                    if(users.get(0).getHighScore()!=-1) {
                         // Top 2
                         TextPaint textPaintClassement = new TextPaint();
                         textPaintClassement.setTextSize(pixels5);
@@ -232,7 +233,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
                         canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
 
-                        if(users.get(1).getHighScore()!=0) {
+                        if(users.get(1).getHighScore()!=-1) {
                             TextPaint textPaintTop2 = new TextPaint();
                             textPaintTop2.setTextSize(pixels5);
                             textPaintTop2.setColor(ContextCompat.getColor(this.getContext(), R.color.top2));
@@ -242,7 +243,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 } else {
 
 
-                    if(users.get(0).getHighScore()!=0) {
+                    if(users.get(0).getHighScore()!=-1) {
                         // Top 3
                         TextPaint textPaintClassement = new TextPaint();
                         textPaintClassement.setTextSize(pixels5);
@@ -254,12 +255,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
                         canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
 
-                        if(users.get(1).getHighScore()!=0) {
+                        if(users.get(1).getHighScore()!=-1) {
                             TextPaint textPaintTop2 = new TextPaint();
                             textPaintTop2.setTextSize(pixels5);
                             textPaintTop2.setColor(ContextCompat.getColor(this.getContext(), R.color.top2));
                             canvas.drawText(users.get(1).getPseudo() + " : " + users.get(1).highScore, cvW/2, cvH - pixels3, textPaintTop2);
-                            if(users.get(2).getHighScore()!=0){
+                            if(users.get(2).getHighScore()!=-1){
                                 TextPaint textPaintTop3 = new TextPaint();
                                 textPaintTop3.setTextSize(pixels5);
                                 textPaintTop3.setColor(ContextCompat.getColor(this.getContext(), R.color.top3));
@@ -334,8 +335,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             // Image Game Over
             Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
             //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+
+
+            int bordTableauGauche=cvW/16;
+            int bordTableauDroit =15*cvW/16;
+            int longueurTableau = bordTableauDroit - bordTableauGauche;
+            double ratio = RATIOTABLEAUSCORE;
+
+            int hauteurTableau = ((int) Math.round(longueurTableau/ratio));
+
+            int bordTableauHaut=cvH/32;
+
+            int bordTableauBas=bordTableauHaut+hauteurTableau;
+
             
-            goDraw.setBounds(cvW/16,cvH/16,15*cvW/16,15*cvH/16);
+            goDraw.setBounds(bordTableauGauche,bordTableauHaut,bordTableauDroit,bordTableauBas);
             goDraw.draw(canvas);
 
             // Texte tableau score

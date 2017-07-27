@@ -43,6 +43,7 @@ public class Game extends Activity {
     public final static int DEPLACEMENTBG = 11;
     public final static int DUREEAFFICHAGEGO = 100;
     public final static int COEFVEHICULESEVITES=10;
+    public final static double RATIOTABLEAUSCORE=1.7;
     private static MediaPlayer fondSonore = null;
     public static Boolean alertDialogDone = false;
     public static int highScore = -1;

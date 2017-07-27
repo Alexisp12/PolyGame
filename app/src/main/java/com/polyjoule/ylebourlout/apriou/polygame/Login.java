@@ -105,6 +105,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             //start the profile activity
                             finish();
                             authDone=true;
+
                             startActivity(new Intent(getApplicationContext(), Profil.class));
                         }
                     }

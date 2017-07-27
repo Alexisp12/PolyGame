@@ -1,6 +1,7 @@
 package com.polyjoule.ylebourlout.apriou.polygame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static com.polyjoule.ylebourlout.apriou.polygame.Menu.SETS;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.firebaseAuth;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
 
@@ -26,6 +28,7 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
     private TextView pseudoView;
     private TextView signout;
     private DatabaseReference databaseReference;
+    private String problemeData="Error 404, please contact your administrator";
 
     //firebase auth object
     //private static FirebaseAuth firebaseAuth;
@@ -61,12 +64,23 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
 
                 userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
 
-                emailView.setText(userInfo.getEmail());
-                pseudoView.setText(userInfo.getPseudo());
+                if(userInfo!=null) {
+                    emailView.setText(userInfo.getEmail());
+                    pseudoView.setText(userInfo.getPseudo());
+
+                    SharedPreferences settings = getSharedPreferences(SETS, 0);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("pseudo", userInfo.getPseudo());
+                    editor.putInt("highScore", userInfo.getHighScore());
+                    editor.commit();
 
 
-                Log.d("UserInfoPseudo",userInfo.getPseudo());
-                Log.d("UserInfoHighScore",Integer.toString(userInfo.getHighScore()));
+                    Log.d("UserInfoPseudo", userInfo.getPseudo());
+                    Log.d("UserInfoHighScore", Integer.toString(userInfo.getHighScore()));
+                } else {
+                    emailView.setText(problemeData);
+                    pseudoView.setText(problemeData);
+                }
 
             }
 
