@@ -123,18 +123,23 @@ public class Menu extends AppCompatActivity {
 
                 userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
 
-                if(userInfo==null){
-                    SharedPreferences settings = getSharedPreferences(SETS, 0);
-                    userInfo.setPseudo(settings.getString("pseudo", ""));
-                    userInfo.setHighScore(settings.getInt("highScore", 0));
-                } else {
-                    Log.d("UserInfoPseudo", userInfo.getPseudo());
-                    if((userInfo.getPseudo()).equals("")) {
+
+                if(userInfo!=null) {
+                    if (userInfo.getPseudo() == null) {
                         SharedPreferences settings = getSharedPreferences(SETS, 0);
                         userInfo.setPseudo(settings.getString("pseudo", ""));
                         userInfo.setHighScore(settings.getInt("highScore", 0));
                     }
+                    Log.d("UserInfoPseudo", userInfo.getPseudo());
                 }
+
+
+//                    if((userInfo.getPseudo()).equals("")) {
+//                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+//                        userInfo.setPseudo(settings.getString("pseudo", ""));
+//                        userInfo.setHighScore(settings.getInt("highScore", 0));
+//                    }
+
 
             }
 

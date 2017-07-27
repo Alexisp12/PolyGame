@@ -65,21 +65,36 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
                 userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
 
                 if(userInfo!=null) {
-                    emailView.setText(userInfo.getEmail());
-                    pseudoView.setText(userInfo.getPseudo());
+                    if (userInfo.getPseudo() != null) {
+                        emailView.setText(userInfo.getEmail());
+                        pseudoView.setText(userInfo.getPseudo());
 
-                    SharedPreferences settings = getSharedPreferences(SETS, 0);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putString("pseudo", userInfo.getPseudo());
-                    editor.putInt("highScore", userInfo.getHighScore());
-                    editor.commit();
+                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("pseudo", userInfo.getPseudo());
+                        editor.putInt("highScore", userInfo.getHighScore());
+                        editor.commit();
 
 
-                    Log.d("UserInfoPseudo", userInfo.getPseudo());
-                    Log.d("UserInfoHighScore", Integer.toString(userInfo.getHighScore()));
+                        Log.d("UserInfoPseudo", userInfo.getPseudo());
+                        Log.d("UserInfoHighScore", Integer.toString(userInfo.getHighScore()));
+                    } else {
+                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+                        userInfo.setPseudo(settings.getString("pseudo", ""));
+                        userInfo.setHighScore(settings.getInt("highScore", 0));
+
+                        emailView.setText(problemeData);
+                        pseudoView.setText(userInfo.getPseudo());
+
+//                    pseudoView.setText(problemeData);
+                    }
                 } else {
+                    SharedPreferences settings = getSharedPreferences(SETS, 0);
+                    userInfo.setPseudo(settings.getString("pseudo", ""));
+                    userInfo.setHighScore(settings.getInt("highScore", 0));
+
                     emailView.setText(problemeData);
-                    pseudoView.setText(problemeData);
+                    pseudoView.setText(userInfo.getPseudo());
                 }
 
             }

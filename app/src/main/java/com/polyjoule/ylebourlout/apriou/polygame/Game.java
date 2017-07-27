@@ -82,8 +82,9 @@ public class Game extends Activity {
         playSound(R.raw.son);
 
 
-
-        highScore=userInfo.getHighScore();
+        if(userInfo!=null) {
+            highScore = userInfo.getHighScore();
+        }
 
         if(firebaseAuth.getCurrentUser()==null) {
             SharedPreferences settings = getSharedPreferences(SETS, 0);
@@ -196,11 +197,13 @@ public class Game extends Activity {
 
                 Collections.sort(users, new UsersComparator());
 
-                if(users!=null) {
+                if(users!=null && userInfo!=null) {
                     for (int i = 0; i < users.size(); i++) {
 //                    Log.e("users" + i, users.get(i).getPseudo());
-                        if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
-                            rangJoueur = i + 1;
+                        if(userInfo.getPseudo()!=null && users.get(i).getPseudo()!=null) {
+                            if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
+                                rangJoueur = i + 1;
+                            }
                         }
                     }
                 }
