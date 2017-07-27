@@ -471,7 +471,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     } else {
                         for(int i=0; i<users.size();i++){
                             if(scorefinal>users.get(i).getHighScore()){
-                                rangScore=i+2;
+                                rangScore=i+1;
                             }
                         }
                         restartEnable = true;
