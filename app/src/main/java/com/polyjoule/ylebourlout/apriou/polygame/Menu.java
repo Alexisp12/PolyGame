@@ -123,7 +123,18 @@ public class Menu extends AppCompatActivity {
 
                 userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
 
-                //Log.d("UserInfoPseudo",userInfo.getPseudo());
+                if(userInfo==null){
+                    SharedPreferences settings = getSharedPreferences(SETS, 0);
+                    userInfo.setPseudo(settings.getString("pseudo", ""));
+                    userInfo.setHighScore(settings.getInt("highScore", 0));
+                } else {
+                    Log.d("UserInfoPseudo", userInfo.getPseudo());
+                    if((userInfo.getPseudo()).equals("")) {
+                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+                        userInfo.setPseudo(settings.getString("pseudo", ""));
+                        userInfo.setHighScore(settings.getInt("highScore", 0));
+                    }
+                }
 
             }
 
@@ -133,5 +144,12 @@ public class Menu extends AppCompatActivity {
             }
         });
 
+
+    }
+    @Override
+    public void onBackPressed() {
+        Intent retourMenuIntent = new Intent(Menu.this, Menu.class);
+
+        startActivity(retourMenuIntent);
     }
 }

@@ -2455,7 +2455,7 @@ containing a value of this type.
         public static final int bottom=0x7f0c0032;
         public static final int buttonPanel=0x7f0c003e;
         public static final int buttonSignin=0x7f0c006b;
-        public static final int buttonSignup=0x7f0c0090;
+        public static final int buttonSignup=0x7f0c0091;
         public static final int cancel_action=0x7f0c0077;
         public static final int chains=0x7f0c0010;
         public static final int checkbox=0x7f0c004e;
@@ -2471,7 +2471,7 @@ containing a value of this type.
         public static final int disableHome=0x7f0c0015;
         public static final int editTextEmail=0x7f0c0069;
         public static final int editTextPassword=0x7f0c006a;
-        public static final int editTextPseudo=0x7f0c008f;
+        public static final int editTextPseudo=0x7f0c0090;
         public static final int edit_query=0x7f0c0059;
         public static final int email=0x7f0c008c;
         public static final int emailtext=0x7f0c008b;
@@ -2537,6 +2537,7 @@ containing a value of this type.
         public static final int showCustom=0x7f0c0017;
         public static final int showHome=0x7f0c0018;
         public static final int showTitle=0x7f0c0019;
+        public static final int signout=0x7f0c008f;
         public static final int spacer=0x7f0c003f;
         public static final int split_action_bar=0x7f0c0007;
         public static final int spread=0x7f0c000a;
@@ -2555,7 +2556,7 @@ containing a value of this type.
         public static final int textSpacerNoTitle=0x7f0c0044;
         public static final int textView=0x7f0c0068;
         public static final int textViewSignUp=0x7f0c006c;
-        public static final int textViewSignin=0x7f0c0091;
+        public static final int textViewSignin=0x7f0c0092;
         public static final int time=0x7f0c007e;
         public static final int title=0x7f0c003d;
         public static final int titleDividerNoCustom=0x7f0c004c;

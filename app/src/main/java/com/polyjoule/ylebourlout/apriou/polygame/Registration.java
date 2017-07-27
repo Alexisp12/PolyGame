@@ -2,6 +2,7 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static com.polyjoule.ylebourlout.apriou.polygame.Menu.SETS;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.databaseReference;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
 
@@ -114,6 +116,16 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                             userInfo.setEmail(email);
                             final FirebaseUser usr = firebaseAuth.getCurrentUser();
                             databaseReference.child("users").child(usr.getUid()).setValue(userInfo);
+
+                            SharedPreferences settings = getSharedPreferences(SETS, 0);
+                            SharedPreferences.Editor editor = settings.edit();
+                            editor.putString("pseudo", pseudo);
+                            editor.putInt("highScore",-1);
+                            editor.commit();
+
+
+
+
                             finish();
                             startActivity(new Intent(getApplicationContext(), Profil.class));
                         } else {
@@ -138,5 +150,12 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, Login.class));
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent retourMenuIntent = new Intent(Registration.this, Menu.class);
+
+        startActivity(retourMenuIntent);
     }
 }

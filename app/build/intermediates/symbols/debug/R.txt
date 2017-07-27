@@ -679,7 +679,7 @@ int id beginning 0x7f0c0022
 int id bottom 0x7f0c0032
 int id buttonPanel 0x7f0c003e
 int id buttonSignin 0x7f0c006b
-int id buttonSignup 0x7f0c0090
+int id buttonSignup 0x7f0c0091
 int id cancel_action 0x7f0c0077
 int id chains 0x7f0c0010
 int id checkbox 0x7f0c004e
@@ -695,7 +695,7 @@ int id default_activity_button 0x7f0c003a
 int id disableHome 0x7f0c0015
 int id editTextEmail 0x7f0c0069
 int id editTextPassword 0x7f0c006a
-int id editTextPseudo 0x7f0c008f
+int id editTextPseudo 0x7f0c0090
 int id edit_query 0x7f0c0059
 int id email 0x7f0c008c
 int id emailtext 0x7f0c008b
@@ -761,6 +761,7 @@ int id shortcut 0x7f0c004f
 int id showCustom 0x7f0c0017
 int id showHome 0x7f0c0018
 int id showTitle 0x7f0c0019
+int id signout 0x7f0c008f
 int id spacer 0x7f0c003f
 int id split_action_bar 0x7f0c0007
 int id spread 0x7f0c000a
@@ -779,7 +780,7 @@ int id textSpacerNoButtons 0x7f0c0045
 int id textSpacerNoTitle 0x7f0c0044
 int id textView 0x7f0c0068
 int id textViewSignUp 0x7f0c006c
-int id textViewSignin 0x7f0c0091
+int id textViewSignin 0x7f0c0092
 int id time 0x7f0c007e
 int id title 0x7f0c003d
 int id titleDividerNoCustom 0x7f0c004c

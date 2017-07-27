@@ -1,8 +1,10 @@
 package com.polyjoule.ylebourlout.apriou.polygame;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -19,9 +21,10 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
  * Created by Alexis on 21/07/2017.
  */
 
-public class Profil extends Activity {
+public class Profil extends AppCompatActivity implements View.OnClickListener {
     private TextView emailView;
     private TextView pseudoView;
+    private TextView signout;
     private DatabaseReference databaseReference;
 
     //firebase auth object
@@ -36,6 +39,10 @@ public class Profil extends Activity {
 
         emailView = (TextView) findViewById(R.id.email);
         pseudoView = (TextView) findViewById(R.id.pseudo);
+        signout = (TextView) findViewById(R.id.signout);
+
+
+        signout.setOnClickListener(this);
 
         //getting the current logged in user
         final FirebaseUser usr = firebaseAuth.getCurrentUser();
@@ -56,7 +63,10 @@ public class Profil extends Activity {
 
                 emailView.setText(userInfo.getEmail());
                 pseudoView.setText(userInfo.getPseudo());
-                //Log.d("UserInfoPseudo",userInfo.getPseudo());
+
+
+                Log.d("UserInfoPseudo",userInfo.getPseudo());
+                Log.d("UserInfoHighScore",Integer.toString(userInfo.getHighScore()));
 
             }
 
@@ -81,6 +91,7 @@ public class Profil extends Activity {
 
 
 
+
         // Toast ?
 
     }
@@ -90,4 +101,18 @@ public class Profil extends Activity {
         startActivity(retourMenuIntent);
     }
 
+    @Override
+    public void onClick(View view) {
+
+        if (view == signout) {
+            firebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, Login.class));
+        }
+
+    }
+
+
+
+
 }
+

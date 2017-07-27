@@ -318,7 +318,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             textPaintHS.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
 
             if(userInfo!=null) {
-                canvas.drawText(textHS + userInfo.getHighScore(), cvW / 2 - 5*cvW / 32, 3 * cvH / 4-cvH/32, textPaintHS);
+                if(userInfo.getHighScore()!=-1) {
+                    canvas.drawText(textHS + userInfo.getHighScore(), cvW / 2 - 5 * cvW / 32, 3 * cvH / 4 - cvH / 32, textPaintHS);
+                } else {
+                    canvas.drawText(textHS + "0", cvW / 2 - 5 * cvW / 32, 3 * cvH / 4 - cvH / 32, textPaintHS);
+                }
             }
 
         }
@@ -345,7 +349,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     //Log.d("score",Integer.toString(score));
                     //Log.d("HighScore",Integer.toString(highScore));
                     if (score > userInfo.getHighScore()) {
-                        Game.update(score);
+                        Game.update(score); // update local
                         userInfo.setHighScore(score);
                         Game.saveUserInformation(userInfo);
                         Game.pullHighScore();
@@ -420,7 +424,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 score++;
 
                 if(userInfo!=null) {
-                    if (score > userInfo.getHighScore() && userInfo.getHighScore()!=0) {
+                    if (score > userInfo.getHighScore() && userInfo.getHighScore()!=-1) {
                         if (!toastHSdone) {
                             Game.toastHS();
                             toastHSdone = true;

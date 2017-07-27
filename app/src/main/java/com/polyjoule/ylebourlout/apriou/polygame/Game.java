@@ -159,6 +159,7 @@ public class Game extends Activity {
             Log.d("userUid",usr.getUid());
         }
 
+
         // Toast ?
     }
 
@@ -167,81 +168,6 @@ public class Game extends Activity {
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
-
-//        // Attach a listener to read the data at our posts reference
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                //users.clear();
-//                //userUID.clear();
-//                //Post post = dataSnapshot.getValue(Post.class);
-//                Log.d("childrenCount",Long.toString(dataSnapshot.child("users").getChildrenCount()));
-//
-//                List<String> userUIDTempo = new ArrayList<String>();
-//
-//
-//                while(dataSnapshot.child("users").getChildren().iterator().hasNext()) {
-//                    userUIDTempo.add(dataSnapshot.child("users").getChildren().iterator().next().getKey());
-//                    Log.d("while","while");
-//                }
-//
-//                for(int k=0;k<userUIDTempo.size();k++){
-//                    Log.d("userUIDTempo",userUIDTempo.get(k));
-//                }
-//
-//                //userUID.add(dataSnapshot.child("users").getChildren().iterator().next().getKey());
-//
-//
-//
-//                for (int i = 0; i < dataSnapshot.child("users").getChildrenCount(); i++) {
-//
-//
-//
-//
-//                        Log.d("userUIDsize",Integer.toString(userUIDTempo.size()));
-//                        Log.d("userUID"+i,userUIDTempo.get(i));
-//                        userUID.add(userUIDTempo.get(i));
-//
-//                        Log.d("contains",userUIDTempo.get(i)+" "+userUID.get(0));
-//
-////                    users.get(i).setPseudo(dataSnapshot.child("users").getValue(UserInformation.class).pseudo);
-////                    users.get(i).setHighScore(dataSnapshot.child("users").getValue(UserInformation.class).highScore);
-////                    Log.d("users",dataSnapshot.child("users").getValue().toString());
-////                    Log.d("pseudo",dataSnapshot.child("users").getValue(UserInformation.class).pseudo);
-//                    if(userUID.size()!=0) {
-//                        // for (int j = 0; j < userUID.size(); j++) {
-//                        Log.d("onDataChange", "here");
-//                        Log.d("onDataChange", dataSnapshot.child("users").child(userUID.get(i)).getValue(UserInformation.class).getPseudo());
-//                        if(users.size()!=0) {
-//                            if (!users.get(i).getPseudo().equals((dataSnapshot.child("users").child(userUID.get(i)).getValue(UserInformation.class).pseudo))) {
-//
-//                                    Log.d("contains2", dataSnapshot.child("users").child(userUID.get(i)).getValue().toString() + " " + users.get(i));
-//
-//                                users.add(dataSnapshot.child("users").child(userUID.get(i)).getValue(UserInformation.class));
-//                            } else {
-//                                if(users.get(i).getHighScore()!=((dataSnapshot.child("users").child(userUID.get(i)).getValue(UserInformation.class).highScore))){
-//                                    users.remove(i);
-//                                    users.add(dataSnapshot.child("users").child(userUID.get(i)).getValue(UserInformation.class));
-//                                }
-//                            }
-//                        } else {
-//                            users.add(dataSnapshot.child("users").child(userUID.get(i)).getValue(UserInformation.class));
-//                        }
-//                        //}
-//                    }
-//                }
-//
-//
-//                    // trie !!!
-//
-//               // makeToast();
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                //System.out.println("The read failed: " + databaseError.getCode());
-//            }
-//        });
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
