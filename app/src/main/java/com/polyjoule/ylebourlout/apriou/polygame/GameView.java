@@ -179,6 +179,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // Level Carburant
         TextPaint paintlevelCarburant = new TextPaint();
         paintlevelCarburant.setTextSize(pixels);
+
         paintlevelCarburant.setColor(ContextCompat.getColor(this.getContext(),R.color.colorPrimaryDark));
         canvas.drawRect(levelCarburantMinInit,pixels3,levelCarburant,pixels3+pixels/2,paintlevelCarburant);
 
@@ -329,6 +330,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             // Image Game Over
             Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
             //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+            
             goDraw.setBounds(cvW/16,cvH/16,15*cvW/16,15*cvH/16);
             goDraw.draw(canvas);
 

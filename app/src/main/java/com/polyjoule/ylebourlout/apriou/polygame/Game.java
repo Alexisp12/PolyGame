@@ -265,10 +265,12 @@ public class Game extends Activity {
 
                 Collections.sort(users, new UsersComparator());
 
-                for (int i = 0; i < users.size(); i++) {
-                    Log.e("users" + i, users.get(i).getPseudo());
-                    if((users.get(i).getPseudo()).equals(userInfo.getPseudo())){
-                        rangJoueur=i+1;
+                if(users!=null) {
+                    for (int i = 0; i < users.size(); i++) {
+//                    Log.e("users" + i, users.get(i).getPseudo());
+                        if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
+                            rangJoueur = i + 1;
+                        }
                     }
                 }
 

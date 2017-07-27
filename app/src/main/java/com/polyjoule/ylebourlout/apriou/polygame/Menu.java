@@ -97,59 +97,6 @@ public class Menu extends AppCompatActivity {
                     Intent question1intent = new Intent(Menu.this, Game.class);
                     startActivity(question1intent);
                 }
-//                if(userInfo.getPseudo()=="") {
-//                    //On instancie notre layout en tant que View
-//                    LayoutInflater factory = LayoutInflater.from(Menu.this);
-//                    final View alertDialogView = factory.inflate(R.layout.alertdialogchoixpseudo, null);
-//
-//                    //Création de l'AlertDialog
-//                    AlertDialog.Builder adb = new AlertDialog.Builder(Menu.this);
-//
-//                    //On affecte la vue personnalisé que l'on a crée à notre AlertDialog
-//                    adb.setView(alertDialogView);
-//
-//                    //On donne un titre à l'AlertDialog
-//                    adb.setTitle("Choix du pseudo");
-//
-//                    //On modifie l'icône de l'AlertDialog pour le fun ;)
-//                    adb.setIcon(android.R.drawable.ic_dialog_alert);
-//
-//                    //On affecte un bouton "OK" à notre AlertDialog et on lui affecte un évènement
-//                    adb.setPositiveButton("Enregistrer", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int which) {
-//
-//                            //Lorsque l'on cliquera sur le bouton "OK", on récupère l'EditText correspondant à notre vue personnalisée (cad à alertDialogView)
-//                            EditText et = (EditText) alertDialogView.findViewById(R.id.pseudoEditText);
-//                            if (et != null) {
-//                                userInfo.setPseudo(et.getText().toString());
-//
-//                                SharedPreferences settings = getSharedPreferences(SETS, 0);
-//                                SharedPreferences.Editor editor = settings.edit();
-//                                //pseudo=et.getText().toString();
-//                                editor.putString("pseudo", et.getText().toString());
-//                                editor.commit();
-//
-//                                Intent question1intent = new Intent(Menu.this, Game.class);
-//                                startActivity(question1intent);
-//                            }
-//
-//                        }
-//                    });
-//
-//                    //On crée un bouton "Annuler" à notre AlertDialog et on lui affecte un évènement
-//                    adb.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            //Lorsque l'on cliquera sur annuler on quittera l'application
-//
-//                        }
-//                    });
-//                    adb.show();
-//                } else {
-//                    Log.d("pseudo",userInfo.getPseudo());
-//                    Intent question1intent = new Intent(Menu.this, Game.class);
-//                    startActivity(question1intent);
-//                }
-                //Log.d("pseudo",userInfo.getPseudo());
 
             }
         });
