@@ -14,8 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7a7a94-76d8-4b5e-8ec7-1493648ed0d0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/vehiculeennemi.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculeEnnemi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/explo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
@@ -25,8 +24,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" />
@@ -43,8 +40,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" />
@@ -70,8 +65,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" />
@@ -88,8 +81,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Profil$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/Profil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$integer.class" />
@@ -101,10 +92,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/vehiculeennemi.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/vehiculeennemi.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/polyjoule/ylebourlout/apriou/polygame/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/polyjoule/ylebourlout/apriou/polygame/R.java" />
@@ -121,7 +112,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Carburant.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Carburant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
     </list>
@@ -167,11 +157,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+            <state relative-caret-position="210">
+              <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,8 +182,8 @@
       <file leaf-file-name="GameView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="643" column="25" selection-start-line="643" selection-start-column="25" selection-end-line="643" selection-end-column="25" />
+            <state relative-caret-position="161">
+              <caret line="620" column="5" selection-start-line="620" selection-start-column="5" selection-end-line="620" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -201,7 +191,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Carburant.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Carburant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Carburant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -211,17 +201,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4379#4606#0" expanded="true" />
-                <element signature="e#4605#4606#0" expanded="true" />
-              </folding>
-            </state>
+      <file leaf-file-name="finish.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/finish.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -250,8 +233,8 @@
       <file leaf-file-name="VehiculeEnnemi.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculeEnnemi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="119">
+              <caret line="137" column="57" selection-start-line="137" selection-start-column="57" selection-end-line="137" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2241,14 +2224,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculeEnemi.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculeEnnemi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Carburant.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="467" />
+    <option name="x" value="510" />
     <option name="y" value="23" />
     <option name="width" value="965" />
     <option name="height" value="877" />
@@ -2911,11 +2894,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501149403911</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Vehicule ennemi">
+      <created>1501153792654</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1501153792654</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="467" y="23" width="965" height="877" extended-state="0" />
+    <frame x="510" y="23" width="965" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2987,7 +2977,8 @@
     <MESSAGE value="Divers" />
     <MESSAGE value="Amélioration gestion BDD" />
     <MESSAGE value="Vehicule ennemi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vehicule ennemi" />
+    <MESSAGE value="Vehicule ennemi maj" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vehicule ennemi maj" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2999,7 +2990,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java</url>
-          <line>392</line>
+          <line>389</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -3183,11 +3174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/finish.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
@@ -3280,14 +3266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="106" column="42" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -3324,26 +3302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculeEnnemi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="643" column="25" selection-start-line="643" selection-start-column="25" selection-end-line="643" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Classement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -3352,21 +3310,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Carburant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+        <state relative-caret-position="135">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/finish.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculeEnnemi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="137" column="57" selection-start-line="137" selection-start-column="57" selection-end-line="137" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Carburant.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="224">
+          <caret line="106" column="42" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="620" column="5" selection-start-line="620" selection-start-column="5" selection-end-line="620" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

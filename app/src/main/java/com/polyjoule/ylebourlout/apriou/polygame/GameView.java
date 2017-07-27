@@ -15,6 +15,7 @@ import android.view.SurfaceView;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.COEFVEHICULESEVITES;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DEPLACEMENTBG;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGEGO;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEEXPLOFINAL;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.GAINCARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
@@ -37,9 +38,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Boolean initialisation=false;
     public static int cvW; // canva width
     public static int cvH; // canva heigh
-    public static int dureeExplo;
-    private static int dureeClignotementOn=0;
-    private static int dureeClignotementOff=0;
+    private int dureeExplo=0;
+    private int dureeClignotementOn=0;
+    private int dureeClignotementOff=0;
     private Background bg;
     private int refreshScore=0;
     private int score=0;
@@ -88,7 +89,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int positionnementV1Y;
     private int distanceDoigtVoiture=0;
     private int tailleTexte;
-
+    private Boolean collisionVehicule=false;
     //private String textRestart="Record : ";
 
 
@@ -288,22 +289,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
 
-
-
-//        if(hasBeenTouched){
-//            if(aste1a.getNombrePassage()<dureeClignotementOn+1) {
-//                Drawable explo = ContextCompat.getDrawable(this.getContext(), R.drawable.explo);
-//                explo.setBounds(vehicule.getX(),vehicule.getY(),vehicule.getX()+vehicule.getvehiculePlayerW(),vehicule.getY()+vehicule.getvehiculePlayerH());
-//                explo.draw(canvas);
-//            }
-//            if(aste1a.getNombrePassage()==dureeClignotementOn+1) {
-//                if(nbVie>0) {
-//                    Question9.updatePref();
-//                }
-//                hasBeenTouched=false;
-//            }
-//        }
-
         // carburant
         if(carburant.getX()>cvW+carburant.getcarburantW()){
             // Inutile de draw en dehors de l'écran
@@ -319,6 +304,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         // Vehicule player
         vehicule.draw(canvas);
+
+        if(collisionVehicule){
+            Game.pauseMusique();
+            if(dureeExplo!=DUREEEXPLOFINAL) {
+                Drawable explo = ContextCompat.getDrawable(this.getContext(), R.drawable.explo);
+                explo.setBounds(vehicule.getX()-vehicule.getvehiculePlayerH()/2,vehicule.getY()-vehicule.getvehiculePlayerH()/2,vehicule.getX()+vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerH()/2,vehicule.getY()+3*vehicule.getvehiculePlayerH()/2);
+                explo.draw(canvas);
+                dureeExplo++;
+            } else {
+                perdu=true;
+            }
+        }
 
         // Bouton pause
         if(!pause) {
@@ -490,7 +487,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
 
-        if(pause || perdu){
+        if(pause || perdu || collisionVehicule){
             carburant.setMove(false);
             vehiculeEnnemi1.setMove(false);
             if(bg!=null) {
@@ -548,6 +545,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         vehiculeEnnemi1.moveDroiteGauche();
+
+        if(vehicule.hasBeenTouched(vehiculeEnnemi1.getX(),vehiculeEnnemi1.getY(),vehiculeEnnemi1.getvehiculeEnnemiW(),vehiculeEnnemi1.getvehiculeEnnemiH())){
+            collisionVehicule=true;
+        }
         
         
 
@@ -616,24 +617,25 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     Game.startMusique();
                 } else {
                     if(!perdu) {
-                        if (currentX < coinDPause && currentX > coinGPause && currentY < coinBPause && currentY > coinHPause) {
-                            if (!pause) {
-                                pause = true;
-                                Game.pauseMusique();
+                        if(!collisionVehicule) {
+                            if (currentX < coinDPause && currentX > coinGPause && currentY < coinBPause && currentY > coinHPause) {
+                                if (!pause) {
+                                    pause = true;
+                                    Game.pauseMusique();
+                                } else {
+                                    pause = false;
+                                    Game.startMusique();
+                                }
                             } else {
-                                pause = false;
-                                Game.startMusique();
+                                if (currentY >= vehicule.getY() - vehicule.getvehiculePlayerH() / 8 && currentY <= vehicule.getY() + vehicule.getvehiculePlayerH() + vehicule.getvehiculePlayerH() / 8) {
+                                    canMoveVehicule = true;
+                                    distanceDoigtVoiture = currentY - vehicule.getY();
+                                } else {
+                                    canMoveVehicule = false;
+                                }
+                                break;
                             }
-                        } else {
-                            if(currentY>= vehicule.getY() - vehicule.getvehiculePlayerH()/8 && currentY <= vehicule.getY()+vehicule.getvehiculePlayerH() + vehicule.getvehiculePlayerH()/8){
-                                canMoveVehicule=true;
-                                distanceDoigtVoiture=currentY-vehicule.getY();
-                            } else {
-                                canMoveVehicule=false;
-                            }
-                            break;
                         }
-
                     } else {
                         if(restartEnable) {
                             if (currentX < coinDRestart && currentX > coinGRestart && currentY> coinHRestart-tailleTexte && currentY<coinBRestart-tailleTexte){

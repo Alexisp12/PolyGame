@@ -88,6 +88,10 @@
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_ic_menu_overflow_material.xml"
     },
     {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/explo.png",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable/explo.png"
+    },
+    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable/abc_btn_check_material.xml"
     },
