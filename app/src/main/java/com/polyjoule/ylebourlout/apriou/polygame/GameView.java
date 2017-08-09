@@ -330,37 +330,91 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         vehicule.draw(canvas);
 
 
+//        if(depart){
+//
+//            dureeAffichagePanneaux++;
+//
+//            if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX){
+//                Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.cinq);
+//                startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+//                startDraw.draw(canvas);
+//            } else {
+//                if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*2){
+//                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.quatre);
+//                    startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+//                    startDraw.draw(canvas);
+//                } else {
+//                    if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*3){
+//                        Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.trois);
+//                        startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+//                        startDraw.draw(canvas);
+//                    } else {
+//                        if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*4){
+//                            Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.deux);
+//                            startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
+//                            startDraw.draw(canvas);
+//                        } else {
+//                            if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*5) {
+//                                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.un);
+//                                startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
+//                                startDraw.draw(canvas);
+//                            } else {
+//                                if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*6) {
+//                                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.gooooo);
+//                                    startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
+//                                    startDraw.draw(canvas);
+//                                } else {
+//                                    start = true;
+//                                    Game.startMusique();
+//                                    depart=false;
+//                                    dureeAffichagePanneaux=0;
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            if(!start) {
+//                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.start);
+//                //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+//                startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
+//                startDraw.draw(canvas);
+//            }
+//        }
+
+        // Image resize
         if(depart){
 
             dureeAffichagePanneaux++;
 
             if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX){
-                Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.cinq);
+                Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.cinqrs);
                 startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
                 startDraw.draw(canvas);
             } else {
                 if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*2){
-                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.quatre);
+                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.quatrers);
                     startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
                     startDraw.draw(canvas);
                 } else {
                     if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*3){
-                        Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.trois);
+                        Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.troisrs);
                         startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
                         startDraw.draw(canvas);
                     } else {
                         if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*4){
-                            Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.deux);
+                            Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.deuxrs);
                             startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
                             startDraw.draw(canvas);
                         } else {
                             if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*5) {
-                                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.un);
+                                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.unrs);
                                 startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
                                 startDraw.draw(canvas);
                             } else {
                                 if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*6) {
-                                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.gooooo);
+                                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.gooooors);
                                     startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
                                     startDraw.draw(canvas);
                                 } else {
@@ -376,7 +430,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             }
         } else {
             if(!start) {
-                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.start);
+                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.startrs);
                 //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
                 startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
                 startDraw.draw(canvas);
@@ -436,8 +490,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             vehiculeEnnemi1.setMove(false);
 
             // Image Game Over
-            Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
-            //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
+            //Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
+            // resize
+            Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finishrs);
+
 
 
             int bordTableauGauche=cvW/16;

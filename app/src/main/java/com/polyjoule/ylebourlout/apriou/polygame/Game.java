@@ -46,7 +46,7 @@ public class Game extends Activity {
     public final static int COEFVEHICULESEVITES=10;
     public final static double RATIOTABLEAUSCORE=1.7;
     public final static double RATIOSTART=2.08;
-    public final static int DUREEAFFICHAGETOTALPANNEAUX=25;
+    public final static int DUREEAFFICHAGETOTALPANNEAUX=12;
     public final static int DUREEEXPLOFINAL=70;
     private static MediaPlayer fondSonore = null;
     public static Boolean alertDialogDone = false;

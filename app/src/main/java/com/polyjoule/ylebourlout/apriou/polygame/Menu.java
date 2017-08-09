@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +32,7 @@ public class Menu extends AppCompatActivity {
     public static FirebaseAuth firebaseAuth;
     //defining a database reference
     public static DatabaseReference databaseReference;
+    private ImageView bggif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,19 @@ public class Menu extends AppCompatActivity {
         gameButton = (Button) findViewById(R.id.gamebutton);
 
         loginButton = (Button) findViewById(R.id.loginbutton);
+
+        bggif = (ImageView) findViewById(R.id.menubg);
+
+        //DisplayMetrics metrics = new DisplayMetrics();
+        //getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+       // Drawable bgDrawable = Drawable.createFromPath("android.resource://com.polyjoule.ylebourlout.apriou.polygame/" + R.drawable.menugif);
+
+        //bggif.getLayoutParams().height=metrics.heightPixels;
+        //bggif.getLayoutParams().width=metrics.widthPixels;
+        //Ion.with(bggif).resize(metrics.widthPixels,metrics.heightPixels).load("android.resource://com.polyjoule.ylebourlout.apriou.polygame/" + R.drawable.menugif);
+        //Ion.with(bggif).load("android.resource://com.polyjoule.ylebourlout.apriou.polygame/" + R.drawable.menugif);
+
 
 
 

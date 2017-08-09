@@ -40,20 +40,20 @@
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/color/common_plus_signin_btn_text_light.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/color/abc_tint_btn_checkable.xml"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/color/common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
-        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/color/abc_hint_foreground_material_light.xml"
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/color/abc_tint_btn_checkable.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_dark.xml",
         "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/color/common_plus_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/color/abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
