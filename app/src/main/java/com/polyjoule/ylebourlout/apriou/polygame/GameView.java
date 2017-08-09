@@ -534,7 +534,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         if (userInfo != null) { // + registered//true
                             //Log.d("score",Integer.toString(score));
                             //Log.d("HighScore",Integer.toString(highScore));
-                            if (score > userInfo.getHighScore()) {
+                            if (scorefinal > userInfo.getHighScore()) {
                                 Game.update(scorefinal); // update local
                                 userInfo.setHighScore(scorefinal);
                                 Game.saveUserInformation(userInfo);
