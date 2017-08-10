@@ -155,6 +155,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         float dp3=10f;
         float dp4=20f;
         float dp5=14f;
+        float dp6=12f;
+        float dp7=9f;
+        float fpixels7=metrics.density*dp7;
+        float fpixels6=metrics.density*dp6;
         float fpixels5=metrics.density*dp5;
         float fpixels4=metrics.density*dp4;
         float fpixels3=metrics.density*dp3;
@@ -165,44 +169,46 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         int pixels3=(int) (fpixels3+0.5f);
         int pixels4=(int) (fpixels4+0.5f);
         int pixels5=(int) (fpixels5+0.5f);
+        int pixels6=(int) (fpixels6+0.5f);
+        int pixels7=(int) (fpixels7+0.5f);
         cvH = canvas.getHeight();
         cvW = canvas.getWidth();
 
-        routeH=5*cvH/16-pixels;
-        routeM=cvH/2-pixels;
-        routeB=43*cvH/64-pixels;
+        routeH=5*cvW/16-pixels;
+        routeM=cvW/2-pixels;
+        routeB=43*cvW/64-pixels;
 
         if(bg!=null) {
             bg.draw(canvas);
         }
 
         if(!initialisation){
-            vehicule.setX(cvW/16);
-            vehicule.setY((cvH/2)-vehicule.getvehiculePlayerH()/2);
-            
+            vehicule.setY(cvH-vehicule.getvehiculePlayerH()-cvH/8);
+            vehicule.setX((cvW/2)-vehicule.getvehiculePlayerW()/2);
+
             vehiculeEnnemi1.setX(cvW);
-            vehiculeEnnemi1.setY(cvH);
-            
-            carburant.setX(cvW);
+            vehiculeEnnemi1.setY(-vehiculeEnnemi1.getvehiculeEnnemiH());
+
+            carburant.setY(-cvH/8);
 
             coinGPause=cvW/2-cvW/64;
             coinHPause=pixels3;
             coinDPause=cvW/2+cvW/64;
             coinBPause=pixels3+pixels/2;
 
-            bordStartG=cvW/4;
-            bordStartD=3*cvW/4;
-            bordStartH=cvH/4;
+            bordStartG=cvW/5;
+            bordStartD=4*cvW/5;
+            bordStartH=cvH/3;
             longueurStart=bordStartD-bordStartG;
             bordStartB=bordStartH + ((int) Math.round(longueurStart/RATIOSTART));
 
-            levelCarburantMaxInit=cvW-cvW/40;
-            levelCarburantMinInit=cvW-3*cvW/32;
+            levelCarburantMaxInit=cvW-cvW/50;
+            levelCarburantMinInit=cvW-3*cvW/40;
             levelVieMaxInit=cvW-cvW/40;
             levelVieMinInit=cvW-3*cvW/32;
             levelCarburant=levelCarburantMaxInit;
             levelVie=levelVieMaxInit;
-            longueurBarreCarburant=levelCarburant-(cvW-3*cvW/32);
+            longueurBarreCarburant=levelCarburant-(levelCarburantMinInit);
             longueurBarreVie=levelVie-(cvW-3*cvW/32);
 
 
@@ -258,21 +264,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         // ScoreText
         TextPaint textPaintScore = new TextPaint();
-        textPaintScore.setTextSize(pixels);
+        textPaintScore.setTextSize(pixels5);
         textPaintScore.setColor(ContextCompat.getColor(this.getContext(),R.color.colorPrimaryDark));
-        canvas.drawText(Integer.toString(score),pixels3,pixels,textPaintScore);
+        canvas.drawText(Integer.toString(score),pixels3/2,2*pixels3,textPaintScore);
 
         // Level Carburant
         TextPaint paintlevelCarburant = new TextPaint();
         paintlevelCarburant.setTextSize(pixels);
 
         paintlevelCarburant.setColor(ContextCompat.getColor(this.getContext(),R.color.colorPrimaryDark));
-        canvas.drawRect(levelCarburantMinInit,pixels3,levelCarburant,pixels3+pixels/2,paintlevelCarburant);
+        canvas.drawRect(levelCarburantMinInit,pixels3,levelCarburant,pixels3+pixels/3,paintlevelCarburant);
 
         // Image carburant
-        Drawable carburantDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.carburant2);
+        Drawable carburantDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.carburant2logo);
         //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
-        carburantDraw.setBounds(levelCarburantMinInit-pixels2/5-carburant.getcarburantW()/2,pixels3,levelCarburantMinInit-pixels2/5,pixels3+pixels/2);
+        carburantDraw.setBounds(levelCarburantMinInit-pixels2/8-carburant.getcarburantH()/2,pixels3,levelCarburantMinInit-pixels2/8,pixels3+pixels/3);
         carburantDraw.draw(canvas);
 
 //        // Level Vie
@@ -290,33 +296,32 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(users.size()!=0) {
             if (users.size() == 1) {
                 if(users.get(0).getHighScore()!=-1) {
-                    // Top 1
-                    TextPaint textPaintClassement = new TextPaint();
-                    textPaintClassement.setTextSize(pixels5);
-                    textPaintClassement.setColor(ContextCompat.getColor(this.getContext(), R.color.primary_dark_material_dark_1));
-                    canvas.drawText(classementText, pixels3, cvH - pixels3, textPaintClassement);
-
+                    // Top 3
+//                        TextPaint textPaintClassement = new TextPaint();
+//                        textPaintClassement.setTextSize(pixels5);
+//                        textPaintClassement.setColor(ContextCompat.getColor(this.getContext(), R.color.primary_dark_material_dark_1));
+//                        canvas.drawText(classementText, pixels3, cvH - pixels3, textPaintClassement);
 
                     TextPaint textPaintTop1 = new TextPaint();
                     textPaintTop1.setTextSize(pixels5);
                     textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
-                    canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
+                    canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, pixels3, cvH - pixels3, textPaintTop1);
 
                 }
 
             } else {
                 if (users.size() == 2) {
                     if(users.get(0).getHighScore()!=-1) {
-                        // Top 2
-                        TextPaint textPaintClassement = new TextPaint();
-                        textPaintClassement.setTextSize(pixels5);
-                        textPaintClassement.setColor(ContextCompat.getColor(this.getContext(), R.color.primary_dark_material_dark_1));
-                        canvas.drawText(classementText, pixels3, cvH - pixels3, textPaintClassement);
+                        // Top 3
+//                        TextPaint textPaintClassement = new TextPaint();
+//                        textPaintClassement.setTextSize(pixels5);
+//                        textPaintClassement.setColor(ContextCompat.getColor(this.getContext(), R.color.primary_dark_material_dark_1));
+//                        canvas.drawText(classementText, pixels3, cvH - pixels3, textPaintClassement);
 
                         TextPaint textPaintTop1 = new TextPaint();
                         textPaintTop1.setTextSize(pixels5);
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
-                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
+                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, pixels3, cvH - pixels3, textPaintTop1);
 
                         if(users.get(1).getHighScore()!=-1) {
                             TextPaint textPaintTop2 = new TextPaint();
@@ -330,15 +335,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
                     if(users.get(0).getHighScore()!=-1) {
                         // Top 3
-                        TextPaint textPaintClassement = new TextPaint();
-                        textPaintClassement.setTextSize(pixels5);
-                        textPaintClassement.setColor(ContextCompat.getColor(this.getContext(), R.color.primary_dark_material_dark_1));
-                        canvas.drawText(classementText, pixels3, cvH - pixels3, textPaintClassement);
+//                        TextPaint textPaintClassement = new TextPaint();
+//                        textPaintClassement.setTextSize(pixels5);
+//                        textPaintClassement.setColor(ContextCompat.getColor(this.getContext(), R.color.primary_dark_material_dark_1));
+//                        canvas.drawText(classementText, pixels3, cvH - pixels3, textPaintClassement);
 
                         TextPaint textPaintTop1 = new TextPaint();
                         textPaintTop1.setTextSize(pixels5);
                         textPaintTop1.setColor(ContextCompat.getColor(this.getContext(), R.color.top1));
-                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, 3*cvW/16, cvH - pixels3, textPaintTop1);
+                        canvas.drawText(users.get(0).getPseudo() + " : " + users.get(0).highScore, pixels3, cvH - pixels3, textPaintTop1);
 
                         if(users.get(1).getHighScore()!=-1) {
                             TextPaint textPaintTop2 = new TextPaint();
@@ -362,13 +367,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
         // carburant
-        if(carburant.getX()>cvW+carburant.getcarburantW()){
+        if(carburant.getY()<-carburant.getcarburantH()){
             // Inutile de draw en dehors de l'écran
         } else {
             carburant.draw(canvas);
         }
         // vehicule ennemi1
-        if(vehiculeEnnemi1.getX()>cvW+vehiculeEnnemi1.getvehiculeEnnemiW()){
+        if(vehiculeEnnemi1.getY()<-vehiculeEnnemi1.getvehiculeEnnemiH()){
             // Inutile de draw en dehors de l'écran
         } else {
             vehiculeEnnemi1.draw(canvas);
@@ -455,7 +460,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     canvas.drawBitmap(quatreBitmap,bordStartG,bordStartH,null);
                 } else {
                     if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*3){
-                       // Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.trois);
+                        // Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.trois);
                         //startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
 
                         //troisdraw.draw(canvas);
@@ -537,7 +542,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             TextPaint textPaintPause = new TextPaint();
             textPaintPause.setTextSize(pixels);
             textPaintPause.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
-            canvas.drawText(textPause, cvW/2-cvW/16, cvH/2, textPaintPause);
+            canvas.drawText(textPause,12*cvW/32, 5*cvH/12, textPaintPause);
 
 
             TextPaint textPaintHS = new TextPaint();
@@ -546,9 +551,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             if(userInfo!=null) {
                 if(userInfo.getHighScore()!=-1) {
-                    canvas.drawText(textHS + userInfo.getHighScore(), cvW / 2 - 5 * cvW / 32, 3 * cvH / 4 - cvH / 32, textPaintHS);
+                    canvas.drawText(textHS + userInfo.getHighScore(), 9*cvW / 40, 7*cvH/12, textPaintHS);
                 } else {
-                    canvas.drawText(textHS + "0", cvW / 2 - 5 * cvW / 32, 3 * cvH / 4 - cvH / 32, textPaintHS);
+                    canvas.drawText(textHS + "0", 9*cvW / 40, 7*cvH/12, textPaintHS);
                 }
             }
 
@@ -568,18 +573,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
 
-            int bordTableauGauche=cvW/16;
-            int bordTableauDroit =15*cvW/16;
+            int bordTableauGauche=cvW/32;
+            int bordTableauDroit =31*cvW/32;
             int longueurTableau = bordTableauDroit - bordTableauGauche;
             double ratio = RATIOTABLEAUSCORE;
 
             int hauteurTableau = ((int) Math.round(longueurTableau/ratio));
 
-            int bordTableauHaut=cvH/32;
+            int bordTableauHaut=cvH/3;
 
             int bordTableauBas=bordTableauHaut+hauteurTableau;
 
-            
+
             goDraw.setBounds(bordTableauGauche,bordTableauHaut,bordTableauDroit,bordTableauBas);
             goDraw.draw(canvas);
 
@@ -601,8 +606,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         //Collections.sort(users, new UsersComparator());
 
                         for(int i=0; i<users.size();i++){
-                            if(scorefinal>users.get(i).getHighScore()){
-                                rangScore=i+1;
+                            if(scorefinal>users.get((users.size()-1)-i).getHighScore()){
+                                rangScore=users.size()-i;
                             }
                         }
 
@@ -621,8 +626,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
 
-            tailleTexte=pixels4;
-            int espaceTexte=pixels5;
+            tailleTexte=pixels6;
+            int espaceTexte=pixels7;
             TextPaint textPaintTableauAffichage = new TextPaint();
             textPaintTableauAffichage.setTextSize(tailleTexte);
             textPaintTableauAffichage.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
@@ -740,37 +745,37 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         // Gestion ennemi
-        if(vehiculeEnnemi1.getX()+vehiculeEnnemi1.getvehiculeEnnemiW()<0){
+        if(vehiculeEnnemi1.getY()>cvH){
             if(!comptageVehiculeDone) {
                 nbVehicules++;
                 comptageVehiculeDone=true;
             }
 
-            positionnementV1X = (int) (Math.random() * (100 + 1));
+            positionnementV1Y = (int) (Math.random() * (100 + 1));
 
-            if (positionnementV1X < 25) {
-                 vehiculeEnnemi1.setX(cvW+cvW/2);
+            if (positionnementV1Y < 25) {
+                vehiculeEnnemi1.setY(-cvH/2);
             } else {
-                if (positionnementV1X < 50) {
-                    vehiculeEnnemi1.setX(2*cvW);
+                if (positionnementV1Y < 50) {
+                    vehiculeEnnemi1.setY(-cvH);
                 } else {
-                    if(positionnementV1X<75) {
-                        vehiculeEnnemi1.setX(2 * cvW + cvW / 2);
+                    if(positionnementV1Y<75) {
+                        vehiculeEnnemi1.setY(-cvH - cvH / 2);
                     } else {
-                        vehiculeEnnemi1.setX(3 * cvW);
+                        vehiculeEnnemi1.setY(-2 * cvH);
                     }
                 }
             }
 
-            positionnementV1Y = (int) (Math.random() * (100 + 1));
+            positionnementV1X= (int) (Math.random() * (100 + 1));
 
-            if (positionnementV1Y < 33) {
-                vehiculeEnnemi1.setY(routeB);
+            if (positionnementV1X < 33) {
+                vehiculeEnnemi1.setX(routeB);
             } else {
-                if (positionnementV1Y < 66) {
-                    vehiculeEnnemi1.setY(routeM);
+                if (positionnementV1X < 66) {
+                    vehiculeEnnemi1.setX(routeM);
                 } else {
-                    vehiculeEnnemi1.setY(routeH);
+                    vehiculeEnnemi1.setX(routeH);
                 }
             }
         } else {
@@ -782,8 +787,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(vehicule.hasBeenTouched(vehiculeEnnemi1.getX(),vehiculeEnnemi1.getY(),vehiculeEnnemi1.getvehiculeEnnemiW(),vehiculeEnnemi1.getvehiculeEnnemiH())){
             collisionVehicule=true;
         }
-        
-        
+
+
 
 //        if (diffToAdd - bg.getX() < 0) {
 //            diffToAdd = diffToAdd - bg.getX();
@@ -861,9 +866,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     Game.startMusique();
                                 }
                             } else {
-                                if (currentY >= vehicule.getY() - vehicule.getvehiculePlayerH() / 8 && currentY <= vehicule.getY() + vehicule.getvehiculePlayerH() + vehicule.getvehiculePlayerH() / 8) {
+                                if (currentX >= vehicule.getX() - vehicule.getvehiculePlayerW() / 8 && currentX <= vehicule.getX() + vehicule.getvehiculePlayerW() + vehicule.getvehiculePlayerW() / 8) {
                                     canMoveVehicule = true;
-                                    distanceDoigtVoiture = currentY - vehicule.getY();
+                                    distanceDoigtVoiture = currentX - vehicule.getX();
                                 } else {
                                     canMoveVehicule = false;
                                 }
@@ -891,9 +896,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 //if(!pause) {
                 if(!perdu) {
                     if (!collisionVehicule) {
-                        if (currentY + vehicule.getvehiculePlayerH() / 2 < cvH - cvH / 8 && currentY - vehicule.getvehiculePlayerH() / 2 > cvH / 8) {
+                        if (currentX + vehicule.getvehiculePlayerW() / 2 < cvW - cvW / 8 && currentX - vehicule.getvehiculePlayerW() / 2 > cvW / 8) {
                             if (canMoveVehicule) {
-                                vehicule.setY(currentY - distanceDoigtVoiture);
+                                vehicule.setX(currentX - distanceDoigtVoiture);
                             }
                         }
                     }

@@ -3,8 +3,10 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.util.Log;
 
 import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvH;
+import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvW;
 
 /**
  * Created by Alexis on 19/07/2017.
@@ -12,13 +14,13 @@ import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvH;
 
 public class Background {
     private Bitmap image;
-    private int x, y, dx;
+    private int x, y, dx, dy;
     private int wEcran,hEcran; // largeur et hauteur de l'écran en pixels
     private final int bgWIDTH=1000;
     private int bgW, bgH;
     private Context c;
     private Boolean resize=false;
-    private float scaleX, scaleY;
+    private float scaleX, scaley;
     private Bitmap bitmap;
     private Boolean move=false;
 
@@ -34,10 +36,10 @@ public class Background {
     {
 
         if(!move){return;}
-        x+=dx;
+        y-=dy;
         if(bitmap!=null) {
-            if (x < -bitmap.getWidth()) {
-                x = 0;
+            if (y+bitmap.getHeight() > 2*bitmap.getHeight()) {
+                y = 0;
             }
         }
 
@@ -46,32 +48,42 @@ public class Background {
     {
 
         if (!resize) {
-            int scale = image.getHeight() / cvH;
-            if (scale < 1) {
-                scale = cvH / image.getHeight();
-                bitmap = Bitmap.createScaledBitmap(image, image.getWidth() * scale,
+
+            Log.d("heigh",Integer.toString(image.getHeight()));
+            Log.d("width",Integer.toString(image.getWidth()));
+            Log.d("cvH",Integer.toString(image.getHeight()));
+            Log.d("cvW",Integer.toString(cvW));
+            //int scale = image.getHeight() / cvH;
+            bitmap = Bitmap.createScaledBitmap(image, cvW,
                         cvH
                         , true);
-            } else {
-                bitmap = Bitmap.createScaledBitmap(image, image.getWidth() / scale,
-                        cvH
-                        , true);
-            }
+
+//            if (scale < 1) {
+//                scale = cvW / image.getHeight();
+//
+//                bitmap = Bitmap.createScaledBitmap(image, image.getWidth() * scale,
+//                        cvH
+//                        , true);
+//            } else {
+//                bitmap = Bitmap.createScaledBitmap(image, image.getWidth() / scale,
+//                        cvH
+//                        , true);
+//            }
             resize = true;
             canvas.drawBitmap(bitmap, x, y, null);
         } else {
             canvas.drawBitmap(bitmap, x, y, null);
         }
 
-        if(x<0)
+        if(y+bitmap.getHeight()>cvH)
         {
-            canvas.drawBitmap(bitmap, x+bitmap.getWidth(), y, null);
+            canvas.drawBitmap(bitmap, x, y-bitmap.getHeight(), null);
         }
 
     }
-    public void setVector(int dx)
+    public void setVector(int dy)
     {
-        this.dx = dx;
+        this.dy = dy;
     }
 
     public void setMove (Boolean bool){move=bool;}

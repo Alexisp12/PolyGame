@@ -72,8 +72,8 @@ public class VehiculePlayer {
 //        Log.d("ratio",Double.toString(ratio));
 
         // on définit (au choix) la taille du vehiculePlayer
-        vehiculePlayerW=11*wScreen/64; // 6  pour vehiculeplayer
-        vehiculePlayerH=((int)Math.round(vehiculePlayerW/RATIO));
+        vehiculePlayerH=11*hScreen/64; // 6  pour vehiculeplayer
+        vehiculePlayerW=((int)Math.round(vehiculePlayerH/RATIO));
         //vehiculePlayerH=hScreen/8;
         //vehiculePlayerH= ((int) Math.round( vehiculePlayerW/ratio)); // 12 pour vehiculeplayer
 
@@ -148,16 +148,27 @@ public class VehiculePlayer {
     }
 
     public Boolean hasBeenTouched(int x, int y, int w, int h){
-        if(x<this.x+getvehiculePlayerW() && x>this.x && ((y>this.y && y<this.y+getvehiculePlayerH())|| (y+h>this.y && y+h<this.y+getvehiculePlayerH()) )){
+//        if(x<this.x+getvehiculePlayerW() && x>this.x && ((y>this.y && y<this.y+getvehiculePlayerH())|| (y+h>this.y && y+h<this.y+getvehiculePlayerH()) )){
+//            return true;
+//        }
+//        // véhicule plus petit que bonbonne
+//        if(this.y>y && this.y+getvehiculePlayerH()<y+h && x<this.x+getvehiculePlayerW() && x>this.x){
+//            return true;
+//        }
+//        if(this.x>x && this.x+getvehiculePlayerW()<x+w && y<this.y+getvehiculePlayerH() && y>this.y){
+//            return true;
+//        }
+
+        if(x>this.x && x<this.x+getvehiculePlayerW() && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() )){
             return true;
-        } else {
-            // véhicule plus petit que bonbonne
-            if(this.y>y && this.y+getvehiculePlayerH()<y+h && x<this.x+getvehiculePlayerW() && x>this.x){
-                return true;
-            } else {
-                return false;
-            }
         }
+        if(x+w>this.x && x+w<this.x+getvehiculePlayerW() && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() )){
+            return true;
+        }
+        if(this.x<x+w && this.x >x && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() ) ){
+            return true;
+        }
+        return false;
     }
 
     public void isOnIt(boolean bool){

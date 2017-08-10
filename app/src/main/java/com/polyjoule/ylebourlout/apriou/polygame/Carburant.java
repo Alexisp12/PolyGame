@@ -41,7 +41,7 @@ public class Carburant {
     // Constructeur de l'objet "carburant"
     public Carburant(final Context c)
     {
-        x=cvW; y=cvH / 8 + 7*getcarburantH() / 8; // position de départ
+        y=-cvH/4; x=cvW / 8 + 7*getcarburantW() / 8; // position de départ
         mContext=c; // sauvegarde du contexte
     }
 
@@ -76,8 +76,8 @@ public class Carburant {
         hEcran=hScreen;
 
         // on définit (au choix) la taille du carburant à 1/5ème de la largeur de l'écran
-        carburantW=wScreen/64;
-        carburantH=wScreen/12;
+        carburantW=hScreen/12;
+        carburantH=hScreen/64;
 
         img = setImage(mContext,R.drawable.carburant2,carburantW,carburantH); //carburant3
 
@@ -121,55 +121,54 @@ public class Carburant {
         // on quitte
         if(!move) {return;}
 
-        if(!repositionY) {
-            positionnementY = (int) (Math.random() * (100 + 1));
+        if(!repositionX) {
+            positionnementX = (int) (Math.random() * (100 + 1));
 
-            if (positionnementY < 33) {
-                y = cvH / 8 + 7*getcarburantH() / 8;
+            if (positionnementX < 33) {
+                x = cvW / 8 + 7*getcarburantW() / 8;
             } else {
-                if (positionnementY < 66) {
-                    y = cvH / 2 - getcarburantH() / 2;
+                if (positionnementX < 66) {
+                    x = cvW / 2 - getcarburantW() / 2;
                 } else {
-                    y = cvH- (cvH / 8) - 15*getcarburantH()/8;
+                    x = cvW- (cvW / 8) - 15*getcarburantW()/8;
                 }
             }
-        repositionY=true;
+            repositionX=true;
         }
 
         // on incrémente les coordonnées X et Y
-        x-=speedX;
-
-
-        if(x+carburantW < 0) {
-            positionnementX = (int) (Math.random() * (100 + 1));
-            if (positionnementX < 33) {
-                x = cvW+cvW/2;
+        if(y > cvH) {
+            positionnementY = (int) (Math.random() * (100 + 1));
+            if (positionnementY < 33) {
+                y = -cvH/2;
             } else {
-                if (positionnementX < 66) {
-                    x = 2*cvW;
+                if (positionnementY < 66) {
+                    y = -cvH;
                 } else {
-                    x = 2*cvW+cvW/2;
+                    y = -(cvH+cvH/2);
                 }
             }
 
-            repositionY=false;
+            repositionX=false;
         }
+
+        y+=speedY;
 
     }
 
     public void disparition(){
-        positionnementX = (int) (Math.random() * (100 + 1));
-        if (positionnementX < 33) {
-            x = cvW+cvW/2;
+        positionnementY = (int) (Math.random() * (100 + 1));
+        if (positionnementY < 33) {
+            y = -cvH/2;
         } else {
-            if (positionnementX < 66) {
-                x = 2*cvW;
+            if (positionnementY < 66) {
+                y = -cvH;
             } else {
-                x = 2*cvW+cvW/2;
+                y = -(cvH+cvH/2);
             }
         }
 
-        repositionY=false;
+        //repositionY=false;
     }
 
 

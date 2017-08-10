@@ -37,7 +37,7 @@ public class VehiculeEnnemi {
     // Constructeur de l'objet "vehiculeEnnemi"
     public VehiculeEnnemi(final Context c)
     {
-        x=cvW; y=cvH; // position de départ
+        x=cvW; y=-cvH/4; // position de départ
         mContext=c; // sauvegarde du contexte
     }
 
@@ -73,8 +73,8 @@ public class VehiculeEnnemi {
 //        Log.d("ratio",Double.toString(ratio));
 
         // on définit (au choix) la taille du vehiculeEnnemi
-        vehiculeEnnemiW=11*wScreen/64; // 6  pour vehiculeplayer
-        vehiculeEnnemiH=((int)Math.round(vehiculeEnnemiW/RATIO));
+        vehiculeEnnemiH=11*hScreen/64; // 6  pour vehiculeplayer
+        vehiculeEnnemiW=((int)Math.round(vehiculeEnnemiH/RATIO));
         //vehiculeEnnemiH=hScreen/8;
         //vehiculeEnnemiH= ((int) Math.round( vehiculeEnnemiW/ratio)); // 12 pour vehiculeplayer
 
@@ -122,7 +122,7 @@ public class VehiculeEnnemi {
 
         if(!move) {return;}
 
-        x-=speedX;
+        y+=speedY;
 
     }
 

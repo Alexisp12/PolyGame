@@ -75,7 +75,7 @@ ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/mai
 activity#com.polyjoule.ylebourlout.apriou.polygame.Game
 ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:23:9-25:20
 	android:screenOrientation
-		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:24:13-50
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:24:13-49
 	android:name
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:23:19-39
 activity#com.polyjoule.ylebourlout.apriou.polygame.Login
