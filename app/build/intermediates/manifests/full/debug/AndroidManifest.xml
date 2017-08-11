@@ -39,6 +39,10 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.polyjoule.ylebourlout.apriou.polygame.Accueil"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.polyjoule.ylebourlout.apriou.polygame.Login"
             android:screenOrientation="portrait" >
         </activity>

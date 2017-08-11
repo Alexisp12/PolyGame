@@ -190,6 +190,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             vehiculeEnnemi1.setY(-vehiculeEnnemi1.getvehiculeEnnemiH());
 
             carburant.setY(-cvH/8);
+            //TODO SET X
 
             coinGPause=cvW/2-cvW/64;
             coinHPause=pixels3;

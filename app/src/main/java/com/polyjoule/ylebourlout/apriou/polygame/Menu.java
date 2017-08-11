@@ -25,6 +25,7 @@ public class Menu extends AppCompatActivity {
     public static String SETS="SETS";
     private Button gameButton;
     private Button loginButton;
+    private Button informationButton;
     private Context This;
     private String pseudo;
     public static UserInformation userInfo;
@@ -53,6 +54,8 @@ public class Menu extends AppCompatActivity {
         gameButton = (Button) findViewById(R.id.gamebutton);
 
         loginButton = (Button) findViewById(R.id.loginbutton);
+
+        informationButton = (Button) findViewById(R.id.informationbutton);
 
         bggif = (ImageView) findViewById(R.id.menubg);
 
@@ -109,8 +112,8 @@ public class Menu extends AppCompatActivity {
                         }
                     }
 
-                    Intent question1intent = new Intent(Menu.this, Game.class);
-                    startActivity(question1intent);
+                    Intent gameintent = new Intent(Menu.this, Game.class);
+                    startActivity(gameintent);
                 }
 
             }
@@ -118,8 +121,15 @@ public class Menu extends AppCompatActivity {
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick (View startview){
-                Intent question1intent = new Intent(Menu.this, Login.class);
-                startActivity(question1intent);
+                Intent loginintent = new Intent(Menu.this, Login.class);
+                startActivity(loginintent);
+            }
+        });
+
+        informationButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick (View startview){
+                Intent accueilintent = new Intent(Menu.this, Accueil.class);
+                startActivity(accueilintent);
             }
         });
     }
