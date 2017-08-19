@@ -2,13 +2,18 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DEPLACEMENTBG;
 import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvH;
 import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvW;
+import static com.polyjoule.ylebourlout.apriou.polygame.GameView.routeB;
+import static com.polyjoule.ylebourlout.apriou.polygame.GameView.routeH;
+import static com.polyjoule.ylebourlout.apriou.polygame.GameView.routeM;
 
 /**
  * Created by Alexis on 20/07/2017.
@@ -41,7 +46,7 @@ public class Carburant {
     // Constructeur de l'objet "carburant"
     public Carburant(final Context c)
     {
-        y=-cvH/4; x=cvW / 8 + 7*getcarburantW() / 8; // position de départ
+        y=-cvH/4; x=cvW; // position de départ
         mContext=c; // sauvegarde du contexte
     }
 
@@ -77,9 +82,12 @@ public class Carburant {
 
         // on définit (au choix) la taille du carburant à 1/5ème de la largeur de l'écran
         carburantW=hScreen/12;
-        carburantH=hScreen/64;
+        Log.d("widthcarbu",Integer.toString(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.carburant).getWidth()));
+        Log.d("heightcarbu",Integer.toString(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.carburant).getHeight()));
 
-        img = setImage(mContext,R.drawable.carburant2,carburantW,carburantH); //carburant3
+        carburantH=carburantW/ (BitmapFactory.decodeResource(mContext.getResources(), R.drawable.carburant).getWidth()/BitmapFactory.decodeResource(mContext.getResources(), R.drawable.carburant).getHeight());
+
+        img = setImage(mContext,R.drawable.carburant,carburantW,carburantH); //carburant3
 
 
     }
@@ -121,21 +129,6 @@ public class Carburant {
         // on quitte
         if(!move) {return;}
 
-        if(!repositionX) {
-            positionnementX = (int) (Math.random() * (100 + 1));
-
-            if (positionnementX < 33) {
-                x = cvW / 8 + 7*getcarburantW() / 8;
-            } else {
-                if (positionnementX < 66) {
-                    x = cvW / 2 - getcarburantW() / 2;
-                } else {
-                    x = cvW- (cvW / 8) - 15*getcarburantW()/8;
-                }
-            }
-            repositionX=true;
-        }
-
         // on incrémente les coordonnées X et Y
         if(y > cvH) {
             positionnementY = (int) (Math.random() * (100 + 1));
@@ -150,6 +143,21 @@ public class Carburant {
             }
 
             repositionX=false;
+        }
+
+        if(!repositionX) {
+            positionnementX = (int) (Math.random() * (100 + 1));
+            Log.d("posiX",Integer.toString(positionnementX));
+            if (positionnementX < 33) {
+                x = routeB;
+            } else {
+                if (positionnementX < 66) {
+                    x = routeM;
+                } else {
+                    x = routeH;
+                }
+            }
+            repositionX=true;
         }
 
         y+=speedY;
@@ -168,7 +176,7 @@ public class Carburant {
             }
         }
 
-        //repositionY=false;
+        repositionX=false;
     }
 
 

@@ -20,7 +20,6 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGETOTAL
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEEXPLOFINAL;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.GAINCARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
-import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOSTART;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.users;
@@ -64,9 +63,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int bordStartD;
     private int bordStartB;
     private int bordStartH;
-    private int routeH;
-    private int routeM;
-    private int routeB;
+    public static int routeH;
+    public static int routeM;
+    public static int routeB;
     private int levelCarburantMinInit;
     private int levelVieMinInit;
     private int tempsAffichageGO=0;
@@ -157,6 +156,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         float dp5=14f;
         float dp6=12f;
         float dp7=9f;
+        float dp8=25f;
+        float fpixels8=metrics.density*dp8;
         float fpixels7=metrics.density*dp7;
         float fpixels6=metrics.density*dp6;
         float fpixels5=metrics.density*dp5;
@@ -171,12 +172,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         int pixels5=(int) (fpixels5+0.5f);
         int pixels6=(int) (fpixels6+0.5f);
         int pixels7=(int) (fpixels7+0.5f);
+        int pixels8 = (int) (fpixels8 + 0.5f);
         cvH = canvas.getHeight();
         cvW = canvas.getWidth();
 
-        routeH=5*cvW/16-pixels;
-        routeM=cvW/2-pixels;
-        routeB=43*cvW/64-pixels;
+        routeH=5*cvW/16-pixels8;
+        routeM=cvW/2-pixels8;
+        routeB=43*cvW/64-pixels8;
 
         if(bg!=null) {
             bg.draw(canvas);
@@ -189,19 +191,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             vehiculeEnnemi1.setX(cvW);
             vehiculeEnnemi1.setY(-vehiculeEnnemi1.getvehiculeEnnemiH());
 
-            carburant.setY(-cvH/8);
-            //TODO SET X
+            carburant.setY(cvH);
+            carburant.setX(cvW);
 
             coinGPause=cvW/2-cvW/64;
             coinHPause=pixels3;
             coinDPause=cvW/2+cvW/64;
             coinBPause=pixels3+pixels/2;
 
-            bordStartG=cvW/5;
-            bordStartD=4*cvW/5;
+            bordStartG=cvW/16;
+            bordStartD=cvW-bordStartG;
             bordStartH=cvH/3;
             longueurStart=bordStartD-bordStartG;
-            bordStartB=bordStartH + ((int) Math.round(longueurStart/RATIOSTART));
+            bordStartB=bordStartH + (longueurStart/(BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart).getHeight()));   //bordStartH + ((int) Math.round( longueurStart/RATIOSTART)
 
             levelCarburantMaxInit=cvW-cvW/50;
             levelCarburantMinInit=cvW-3*cvW/40;

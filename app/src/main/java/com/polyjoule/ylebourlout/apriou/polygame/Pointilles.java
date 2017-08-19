@@ -24,7 +24,7 @@ public class Pointilles {
     int exPosy=0;
     private boolean isOnItBool=false;
     // pour déplacer la pointilles on ajoutera INCREMENT à ses coordonnées x et y
-    private static final int INCREMENT = 5;
+    private static final int INCREMENT = 3;
     private int speedX=INCREMENT, speedY=INCREMENT;
     private Boolean switchDirection=false;
     private final double RATIO=1.8;

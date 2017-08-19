@@ -2359,7 +2359,7 @@ containing a value of this type.
         public static final int abc_vector_test=0x7f020052;
         public static final int bg=0x7f020053;
         public static final int cache=0x7f020054;
-        public static final int carburant2=0x7f020055;
+        public static final int carburant=0x7f020055;
         public static final int carburant2logo=0x7f020056;
         public static final int ciel=0x7f020057;
         public static final int cinq=0x7f020058;

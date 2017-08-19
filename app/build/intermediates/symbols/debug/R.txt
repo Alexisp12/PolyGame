@@ -585,7 +585,7 @@ int drawable abc_textfield_search_material 0x7f020051
 int drawable abc_vector_test 0x7f020052
 int drawable bg 0x7f020053
 int drawable cache 0x7f020054
-int drawable carburant2 0x7f020055
+int drawable carburant 0x7f020055
 int drawable carburant2logo 0x7f020056
 int drawable ciel 0x7f020057
 int drawable cinq 0x7f020058
