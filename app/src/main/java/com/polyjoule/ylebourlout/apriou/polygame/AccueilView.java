@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -33,10 +34,16 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private Bitmap solBitmap;
     private Bitmap cielBitmap;
     private Bitmap titreBitmap;
+    private Bitmap gameBitmap;
+    private Bitmap socialBitmap;
+    private Bitmap palmaresBitmap;
     private Bitmap cacheBitmap;
     private Boolean monteePanneauNantes=false;
     private Boolean roadStarted=false;
     private int nbZoom=0;
+    private int positionYtitre;
+    private int positionXtitre;
+    private int espacetitrebouton;
 
 
 
@@ -66,8 +73,13 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
             solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW), false);
             cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
-            titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),5*cvW/8,cvH/16,false);
+            Log.d("titreWidth",Integer.toString((BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth())));
+            Log.d("titreH",Integer.toString((BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())));
+            titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
             cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache),(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/cvH),cvH-solBitmap.getHeight(),false);
+            gameBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), cvW/3, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(cvW/3))/16, false);
+            socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), cvW/3, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(cvW/3))/16, false);
+            palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), cvW/3,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(cvW/3))/16, false);
 
 
             pointillesF.setX(cvW/2-pointillesF.getpointillesW()/2);
@@ -158,10 +170,17 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
         vehiculeAccueil.draw(canvas);
 
-        canvas.drawBitmap(titreBitmap,3*cvW/16,cvH/4,null);
+        positionYtitre=3*cvH/16;
+        positionXtitre=2*cvW/8;
+        espacetitrebouton=cvH/7;
 
+        canvas.drawBitmap(titreBitmap,positionXtitre,positionYtitre,null);
 
+        canvas.drawBitmap(gameBitmap,positionXtitre+titreBitmap.getWidth()/2-gameBitmap.getWidth()/2,positionYtitre+espacetitrebouton,null);
 
+        canvas.drawBitmap(palmaresBitmap,positionXtitre+titreBitmap.getWidth()/2-(gameBitmap.getWidth()/5)-socialBitmap.getWidth(),positionYtitre+espacetitrebouton+(8*gameBitmap.getHeight()/10),null);
+
+        canvas.drawBitmap(socialBitmap,positionXtitre+titreBitmap.getWidth()/2+(gameBitmap.getWidth()/6),positionYtitre+espacetitrebouton+19*gameBitmap.getHeight()/20,null);
 
 
 
