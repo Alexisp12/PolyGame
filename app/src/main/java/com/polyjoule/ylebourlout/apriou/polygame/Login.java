@@ -180,7 +180,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onBackPressed() {
-        Intent retourMenuIntent = new Intent(Login.this, Menu.class);
+        Intent retourMenuIntent = new Intent(Login.this, Accueil.class);
 
         startActivity(retourMenuIntent);
     }

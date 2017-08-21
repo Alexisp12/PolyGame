@@ -26,7 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.polyjoule.ylebourlout.apriou.polygame.Menu"
+            android:name="com.polyjoule.ylebourlout.apriou.polygame.Accueil"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,10 +36,6 @@
         </activity>
         <activity
             android:name="com.polyjoule.ylebourlout.apriou.polygame.Game"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.polyjoule.ylebourlout.apriou.polygame.Accueil"
             android:screenOrientation="portrait" >
         </activity>
         <activity

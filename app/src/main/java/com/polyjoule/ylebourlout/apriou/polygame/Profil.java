@@ -126,7 +126,7 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onBackPressed (){
-        Intent retourMenuIntent = new Intent(Profil.this, Menu.class);
+        Intent retourMenuIntent = new Intent(Profil.this, Accueil.class);
         startActivity(retourMenuIntent);
     }
 

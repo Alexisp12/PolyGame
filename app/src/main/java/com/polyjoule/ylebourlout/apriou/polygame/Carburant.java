@@ -147,14 +147,13 @@ public class Carburant {
 
         if(!repositionX) {
             positionnementX = (int) (Math.random() * (100 + 1));
-            Log.d("posiX",Integer.toString(positionnementX));
             if (positionnementX < 33) {
-                x = routeB;
+                x = routeB+getcarburantW()/16;
             } else {
                 if (positionnementX < 66) {
-                    x = routeM;
+                    x = routeM+getcarburantW()/16;
                 } else {
-                    x = routeH;
+                    x = routeH+getcarburantW()/16;
                 }
             }
             repositionX=true;

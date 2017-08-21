@@ -38,8 +38,8 @@ public class Game extends Activity {
     private static Context This;
     public static int nbVie = 3;
     public static int incrementCarburant = 10;
-    public final static int GAINCARBURANT = 8; // En pourcentage !!! 10 à l'origine
-    public final static int PERTECARBURANT = 6; // En pourcentage !!! 2 à l'orgine
+    public final static int GAINCARBURANT = 100; // En pourcentage !!! anciennement  8
+    public final static int PERTECARBURANT = 6; // En pourcentage !!! anciennement 2
     public final static int DEPLACEMENTBG = 9;
     public final static int VITESSEDEPLACEMENTENNEMI=7;
     public final static int DUREEAFFICHAGEGO = 100;
@@ -88,7 +88,7 @@ public class Game extends Activity {
             highScore = userInfo.getHighScore();
         }
 
-        if(firebaseAuth.getCurrentUser()==null) {
+        if(firebaseAuth==null) {
             SharedPreferences settings = getSharedPreferences(SETS, 0);
             highScore = settings.getInt("highscore", 0);
         }
@@ -172,68 +172,69 @@ public class Game extends Activity {
     }
 
     public static void pullHighScore() {
-        final FirebaseUser usr = firebaseAuth.getCurrentUser();
-        // Get a reference to our posts
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
+        if(firebaseAuth!=null) {
+            final FirebaseUser usr = firebaseAuth.getCurrentUser();
+            // Get a reference to our posts
+            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
 
-        ref.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                users.clear();
-                for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
+            ref.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    users.clear();
+                    for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
 
-                    if(!users.contains(eventSnapshot.getValue(UserInformation.class))){
-                        users.add(eventSnapshot.getValue(UserInformation.class));
-                    } else {
-                        for(int i=0;i<users.size();i++){
-                            if(users.get(i).getHighScore()!=eventSnapshot.getValue(UserInformation.class).getHighScore()){
-                                users.remove(i);
-                                users.add(eventSnapshot.getValue(UserInformation.class));
+                        if (!users.contains(eventSnapshot.getValue(UserInformation.class))) {
+                            users.add(eventSnapshot.getValue(UserInformation.class));
+                        } else {
+                            for (int i = 0; i < users.size(); i++) {
+                                if (users.get(i).getHighScore() != eventSnapshot.getValue(UserInformation.class).getHighScore()) {
+                                    users.remove(i);
+                                    users.add(eventSnapshot.getValue(UserInformation.class));
+                                }
                             }
+
                         }
 
                     }
 
-                }
+                    Collections.sort(users, new UsersComparator());
 
-                Collections.sort(users, new UsersComparator());
-
-                if(users!=null && userInfo!=null) {
-                    for (int i = 0; i < users.size(); i++) {
+                    if (users != null && userInfo != null) {
+                        for (int i = 0; i < users.size(); i++) {
 //                    Log.e("users" + i, users.get(i).getPseudo());
-                        if(userInfo.getPseudo()!=null && users.get(i).getPseudo()!=null) {
-                            if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
-                                rangJoueur = i + 1;
+                            if (userInfo.getPseudo() != null && users.get(i).getPseudo() != null) {
+                                if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
+                                    rangJoueur = i + 1;
+                                }
                             }
                         }
                     }
+
+
                 }
 
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
+                }
 
-            }
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                }
 
-            }
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                }
 
-            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+                }
+            });
+        }
     }
 
     public static void toastHS() {
@@ -259,7 +260,11 @@ public class Game extends Activity {
         gameView = null;
         pauseMusique();
         fondSonore = null;
-        Intent retourMenuIntent = new Intent(Game.this, Menu.class);
+
+        //Intent intent = getIntent();
+        finish();
+
+        Intent retourMenuIntent = new Intent(Game.this, Accueil.class);
 
         startActivity(retourMenuIntent);
     }

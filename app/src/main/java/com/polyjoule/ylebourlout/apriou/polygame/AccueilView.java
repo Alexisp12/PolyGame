@@ -37,12 +37,25 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private Bitmap socialBitmap;
     private Bitmap palmaresBitmap;
     private Bitmap cacheBitmap;
+    private Bitmap paramBitmap;
     private Boolean monteePanneauNantes=false;
     private Boolean roadStarted=false;
     private int nbZoom=0;
     private int positionYtitre;
     private int positionXtitre;
     private int espacetitrebouton;
+    private int posXparamButton;
+    private int posYparamButton;
+    private int posXgameButton;
+    private int posXpalmaresButton;
+    private int posXsocialButton;
+    private int posYgameButton;
+    private int posYpalmaresButton;
+    private int posYsocialButton;
+    private int longueurButton;
+    private int longueurButtonParam;
+
+
 
 
 
@@ -70,15 +83,19 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
         if(!initialisation) {
 
+            longueurButton=cvW/3;
+            longueurButtonParam=cvW/8;
+
             solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW), false);
             cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
             titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
             cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache),(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/cvH),cvH-solBitmap.getHeight(),false);
-            gameBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), cvW/3, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(cvW/3))/16, false);
-            socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), cvW/3, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(cvW/3))/16, false);
-            palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), cvW/3,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(cvW/3))/16, false);
+            gameBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(longueurButton))/16, false);
+            socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton))/16, false);
+            palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))/16, false);
+            paramBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam,14* (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()/(longueurButtonParam))/16, false);
 
-            
+
             pointillesF.setX(cvW/2-pointillesF.getpointillesW()/2);
             pointillesF.setY(cvH-pointillesF.getpointillesH());
             pointillesF.setMove(false);
@@ -171,13 +188,24 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         positionXtitre=2*cvW/8;
         espacetitrebouton=cvH/7;
 
+        posXgameButton=positionXtitre+titreBitmap.getWidth()/2-gameBitmap.getWidth()/2;
+        posYgameButton=positionYtitre+espacetitrebouton;
+        posXpalmaresButton=positionXtitre+titreBitmap.getWidth()/2-(gameBitmap.getWidth()/5)-socialBitmap.getWidth();
+        posYpalmaresButton=positionYtitre+espacetitrebouton+(8*gameBitmap.getHeight()/10);
+        posXsocialButton=positionXtitre+titreBitmap.getWidth()/2+(gameBitmap.getWidth()/6);
+        posYsocialButton=positionYtitre+espacetitrebouton+19*gameBitmap.getHeight()/20;
+        posXparamButton=cvW-paramBitmap.getWidth();
+        posYparamButton=1*paramBitmap.getHeight()/20;//cvH-paramBitmap.getHeight();
+
         canvas.drawBitmap(titreBitmap,positionXtitre,positionYtitre,null);
 
-        canvas.drawBitmap(gameBitmap,positionXtitre+titreBitmap.getWidth()/2-gameBitmap.getWidth()/2,positionYtitre+espacetitrebouton,null);
+        canvas.drawBitmap(gameBitmap,posXgameButton,posYgameButton,null);
 
-        canvas.drawBitmap(palmaresBitmap,positionXtitre+titreBitmap.getWidth()/2-(gameBitmap.getWidth()/5)-socialBitmap.getWidth(),positionYtitre+espacetitrebouton+(8*gameBitmap.getHeight()/10),null);
+        canvas.drawBitmap(palmaresBitmap,posXpalmaresButton,posYpalmaresButton,null);
 
-        canvas.drawBitmap(socialBitmap,positionXtitre+titreBitmap.getWidth()/2+(gameBitmap.getWidth()/6),positionYtitre+espacetitrebouton+19*gameBitmap.getHeight()/20,null);
+        canvas.drawBitmap(socialBitmap,posXsocialButton,posYsocialButton,null);
+
+        canvas.drawBitmap(paramBitmap,posXparamButton,posYparamButton,null);
 
 
 
@@ -260,7 +288,22 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
             // code exécuté lorsque le doigt touche l'écran.
             case MotionEvent.ACTION_DOWN:
-
+                if(currentX>posXgameButton && currentX<posXgameButton+longueurButton && currentY>posYgameButton && currentY<posYgameButton+longueurButton){
+                    // start game
+                    Accueil.game();
+                }
+                if(currentX>posXsocialButton && currentX<posXsocialButton+longueurButton && currentY>posYsocialButton && currentY<posYsocialButton+longueurButton){
+                    // start social
+                    Accueil.social();
+                }
+                if(currentX>posXpalmaresButton && currentX<posXpalmaresButton+longueurButton && currentY>posYpalmaresButton && currentY<posYpalmaresButton+longueurButton){
+                    // start palmares
+                    Accueil.palmares();
+                }
+                if(currentX>posXparamButton && currentX<posXparamButton+longueurButton && currentY>posYparamButton && currentY<posYparamButton+longueurButton){
+                    // start parameters
+                    Accueil.param();
+                }
 
 
                 break;

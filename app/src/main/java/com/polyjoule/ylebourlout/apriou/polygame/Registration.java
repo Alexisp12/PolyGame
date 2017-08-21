@@ -154,7 +154,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        Intent retourMenuIntent = new Intent(Registration.this, Menu.class);
+        Intent retourMenuIntent = new Intent(Registration.this, Accueil.class);
 
         startActivity(retourMenuIntent);
     }

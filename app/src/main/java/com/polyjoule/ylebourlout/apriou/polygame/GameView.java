@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -99,7 +100,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int rangScore=0;
     private Boolean restartEnable=false;
     private int positionnementV1X;
-    private int distanceEntreVehicules;
+    private int distanceEntreVehiculesRand;
     private int distanceDoigtVoiture=0;
     private int tailleTexte;
     private Boolean collisionVehicule=false;
@@ -125,10 +126,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Boolean[] stratEnnemiDone; // Une case par rang sur l'écran
     private int [] stratEnnemi;
     private int randomStrat;
-    private int colonneEnnemiAvenir=1;
+    private int colonneEnnemiAVenir=0;
     private Boolean [] vehiculeDispo;
     private Boolean newColonne=true;
     private int highestEnnemi; // Ennemi le plus dans l'écran
+    private int distanceEntreVehicules1;
+    private int distanceEntreVehicules2;
+    private int distanceEntreVehicules3;
+    private int distanceEntreVehicules4;
+
     //private String textRestart="Record : ";
 
 
@@ -151,8 +157,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
         stratEnnemiDone = new Boolean [NBENNEMIPARCOLONNEMAX];
-        vehiculeDispo = new Boolean [NBVEHICULESENNEMIS];
         stratEnnemi = new int [NBENNEMIPARCOLONNEMAX];
+        vehiculeDispo = new Boolean [NBVEHICULESENNEMIS];
+
         for(int i=0;i<stratEnnemiDone.length;i++){
             stratEnnemiDone[i]=false;
         }
@@ -230,6 +237,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             vehiculeEnnemi5.setY(-2*vehiculeEnnemi5.getvehiculeEnnemiH());
             vehiculeEnnemi6.setX(cvW);
             vehiculeEnnemi6.setY(-2*vehiculeEnnemi6.getvehiculeEnnemiH());
+
+            distanceEntreVehicules1=-3*vehicule.getvehiculePlayerH()/2;
+            distanceEntreVehicules2=-2*vehicule.getvehiculePlayerH();
+            distanceEntreVehicules3=-5*vehicule.getvehiculePlayerH()/2;
+            distanceEntreVehicules4=-3*vehicule.getvehiculePlayerH();
 
 
             carburant.setY(cvH);
@@ -320,7 +332,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         canvas.drawRect(levelCarburantMinInit,pixels3,levelCarburant,pixels3+pixels/3,paintlevelCarburant);
 
         // Image carburant
-        Drawable carburantDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.carburant2logo);
+        Drawable carburantDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.carburantlogo);
         //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
         carburantDraw.setBounds(levelCarburantMinInit-pixels2/8-carburant.getcarburantH()/2,pixels3,levelCarburantMinInit-pixels2/8,pixels3+pixels/3);
         carburantDraw.draw(canvas);
@@ -421,7 +433,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             //vehiculeDispo[0]=true;
         } else {
             vehiculeEnnemi1.draw(canvas);
-            vehiculeDispo[0]=false;
+            //Log.d("vehicule1","nondispo");
+            //vehiculeDispo[0]=false;
         }
         // vehicule ennemi2
         if(vehiculeEnnemi2.getY()<-vehiculeEnnemi2.getvehiculeEnnemiH()){
@@ -429,7 +442,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             //vehiculeDispo[1]=true;
         } else {
             vehiculeEnnemi2.draw(canvas);
-            vehiculeDispo[1]=false;
+            //vehiculeDispo[1]=false;
         }
         // vehicule ennemi1
         if(vehiculeEnnemi3.getY()<-vehiculeEnnemi3.getvehiculeEnnemiH()){
@@ -437,7 +450,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             //vehiculeDispo[2]=true;
         } else {
             vehiculeEnnemi3.draw(canvas);
-            vehiculeDispo[2]=false;
+            //vehiculeDispo[2]=false;
         }
         // vehicule ennemi1
         if(vehiculeEnnemi4.getY()<-vehiculeEnnemi4.getvehiculeEnnemiH()){
@@ -445,7 +458,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
            // vehiculeDispo[3]=true;
         } else {
             vehiculeEnnemi4.draw(canvas);
-            vehiculeDispo[3]=false;
+            //vehiculeDispo[3]=false;
         }
         // vehicule ennemi1
         if(vehiculeEnnemi5.getY()<-vehiculeEnnemi5.getvehiculeEnnemiH()){
@@ -453,7 +466,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             //vehiculeDispo[4]=true;
         } else {
             vehiculeEnnemi5.draw(canvas);
-            vehiculeDispo[4]=false;
+            //vehiculeDispo[4]=false;
         }
         // vehicule ennemi1
         if(vehiculeEnnemi6.getY()<-vehiculeEnnemi6.getvehiculeEnnemiH()){
@@ -461,7 +474,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             //vehiculeDispo[5]=true;
         } else {
             vehiculeEnnemi6.draw(canvas);
-            vehiculeDispo[5]=false;
+            //vehiculeDispo[5]=false;
+            //Log.d("vehicule6","nondispo");
         }
 
         // Vehicule player
@@ -650,11 +664,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
             vehiculeEnnemi1.setMove(false);
+            vehiculeEnnemi2.setMove(false);
+            vehiculeEnnemi3.setMove(false);
+            vehiculeEnnemi4.setMove(false);
+            vehiculeEnnemi5.setMove(false);
+            vehiculeEnnemi6.setMove(false);
 
             // Image Game Over
             //Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
             // resize
-            Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finishrs);
+            Drawable goDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.finish);
 
 
 
@@ -806,12 +825,35 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(pause || perdu || collisionVehicule){
             carburant.setMove(false);
             vehiculeEnnemi1.setMove(false);
+            vehiculeEnnemi2.setMove(false);
+            vehiculeEnnemi3.setMove(false);
+            vehiculeEnnemi4.setMove(false);
+            vehiculeEnnemi5.setMove(false);
+            vehiculeEnnemi6.setMove(false);
             if(bg!=null) {
                 bg.setMove(false);
             }
         } else {
             carburant.setMove(true);
-            vehiculeEnnemi1.setMove(true);
+            if(!vehiculeDispo[0]) {
+                vehiculeEnnemi1.setMove(true);
+            }
+            if(!vehiculeDispo[1]) {
+                vehiculeEnnemi2.setMove(true);
+            }
+            if(!vehiculeDispo[2]) {
+                vehiculeEnnemi3.setMove(true);
+            }
+            if(!vehiculeDispo[3]) {
+                vehiculeEnnemi4.setMove(true);
+            }
+            if(!vehiculeDispo[4]) {
+                vehiculeEnnemi5.setMove(true);
+            }
+            if(!vehiculeDispo[5]) {
+                vehiculeEnnemi6.setMove(true);
+            }
+
             if(bg!=null) {
                 bg.setMove(true);
             }
@@ -832,52 +874,59 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // Gestion ennemi
         // Disposition
 
-        if(colonneEnnemiAvenir==1) {
-            for (int i = 0; i < stratEnnemiDone.length; i++) {
-                if (!stratEnnemiDone[i]) {
-                    randomStrat = (int) (Math.random() * (100 + 1));
-                    if (randomStrat < 25) {
-                        stratEnnemi[i] = 0;
+
+        for (int i = 0; i < stratEnnemiDone.length; i++) {
+            if (!stratEnnemiDone[i]) {
+                randomStrat = (int) (Math.random() * (100 + 1));
+                if (randomStrat < 25) {
+                    stratEnnemi[i] = 0;
+                } else {
+                    if (randomStrat < 50) {
+                        stratEnnemi[i] = 0; //1
                     } else {
-                        if (randomStrat < 50) {
-                            stratEnnemi[i] = 1;
+                        if (randomStrat < 75) {
+                            stratEnnemi[i] = 1;//2
                         } else {
-                            if (randomStrat < 75) {
-                                stratEnnemi[i] = 2;
-                            } else {
-                                stratEnnemi[i] = 3;
-                            }
+                            stratEnnemi[i] = 1;//3
                         }
                     }
-                    stratEnnemiDone[i] = true;
                 }
+                stratEnnemiDone[i] = true;
+                Log.d("StratEnnemi["+i+"]",Integer.toString(stratEnnemi[i]));
             }
         }
 
+
         if(newColonne) {
-            switch (stratEnnemi[colonneEnnemiAvenir]) {
+            switch (stratEnnemi[colonneEnnemiAVenir]) {
                 //NBCASE = NBSTRATEGIES
                 case 0:
                     int cpt = 0;
-                    while (vehiculeDispo[cpt] != false) {
-                        cpt++;
+                    for(int i =0 ; i<vehiculeDispo.length;i++){
+                        if(vehiculeDispo[i]){
+                            cpt=i;
+                        }
                     }
+
+                    vehiculeDispo[cpt]=false;
+
+                    Log.d("vehiculeDispoStr1Numero",Integer.toString(cpt));
                     switch (cpt) {
                         // NB CASE = NB VEHICULES
                         case 0:
                             highestEnnemi=1;
-                            distanceEntreVehicules = (int) (Math.random() * (100 + 1));
+                            distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
-                            if (distanceEntreVehicules < 25) {
-                                vehiculeEnnemi1.setY(-vehicule.getvehiculePlayerH());
+                            if (distanceEntreVehiculesRand < 25) {
+                                vehiculeEnnemi1.setY(distanceEntreVehicules1);
                             } else {
-                                if (distanceEntreVehicules < 50) {
-                                    vehiculeEnnemi1.setY(-3 * vehicule.getvehiculePlayerH() / 2);
+                                if (distanceEntreVehiculesRand < 50) {
+                                    vehiculeEnnemi1.setY(distanceEntreVehicules2);
                                 } else {
-                                    if (distanceEntreVehicules < 75) {
-                                        vehiculeEnnemi1.setY(-2 * vehicule.getvehiculePlayerH());
+                                    if (distanceEntreVehiculesRand < 75) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules3);
                                     } else {
-                                        vehiculeEnnemi1.setY(-5 * vehicule.getvehiculePlayerH() / 2);
+                                        vehiculeEnnemi1.setY(-3 * vehicule.getvehiculePlayerH());
                                     }
                                 }
                             }
@@ -893,21 +942,24 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     vehiculeEnnemi1.setX(routeH);
                                 }
                             }
+
+                            vehiculeEnnemi1.setMove(true);
+
                             break;
                         case 1:
                             highestEnnemi=2;
-                            distanceEntreVehicules = (int) (Math.random() * (100 + 1));
+                            distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
-                            if (distanceEntreVehicules < 25) {
-                                vehiculeEnnemi2.setY(-vehicule.getvehiculePlayerH());
+                            if (distanceEntreVehiculesRand < 25) {
+                                vehiculeEnnemi2.setY(distanceEntreVehicules1);
                             } else {
-                                if (distanceEntreVehicules < 50) {
-                                    vehiculeEnnemi2.setY(-3 * vehicule.getvehiculePlayerH() / 2);
+                                if (distanceEntreVehiculesRand < 50) {
+                                    vehiculeEnnemi2.setY(distanceEntreVehicules2 );
                                 } else {
-                                    if (distanceEntreVehicules < 75) {
-                                        vehiculeEnnemi2.setY(-2 * vehicule.getvehiculePlayerH());
+                                    if (distanceEntreVehiculesRand < 75) {
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules3);
                                     } else {
-                                        vehiculeEnnemi2.setY(-5 * vehicule.getvehiculePlayerH() / 2);
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules4 );
                                     }
                                 }
                             }
@@ -923,21 +975,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     vehiculeEnnemi2.setX(routeH);
                                 }
                             }
+                            vehiculeEnnemi2.setMove(true);
                             break;
                         case 2:
                             highestEnnemi=3;
-                            distanceEntreVehicules = (int) (Math.random() * (100 + 1));
+                            distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
-                            if (distanceEntreVehicules < 25) {
-                                vehiculeEnnemi3.setY(-vehicule.getvehiculePlayerH());
+                            if (distanceEntreVehiculesRand < 25) {
+                                vehiculeEnnemi3.setY(distanceEntreVehicules1);
                             } else {
-                                if (distanceEntreVehicules < 50) {
-                                    vehiculeEnnemi3.setY(-3 * vehicule.getvehiculePlayerH() / 2);
+                                if (distanceEntreVehiculesRand < 50) {
+                                    vehiculeEnnemi3.setY(distanceEntreVehicules2 );
                                 } else {
-                                    if (distanceEntreVehicules < 75) {
-                                        vehiculeEnnemi3.setY(-2 * vehicule.getvehiculePlayerH());
+                                    if (distanceEntreVehiculesRand < 75) {
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules3);
                                     } else {
-                                        vehiculeEnnemi3.setY(-5 * vehicule.getvehiculePlayerH() / 2);
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules4 );
                                     }
                                 }
                             }
@@ -953,21 +1006,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     vehiculeEnnemi3.setX(routeH);
                                 }
                             }
+                            vehiculeEnnemi3.setMove(true);
                             break;
                         case 3:
                             highestEnnemi=4;
-                            distanceEntreVehicules = (int) (Math.random() * (100 + 1));
+                            distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
-                            if (distanceEntreVehicules < 25) {
+                            if (distanceEntreVehiculesRand < 25) {
                                 vehiculeEnnemi4.setY(-vehicule.getvehiculePlayerH());
                             } else {
-                                if (distanceEntreVehicules < 50) {
-                                    vehiculeEnnemi4.setY(-3 * vehicule.getvehiculePlayerH() / 2);
+                                if (distanceEntreVehiculesRand < 50) {
+                                    vehiculeEnnemi4.setY(distanceEntreVehicules2 );
                                 } else {
-                                    if (distanceEntreVehicules < 75) {
-                                        vehiculeEnnemi4.setY(-2 * vehicule.getvehiculePlayerH());
+                                    if (distanceEntreVehiculesRand < 75) {
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules3);
                                     } else {
-                                        vehiculeEnnemi4.setY(-5 * vehicule.getvehiculePlayerH() / 2);
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules4 );
                                     }
                                 }
                             }
@@ -983,21 +1037,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     vehiculeEnnemi4.setX(routeH);
                                 }
                             }
+                            vehiculeEnnemi4.setMove(true);
                             break;
                         case 4:
                             highestEnnemi=5;
-                            distanceEntreVehicules = (int) (Math.random() * (100 + 1));
+                            distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
-                            if (distanceEntreVehicules < 25) {
+                            if (distanceEntreVehiculesRand < 25) {
                                 vehiculeEnnemi5.setY(-vehicule.getvehiculePlayerH());
                             } else {
-                                if (distanceEntreVehicules < 50) {
-                                    vehiculeEnnemi5.setY(-3 * vehicule.getvehiculePlayerH() / 2);
+                                if (distanceEntreVehiculesRand < 50) {
+                                    vehiculeEnnemi5.setY(distanceEntreVehicules2 );
                                 } else {
-                                    if (distanceEntreVehicules < 75) {
-                                        vehiculeEnnemi5.setY(-2 * vehicule.getvehiculePlayerH());
+                                    if (distanceEntreVehiculesRand < 75) {
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules3);
                                     } else {
-                                        vehiculeEnnemi5.setY(-5 * vehicule.getvehiculePlayerH() / 2);
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules4);
                                     }
                                 }
                             }
@@ -1013,21 +1068,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     vehiculeEnnemi5.setX(routeH);
                                 }
                             }
+                            vehiculeEnnemi5.setMove(true);
                             break;
                         case 5:
                             highestEnnemi=6;
-                            distanceEntreVehicules = (int) (Math.random() * (100 + 1));
+                            distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
-                            if (distanceEntreVehicules < 25) {
+                            if (distanceEntreVehiculesRand < 25) {
                                 vehiculeEnnemi6.setY(-vehicule.getvehiculePlayerH());
                             } else {
-                                if (distanceEntreVehicules < 50) {
-                                    vehiculeEnnemi6.setY(-3 * vehicule.getvehiculePlayerH() / 2);
+                                if (distanceEntreVehiculesRand < 50) {
+                                    vehiculeEnnemi6.setY(distanceEntreVehicules2 );
                                 } else {
-                                    if (distanceEntreVehicules < 75) {
-                                        vehiculeEnnemi6.setY(-2 * vehicule.getvehiculePlayerH());
+                                    if (distanceEntreVehiculesRand < 75) {
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules3);
                                     } else {
-                                        vehiculeEnnemi6.setY(-5 * vehicule.getvehiculePlayerH() / 2);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules4);
                                     }
                                 }
                             }
@@ -1043,11 +1099,1466 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     vehiculeEnnemi6.setX(routeH);
                                 }
                             }
+                            vehiculeEnnemi6.setMove(true);
                             break;
                     }
                     break;
                 case 1:
+                    // Choix 1ervehicule
+                    int cpt1=0;
+                    int cpt2=0;
+                    for(int i =0 ; i<vehiculeDispo.length;i++){
+                        if(vehiculeDispo[i]){
+                            cpt1=i;
+                        }
+                    }
 
+                    vehiculeDispo[cpt1]=false;
+
+                    switch (cpt1){
+                        case 0:
+                            highestEnnemi=1;
+                            // choix 2ème véhicule
+                            for(int i =0 ; i<vehiculeDispo.length;i++){
+                                if(vehiculeDispo[i]){
+                                    cpt2=i;
+                                }
+                            }
+                            vehiculeDispo[cpt2]=false;
+
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt2));
+
+                            switch (cpt2){
+                                case 0:
+                                    // Vehicule 1 & 1 !
+
+                                    break;
+                                case 1:
+                                    // Vehicule 1 & 2 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi1.setX(routeB);
+                                        vehiculeEnnemi2.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi1.setMove(true);
+                                    vehiculeEnnemi2.setMove(true);
+
+                                    break;
+                                case 2:
+                                    // Vehicule 1 & 3 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi1.setX(routeB);
+                                        vehiculeEnnemi3.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi1.setMove(true);
+                                    vehiculeEnnemi3.setMove(true);
+
+
+                                    break;
+                                case 3:
+                                    // Vehicule 1 & 4 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi1.setX(routeB);
+                                        vehiculeEnnemi4.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi1.setMove(true);
+                                    vehiculeEnnemi4.setMove(true);
+
+                                    break;
+                                case 4:
+                                    // Vehicule 1 & 5 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi1.setX(routeB);
+                                        vehiculeEnnemi5.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi1.setMove(true);
+                                    vehiculeEnnemi5.setMove(true);
+
+                                    break;
+                                case 5:
+                                    // Vehicule 1 & 1 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi1.setX(routeB);
+                                        vehiculeEnnemi6.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi1.setMove(true);
+                                    vehiculeEnnemi6.setMove(true);
+
+                                    break;
+
+                            }
+                            break;
+                        case 1:
+                            highestEnnemi=2;
+                            // choix 2ème véhicule
+                            for(int i =0 ; i<vehiculeDispo.length;i++){
+                                if(vehiculeDispo[i]){
+                                    cpt2=i;
+                                }
+                            }
+                            vehiculeDispo[cpt2]=false;
+                            switch (cpt2){
+                                case 0:
+
+                                    // Vehicule 2 & 1 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi2.setX(routeB);
+                                        vehiculeEnnemi1.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi2.setMove(true);
+                                    vehiculeEnnemi1.setMove(true);
+
+
+                                    break;
+                                case 1:
+                                    // Vehicule 2 & 2 !
+
+
+                                    break;
+                                case 2:
+                                    // Vehicule 2 & 3 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi2.setX(routeB);
+                                        vehiculeEnnemi3.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi2.setMove(true);
+                                    vehiculeEnnemi3.setMove(true);
+
+
+                                    break;
+                                case 3:
+                                    // Vehicule 2 & 4 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi2.setX(routeB);
+                                        vehiculeEnnemi4.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi2.setMove(true);
+                                    vehiculeEnnemi4.setMove(true);
+
+                                    break;
+                                case 4:
+                                    // Vehicule 2 & 5 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi2.setX(routeB);
+                                        vehiculeEnnemi5.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi2.setMove(true);
+                                    vehiculeEnnemi5.setMove(true);
+
+                                    break;
+                                case 5:
+                                    // Vehicule 2 & 6 !
+
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi2.setX(routeB);
+                                        vehiculeEnnemi6.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi2.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi2.setMove(true);
+                                    vehiculeEnnemi6.setMove(true);
+
+                                    break;
+
+                            }
+                            break;
+                        case 2:
+                            highestEnnemi=3;
+                            // choix 2ème véhicule
+                            for(int i =0 ; i<vehiculeDispo.length;i++){
+                                if(vehiculeDispo[i]){
+                                    cpt2=i;
+                                }
+                            }
+                            vehiculeDispo[cpt2]=false;
+
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt2));
+
+                            switch (cpt2){
+                                case 0:
+                                    // Vehicule 3 & 1 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi3.setX(routeB);
+                                        vehiculeEnnemi1.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi3.setMove(true);
+                                    vehiculeEnnemi1.setMove(true);
+
+
+                                    break;
+                                case 1:
+                                    // Vehicule 3 & 2 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi3.setX(routeB);
+                                        vehiculeEnnemi2.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi3.setMove(true);
+                                    vehiculeEnnemi2.setMove(true);
+
+                                    break;
+                                case 2:
+                                    // Vehicule 3 & 3 !
+
+                                    break;
+                                case 3:
+                                    // Vehicule 3 & 4 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi3.setX(routeB);
+                                        vehiculeEnnemi4.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi3.setMove(true);
+                                    vehiculeEnnemi4.setMove(true);
+
+                                    break;
+                                case 4:
+                                    // Vehicule 3 & 5 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi3.setX(routeB);
+                                        vehiculeEnnemi5.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi3.setMove(true);
+                                    vehiculeEnnemi5.setMove(true);
+
+                                    break;
+                                case 5:
+                                    // Vehicule 3 & 6 !
+
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi3.setX(routeB);
+                                        vehiculeEnnemi6.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi3.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi3.setMove(true);
+                                    vehiculeEnnemi6.setMove(true);
+
+                                    break;
+
+                            }
+
+
+
+                            break;
+                        case 3:
+                            highestEnnemi=4;
+                            // choix 2ème véhicule
+                            for(int i =0 ; i<vehiculeDispo.length;i++){
+                                if(vehiculeDispo[i]){
+                                    cpt2=i;
+                                }
+                            }
+                            vehiculeDispo[cpt2]=false;
+
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt2));
+
+                            switch (cpt2){
+                                case 0:
+                                    // Vehicule 4 & 1 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi4.setX(routeB);
+                                        vehiculeEnnemi1.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi4.setMove(true);
+                                    vehiculeEnnemi1.setMove(true);
+
+
+                                    break;
+                                case 1:
+                                    // Vehicule 4 & 2 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi4.setX(routeB);
+                                        vehiculeEnnemi2.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi4.setMove(true);
+                                    vehiculeEnnemi2.setMove(true);
+
+                                    break;
+                                case 2:
+                                    // Vehicule 4 & 3 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi4.setX(routeB);
+                                        vehiculeEnnemi3.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi4.setMove(true);
+                                    vehiculeEnnemi3.setMove(true);
+
+
+                                    break;
+                                case 3:
+                                    // Vehicule 4 & 4 !
+
+
+                                    break;
+                                case 4:
+                                    // Vehicule 4 & 5 !
+                                    highestEnnemi=1;
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi4.setX(routeB);
+                                        vehiculeEnnemi5.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi4.setMove(true);
+                                    vehiculeEnnemi5.setMove(true);
+
+                                    break;
+                                case 5:
+                                    // Vehicule 5 & 6 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi4.setX(routeB);
+                                        vehiculeEnnemi6.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi4.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi4.setMove(true);
+                                    vehiculeEnnemi6.setMove(true);
+
+                                    break;
+
+                            }
+
+
+                            break;
+                        case 4:
+                            highestEnnemi=5;
+                            // choix 2ème véhicule
+                            for(int i =0 ; i<vehiculeDispo.length;i++){
+                                if(vehiculeDispo[i]){
+                                    cpt2=i;
+                                }
+                            }
+                            vehiculeDispo[cpt2]=false;
+
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt2));
+
+                            switch (cpt2){
+                                case 0:
+                                    // Vehicule 5 & 1 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi5.setX(routeB);
+                                        vehiculeEnnemi1.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi5.setMove(true);
+                                    vehiculeEnnemi1.setMove(true);
+
+
+                                    break;
+                                case 1:
+                                    // Vehicule 5 & 2 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi5.setX(routeB);
+                                        vehiculeEnnemi2.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi5.setMove(true);
+                                    vehiculeEnnemi2.setMove(true);
+
+                                    break;
+                                case 2:
+                                    // Vehicule 5 & 3 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi5.setX(routeB);
+                                        vehiculeEnnemi3.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi5.setMove(true);
+                                    vehiculeEnnemi3.setMove(true);
+
+
+                                    break;
+                                case 3:
+                                    // Vehicule 5 & 4 !
+                                    highestEnnemi=1;
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi5.setX(routeB);
+                                        vehiculeEnnemi4.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi5.setMove(true);
+                                    vehiculeEnnemi4.setMove(true);
+
+                                    break;
+                                case 4:
+                                    // Vehicule 5 & 5 !
+
+
+                                    break;
+                                case 5:
+                                    // Vehicule 5 & 6 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi5.setX(routeB);
+                                        vehiculeEnnemi6.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi5.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi5.setMove(true);
+                                    vehiculeEnnemi6.setMove(true);
+
+                                    break;
+
+                            }
+
+                            break;
+                        case 5:
+                            highestEnnemi=6;
+                            // choix 2ème véhicule
+                            for(int i =0 ; i<vehiculeDispo.length;i++){
+                                if(vehiculeDispo[i]){
+                                    cpt2=i;
+                                }
+                            }
+                            vehiculeDispo[cpt2]=false;
+
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
+                            Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt2));
+
+                            switch (cpt2){
+                                case 0:
+                                    // Vehicule 6 & 1 !
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi1.setX(routeB);
+                                        vehiculeEnnemi6.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi6.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi1.setMove(true);
+                                    vehiculeEnnemi6.setMove(true);
+
+
+                                    break;
+                                case 1:
+                                    // Vehicule 6 & 2 !
+
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi2.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi2.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi2.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi6.setX(routeB);
+                                        vehiculeEnnemi2.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi2.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi6.setMove(true);
+                                    vehiculeEnnemi2.setMove(true);
+
+                                    break;
+                                case 2:
+                                    // Vehicule 6 & 3 !
+
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi3.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi3.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi3.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi6.setX(routeB);
+                                        vehiculeEnnemi3.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi3.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi6.setMove(true);
+                                    vehiculeEnnemi3.setMove(true);
+
+
+                                    break;
+                                case 3:
+                                    // Vehicule 6 & 4 !
+                                    highestEnnemi=1;
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi4.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi4.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi4.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi6.setX(routeB);
+                                        vehiculeEnnemi4.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi6.setMove(true);
+                                    vehiculeEnnemi4.setMove(true);
+
+                                    break;
+                                case 4:
+                                    // Vehicule 6 & 5 !
+
+                                    distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
+
+                                    if (distanceEntreVehiculesRand < 25) {
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi5.setY(distanceEntreVehicules1);
+                                    } else {
+                                        if (distanceEntreVehiculesRand < 50) {
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi5.setY(distanceEntreVehicules2);
+                                        } else {
+                                            if (distanceEntreVehiculesRand < 75) {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules3);
+                                            } else {
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi5.setY(distanceEntreVehicules4);
+                                            }
+                                        }
+                                    }
+
+                                    positionnementV1X = (int) (Math.random() * (100 + 1));
+
+                                    if (positionnementV1X < 33) {
+                                        vehiculeEnnemi6.setX(routeB);
+                                        vehiculeEnnemi5.setX(routeM);
+
+                                    } else {
+                                        if (positionnementV1X < 66) {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeB);
+                                        } else {
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi5.setX(routeM);
+
+                                        }
+                                    }
+
+                                    vehiculeEnnemi6.setMove(true);
+                                    vehiculeEnnemi5.setMove(true);
+
+                                    break;
+                                case 5:
+                                    // Vehicule 6 & 6 !
+                                    break;
+
+                            }
+
+
+                            break;
+
+                    }
                     break;
                 case 2:
 
@@ -1058,55 +2569,54 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 default:
                     break;
             }
+            stratEnnemiDone[colonneEnnemiAVenir]=false;
             newColonne=false;
         }
 
 
         switch (highestEnnemi){
             case 1:
-                if(vehiculeEnnemi1.getX()>vehiculeEnnemi1.getvehiculeEnnemiH()){
+                if(vehiculeEnnemi1.getY()>vehiculeEnnemi1.getvehiculeEnnemiH()){
                     newColonne=true;
-                    colonneEnnemiAvenir++;
+                    colonneEnnemiAVenir++;
                 }
                 break;
             case 2:
-                if(vehiculeEnnemi2.getX()>vehiculeEnnemi2.getvehiculeEnnemiH()){
+                if(vehiculeEnnemi2.getY()>vehiculeEnnemi2.getvehiculeEnnemiH()){
                     newColonne=true;
-                    colonneEnnemiAvenir++;
+                    colonneEnnemiAVenir++;
                 }
                 break;
             case 3:
-                if(vehiculeEnnemi3.getX()>vehiculeEnnemi3.getvehiculeEnnemiH()){
+                if(vehiculeEnnemi3.getY()>vehiculeEnnemi3.getvehiculeEnnemiH()){
                     newColonne=true;
-                    colonneEnnemiAvenir++;
+                    colonneEnnemiAVenir++;
                 }
                 break;
             case 4:
-                if(vehiculeEnnemi4.getX()>vehiculeEnnemi4.getvehiculeEnnemiH()){
+                if(vehiculeEnnemi4.getY()>vehiculeEnnemi4.getvehiculeEnnemiH()){
                     newColonne=true;
-                    colonneEnnemiAvenir++;
+                    colonneEnnemiAVenir++;
                 }
                 break;
             case 5:
-                if(vehiculeEnnemi5.getX()>vehiculeEnnemi5.getvehiculeEnnemiH()){
+                if(vehiculeEnnemi5.getY()>vehiculeEnnemi5.getvehiculeEnnemiH()){
                     newColonne=true;
-                    colonneEnnemiAvenir++;
+                    colonneEnnemiAVenir++;
                 }
                 break;
             case 6:
-                if(vehiculeEnnemi6.getX()>vehiculeEnnemi6.getvehiculeEnnemiH()){
+                if(vehiculeEnnemi6.getY()>vehiculeEnnemi6.getvehiculeEnnemiH()){
                     newColonne=true;
-                    colonneEnnemiAvenir++;
+                    colonneEnnemiAVenir++;
                 }
+                break;
+            default:
                 break;
         }
 
-        if(colonneEnnemiAvenir==NBENNEMIPARCOLONNEMAX){
-            colonneEnnemiAvenir=0;
-            for(int i=0;i<stratEnnemiDone.length;i++){
-                stratEnnemiDone[i]=false;
-            }
-
+        if(colonneEnnemiAVenir==NBENNEMIPARCOLONNEMAX){
+            colonneEnnemiAVenir=0;
         }
 
 
@@ -1316,6 +2826,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         vehicule.resize(w,h); // on définit la taille de la vehicule selon la taille de l'écran
         carburant.resize(w,h);
         vehiculeEnnemi1.resize(w,h);
+        vehiculeEnnemi2.resize(w,h);
+        vehiculeEnnemi3.resize(w,h);
+        vehiculeEnnemi4.resize(w,h);
+        vehiculeEnnemi5.resize(w,h);
+        vehiculeEnnemi6.resize(w,h);
+
     }
 
 } // class GameView
