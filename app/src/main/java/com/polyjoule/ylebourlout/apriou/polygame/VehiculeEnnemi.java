@@ -117,7 +117,7 @@ public class VehiculeEnnemi {
     }
 
     // déplace la vehiculeEnnemi en détectant les collisions avec les bords de l'écran
-    public void moveDroiteGauche()
+    public void moveHautBas()
     {
 
         if(!move) {return;}

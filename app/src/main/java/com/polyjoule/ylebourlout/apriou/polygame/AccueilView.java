@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -73,15 +72,13 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
             solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW), false);
             cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
-            Log.d("titreWidth",Integer.toString((BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth())));
-            Log.d("titreH",Integer.toString((BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())));
             titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
             cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache),(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/cvH),cvH-solBitmap.getHeight(),false);
             gameBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), cvW/3, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(cvW/3))/16, false);
             socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), cvW/3, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(cvW/3))/16, false);
             palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), cvW/3,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(cvW/3))/16, false);
 
-
+            
             pointillesF.setX(cvW/2-pointillesF.getpointillesW()/2);
             pointillesF.setY(cvH-pointillesF.getpointillesH());
             pointillesF.setMove(false);

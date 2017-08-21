@@ -48,6 +48,8 @@ public class Game extends Activity {
     public final static double RATIOSTART=2.08;
     public final static int DUREEAFFICHAGETOTALPANNEAUX=12;
     public final static int DUREEEXPLOFINAL=70;
+    public final static int NBENNEMIPARCOLONNEMAX=3;
+    public final static int NBVEHICULESENNEMIS=6;
     private static MediaPlayer fondSonore = null;
     public static Boolean alertDialogDone = false;
     public static int highScore = -1;
