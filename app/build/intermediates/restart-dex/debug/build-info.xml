@@ -6,22 +6,22 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.0"
-    timestamp="1503411592267"
+    timestamp="1503413293982"
     token="-7094247047149059542"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1221" />
+        duration="3714" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="52" />
+        duration="277" />
     <task
         name="verifier"
-        duration="36" />
+        duration="96" />
 
     <artifact
         location="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
@@ -32,7 +32,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1503411050644"
+        timestamp="1503412866557"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/outputs/apk/app-debug.apk"
@@ -73,7 +73,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1503411472591"
+        timestamp="1503413068796"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/outputs/apk/app-debug.apk"
@@ -81,7 +81,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1503411592267"
+        timestamp="1503413293982"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/split-apk/debug/slices/slice_9.apk"

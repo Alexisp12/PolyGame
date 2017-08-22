@@ -27,7 +27,7 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.pause;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.users;
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.userInfo;
 
 /**
  * Created by Alexis on 19/07/2017.

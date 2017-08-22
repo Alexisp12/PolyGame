@@ -355,6 +355,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 }
                 if(currentX>posXparamButton && currentX<posXparamButton+longueurButton && currentY>posYparamButton && currentY<posYparamButton+longueurButton){
                     // start parameters
+                    stopMenu=true;
                     cacheBitmap.recycle();
                     solBitmap.recycle();
                     gameBitmap.recycle();

@@ -1,4 +1,4 @@
-#Tue Aug 22 15:11:04 BST 2017
+#Tue Aug 22 15:41:39 BST 2017
 base.0=/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_0739847f03cf9dc669956b3c09e9eaa88589c0a1
 renamed.1=classes.dex
 renamed.0=classes2.dex

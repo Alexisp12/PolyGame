@@ -22,10 +22,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.SETS;
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.databaseReference;
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.firebaseAuth;
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.SETS;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.databaseReference;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.firebaseAuth;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.userInfo;
 
 
 /**

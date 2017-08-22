@@ -19,9 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.SETS;
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.databaseReference;
-import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.SETS;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.databaseReference;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.userInfo;
 
 /**
  * Created by Alexis on 20/07/2017.
