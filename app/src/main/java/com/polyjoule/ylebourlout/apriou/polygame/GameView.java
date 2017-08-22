@@ -25,6 +25,7 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Game.NBVEHICULESENNEMIS;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.pause;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.users;
 import static com.polyjoule.ylebourlout.apriou.polygame.Menu.userInfo;
 
@@ -37,11 +38,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private GameLoopThread gameLoopThread;
     private VehiculePlayer vehicule;
     private VehiculeEnnemi vehiculeEnnemi1;
-    private VehiculeEnnemi vehiculeEnnemi2;
-    private VehiculeEnnemi vehiculeEnnemi3;
-    private VehiculeEnnemi vehiculeEnnemi4;
+    private VehiculeEnnemi2 vehiculeEnnemi2;
+    private VehiculeEnnemi3 vehiculeEnnemi3;
+    private VehiculeEnnemi4 vehiculeEnnemi4;
     private VehiculeEnnemi vehiculeEnnemi5;
-    private VehiculeEnnemi vehiculeEnnemi6;
+    private VehiculeEnnemi2 vehiculeEnnemi6;
     private Carburant carburant;
     private Boolean canMoveVehicule=false;
     private Boolean initialisation=false;
@@ -87,7 +88,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int dureeAffichageGO=DUREEAFFICHAGEGO;
     private Boolean baisseCarburant=false;
     private Boolean start=false;
-    private Boolean pause=false;
     private Boolean perdu=false;
     private Boolean toastHSdone=false;
     private String textStart="Cliquez pour commencer";
@@ -131,6 +131,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Bitmap goBitmap;
     private Bitmap touchtostartBitmap;
     private Bitmap tableauScoreBitmap;
+    private Bitmap brokenBitmap;
     private Boolean[] stratEnnemiDone; // Une case par rang sur l'écran
     private int [] stratEnnemi;
     private int randomStrat;
@@ -157,11 +158,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         vehicule = new VehiculePlayer(this.getContext());
         carburant = new Carburant (this.getContext());
         vehiculeEnnemi1 = new VehiculeEnnemi(this.getContext());
-        vehiculeEnnemi2 = new VehiculeEnnemi(this.getContext());
-        vehiculeEnnemi3 = new VehiculeEnnemi(this.getContext());
-        vehiculeEnnemi4 = new VehiculeEnnemi(this.getContext());
+        vehiculeEnnemi2 = new VehiculeEnnemi2(this.getContext());
+        vehiculeEnnemi3 = new VehiculeEnnemi3(this.getContext());
+        vehiculeEnnemi4 = new VehiculeEnnemi4(this.getContext());
         vehiculeEnnemi5 = new VehiculeEnnemi(this.getContext());
-        vehiculeEnnemi6 = new VehiculeEnnemi(this.getContext());
+        vehiculeEnnemi6 = new VehiculeEnnemi2(this.getContext());
 
 
         stratEnnemiDone = new Boolean [NBENNEMIPARCOLONNEMAX];
@@ -201,6 +202,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         float dp6=12f;
         float dp7=9f;
         float dp8=25f;
+        float dp9=22f;
+        float fpixels9=metrics.density*dp9;
         float fpixels8=metrics.density*dp8;
         float fpixels7=metrics.density*dp7;
         float fpixels6=metrics.density*dp6;
@@ -217,12 +220,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         int pixels6=(int) (fpixels6+0.5f);
         int pixels7=(int) (fpixels7+0.5f);
         int pixels8 = (int) (fpixels8 + 0.5f);
+        int pixels9=(int) (fpixels9+0.5f);
         cvH = canvas.getHeight();
         cvW = canvas.getWidth();
 
-        routeH=5*cvW/16-pixels8;
+        routeH=5*cvW/16-pixels9;
         routeM=cvW/2-pixels8;
-        routeB=43*cvW/64-pixels8;
+        routeB=43*cvW/64-pixels9;
 
         if(bg!=null) {
             bg.draw(canvas);
@@ -297,6 +301,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 goBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.go), longueurStart, bordStartB - bordStartH, false);
                 touchtostartBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart), longueurStart, bordStartB - bordStartH, false);
                 tableauScoreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.finish), longueurTableau, bordTableauBas - bordTableauHaut, false);
+                brokenBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.broken), vehicule.getvehiculePlayerW(), vehicule.getvehiculePlayerH(), false);
+
                 gestionBitmap=true;
             }
 //            cinqdraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
@@ -498,61 +504,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         // Vehicule player
-        vehicule.draw(canvas);
+        if(!collisionVehicule) {
+            vehicule.draw(canvas);
+        }
 
-
-//        if(depart){
-//
-//            dureeAffichagePanneaux++;
-//
-//            if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX){
-//                Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.cinq);
-//                startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
-//                startDraw.draw(canvas);
-//            } else {
-//                if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*2){
-//                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.quatre);
-//                    startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
-//                    startDraw.draw(canvas);
-//                } else {
-//                    if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*3){
-//                        Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.trois);
-//                        startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
-//                        startDraw.draw(canvas);
-//                    } else {
-//                        if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*4){
-//                            Drawable startDraw = ContextCompat.getDrawable(this.getContext(),R.drawable.deux);
-//                            startDraw.setBounds(bordStartG,bordStartH,bordStartD,bordStartB);
-//                            startDraw.draw(canvas);
-//                        } else {
-//                            if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*5) {
-//                                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.un);
-//                                startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
-//                                startDraw.draw(canvas);
-//                            } else {
-//                                if(dureeAffichagePanneaux<DUREEAFFICHAGETOTALPANNEAUX*6) {
-//                                    Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.gooooo);
-//                                    startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
-//                                    startDraw.draw(canvas);
-//                                } else {
-//                                    start = true;
-//                                    Game.startMusique();
-//                                    depart=false;
-//                                    dureeAffichagePanneaux=0;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        } else {
-//            if(!start) {
-//                Drawable startDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.start);
-//                //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
-//                startDraw.setBounds(bordStartG, bordStartH, bordStartD, bordStartB);
-//                startDraw.draw(canvas);
-//            }
-//        }
 
         // Image resize
         if(depart){
@@ -636,9 +591,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(collisionVehicule){
             Game.pauseMusique();
             if(dureeExplo!=DUREEEXPLOFINAL) {
-                Drawable explo = ContextCompat.getDrawable(this.getContext(), R.drawable.explo);
-                explo.setBounds(vehicule.getX()-vehicule.getvehiculePlayerH()/2,vehicule.getY()-vehicule.getvehiculePlayerH()/2,vehicule.getX()+vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerH()/2,vehicule.getY()+3*vehicule.getvehiculePlayerH()/2);
-                explo.draw(canvas);
+//                Drawable explo = ContextCompat.getDrawable(this.getContext(), R.drawable.explo);
+//                explo.setBounds(vehicule.getX()-vehicule.getvehiculePlayerH()/2,vehicule.getY()-vehicule.getvehiculePlayerH()/2,vehicule.getX()+vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerH()/2,vehicule.getY()+3*vehicule.getvehiculePlayerH()/2);
+//                explo.draw(canvas);
+                canvas.drawBitmap(brokenBitmap,vehicule.getX(),vehicule.getY(),null);
                 dureeExplo++;
             } else {
                 perdu=true;
@@ -699,6 +655,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 //
 //            goDraw.setBounds(bordTableauGauche,bordTableauHaut,bordTableauDroit,bordTableauBas);
 //            goDraw.draw(canvas);
+
+            canvas.drawBitmap(brokenBitmap,vehicule.getX(),vehicule.getY(),null);
 
             canvas.drawBitmap(tableauScoreBitmap,bordTableauGauche,bordTableauHaut,null);
 
@@ -800,7 +758,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(start) {
             if(!pause) {
                 if(!perdu) {
-                    refreshScore++;
+                    if(!collisionVehicule) {
+                        refreshScore++;
+                    }
                 }
             }
             if (refreshScore == 10) {
@@ -2771,6 +2731,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     Game.pauseMusique();
                                 } else {
                                     pause = false;
+                                    bg.setMove(true);
+                                    bg.setVector(-DEPLACEMENTBG);
                                     Game.startMusique();
                                 }
                             } else {

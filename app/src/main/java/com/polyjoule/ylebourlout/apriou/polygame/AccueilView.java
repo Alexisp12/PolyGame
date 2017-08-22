@@ -4,9 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.os.Debug;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.text.DecimalFormat;
 
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.FREQUENCEZOOMNANTES;
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.INCREMENTROTATENANTES;
@@ -41,7 +45,8 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private Bitmap paramBitmap;
     private Boolean monteePanneauNantes=false;
     private Boolean roadStarted=false;
-
+    private Boolean uploadBitmap=true;
+    private Boolean stopMenu=false;
     private int nbZoom=0;
     private int positionYtitre;
     private int positionXtitre;
@@ -56,6 +61,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private int posYsocialButton;
     private int longueurButton;
     private int longueurButtonParam;
+    private int showStorage=0;
 
 
 
@@ -80,8 +86,11 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     // Fonction qui "dessine" un écran de jeu
     public void doDraw(Canvas canvas) {
         if(canvas==null) {return;}
+
+        if(stopMenu){return;}
         cvH = canvas.getHeight();
         cvW = canvas.getWidth();
+
 
         if(!initialisation) {
 
@@ -90,7 +99,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
             solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW), false);
             //cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
-           // solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())*(cvW/BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()), false);
+            // solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())*(cvW/BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()), false);
 
             titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
             cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache),(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/cvH),cvH-solBitmap.getHeight(),false);
@@ -145,13 +154,16 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         if(monteePanneauNantes) {
             panneauNantes.draw(canvas);
 
+
             canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
 
             if (panneauNantes.getY() + panneauNantes.getpanneauNantesH() <= (cvH- 17 * solBitmap.getHeight() / 20)) {
                 monteePanneauNantes=false;
                 nbZoom=0;
             }
         } else {
+
             canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
 
             if(panneauNantes.isMoving()) {
@@ -188,6 +200,8 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
         pointillesF.draw(canvas);
         pointillesS.draw(canvas);
+
+
         canvas.drawBitmap(cacheBitmap,cvW/2-cacheBitmap.getWidth()/2,0,null);
 
         vehiculeAccueil.draw(canvas);
@@ -216,12 +230,29 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         canvas.drawBitmap(paramBitmap,posXparamButton,posYparamButton,null);
 
 
-
     }
 
     // Fonction appelée par la boucle principale (accueilLoopThread)
     // On gère ici le déplacement des objets
     public void update() {
+
+        if(stopMenu){return;}
+
+        // gestion mémoire
+        if(showStorage%50==0) {
+            Double allocated = new Double(Debug.getNativeHeapAllocatedSize()) / new Double((1048576));
+            Double available = new Double(Debug.getNativeHeapSize()) / new Double((1048576));
+            Double free = new Double(Debug.getNativeHeapFreeSize()) / new Double((1048576));
+            DecimalFormat df = new DecimalFormat();
+            df.setMaximumFractionDigits(2);
+            df.setMinimumFractionDigits(2);
+            Log.d("allocated", Double.toString(allocated));
+            Log.d("available", Double.toString(available));
+            Log.d("free", Double.toString(free));
+            showStorage++;
+        } else {
+            showStorage++;
+        }
 
         vehiculeAccueil.avance();
 
@@ -247,6 +278,8 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         if(pointillesS.getY()>cvH){
             pointillesS.setY(pointillesF.getY() - pointillesS.getpointillesH());
         }
+
+        ///uploadBitmap=true;
 
     }
 
@@ -299,10 +332,21 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             case MotionEvent.ACTION_DOWN:
                 if(currentX>posXgameButton && currentX<posXgameButton+longueurButton && currentY>posYgameButton && currentY<posYgameButton+longueurButton){
                     // start game
+
+                    stopMenu=true;
+                    cacheBitmap.recycle();
+                    solBitmap.recycle();
+                    gameBitmap.recycle();
+                    palmaresBitmap.recycle();
+                    paramBitmap.recycle();
+                    socialBitmap.recycle();
+                    cacheBitmap.recycle();
                     Accueil.game();
+
                 }
                 if(currentX>posXsocialButton && currentX<posXsocialButton+longueurButton && currentY>posYsocialButton && currentY<posYsocialButton+longueurButton){
                     // start social
+
                     Accueil.social();
                 }
                 if(currentX>posXpalmaresButton && currentX<posXpalmaresButton+longueurButton && currentY>posYpalmaresButton && currentY<posYpalmaresButton+longueurButton){
@@ -311,6 +355,13 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 }
                 if(currentX>posXparamButton && currentX<posXparamButton+longueurButton && currentY>posYparamButton && currentY<posYparamButton+longueurButton){
                     // start parameters
+                    cacheBitmap.recycle();
+                    solBitmap.recycle();
+                    gameBitmap.recycle();
+                    palmaresBitmap.recycle();
+                    paramBitmap.recycle();
+                    socialBitmap.recycle();
+                    cacheBitmap.recycle();
                     Accueil.param();
                 }
 

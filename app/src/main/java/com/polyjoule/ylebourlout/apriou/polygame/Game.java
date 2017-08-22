@@ -50,6 +50,7 @@ public class Game extends Activity {
     public final static int DUREEEXPLOFINAL=70;
     public final static int NBENNEMIPARCOLONNEMAX=3;
     public final static int NBVEHICULESENNEMIS=6;
+    public static Boolean pause=false;
     private static MediaPlayer fondSonore = null;
     public static Boolean alertDialogDone = false;
     public static int highScore = -1;
@@ -147,8 +148,8 @@ public class Game extends Activity {
     public void onPause() {
         super.onPause();
         if (fondSonore != null) {
-            fondSonore.stop();
-            fondSonore.release();
+            pause=true;
+            fondSonore.pause();
         }
     }
 
