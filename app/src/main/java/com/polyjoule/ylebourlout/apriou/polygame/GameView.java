@@ -1936,7 +1936,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                             vehiculeEnnemi4.setX(routeH);
                                             vehiculeEnnemi3.setX(routeB);
                                         } else {
-                                            vehiculeEnnemi1.setX(routeH);
+                                            vehiculeEnnemi4.setX(routeH);
                                             vehiculeEnnemi3.setX(routeM);
 
                                         }
@@ -2331,7 +2331,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                             vehiculeEnnemi6.setX(routeB);
                                         } else {
                                             vehiculeEnnemi1.setX(routeH);
-                                            vehiculeEnnemi1.setX(routeM);
+                                            vehiculeEnnemi6.setX(routeM);
 
                                         }
                                     }
