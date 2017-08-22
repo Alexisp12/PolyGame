@@ -80,7 +80,7 @@ public class VehiculeEnnemi3 {
 
         //vehiculeEnnemiH=11*hScreen/64; // 6  pour vehiculeplayer
         //vehiculeEnnemiW=vehiculeEnnemiH / (BitmapFactory.decodeResource(mContext.getResources(), R.drawable.aalborg).getHeight()/BitmapFactory.decodeResource(mContext.getResources(), R.drawable.aalborg).getWidth()); ///((int)Math.round(vehiculeEnnemiH/RATIO));
-        vehiculeEnnemiH=3*vehiculeEnnemiW * (BitmapFactory.decodeResource(mContext.getResources(), R.drawable.frone).getHeight()/BitmapFactory.decodeResource(mContext.getResources(), R.drawable.frone).getWidth())/2; ///((int)Math.round(vehiculeEnnemiH/RATIO));
+        vehiculeEnnemiH=7*vehiculeEnnemiW * (BitmapFactory.decodeResource(mContext.getResources(), R.drawable.frone).getHeight()/BitmapFactory.decodeResource(mContext.getResources(), R.drawable.frone).getWidth())/4; ///((int)Math.round(vehiculeEnnemiH/RATIO));
 
 
 

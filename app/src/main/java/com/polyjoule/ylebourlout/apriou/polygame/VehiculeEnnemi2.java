@@ -2,7 +2,6 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -29,7 +28,7 @@ public class VehiculeEnnemi2 {
     private static final int INCREMENT = VITESSEDEPLACEMENTENNEMI;
     private int speedX=INCREMENT, speedY=INCREMENT;
     private Boolean switchDirection=false;
-    private final double RATIO=1.8;
+    private final double RATIO=2.6;
 
     // contexte de l'application Android
     // il servira à accéder aux ressources, dont l'image du vehiculeEnnemi
@@ -74,12 +73,8 @@ public class VehiculeEnnemi2 {
 //        Log.d("ratio",Double.toString(ratio));
 
         // on définit (au choix) la taille du vehiculeEnnemi
-        vehiculeEnnemiW= cvW/8;
-
-        //vehiculeEnnemiH=11*hScreen/64; // 6  pour vehiculeplayer
-        //vehiculeEnnemiW=vehiculeEnnemiH / (BitmapFactory.decodeResource(mContext.getResources(), R.drawable.aalborg).getHeight()/BitmapFactory.decodeResource(mContext.getResources(), R.drawable.aalborg).getWidth()); ///((int)Math.round(vehiculeEnnemiH/RATIO));
-        vehiculeEnnemiH=vehiculeEnnemiW * (BitmapFactory.decodeResource(mContext.getResources(), R.drawable.aalborg).getHeight()/BitmapFactory.decodeResource(mContext.getResources(), R.drawable.aalborg).getWidth()); ///((int)Math.round(vehiculeEnnemiH/RATIO));
-
+        vehiculeEnnemiH=11*hScreen/64; // 6  pour vehiculeplayer
+        vehiculeEnnemiW=((int)Math.round(vehiculeEnnemiH/RATIO));
 
 
 
