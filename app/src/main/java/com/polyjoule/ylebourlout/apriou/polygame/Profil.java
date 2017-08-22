@@ -48,6 +48,7 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
         signout.setOnClickListener(this);
 
         //getting the current logged in user
+
         final FirebaseUser usr = firebaseAuth.getCurrentUser();
 
 

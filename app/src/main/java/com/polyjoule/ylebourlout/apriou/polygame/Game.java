@@ -55,7 +55,7 @@ public class Game extends Activity {
     public static int highScore = -1;
     public static Toast toast;
     public static int rangJoueur;
-
+    private static Activity mActivity;
 
     //firebase auth object
     //private static FirebaseAuth firebaseAuth;
@@ -79,6 +79,7 @@ public class Game extends Activity {
 
         context = this.getApplicationContext();
         This = this;
+        mActivity=this;
 
         fondSonore = null;
         playSound(R.raw.son);
@@ -116,8 +117,9 @@ public class Game extends Activity {
             fondSonore.stop();
         }
         fondSonore = null;
-        gameView = null;
+        //gameView = null;
 
+        mActivity.finish();
         Intent restart = new Intent(This, Game.class);
         This.startActivity(restart);
     }
