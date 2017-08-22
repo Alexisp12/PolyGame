@@ -34,7 +34,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private Pointilles pointillesS;
     private PanneauNantes panneauNantes;
     private VehiculeAccueil vehiculeAccueil;
-    private FondAccueil fond;
+    //private FondAccueil fond;
     private Bitmap solBitmap;
     private Bitmap cielBitmap;
     private Bitmap titreBitmap;
@@ -98,8 +98,8 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             longueurButtonParam=cvW/8;
 
             solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW), false);
-            //cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
-            // solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())*(cvW/BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()), false);
+            cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
+            //solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())*(cvW/BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()), false);
 
             titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
             cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache),(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/cvH),cvH-solBitmap.getHeight(),false);
@@ -145,11 +145,11 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             pointillesF.setMove(true);
         }
 
-        //canvas.drawBitmap(cielBitmap,0,0,null);
+        canvas.drawBitmap(cielBitmap,0,0,null);
 
-        if(fond!=null){
-            fond.draw(canvas);
-        }
+//        if(fond!=null){
+//            fond.draw(canvas);
+//        }
 
         if(monteePanneauNantes) {
             panneauNantes.draw(canvas);
@@ -292,7 +292,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 //        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bgBm, getWidth(), getHeight(), false);
 //        WIDTHBG = resizedBitmap.getWidth();
 //        bg = new SpaceBackground(resizedBitmap);
-        fond = new FondAccueil(BitmapFactory.decodeResource(getResources(), R.drawable.ciel));;
+        //fond = new FondAccueil(BitmapFactory.decodeResource(getResources(), R.drawable.ciel));;
 
 
         if(accueilLoopThread.getState()==Thread.State.TERMINATED) {
@@ -341,6 +341,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                     paramBitmap.recycle();
                     socialBitmap.recycle();
                     cacheBitmap.recycle();
+                    cielBitmap.recycle();
                     Accueil.game();
 
                 }
@@ -363,6 +364,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                     paramBitmap.recycle();
                     socialBitmap.recycle();
                     cacheBitmap.recycle();
+                    cielBitmap.recycle();
                     Accueil.param();
                 }
 
