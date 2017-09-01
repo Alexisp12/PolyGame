@@ -42,6 +42,9 @@ public class Game extends Activity {
     public final static int PERTECARBURANT = 6; // En pourcentage !!! anciennement 2
     public final static int DEPLACEMENTBG = 9;
     public final static int VITESSEDEPLACEMENTENNEMI=7;
+    public final static int VITESSEDEPLACEMENTENNEMI2=VITESSEDEPLACEMENTENNEMI;//+VITESSEDEPLACEMENTENNEMI/2;
+    public final static int VITESSEDEPLACEMENTENNEMI3=VITESSEDEPLACEMENTENNEMI;//-VITESSEDEPLACEMENTENNEMI;
+    public final static int VITESSEDEPLACEMENTENNEMI4=VITESSEDEPLACEMENTENNEMI;//+3*VITESSEDEPLACEMENTENNEMI/4;
     public final static int DUREEAFFICHAGEGO = 100;
     public final static int COEFVEHICULESEVITES=10;
     public final static double RATIOTABLEAUSCORE=1.7;

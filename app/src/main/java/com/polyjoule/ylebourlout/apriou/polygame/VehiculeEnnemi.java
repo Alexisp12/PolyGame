@@ -28,7 +28,7 @@ public class VehiculeEnnemi {
     private static final int INCREMENT = VITESSEDEPLACEMENTENNEMI;
     private int speedX=INCREMENT, speedY=INCREMENT;
     private Boolean switchDirection=false;
-    private final double RATIO=1.8;
+    private final double RATIO=2.6;
 
     // contexte de l'application Android
     // il servira à accéder aux ressources, dont l'image du vehiculeEnnemi
@@ -81,7 +81,7 @@ public class VehiculeEnnemi {
         //d=null;
 
 
-        img = setImage(mContext,R.drawable.vehiculeennemi,vehiculeEnnemiW,vehiculeEnnemiH); //vehiculeEnnemi3
+        img = setImage(mContext,R.drawable.twente,vehiculeEnnemiW,vehiculeEnnemiH); //vehiculeEnnemi3
 
 
     }
@@ -152,5 +152,10 @@ public class VehiculeEnnemi {
     }
     public boolean getisOnIt(){
         return isOnItBool;
+    }
+
+
+    public void setVitesse (int vitesse){
+        speedY=vitesse;
     }
 }

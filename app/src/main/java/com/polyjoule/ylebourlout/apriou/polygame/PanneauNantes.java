@@ -203,6 +203,10 @@ public class PanneauNantes {
         }
     }
 
+    public void setVitesse (int vitesse){
+        speedY=vitesse;
+    }
+
     public void isOnIt(boolean bool){
         isOnItBool= bool;
     }

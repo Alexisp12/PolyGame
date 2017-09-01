@@ -192,4 +192,8 @@ public class Carburant {
     public boolean getisOnIt(){
         return isOnItBool;
     }
+
+    public void setVitesse (int vitesse){
+        speedY=vitesse;
+    }
 }

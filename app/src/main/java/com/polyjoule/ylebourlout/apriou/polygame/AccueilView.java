@@ -97,17 +97,47 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             longueurButton=cvW/3;
             longueurButtonParam=cvW/8;
 
-            solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW), false);
+
             cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
-            //solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight())*(cvW/BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()), false);
 
-            titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
-            cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache),(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/cvH),cvH-solBitmap.getHeight(),false);
-            gameBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(longueurButton))/16, false);
-            socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton))/16, false);
-            palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))/16, false);
-            paramBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam,14* (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()/(longueurButtonParam))/16, false);
+            if(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW<1){
+                solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight()) * (cvW/BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()), false);
+            } else {
+                solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth() / cvW), false);
+            }
+            if(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)<1){
+                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
+            } else {
+                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)),false);
+            }
 
+            if(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/(cvH-solBitmap.getHeight())<1) {
+                cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache), (BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth()) * (cvH-solBitmap.getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()), cvH - solBitmap.getHeight(), false);
+            } else {
+                cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache), (BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth()) / (BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight() / (cvH-solBitmap.getHeight())), cvH - solBitmap.getHeight(), false);
+            }
+
+            if((BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(longueurButton)<1)) {
+                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() ) / 16, false);
+            } else {
+                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() / (longueurButton)) / 16, false);
+            }
+            if((BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton)<1)) {
+                socialBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth() ) / 16, false);
+            } else {
+                socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton))/16, false);
+            }
+            if((BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))<1) {
+                palmaresBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth() ) / 16, false);
+            } else {
+                palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))/16, false);
+            }
+
+            if((BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()/(longueurButtonParam))<1){
+                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 15 * ( (longueurButtonParam) / BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()) / 16, false);
+            } else {
+                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 15 * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth() / (longueurButtonParam)) / 16, false);
+            }
 
             pointillesF.setX(cvW/2-pointillesF.getpointillesW()/2);
             pointillesF.setY(cvH-pointillesF.getpointillesH());
@@ -150,6 +180,8 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 //        if(fond!=null){
 //            fond.draw(canvas);
 //        }
+
+        if(stopMenu){return;}
 
         if(monteePanneauNantes) {
             panneauNantes.draw(canvas);
@@ -228,6 +260,12 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         canvas.drawBitmap(socialBitmap,posXsocialButton,posYsocialButton,null);
 
         canvas.drawBitmap(paramBitmap,posXparamButton,posYparamButton,null);
+
+
+        pointillesF.setVitesse(cvW/200);
+        pointillesS.setVitesse(cvW/200);
+        panneauNantes.setVitesse(cvW/200);
+        vehiculeAccueil.setVitesse(cvW/400);
 
 
     }
@@ -333,15 +371,24 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 if(currentX>posXgameButton && currentX<posXgameButton+longueurButton && currentY>posYgameButton && currentY<posYgameButton+longueurButton){
                     // start game
 
+                    cacheBitmap=null;
+                    solBitmap=null;
+                    gameBitmap=null;
+                    palmaresBitmap=null;
+                    paramBitmap=null;
+                    socialBitmap=null;
+                    cacheBitmap=null;
+                    cielBitmap=null;
                     stopMenu=true;
-                    cacheBitmap.recycle();
-                    solBitmap.recycle();
-                    gameBitmap.recycle();
-                    palmaresBitmap.recycle();
-                    paramBitmap.recycle();
-                    socialBitmap.recycle();
-                    cacheBitmap.recycle();
-                    cielBitmap.recycle();
+ //                   .finish();
+//                    cacheBitmap.recycle();
+//                    solBitmap.recycle();
+//                    gameBitmap.recycle();
+//                    palmaresBitmap.recycle();
+//                    paramBitmap.recycle();
+//                    socialBitmap.recycle();
+//                    cacheBitmap.recycle();
+//                    cielBitmap.recycle();
                     Accueil.game();
 
                 }
@@ -356,15 +403,23 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 }
                 if(currentX>posXparamButton && currentX<posXparamButton+longueurButton && currentY>posYparamButton && currentY<posYparamButton+longueurButton){
                     // start parameters
+                    cacheBitmap=null;
+                    solBitmap=null;
+                    gameBitmap=null;
+                    palmaresBitmap=null;
+                    paramBitmap=null;
+                    socialBitmap=null;
+                    cacheBitmap=null;
+                    cielBitmap=null;
                     stopMenu=true;
-                    cacheBitmap.recycle();
-                    solBitmap.recycle();
-                    gameBitmap.recycle();
-                    palmaresBitmap.recycle();
-                    paramBitmap.recycle();
-                    socialBitmap.recycle();
-                    cacheBitmap.recycle();
-                    cielBitmap.recycle();
+//                    cacheBitmap.recycle();
+//                    solBitmap.recycle();
+//                    gameBitmap.recycle();
+//                    palmaresBitmap.recycle();
+//                    paramBitmap.recycle();
+//                    socialBitmap.recycle();
+//                    cacheBitmap.recycle();
+//                    cielBitmap.recycle();
                     Accueil.param();
                 }
 

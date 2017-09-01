@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
-import static com.polyjoule.ylebourlout.apriou.polygame.Game.VITESSEDEPLACEMENTENNEMI;
+import static com.polyjoule.ylebourlout.apriou.polygame.Game.VITESSEDEPLACEMENTENNEMI2;
 import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvH;
 import static com.polyjoule.ylebourlout.apriou.polygame.GameView.cvW;
 
@@ -25,7 +25,7 @@ public class VehiculeEnnemi2 {
     int exPosy=0;
     private boolean isOnItBool=false;
     // pour déplacer la vehiculeEnnemi on ajoutera INCREMENT à ses coordonnées x et y
-    private static final int INCREMENT = VITESSEDEPLACEMENTENNEMI;
+    private static final int INCREMENT = VITESSEDEPLACEMENTENNEMI2;
     private int speedX=INCREMENT, speedY=INCREMENT;
     private Boolean switchDirection=false;
     private final double RATIO=2.6;
@@ -149,5 +149,9 @@ public class VehiculeEnnemi2 {
     }
     public boolean getisOnIt(){
         return isOnItBool;
+    }
+
+    public void setVitesse (int vitesse){
+        speedY=vitesse;
     }
 }

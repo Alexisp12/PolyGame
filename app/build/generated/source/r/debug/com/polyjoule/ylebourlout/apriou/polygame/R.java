@@ -2427,8 +2427,8 @@ containing a value of this type.
         public static final int notification_bg_normal=0x7f020096;
         public static final int notification_bg_normal_pressed=0x7f020097;
         public static final int notification_icon_background=0x7f020098;
-        public static final int notification_template_icon_bg=0x7f0200a8;
-        public static final int notification_template_icon_low_bg=0x7f0200a9;
+        public static final int notification_template_icon_bg=0x7f0200aa;
+        public static final int notification_template_icon_low_bg=0x7f0200ab;
         public static final int notification_tile_bg=0x7f020099;
         public static final int notify_panel_notification_icon_bg=0x7f02009a;
         public static final int parameters=0x7f02009b;
@@ -2440,10 +2440,12 @@ containing a value of this type.
         public static final int titre=0x7f0200a1;
         public static final int touchtostart=0x7f0200a2;
         public static final int trois=0x7f0200a3;
-        public static final int un=0x7f0200a4;
-        public static final int vehiculeaccueil=0x7f0200a5;
-        public static final int vehiculeennemi=0x7f0200a6;
-        public static final int vehiculeplayer3=0x7f0200a7;
+        public static final int twente=0x7f0200a4;
+        public static final int un=0x7f0200a5;
+        public static final int vehiculeaccueil=0x7f0200a6;
+        public static final int vehiculeennemi=0x7f0200a7;
+        public static final int vehiculeplayer=0x7f0200a8;
+        public static final int vehiculeplayer3=0x7f0200a9;
     }
     public static final class id {
         public static final int action0=0x7f0c0077;

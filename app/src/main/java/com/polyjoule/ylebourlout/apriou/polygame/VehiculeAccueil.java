@@ -27,7 +27,7 @@ public class VehiculeAccueil {
     private static final int INCREMENT = 2;
     private int speedX = INCREMENT, speedY = INCREMENT;
     private Boolean switchDirection = false;
-    private final double RATIO = 2.6;
+    private final double RATIO = 1.6;
     private Boolean stop=false;
 
     // contexte de l'application Android
@@ -153,7 +153,7 @@ public class VehiculeAccueil {
         if(!move){
             return;
         }
-        if(y<cvH-9*getvehiculeAccueilH()/8){
+        if(y<cvH-9*getvehiculeAccueilH()/8){ // 9 /8
             stop=true;
             return;
         }
@@ -206,4 +206,9 @@ public class VehiculeAccueil {
     public boolean getisOnIt() {
         return isOnItBool;
     }
+
+    public void setVitesse (int vitesse){
+        speedY=vitesse;
+    }
+
 }

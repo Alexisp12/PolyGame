@@ -653,8 +653,8 @@ int drawable notification_bg_low_pressed 0x7f020095
 int drawable notification_bg_normal 0x7f020096
 int drawable notification_bg_normal_pressed 0x7f020097
 int drawable notification_icon_background 0x7f020098
-int drawable notification_template_icon_bg 0x7f0200a8
-int drawable notification_template_icon_low_bg 0x7f0200a9
+int drawable notification_template_icon_bg 0x7f0200aa
+int drawable notification_template_icon_low_bg 0x7f0200ab
 int drawable notification_tile_bg 0x7f020099
 int drawable notify_panel_notification_icon_bg 0x7f02009a
 int drawable parameters 0x7f02009b
@@ -666,10 +666,12 @@ int drawable sol 0x7f0200a0
 int drawable titre 0x7f0200a1
 int drawable touchtostart 0x7f0200a2
 int drawable trois 0x7f0200a3
-int drawable un 0x7f0200a4
-int drawable vehiculeaccueil 0x7f0200a5
-int drawable vehiculeennemi 0x7f0200a6
-int drawable vehiculeplayer3 0x7f0200a7
+int drawable twente 0x7f0200a4
+int drawable un 0x7f0200a5
+int drawable vehiculeaccueil 0x7f0200a6
+int drawable vehiculeennemi 0x7f0200a7
+int drawable vehiculeplayer 0x7f0200a8
+int drawable vehiculeplayer3 0x7f0200a9
 int id action0 0x7f0c0077
 int id action_bar 0x7f0c0057
 int id action_bar_activity_content 0x7f0c0000
