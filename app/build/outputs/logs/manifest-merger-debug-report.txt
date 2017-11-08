@@ -15,8 +15,6 @@ ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/mai
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:5:5-67
-MERGED from [com.koushikdutta.ion:ion:2.2.1] /Users/Alexis/.android/build-cache/daacc42379cbb767a026aeb52599c9eef8054d1c/output/AndroidManifest.xml:11:5-67
-MERGED from [com.koushikdutta.async:androidasync:2.2.1] /Users/Alexis/.android/build-cache/f51594a9a6a7b1b0ee466070de440d7071766951/output/AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:21:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:21:5-67
 MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:21:5-67
@@ -31,8 +29,6 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Alex
 MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/db03e4b176d2a5b4751c82e88138bee0e2305e22/output/AndroidManifest.xml:20:5-21:19
 MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/09ad586530e94c99f88b9a98faf91572c30d3429/output/AndroidManifest.xml:20:5-21:19
 MERGED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:19:5-23:19
-MERGED from [com.koushikdutta.ion:ion:2.2.1] /Users/Alexis/.android/build-cache/daacc42379cbb767a026aeb52599c9eef8054d1c/output/AndroidManifest.xml:13:5-14:19
-MERGED from [com.koushikdutta.async:androidasync:2.2.1] /Users/Alexis/.android/build-cache/f51594a9a6a7b1b0ee466070de440d7071766951/output/AndroidManifest.xml:13:5-14:19
 MERGED from [com.google.firebase:firebase-core:9.2.1] /Users/Alexis/.android/build-cache/295f8528818eb050fa12adefae360412b978fdae/output/AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:26:5-41:19
 MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:26:5-41:19
@@ -114,8 +110,6 @@ MERGED from [com.google.firebase:firebase-auth-module:9.2.1] /Users/Alexis/.andr
 MERGED from [com.google.firebase:firebase-database:9.2.1] /Users/Alexis/.android/build-cache/e3adabbb98374ebe83f107ac9eec4da61344ae30/output/AndroidManifest.xml:5:5-43
 MERGED from [com.google.firebase:firebase-database-connection:9.2.1] /Users/Alexis/.android/build-cache/5ea3691ff90198e3fbb0457ca092ff1e80eb7299/output/AndroidManifest.xml:5:5-43
 MERGED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:18:5-42
-MERGED from [com.koushikdutta.ion:ion:2.2.1] /Users/Alexis/.android/build-cache/daacc42379cbb767a026aeb52599c9eef8054d1c/output/AndroidManifest.xml:7:5-9:41
-MERGED from [com.koushikdutta.async:androidasync:2.2.1] /Users/Alexis/.android/build-cache/f51594a9a6a7b1b0ee466070de440d7071766951/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-core:9.2.1] /Users/Alexis/.android/build-cache/295f8528818eb050fa12adefae360412b978fdae/output/AndroidManifest.xml:4:5-42
 MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:18:5-42
 MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:18:5-42

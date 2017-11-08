@@ -872,7 +872,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         carburant.move();
 
-        if(vehicule.hasBeenTouched(carburant.getX(),carburant.getY(),carburant.getcarburantW(),carburant.getcarburantH())){
+        if(vehicule.hasBeenTouchedbyCarb(carburant.getX(),carburant.getY(),carburant.getcarburantW(),carburant.getcarburantH())){
             carburant.disparition();
             if(levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100<levelCarburantMaxInit) {
                 levelCarburant = levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100;
@@ -4142,22 +4142,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         vehiculeEnnemi5.moveHautBas();
         vehiculeEnnemi6.moveHautBas();
 
-        if(vehicule.hasBeenTouched(vehiculeEnnemi1.getX(),vehiculeEnnemi1.getY(),vehiculeEnnemi1.getvehiculeEnnemiW(),vehiculeEnnemi1.getvehiculeEnnemiH())){
+        if(vehicule.hasBeenTouched(vehiculeEnnemi1.getX(),vehiculeEnnemi1.getY(),vehiculeEnnemi1.getvehiculeEnnemiW(),vehiculeEnnemi1.getvehiculeEnnemiH(),vehiculeEnnemi1.getBD())){
             collisionVehicule=true;
         }
-        if(vehicule.hasBeenTouched(vehiculeEnnemi2.getX(),vehiculeEnnemi1.getY(),vehiculeEnnemi2.getvehiculeEnnemiW(),vehiculeEnnemi2.getvehiculeEnnemiH())){
+        if(vehicule.hasBeenTouched(vehiculeEnnemi2.getX(),vehiculeEnnemi1.getY(),vehiculeEnnemi2.getvehiculeEnnemiW(),vehiculeEnnemi2.getvehiculeEnnemiH(),vehiculeEnnemi2.getBD())){
             collisionVehicule=true;
         }
-        if(vehicule.hasBeenTouched(vehiculeEnnemi3.getX(),vehiculeEnnemi3.getY(),vehiculeEnnemi3.getvehiculeEnnemiW(),vehiculeEnnemi3.getvehiculeEnnemiH())){
+        if(vehicule.hasBeenTouched(vehiculeEnnemi3.getX(),vehiculeEnnemi3.getY(),vehiculeEnnemi3.getvehiculeEnnemiW(),vehiculeEnnemi3.getvehiculeEnnemiH(),vehiculeEnnemi3.getBD())){
             collisionVehicule=true;
         }
-        if(vehicule.hasBeenTouched(vehiculeEnnemi4.getX(),vehiculeEnnemi4.getY(),vehiculeEnnemi4.getvehiculeEnnemiW(),vehiculeEnnemi4.getvehiculeEnnemiH())){
+        if(vehicule.hasBeenTouched(vehiculeEnnemi4.getX(),vehiculeEnnemi4.getY(),vehiculeEnnemi4.getvehiculeEnnemiW(),vehiculeEnnemi4.getvehiculeEnnemiH(),vehiculeEnnemi4.getBD())){
             collisionVehicule=true;
         }
-        if(vehicule.hasBeenTouched(vehiculeEnnemi5.getX(),vehiculeEnnemi5.getY(),vehiculeEnnemi5.getvehiculeEnnemiW(),vehiculeEnnemi5.getvehiculeEnnemiH())){
+        if(vehicule.hasBeenTouched(vehiculeEnnemi5.getX(),vehiculeEnnemi5.getY(),vehiculeEnnemi5.getvehiculeEnnemiW(),vehiculeEnnemi5.getvehiculeEnnemiH(),vehiculeEnnemi5.getBD())){
             collisionVehicule=true;
         }
-        if(vehicule.hasBeenTouched(vehiculeEnnemi6.getX(),vehiculeEnnemi6.getY(),vehiculeEnnemi6.getvehiculeEnnemiW(),vehiculeEnnemi6.getvehiculeEnnemiH())){
+        if(vehicule.hasBeenTouched(vehiculeEnnemi6.getX(),vehiculeEnnemi6.getY(),vehiculeEnnemi6.getvehiculeEnnemiW(),vehiculeEnnemi6.getvehiculeEnnemiH(),vehiculeEnnemi6.getBD())){
             collisionVehicule=true;
         }
 

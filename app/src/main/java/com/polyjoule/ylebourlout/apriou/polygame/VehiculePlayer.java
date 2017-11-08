@@ -3,6 +3,7 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
@@ -147,27 +148,102 @@ public class VehiculePlayer {
         canvas.drawBitmap(img.getBitmap(), x, y, null);
     }
 
-    public Boolean hasBeenTouched(int x, int y, int w, int h){
-//        if(x<this.x+getvehiculePlayerW() && x>this.x && ((y>this.y && y<this.y+getvehiculePlayerH())|| (y+h>this.y && y+h<this.y+getvehiculePlayerH()) )){
-//            return true;
-//        }
-//        // véhicule plus petit que bonbonne
-//        if(this.y>y && this.y+getvehiculePlayerH()<y+h && x<this.x+getvehiculePlayerW() && x>this.x){
-//            return true;
-//        }
-//        if(this.x>x && this.x+getvehiculePlayerW()<x+w && y<this.y+getvehiculePlayerH() && y>this.y){
+    public Boolean hasBeenTouched(int x, int y, int w, int h,BitmapDrawable bd){
+
+        // Ennemi en haut à droite
+        if(x>this.x && x<this.x+getvehiculePlayerW() && (y+h>this.y && y+h<this.y+getvehiculePlayerH()  )){
+
+            //Log.d("getPixelt",Integer.toString(img.getBitmap().getPixel(0,0)));
+            //Log.d("getPixelnt",Integer.toString(img.getBitmap().getPixel(vehiculePlayerW/2,vehiculePlayerH/2)));
+            Rect rectEtude = new Rect(x,this.y,this.x+getvehiculePlayerW(),y+h);
+
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i+(img.getBitmap().getWidth()-rectEtude.width()), j)!=0 && bd.getBitmap().getPixel(i,j+(bd.getBitmap().getHeight()-rectEtude.height()))!=0){
+                        return true;
+                    }
+                }
+            }
+
+           // return true;
+        }
+
+        // Ennemi en bas à droite
+        if(x>this.x && x<this.x+getvehiculePlayerW() && (y>this.y && y <this.y+getvehiculePlayerH() )){
+
+            //Log.d("getPixelt",Integer.toString(img.getBitmap().getPixel(0,0)));
+            //Log.d("getPixelnt",Integer.toString(img.getBitmap().getPixel(vehiculePlayerW/2,vehiculePlayerH/2)));
+            Rect rectEtude = new Rect(x,y,this.x+getvehiculePlayerW(),this.y+getvehiculePlayerH());
+
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i+(img.getBitmap().getWidth()-rectEtude.width()), j+(img.getBitmap().getHeight()-rectEtude.height()))!=0 && bd.getBitmap().getPixel(i,j)!=0){
+                        return true;
+                    }
+                }
+            }
+
+            // return true;
+        }
+
+        // Ennemi en haut à gauche
+        if(x+w>this.x && x+w<this.x+getvehiculePlayerW() && (y+h>this.y && y+h<this.y+getvehiculePlayerH()  )){
+            Rect rectEtude = new Rect(this.x,this.y,x+w,y+h);
+
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i, j)!=0 && bd.getBitmap().getPixel(i+(bd.getBitmap().getWidth()-rectEtude.width()),j+(bd.getBitmap().getHeight()-rectEtude.height()))!=0){
+                        return true;
+                    }
+                }
+            }
+           // return true;
+        }
+
+        // Ennemi en bas à gauche
+        if(x+w>this.x && x+w<this.x+getvehiculePlayerW() && (y>this.y && y <this.y+getvehiculePlayerH() )){
+            Rect rectEtude = new Rect(this.x,y,x+w,this.y+getvehiculePlayerH());
+
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i, j+(img.getBitmap().getHeight()-rectEtude.height()))!=0 && bd.getBitmap().getPixel(i+(bd.getBitmap().getWidth()-rectEtude.width()),j)!=0){
+                        return true;
+                    }
+                }
+            }
+            // return true;
+        }
+
+
+        //TODO UTILE OU PAS ?
+//        if(x<this.x && x+w>this.x  && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() ) ){
 //            return true;
 //        }
 
-        if(x>this.x && x<this.x+getvehiculePlayerW() && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() )){
+        return false;
+    }
+
+    public Boolean hasBeenTouchedbyCarb(int x, int y, int w, int h){
+
+        // Carbu à droite
+        if(x>this.x && x<this.x+getvehiculePlayerW() && ( (y+h>this.y && y+h<this.y+getvehiculePlayerH()) || (y>this.y && y <this.y+getvehiculePlayerH())  )){
+
+            return true;
+
+        }
+
+        // Ennemi en haut à gauche
+        if(x+w>this.x && x+w<this.x+getvehiculePlayerW() && ( (y+h>this.y && y+h<this.y+getvehiculePlayerH()) || (y>this.y && y <this.y+getvehiculePlayerH())  )){
+
+            return true;
+
+        }
+
+        //TODO UTILE OU PAS ?
+        if(x<this.x && x+w>this.x  && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() ) ){
             return true;
         }
-        if(x+w>this.x && x+w<this.x+getvehiculePlayerW() && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() )){
-            return true;
-        }
-        if(this.x<x+w && this.x >x && ((y+h>this.y && y+h<this.y+getvehiculePlayerH() ) || y>this.y && y <this.y+getvehiculePlayerH() ) ){
-            return true;
-        }
+
         return false;
     }
 
@@ -177,9 +253,6 @@ public class VehiculePlayer {
     public boolean getisOnIt(){
         return isOnItBool;
     }
-
-
-
 
 }
 

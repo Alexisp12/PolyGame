@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.polyjoule.ylebourlout.apriou.polygame"
-        minSdkVersion 21
+        minSdkVersion 14 //21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -29,6 +29,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.firebase:firebase-auth:9.2.1'
     compile 'com.google.firebase:firebase-database:9.2.1'
-    compile 'com.koushikdutta.ion:ion:2.2.1'
+    //compile 'com.koushikdutta.ion:ion:2.2.1'
 }
 apply plugin: 'com.google.gms.google-services'

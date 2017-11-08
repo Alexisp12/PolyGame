@@ -556,7 +556,7 @@ public final class R {
         public static final int action_mode_bar_stub = 0x7f0c0053;
         public static final int action_mode_close_button = 0x7f0c0036;
         public static final int action_text = 0x7f0c0076;
-        public static final int actions = 0x7f0c0083;
+        public static final int actions = 0x7f0c0084;
         public static final int activity_chooser_view_content = 0x7f0c0037;
         public static final int add = 0x7f0c001b;
         public static final int alertTitle = 0x7f0c004b;
@@ -582,7 +582,7 @@ public final class R {
         public static final int home = 0x7f0c0004;
         public static final int homeAsUp = 0x7f0c0016;
         public static final int icon = 0x7f0c003c;
-        public static final int icon_group = 0x7f0c0084;
+        public static final int icon_group = 0x7f0c0085;
         public static final int ifRoom = 0x7f0c0029;
         public static final int image = 0x7f0c0039;
         public static final int info = 0x7f0c0081;
@@ -596,14 +596,14 @@ public final class R {
         public static final int never = 0x7f0c002a;
         public static final int none = 0x7f0c0011;
         public static final int normal = 0x7f0c0013;
-        public static final int notification_background = 0x7f0c0082;
+        public static final int notification_background = 0x7f0c0083;
         public static final int notification_main_column = 0x7f0c007d;
         public static final int notification_main_column_container = 0x7f0c007c;
         public static final int parentPanel = 0x7f0c0040;
         public static final int progress_circular = 0x7f0c0005;
         public static final int progress_horizontal = 0x7f0c0006;
         public static final int radio = 0x7f0c0050;
-        public static final int right_icon = 0x7f0c0085;
+        public static final int right_icon = 0x7f0c0082;
         public static final int right_side = 0x7f0c007e;
         public static final int screen = 0x7f0c001d;
         public static final int scrollIndicatorDown = 0x7f0c0046;

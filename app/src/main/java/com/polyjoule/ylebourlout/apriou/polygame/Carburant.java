@@ -196,4 +196,8 @@ public class Carburant {
     public void setVitesse (int vitesse){
         speedY=vitesse;
     }
+
+    public BitmapDrawable getBD (){
+        return img;
+    }
 }
