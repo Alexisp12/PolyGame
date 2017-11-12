@@ -371,14 +371,14 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 if(currentX>posXgameButton && currentX<posXgameButton+longueurButton && currentY>posYgameButton && currentY<posYgameButton+longueurButton){
                     // start game
 
-                    cacheBitmap=null;
-                    solBitmap=null;
-                    gameBitmap=null;
-                    palmaresBitmap=null;
-                    paramBitmap=null;
-                    socialBitmap=null;
-                    cacheBitmap=null;
-                    cielBitmap=null;
+                    //cacheBitmap=null;
+                    //solBitmap=null;
+                    //gameBitmap=null;
+                    //palmaresBitmap=null;
+                    //paramBitmap=null;
+                    //socialBitmap=null;
+                    //cacheBitmap=null;
+                    //cielBitmap=null;
                     stopMenu=true;
  //                   .finish();
 //                    cacheBitmap.recycle();
@@ -403,14 +403,14 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 }
                 if(currentX>posXparamButton && currentX<posXparamButton+longueurButton && currentY>posYparamButton && currentY<posYparamButton+longueurButton){
                     // start parameters
-                    cacheBitmap=null;
-                    solBitmap=null;
-                    gameBitmap=null;
-                    palmaresBitmap=null;
-                    paramBitmap=null;
-                    socialBitmap=null;
-                    cacheBitmap=null;
-                    cielBitmap=null;
+                    //cacheBitmap=null;
+                    //solBitmap=null;
+                    //gameBitmap=null;
+                    //palmaresBitmap=null;
+                    //paramBitmap=null;
+                    //socialBitmap=null;
+                    //cacheBitmap=null;
+                    //cielBitmap=null;
                     stopMenu=true;
 //                    cacheBitmap.recycle();
 //                    solBitmap.recycle();

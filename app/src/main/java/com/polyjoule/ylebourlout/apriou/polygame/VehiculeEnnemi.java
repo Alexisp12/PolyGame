@@ -157,6 +157,7 @@ public class VehiculeEnnemi {
     public void setVitesse (int vitesse){
         speedY=vitesse;
     }
+    public int getVitesse (){return speedY;}
 
     public BitmapDrawable getBD (){
         return img;

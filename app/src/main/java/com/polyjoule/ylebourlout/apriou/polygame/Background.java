@@ -85,7 +85,7 @@ public class Background {
     {
         this.dy = dy;
     }
-
+    public int getVitesse (){return dy;}
     public void setMove (Boolean bool){move=bool;}
 
     public int getX () {

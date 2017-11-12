@@ -46,11 +46,11 @@ public class Game extends Activity {
     //public final static int VITESSEDEPLACEMENTENNEMI3=VITESSEDEPLACEMENTENNEMI;//-VITESSEDEPLACEMENTENNEMI;
     //public final static int VITESSEDEPLACEMENTENNEMI4=VITESSEDEPLACEMENTENNEMI;//+3*VITESSEDEPLACEMENTENNEMI/4;
     public final static int DUREEAFFICHAGEGO = 100;
-    public final static int COEFVEHICULESEVITES=10;
+    public final static int COEFVEHICULESEVITES=10; // Rajoute 10 au score pour chaque véhicule évité
     public final static double RATIOTABLEAUSCORE=1.7;
     public final static double RATIOSTART=2.08;
-    public final static int DUREEAFFICHAGETOTALPANNEAUX=6;
-    public final static int DUREEEXPLOFINAL=70;
+    public final static int DUREEAFFICHAGETOTALPANNEAUX=3; //6
+    public final static int DUREEEXPLOFINAL=0; // 70 origine
     public final static int NBENNEMIPARCOLONNEMAX=3;
     public final static int NBVEHICULESENNEMIS=6;
     public static Boolean pause=false;
