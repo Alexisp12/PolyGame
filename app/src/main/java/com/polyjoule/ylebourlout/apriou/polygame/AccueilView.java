@@ -136,7 +136,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             if((BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()/(longueurButtonParam))<1){
                 paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 15 * ( (longueurButtonParam) / BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()) / 16, false);
             } else {
-                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 15 * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth() / (longueurButtonParam)) / 16, false);
+                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 31 * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth() / (longueurButtonParam)) / 32, false);
             }
 
             pointillesF.setX(cvW/2-pointillesF.getpointillesW()/2);

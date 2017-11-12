@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Alexis on 11/08/2017.
  */
@@ -41,6 +44,7 @@ public class Accueil extends Activity {
     public static FirebaseAuth firebaseAuth;
     //defining a database reference
     public static DatabaseReference databaseReference;
+    public static List<UserInformation> users = new ArrayList<UserInformation>();
 
 
     @Override

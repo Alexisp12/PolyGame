@@ -150,6 +150,56 @@ public class VehiculePlayer {
     }
 
     public Boolean hasBeenTouched(int x, int y, int w, int h,BitmapDrawable bd){
+        // Ennemi large haut
+        if(this.x>x && this.x+getvehiculePlayerW()<x+w && (y+h>this.y && y+h<this.y+getvehiculePlayerH())){
+            Rect rectEtude = new Rect(this.x,this.y,this.x+getvehiculePlayerW(),y+h);
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i+(img.getBitmap().getWidth()-rectEtude.width()), j)!=0 && bd.getBitmap().getPixel(i,j+(bd.getBitmap().getHeight()-rectEtude.height()))!=0){
+                        Log.d("Ennemi_large","Haut");
+                        return true;
+                    }
+                }
+            }
+        }
+        // Ennemi large bas
+        if(this.x>x && this.x+getvehiculePlayerW()<x+w && (y>this.y && y <this.y+getvehiculePlayerH())){
+            Rect rectEtude = new Rect(this.x,y,this.x+getvehiculePlayerW(),this.y+getvehiculePlayerH());
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i+(img.getBitmap().getWidth()-rectEtude.width()), j)!=0 && bd.getBitmap().getPixel(i,j+(bd.getBitmap().getHeight()-rectEtude.height()))!=0){
+                        Log.d("Ennemi_large","bas");
+                        return true;
+                    }
+                }
+            }
+        }
+        // Ennemi étroit haut
+        if(this.x>x && this.x+getvehiculePlayerW()<x+w && (y+h>this.y && y+h<this.y+getvehiculePlayerH())){
+            Rect rectEtude = new Rect(x,this.y,x+w,y+h);
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i+(img.getBitmap().getWidth()-rectEtude.width()), j)!=0 && bd.getBitmap().getPixel(i,j+(bd.getBitmap().getHeight()-rectEtude.height()))!=0){
+                        Log.d("Ennemi_large","Haut");
+                        return true;
+                    }
+                }
+            }
+        }
+        // Ennemi étroit bas
+        if(this.x>x && this.x+getvehiculePlayerW()<x+w && (y>this.y && y <this.y+getvehiculePlayerH())){
+            Rect rectEtude = new Rect(x,y,x+w,this.y+getvehiculePlayerH());
+            for(int j=0; j<rectEtude.height();j++) {
+                for (int i = 0; i < rectEtude.width(); i++) {
+                    if (img.getBitmap().getPixel(i+(img.getBitmap().getWidth()-rectEtude.width()), j)!=0 && bd.getBitmap().getPixel(i,j+(bd.getBitmap().getHeight()-rectEtude.height()))!=0){
+                        Log.d("Ennemi_large","bas");
+                        return true;
+                    }
+                }
+            }
+        }
+
+
 
         // Ennemi en haut à droite
         if(x>this.x && x<this.x+getvehiculePlayerW() && (y+h>this.y && y+h<this.y+getvehiculePlayerH()  )){

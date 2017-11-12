@@ -26,6 +26,7 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.SETS;
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.databaseReference;
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.firebaseAuth;
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.userInfo;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.users;
 
 
 /**
@@ -67,7 +68,7 @@ public class Game extends Activity {
     //private static DatabaseReference databaseReference;
     //private static UserInformation[] users;
     // private static String[] userIUD;
-    public static List<UserInformation> users = new ArrayList<UserInformation>();
+
     public static List<String> userUID = new ArrayList<String>();
 
 
@@ -261,14 +262,30 @@ public class Game extends Activity {
         });
     }
 
+    public static void seeClassement(){
+        gameView = null;
+        pauseMusique();
+        fondSonore = null;
+
+
+        //Intent intent = getIntent();
+        mActivity.finish();
+
+
+        Intent seeClassementIntent = new Intent(This, Classement_Activity.class);
+
+        This.startActivity(seeClassementIntent);
+    }
+
     @Override
     public void onBackPressed() {
         gameView = null;
         pauseMusique();
         fondSonore = null;
 
+
         //Intent intent = getIntent();
-        finish();
+        mActivity.finish();
 
         Intent retourMenuIntent = new Intent(Game.this, Accueil.class);
 
