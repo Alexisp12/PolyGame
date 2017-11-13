@@ -482,6 +482,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     initialisation = true;
                     bg.setMove(true);
                     bg.setVector(-vitesseDeplacementBG);
+                    vitesseDeplacementBGActuel=-vitesseDeplacementBG;
                     dureeClignotementOn = 0;
                     touchtostartBitmap=null;
                     goBitmap=null;
@@ -491,6 +492,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     quatreBitmap=null;
                     cinqBitmap=null;
                     startDone=true;
+                    pause=false;
                 }
             }
 
@@ -4479,6 +4481,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     pause = false;
                                     bg.setMove(true);
                                     bg.setVector(vitesseDeplacementBGActuel);
+                                    carburant.setVitesse(vitesseDeplacementBGActuel);
                                     Log.d("Pause","false");
                                     //bg.setVector(-vitesseDeplacementBG);
                                     Game.startMusique();

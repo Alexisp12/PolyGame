@@ -211,7 +211,5 @@ public class Accueil extends Activity {
                 //System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-
-
     }
 }
