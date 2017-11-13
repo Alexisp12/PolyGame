@@ -119,6 +119,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
                             SharedPreferences settings = getSharedPreferences(SETS, 0);
                             SharedPreferences.Editor editor = settings.edit();
+                            editor.putString("email",email);
                             editor.putString("pseudo", pseudo);
                             editor.putInt("highScore",-1);
                             editor.commit();

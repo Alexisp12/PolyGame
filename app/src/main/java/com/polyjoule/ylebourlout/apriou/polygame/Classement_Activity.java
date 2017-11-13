@@ -1,6 +1,5 @@
 package com.polyjoule.ylebourlout.apriou.polygame;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -138,44 +137,44 @@ public class Classement_Activity extends AppCompatActivity implements View.OnCli
 
                 if (users.size() != 0) {
                     refresh.setText("");
-                    if (users.size() > 0 && users.get(0).getHighScore() != -1) {
+                    if (users.size() > 0 && !(Integer.toString(users.get(0).getHighScore())).equals("-1")) {
                         pseudo1tv.setText("1 - " + users.get(0).getPseudo());
                         score1tv.setText(Integer.toString(users.get(0).getHighScore()));
                     }
-                    if (users.size() > 1 && users.get(1).getHighScore() != -1) {
+                    if (users.size() > 1 && !(Integer.toString(users.get(1).getHighScore())).equals("-1")) {
                         pseudo2tv.setText("2 - " + users.get(1).getPseudo());
                         score2tv.setText(Integer.toString(users.get(1).getHighScore()));
                     }
 
-                    if (users.size() > 2 && users.get(2).getHighScore() != -1) {
+                    if (users.size() > 2 && !(Integer.toString(users.get(2).getHighScore())).equals("-1")) {
                         pseudo3tv.setText("3 - " + users.get(2).getPseudo());
                         score3tv.setText(Integer.toString(users.get(2).getHighScore()));
                     }
-                    if (users.size() > 3 && users.get(3).getHighScore() != -1) {
+                    if (users.size() > 3 && !(Integer.toString(users.get(3).getHighScore())).equals("-1")) {
                         pseudo4tv.setText("4 - " + users.get(3).getPseudo());
                         score4tv.setText(Integer.toString(users.get(3).getHighScore()));
                     }
-                    if (users.size() > 4 && users.get(4).getHighScore() != -1) {
+                    if (users.size() > 4 && !(Integer.toString(users.get(4).getHighScore())).equals("-1")) {
                         pseudo5tv.setText("5 - " + users.get(4).getPseudo());
                         score5tv.setText(Integer.toString(users.get(4).getHighScore()));
                     }
-                    if (users.size() > 5 && users.get(5).getHighScore() != -1) {
+                    if (users.size() > 5 && !(Integer.toString(users.get(5).getHighScore())).equals("-1")) {
                         pseudo6tv.setText("6 - " + users.get(5).getPseudo());
                         score6tv.setText(Integer.toString(users.get(5).getHighScore()));
                     }
-                    if (users.size() > 6 && users.get(6).getHighScore() != -1) {
+                    if (users.size() > 6 && !(Integer.toString(users.get(6).getHighScore())).equals("-1")) {
                         pseudo7tv.setText("7 - " + users.get(6).getPseudo());
                         score7tv.setText(Integer.toString(users.get(6).getHighScore()));
                     }
-                    if (users.size() > 7 && users.get(7).getHighScore() != -1) {
+                    if (users.size() > 7 && !(Integer.toString(users.get(7).getHighScore())).equals("-1")) {
                         pseudo8tv.setText("8 - " + users.get(7).getPseudo());
                         score8tv.setText(Integer.toString(users.get(7).getHighScore()));
                     }
-                    if (users.size() > 8 && users.get(8).getHighScore() != -1) {
+                    if (users.size() > 8 && !(Integer.toString(users.get(8).getHighScore())).equals("-1")) {
                         pseudo9tv.setText("9 - " + users.get(8).getPseudo());
                         score9tv.setText(Integer.toString(users.get(8).getHighScore()));
                     }
-                    if (users.size() > 9 && users.get(9).getHighScore() != -1) {
+                    if (users.size() > 9 && !(Integer.toString(users.get(9).getHighScore())).equals("-1")) {
                         pseudo10tv.setText("10 - " + users.get(9).getPseudo());
                         score10tv.setText(Integer.toString(users.get(9).getHighScore()));
                     }
@@ -291,44 +290,44 @@ public class Classement_Activity extends AppCompatActivity implements View.OnCli
 
                         if (users.size() != 0) {
                             refresh.setText("");
-                            if (users.size() > 0 && users.get(0).getHighScore() != -1) {
+                            if (users.size() > 0 && !(Integer.toString(users.get(0).getHighScore())).equals("-1")) {
                                 pseudo1tv.setText("1 - " + users.get(0).getPseudo());
                                 score1tv.setText(Integer.toString(users.get(0).getHighScore()));
                             }
-                            if (users.size() > 1 && users.get(1).getHighScore() != -1) {
+                            if (users.size() > 1 && !(Integer.toString(users.get(1).getHighScore())).equals("-1")) {
                                 pseudo2tv.setText("2 - " + users.get(1).getPseudo());
                                 score2tv.setText(Integer.toString(users.get(1).getHighScore()));
                             }
 
-                            if (users.size() > 2 && users.get(2).getHighScore() != -1) {
+                            if (users.size() > 2 && !(Integer.toString(users.get(2).getHighScore())).equals("-1")) {
                                 pseudo3tv.setText("3 - " + users.get(2).getPseudo());
                                 score3tv.setText(Integer.toString(users.get(2).getHighScore()));
                             }
-                            if (users.size() > 3 && users.get(3).getHighScore() != -1) {
+                            if (users.size() > 3 && !(Integer.toString(users.get(3).getHighScore())).equals("-1")) {
                                 pseudo4tv.setText("4 - " + users.get(3).getPseudo());
                                 score4tv.setText(Integer.toString(users.get(3).getHighScore()));
                             }
-                            if (users.size() > 4 && users.get(4).getHighScore() != -1) {
+                            if (users.size() > 4 && !(Integer.toString(users.get(4).getHighScore())).equals("-1")) {
                                 pseudo5tv.setText("5 - " + users.get(4).getPseudo());
                                 score5tv.setText(Integer.toString(users.get(4).getHighScore()));
                             }
-                            if (users.size() > 5 && users.get(5).getHighScore() != -1) {
+                            if (users.size() > 5 && !(Integer.toString(users.get(5).getHighScore())).equals("-1")) {
                                 pseudo6tv.setText("6 - " + users.get(5).getPseudo());
                                 score6tv.setText(Integer.toString(users.get(5).getHighScore()));
                             }
-                            if (users.size() > 6 && users.get(6).getHighScore() != -1) {
+                            if (users.size() > 6 && !(Integer.toString(users.get(6).getHighScore())).equals("-1")) {
                                 pseudo7tv.setText("7 - " + users.get(6).getPseudo());
                                 score7tv.setText(Integer.toString(users.get(6).getHighScore()));
                             }
-                            if (users.size() > 7 && users.get(7).getHighScore() != -1) {
+                            if (users.size() > 7 && !(Integer.toString(users.get(7).getHighScore())).equals("-1")) {
                                 pseudo8tv.setText("8 - " + users.get(7).getPseudo());
                                 score8tv.setText(Integer.toString(users.get(7).getHighScore()));
                             }
-                            if (users.size() > 8 && users.get(8).getHighScore() != -1) {
+                            if (users.size() > 8 && !(Integer.toString(users.get(8).getHighScore())).equals("-1")) {
                                 pseudo9tv.setText("9 - " + users.get(8).getPseudo());
                                 score9tv.setText(Integer.toString(users.get(8).getHighScore()));
                             }
-                            if (users.size() > 9 && users.get(9).getHighScore() != -1) {
+                            if (users.size() > 9 && !(Integer.toString(users.get(9).getHighScore())).equals("-1")) {
                                 pseudo10tv.setText("10 - " + users.get(9).getPseudo());
                                 score10tv.setText(Integer.toString(users.get(9).getHighScore()));
                             }
@@ -363,111 +362,117 @@ public class Classement_Activity extends AppCompatActivity implements View.OnCli
         super.onResume();
 
         if(firebaseAuth!=null) {
-            final FirebaseUser usr = firebaseAuth.getCurrentUser();
-            // Get a reference to our posts
-            final FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
+            if (firebaseAuth.getCurrentUser() != null) {
+                final FirebaseUser usr = firebaseAuth.getCurrentUser();
+                // Get a reference to our posts
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
 
-            ref.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    users.clear();
-                    for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
+                ref.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        users.clear();
+                        for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
 
-                        if (!users.contains(eventSnapshot.getValue(UserInformation.class))) {
-                            users.add(eventSnapshot.getValue(UserInformation.class));
-                        } else {
-                            for (int i = 0; i < users.size(); i++) {
-                                if (users.get(i).getHighScore() != eventSnapshot.getValue(UserInformation.class).getHighScore()) {
-                                    users.remove(i);
-                                    users.add(eventSnapshot.getValue(UserInformation.class));
+                            if (!users.contains(eventSnapshot.getValue(UserInformation.class))) {
+                                users.add(eventSnapshot.getValue(UserInformation.class));
+                            } else {
+                                for (int i = 0; i < users.size(); i++) {
+                                    if (users.get(i).getHighScore() != eventSnapshot.getValue(UserInformation.class).getHighScore()) {
+                                        users.remove(i);
+                                        users.add(eventSnapshot.getValue(UserInformation.class));
+                                    }
                                 }
+
                             }
 
                         }
 
+                        Collections.sort(users, new UsersComparator());
+
+
                     }
 
-                    Collections.sort(users, new UsersComparator());
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
 
+                if (users.size() != 0) {
+                    refresh.setText("");
+                    if (users.size() > 0 && !(Integer.toString(users.get(0).getHighScore())).equals("-1")) {
+                        pseudo1tv.setText("1 - " + users.get(0).getPseudo());
+                        score1tv.setText(Integer.toString(users.get(0).getHighScore()));
+                    }
+                    if (users.size() > 1 && !(Integer.toString(users.get(1).getHighScore())).equals("-1")) {
+                        pseudo2tv.setText("2 - " + users.get(1).getPseudo());
+                        score2tv.setText(Integer.toString(users.get(1).getHighScore()));
+                    }
+
+                    if (users.size() > 2 && !(Integer.toString(users.get(2).getHighScore())).equals("-1")) {
+                        pseudo3tv.setText("3 - " + users.get(2).getPseudo());
+                        score3tv.setText(Integer.toString(users.get(2).getHighScore()));
+                    }
+                    if (users.size() > 3 && !(Integer.toString(users.get(3).getHighScore())).equals("-1")) {
+                        pseudo4tv.setText("4 - " + users.get(3).getPseudo());
+                        score4tv.setText(Integer.toString(users.get(3).getHighScore()));
+                    }
+                    if (users.size() > 4 && !(Integer.toString(users.get(4).getHighScore())).equals("-1")) {
+                        pseudo5tv.setText("5 - " + users.get(4).getPseudo());
+                        score5tv.setText(Integer.toString(users.get(4).getHighScore()));
+                    }
+                    if (users.size() > 5 && !(Integer.toString(users.get(5).getHighScore())).equals("-1")) {
+                        pseudo6tv.setText("6 - " + users.get(5).getPseudo());
+                        score6tv.setText(Integer.toString(users.get(5).getHighScore()));
+                    }
+                    if (users.size() > 6 && !(Integer.toString(users.get(6).getHighScore())).equals("-1")) {
+                        pseudo7tv.setText("7 - " + users.get(6).getPseudo());
+                        score7tv.setText(Integer.toString(users.get(6).getHighScore()));
+                    }
+                    if (users.size() > 7 && !(Integer.toString(users.get(7).getHighScore())).equals("-1")) {
+                        pseudo8tv.setText("8 - " + users.get(7).getPseudo());
+                        score8tv.setText(Integer.toString(users.get(7).getHighScore()));
+                        Log.d("Hs_8_a","-"+Integer.toString(users.get(7).getHighScore())+"-");
+                    }
+                    if (users.size() > 8 && !(Integer.toString(users.get(8).getHighScore())).equals("-1")) {
+                        pseudo9tv.setText("9 - " + users.get(8).getPseudo());
+                        score9tv.setText(Integer.toString(users.get(8).getHighScore()));
+                    }
+                    if (users.size() > 9 && !(Integer.toString(users.get(9).getHighScore())).equals("-1")) {
+                        pseudo10tv.setText("10 - " + users.get(9).getPseudo());
+                        score10tv.setText(Integer.toString(users.get(9).getHighScore()));
+                    }
+                } else {
+                    refresh.setText(refreshText);
                 }
-
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-        if(users.size()!=0) {
-            refresh.setText("");
-            if (users.size() > 0) {
-                pseudo1tv.setText("1 - " + users.get(0).getPseudo());
-                score1tv.setText(Integer.toString(users.get(0).getHighScore()));
+            } else {
+                refresh.setText(nonAuth);
             }
-            if (users.size() > 1) {
-                pseudo2tv.setText("2 - " + users.get(1).getPseudo());
-                score2tv.setText(Integer.toString(users.get(1).getHighScore()));
-            }
-
-            if (users.size() > 2) {
-                pseudo3tv.setText("3 - " + users.get(2).getPseudo());
-                score3tv.setText(Integer.toString(users.get(2).getHighScore()));
-            }
-            if (users.size() > 3) {
-                pseudo4tv.setText("4 - " + users.get(3).getPseudo());
-                score4tv.setText(Integer.toString(users.get(3).getHighScore()));
-            }
-            if (users.size() > 4) {
-                pseudo5tv.setText("5 - " + users.get(4).getPseudo());
-                score5tv.setText(Integer.toString(users.get(4).getHighScore()));
-            }
-            if (users.size() > 5) {
-                pseudo6tv.setText("6 - " + users.get(5).getPseudo());
-                score6tv.setText(Integer.toString(users.get(5).getHighScore()));
-            }
-            if (users.size() > 6) {
-                pseudo7tv.setText("7 - " + users.get(6).getPseudo());
-                score7tv.setText(Integer.toString(users.get(6).getHighScore()));
-            }
-            if (users.size() > 7) {
-                pseudo8tv.setText("8 - " + users.get(7).getPseudo());
-                score8tv.setText(Integer.toString(users.get(7).getHighScore()));
-            }
-            if (users.size() > 8) {
-                pseudo9tv.setText("9 - " + users.get(8).getPseudo());
-                score9tv.setText(Integer.toString(users.get(8).getHighScore()));
-            }
-            if (users.size() > 9) {
-                pseudo10tv.setText("10 - " + users.get(9).getPseudo());
-                score10tv.setText(Integer.toString(users.get(9).getHighScore()));
-            }
-        } else {
-            refresh.setText(refreshText);
         }
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent retourMenuIntent = new Intent(Classement_Activity.this, Game.class);
-
-        startActivity(retourMenuIntent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Intent retourMenuIntent = new Intent(Classement_Activity.this, Game.class);
+//
+//        startActivity(retourMenuIntent);
+//    }
 }

@@ -207,16 +207,16 @@ public class Game extends Activity {
 
                     Collections.sort(users, new UsersComparator());
 
-                    if (users != null && userInfo != null) {
-                        for (int i = 0; i < users.size(); i++) {
-//                    Log.e("users" + i, users.get(i).getPseudo());
-                            if (userInfo.getPseudo() != null && users.get(i).getPseudo() != null) {
-                                if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
-                                    rangJoueur = i + 1;
-                                }
-                            }
-                        }
-                    }
+//                    if (users != null && userInfo != null) {
+//                        for (int i = 0; i < users.size(); i++) {
+////                    Log.e("users" + i, users.get(i).getPseudo());
+//                            if (userInfo.getPseudo() != null && users.get(i).getPseudo() != null) {
+//                                if ((users.get(i).getPseudo()).equals(userInfo.getPseudo())) {
+//                                    rangJoueur = i + 1;
+//                                }
+//                            }
+//                        }
+//                    }
 
 
                 }
@@ -263,13 +263,13 @@ public class Game extends Activity {
     }
 
     public static void seeClassement(){
-        gameView = null;
-        pauseMusique();
-        fondSonore = null;
-
-
-        //Intent intent = getIntent();
-        mActivity.finish();
+//        gameView = null;
+//        pauseMusique();
+//        fondSonore = null;
+//
+//
+//        //Intent intent = getIntent();
+//        mActivity.finish();
 
 
         Intent seeClassementIntent = new Intent(This, Classement_Activity.class);

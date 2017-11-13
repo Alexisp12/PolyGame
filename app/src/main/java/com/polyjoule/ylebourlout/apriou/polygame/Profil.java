@@ -72,6 +72,7 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
 
                         SharedPreferences settings = getSharedPreferences(SETS, 0);
                         SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("email",userInfo.getEmail());
                         editor.putString("pseudo", userInfo.getPseudo());
                         editor.putInt("highScore", userInfo.getHighScore());
                         editor.commit();
@@ -83,8 +84,8 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
                         SharedPreferences settings = getSharedPreferences(SETS, 0);
                         userInfo.setPseudo(settings.getString("pseudo", ""));
                         userInfo.setHighScore(settings.getInt("highScore", 0));
-
-                        emailView.setText(problemeData);
+                        userInfo.setEmail(settings.getString("email", ""));
+                        emailView.setText(userInfo.getEmail());
                         pseudoView.setText(userInfo.getPseudo());
 
 //                    pseudoView.setText(problemeData);
@@ -93,11 +94,14 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
                     SharedPreferences settings = getSharedPreferences(SETS, 0);
                     userInfo.setPseudo(settings.getString("pseudo", ""));
                     userInfo.setHighScore(settings.getInt("highScore", 0));
+                    userInfo.setEmail(settings.getString("email", ""));
 
-                    emailView.setText(problemeData);
+                    final FirebaseUser usr = firebaseAuth.getCurrentUser();
+                    databaseReference.child("users").child(usr.getUid()).setValue(userInfo);
+
+                    emailView.setText(userInfo.getEmail());
                     pseudoView.setText(userInfo.getPseudo());
                 }
-
             }
 
             @Override
@@ -141,8 +145,78 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //getting the current logged in user
+
+        final FirebaseUser usr = firebaseAuth.getCurrentUser();
+
+
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference ref = database.getReferenceFromUrl(databaseReference.toString());
+
+        // Attach a listener to read the data at our posts reference
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
+
+                if(userInfo!=null) {
+                    if (userInfo.getPseudo() != null) {
+                        emailView.setText(userInfo.getEmail());
+                        pseudoView.setText(userInfo.getPseudo());
+
+                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("email",userInfo.getEmail());
+                        editor.putString("pseudo", userInfo.getPseudo());
+                        editor.putInt("highScore", userInfo.getHighScore());
+                        editor.commit();
+
+
+                        Log.d("UserInfoPseudo", userInfo.getPseudo());
+                        Log.d("UserInfoHighScore", Integer.toString(userInfo.getHighScore()));
+                    } else {
+                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+                        userInfo.setPseudo(settings.getString("pseudo", ""));
+                        userInfo.setHighScore(settings.getInt("highScore", 0));
+                        userInfo.setEmail(settings.getString("email", ""));
+                        emailView.setText(userInfo.getEmail());
+                        pseudoView.setText(userInfo.getPseudo());
+
+//                    pseudoView.setText(problemeData);
+                    }
+                } else {
+                    SharedPreferences settings = getSharedPreferences(SETS, 0);
+                    userInfo.setPseudo(settings.getString("pseudo", ""));
+                    userInfo.setHighScore(settings.getInt("highScore", 0));
+                    userInfo.setEmail(settings.getString("email", ""));
+
+                    final FirebaseUser usr = firebaseAuth.getCurrentUser();
+                    databaseReference.child("users").child(usr.getUid()).setValue(userInfo);
+
+                    emailView.setText(userInfo.getEmail());
+                    pseudoView.setText(userInfo.getPseudo());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+    }
 
 
 
-}
+
+    }
 

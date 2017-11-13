@@ -73,6 +73,9 @@ public class Accueil extends Activity {
     }
 
     public static void game(){
+
+        recupData();
+
         if(firebaseAuth.getCurrentUser()==null){
             AlertDialog.Builder builder;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -108,7 +111,7 @@ public class Accueil extends Activity {
                     Log.d("pseudoNull","oui");
                 }
                 if(userInfo.getHighScore()==-1) {
-                    userInfo.setHighScore(settings.getInt("highScore", 0));
+                    userInfo.setHighScore(settings.getInt("highScore", -1));
                     Log.d("highscore-1","oui");
                 }
             }
@@ -161,14 +164,14 @@ public class Accueil extends Activity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        accueilView = null;
-        finish();
-        Intent retourMenuIntent = new Intent(Accueil.this, Accueil.class);
-        startActivity(retourMenuIntent);
-    }
-    public void recupData(){
+//    @Override
+//    public void onBackPressed() {
+//        accueilView = null;
+//        finish();
+//        Intent retourMenuIntent = new Intent(Accueil.this, Accueil.class);
+//        startActivity(retourMenuIntent);
+//    }
+    public static void recupData(){
         final FirebaseUser usr = firebaseAuth.getCurrentUser();
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -185,10 +188,11 @@ public class Accueil extends Activity {
 
                 if(userInfo!=null) {
                     if (userInfo.getPseudo() == null) {
-                        SharedPreferences settings = getSharedPreferences(SETS, 0);
+                        SharedPreferences settings = This.getSharedPreferences(SETS, 0);
                         userInfo.setPseudo(settings.getString("pseudo", ""));
                         userInfo.setHighScore(settings.getInt("highScore", 0));
                     }
+
                     Log.d("UserInfoPseudo", userInfo.getPseudo());
                 }
 

@@ -167,7 +167,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private double incrementVitesse;
     private double sommeIncrementVitesse=0;
     private int vitesseDeplacementBG,vitesseDeplacementBG2,vitesseDeplacementBG3,vitesseDeplacementBG4,vitesseDeplacementBG5,vitesseDeplacementBG6;
-
+    private int vitesseDeplacementBGActuel;
 
     //private String textRestart="Record : ";
 
@@ -883,10 +883,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     } else {
 
                         //Collections.sort(users, new UsersComparator());
-                        rangScore=users.size()+1;
+                        rangScore=1;
                         for(int i=0; i<users.size();i++){
-                            if(scorefinal>users.get((users.size()-1)-i).getHighScore()){
-                                rangScore--;
+                            if(scorefinal<users.get(i).getHighScore()){
+                                rangScore++;
                             }
                         }
 
@@ -911,11 +911,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             textPaintTableauAffichage.setTextSize(tailleTexte);
             textPaintTableauAffichage.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
             // Distance
-            canvas.drawText(textDistance+" : "+comptageDistance,cvW/4+tailleTexte,29*cvH/64-espaceTexte,textPaintTableauAffichage); //cvH/2-espacetexte
+            canvas.drawText(textDistance+" : "+comptageDistance,cvW/4+tailleTexte,30*cvH/64-espaceTexte,textPaintTableauAffichage); //cvH/2-espacetexte
             // Collision évités
-            canvas.drawText(textVoitureEvites+" : "+Integer.toString(comptageCollision),cvW/4+tailleTexte,29*cvH/64+tailleTexte+espaceTexte-espaceTexte,textPaintTableauAffichage);
+            canvas.drawText(textVoitureEvites+" : "+Integer.toString(comptageCollision),cvW/4+tailleTexte,30*cvH/64+tailleTexte+espaceTexte-espaceTexte,textPaintTableauAffichage);
             // Score Total
-            canvas.drawText(textScoreTotal+" : "+comptageScoreFinal,cvW/4+tailleTexte,29*cvH/64+2*(tailleTexte+tailleTexte)-espaceTexte,textPaintTableauAffichage);
+            canvas.drawText(textScoreTotal+" : "+comptageScoreFinal,cvW/4+tailleTexte,30*cvH/64+2*(tailleTexte+tailleTexte)-espaceTexte,textPaintTableauAffichage);
 
 
             if(restartEnable){
@@ -925,17 +925,17 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
                 if(rangScore!=0) {
                     if (rangScore == 1) {
-                        canvas.drawText(rangScore + "er", cvW / 2 + 3 * tailleTexte, 29*cvH/64 + 2 * (tailleTexte + tailleTexte), textPaintRang);
+                        canvas.drawText(rangScore + "er", cvW / 2 + 3 * tailleTexte, 30*cvH/64 + 2 * (tailleTexte + tailleTexte), textPaintRang);
                     } else {
-                        canvas.drawText(rangScore + "ème", cvW / 2 + 3 * tailleTexte, 29*cvH/64 + 2 * (tailleTexte + tailleTexte), textPaintRang);
+                        canvas.drawText(rangScore + "ème", cvW / 2 + 3 * tailleTexte, 30*cvH/64 + 2 * (tailleTexte + tailleTexte), textPaintRang);
                     }
                 }
 
 
 
                 coinGRestart=cvW/2;
-                coinHRestart=29*cvH/64+3*(tailleTexte+tailleTexte);
-                coinBRestart=29*cvH/64+3*(tailleTexte+tailleTexte)+tailleTexte;
+                coinHRestart=30*cvH/64+3*(tailleTexte+tailleTexte);
+                coinBRestart=30*cvH/64+3*(tailleTexte+tailleTexte)+tailleTexte;
                 coinDRestart=cvW/2+4*tailleTexte;
 
                 TextPaint textPaintRestart = new TextPaint();
@@ -1010,6 +1010,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         }
                     } else {
                         bg.setVector(bg.getVitesse()+bg.getVitesse()/6);
+                        vitesseDeplacementBGActuel=bg.getVitesse();
                         carburant.setVitesse(-bg.getVitesse());
 //                        if(-bg.getVitesse()==cvW/40) {
 //                            bg.setVector(-cvW / 30);
@@ -4471,11 +4472,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         if(!collisionVehicule) {
                             if (currentX < coinDPause+cvW/32 && currentX > coinGPause-cvW/32 && currentY < coinBPause+cvW/32 && currentY > coinHPause-cvW/32) {
                                 if (!pause) {
+                                    Log.d("Pause","true");
                                     pause = true;
                                     Game.pauseMusique();
                                 } else {
                                     pause = false;
                                     bg.setMove(true);
+                                    bg.setVector(vitesseDeplacementBGActuel);
+                                    Log.d("Pause","false");
                                     //bg.setVector(-vitesseDeplacementBG);
                                     Game.startMusique();
                                 }
@@ -4502,7 +4506,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         touched1=true;
 
                         if(restartEnable) {
-                            if (currentX < coinDRestart && currentX > coinGRestart && currentY> coinHRestart-tailleTexte && currentY<coinBRestart-tailleTexte){
+                            if (currentX < coinDRestart +cvW/32 && currentX > coinGRestart-cvW/32 && currentY> coinHRestart-cvW/32 && currentY<coinBRestart+cvW/32){
                                 bg=null;
                                 ////alertDialogDone=false;
                                 Game.restart();
@@ -4521,7 +4525,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 //if(!pause) {
                 if(!perdu) {
                     if (!collisionVehicule) {
-                        if (currentX + vehicule.getvehiculePlayerW() / 2 < cvW - cvW / 8 && currentX - vehicule.getvehiculePlayerW() / 2 > cvW / 8) {
+                        //if (currentX + vehicule.getvehiculePlayerW() / 2 < cvW - cvW / 8 && currentX - vehicule.getvehiculePlayerW() / 2 > cvW / 8) {
+                        if (currentX + vehicule.getvehiculePlayerW() / 2 < routeB+2*vehicule.getvehiculePlayerW() && currentX - vehicule.getvehiculePlayerW() / 2 > routeH-vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerW()/4) {
                             if (canMoveVehicule) {
                                 vehicule.setX(currentX - distanceDoigtVoiture);
                             }
