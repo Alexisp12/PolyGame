@@ -15,20 +15,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ec7a7a94-76d8-4b5e-8ec7-1493648ed0d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/polyjoule/ylebourlout/apriou/polygame/GameView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/YcQZDZ8bXj3RscGCG0PceqsnquM=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/YcQZDZ8bXj3RscGCG0PceqsnquM=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/debug_419bd40a9fce168c00ff22603aa567a54c06e9d9.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/debug_419bd40a9fce168c00ff22603aa567a54c06e9d9.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Accueil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Accueil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,8 +69,8 @@
       <file leaf-file-name="GameView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="494" column="32" selection-start-line="494" selection-start-column="32" selection-end-line="494" selection-end-column="32" />
+            <state relative-caret-position="300">
+              <caret line="489" column="23" selection-start-line="489" selection-start-column="23" selection-end-line="489" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,7 +81,7 @@
       <file leaf-file-name="Classement_Activity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Classement_Activity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
+            <state relative-caret-position="5160">
               <caret line="362" column="0" selection-start-line="359" selection-start-column="3" selection-end-line="362" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -98,7 +93,7 @@
       <file leaf-file-name="Registration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
+            <state relative-caret-position="1485">
               <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
               <folding />
             </state>
@@ -108,7 +103,7 @@
       <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1490">
+            <state relative-caret-position="645">
               <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
               <folding />
             </state>
@@ -118,8 +113,8 @@
       <file leaf-file-name="Profil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+            <state relative-caret-position="175">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,7 +125,7 @@
       <file leaf-file-name="AccueilView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/AccueilView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="3360">
               <caret line="286" column="17" selection-start-line="286" selection-start-column="12" selection-end-line="286" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -142,8 +137,8 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="173" column="17" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -152,7 +147,7 @@
       <file leaf-file-name="VehiculePlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="1995">
               <caret line="158" column="29" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -165,7 +160,7 @@
       <file leaf-file-name="Background.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Background.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
+            <state relative-caret-position="765">
               <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
               <folding />
             </state>
@@ -175,7 +170,7 @@
       <file leaf-file-name="Accueil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Accueil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="2775">
               <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
               <folding />
             </state>
@@ -2208,9 +2203,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2365,9 +2358,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2978,7 +2973,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510583429379</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Boolean Pause corrigé">
+      <created>1510593468865</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1510593468865</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2992,7 +2994,6 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30749014" sideWeight="0.51672864" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30749014" sideWeight="0.4832714" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30280957" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298292" sideWeight="0.49027896" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3014,6 +3015,7 @@
       <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30280957" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298292" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3051,7 +3053,6 @@
     <MESSAGE value="Update score" />
     <MESSAGE value="Touch to start" />
     <MESSAGE value="Correction rang" />
-    <MESSAGE value="Update" />
     <MESSAGE value="resize" />
     <MESSAGE value="resize + score collision" />
     <MESSAGE value="bitmap" />
@@ -3073,7 +3074,8 @@
     <MESSAGE value="Classement et correction diverses" />
     <MESSAGE value="Update BDD + bords routes" />
     <MESSAGE value="Boolean Pause corrigé" />
-    <option name="LAST_COMMIT_MESSAGE" value="Boolean Pause corrigé" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3252,7 +3254,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="1324" column="0" selection-start-line="1324" selection-start-column="0" selection-end-line="1324" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3326,7 +3327,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="792" column="0" selection-start-line="792" selection-start-column="0" selection-end-line="792" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3416,7 +3416,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3447,17 +3446,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Classement_Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5160">
+          <caret line="362" column="0" selection-start-line="359" selection-start-column="3" selection-end-line="362" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="173" column="17" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="17" />
+        <state relative-caret-position="255">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/VehiculePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="1995">
           <caret line="158" column="29" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3468,51 +3503,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Background.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
+        <state relative-caret-position="765">
           <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1490">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Classement_Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="362" column="0" selection-start-line="359" selection-start-column="3" selection-end-line="362" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Profil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/Accueil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
+        <state relative-caret-position="2775">
           <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
           <folding />
         </state>
@@ -3520,7 +3519,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/AccueilView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="3360">
           <caret line="286" column="17" selection-start-line="286" selection-start-column="12" selection-end-line="286" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3530,8 +3529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/polyjoule/ylebourlout/apriou/polygame/GameView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="494" column="32" selection-start-line="494" selection-start-column="32" selection-end-line="494" selection-end-column="32" />
+        <state relative-caret-position="300">
+          <caret line="489" column="23" selection-start-line="489" selection-start-column="23" selection-end-line="489" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
