@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
@@ -16,6 +17,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.userInfo;
+import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.users;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.COEFVEHICULESEVITES;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGEGO;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.DUREEAFFICHAGETOTALPANNEAUX;
@@ -27,7 +29,6 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Game.PERTECARBURANT;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.RATIOTABLEAUSCORE;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.nbVie;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.pause;
-import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.users;
 
 /**
  * Created by Alexis on 19/07/2017.
@@ -759,11 +760,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 classementDraw.draw(canvas);
             } else {
                 // ScoreText
-                TextPaint textPaintScore = new TextPaint();
-                textPaintScore.setTextSize(pixels5);
-                textPaintScore.setColor(ContextCompat.getColor(this.getContext(),R.color.colorPrimaryDark));
-                canvas.drawText(Integer.toString(score),pixels3/2,2*pixels3,textPaintScore);
-
+                if(toastHSdone){
+                    TextPaint textPaintScorehs = new TextPaint();
+                    textPaintScorehs.setTextSize(pixels5);
+                    textPaintScorehs.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                    textPaintScorehs.setColor(ContextCompat.getColor(this.getContext(), R.color.newhs));
+                    canvas.drawText(Integer.toString(score), pixels3 / 2, 2 * pixels3, textPaintScorehs);
+                } else {
+                    TextPaint textPaintScore = new TextPaint();
+                    textPaintScore.setTextSize(pixels5);
+                    textPaintScore.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
+                    canvas.drawText(Integer.toString(score), pixels3 / 2, 2 * pixels3, textPaintScore);
+                }
 
                 canvas.drawBitmap(contourCarburant,cvW-2*vehicule.getvehiculePlayerW()/3,levelCarburantMinInit,null);
                 levelCarburantBitmapCroped = Bitmap.createBitmap(levelCarburantBitmapInit,0,levelCarburantMaxInit-levelCarburant,vehicule.getvehiculePlayerW()/3,levelCarburant-levelCarburantMinInit);
@@ -887,7 +895,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         //Collections.sort(users, new UsersComparator());
                         rangScore=1;
                         for(int i=0; i<users.size();i++){
-                            if(scorefinal<users.get(i).getHighScore()){
+                            if((scorefinal<users.get(i).getHighScore()) && !(users.get(i).getPseudo()).equals(userInfo.getPseudo())){
                                 rangScore++;
                             }
                         }
@@ -899,7 +907,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                             if (scorefinal > userInfo.getHighScore()) {
                                 Game.update(scorefinal); // update local
                                 userInfo.setHighScore(scorefinal);
-                                Game.saveUserInformation(userInfo);
+                                Game.saveUserInformation(scorefinal);
                                 Game.pullHighScore();
                             }
                         }
@@ -975,7 +983,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 score++;
 
                 if(userInfo!=null) {
-                    if (score > userInfo.getHighScore() && userInfo.getHighScore()!=-1) {
+                    if ((score + (nbVehicules - 1) * COEFVEHICULESEVITES )> userInfo.getHighScore() && userInfo.getHighScore()!=-1) {
                         if (!toastHSdone) {
                             Game.toastHS();
                             toastHSdone = true;

@@ -157,7 +157,7 @@ public class Game extends Activity {
         }
     }
 
-    public static void saveUserInformation(UserInformation user) {
+    public static void saveUserInformation(int hs) {
         //getting the current logged in user
         FirebaseUser usr = firebaseAuth.getCurrentUser();
 
@@ -169,7 +169,7 @@ public class Game extends Activity {
         * for saving data we are using setvalue method this method takes a normal java object
         * */
         if (usr != null) {
-            databaseReference.child("users").child(usr.getUid()).setValue(user);
+            databaseReference.child("users").child(usr.getUid()).child("highScore").setValue(hs);
             Log.d("usrnotnull","oui");
             Log.d("userUid",usr.getUid());
         }
