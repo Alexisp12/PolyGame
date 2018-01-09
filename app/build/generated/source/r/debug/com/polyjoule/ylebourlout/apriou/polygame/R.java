@@ -2429,8 +2429,8 @@ containing a value of this type.
         public static final int notification_bg_normal=0x7f020097;
         public static final int notification_bg_normal_pressed=0x7f020098;
         public static final int notification_icon_background=0x7f020099;
-        public static final int notification_template_icon_bg=0x7f0200ac;
-        public static final int notification_template_icon_low_bg=0x7f0200ad;
+        public static final int notification_template_icon_bg=0x7f0200ad;
+        public static final int notification_template_icon_low_bg=0x7f0200ae;
         public static final int notification_tile_bg=0x7f02009a;
         public static final int notify_panel_notification_icon_bg=0x7f02009b;
         public static final int parameters=0x7f02009c;
@@ -2444,11 +2444,12 @@ containing a value of this type.
         public static final int touchtostart=0x7f0200a4;
         public static final int trois=0x7f0200a5;
         public static final int twente=0x7f0200a6;
-        public static final int un=0x7f0200a7;
-        public static final int vehiculeaccueil=0x7f0200a8;
-        public static final int vehiculeennemi=0x7f0200a9;
-        public static final int vehiculeplayer=0x7f0200aa;
-        public static final int vehiculeplayer3=0x7f0200ab;
+        public static final int twitterlogo=0x7f0200a7;
+        public static final int un=0x7f0200a8;
+        public static final int vehiculeaccueil=0x7f0200a9;
+        public static final int vehiculeennemi=0x7f0200aa;
+        public static final int vehiculeplayer=0x7f0200ab;
+        public static final int vehiculeplayer3=0x7f0200ac;
     }
     public static final class id {
         public static final int action0=0x7f0c008d;
@@ -2524,7 +2525,9 @@ containing a value of this type.
         public static final int line1=0x7f0c009c;
         public static final int line3=0x7f0c009e;
         public static final int listMode=0x7f0c0012;
+        public static final int listViewTweet=0x7f0c00ab;
         public static final int list_item=0x7f0c003b;
+        public static final int liste_view=0x7f0c00ac;
         public static final int loginbutton=0x7f0c0089;
         public static final int media_actions=0x7f0c0090;
         public static final int menubg=0x7f0c0083;
@@ -2614,8 +2617,13 @@ containing a value of this type.
         public static final int titre=0x7f0c0068;
         public static final int top=0x7f0c0033;
         public static final int topPanel=0x7f0c0049;
+        public static final int tweetIV=0x7f0c00aa;
+        public static final int tweetRL=0x7f0c00a9;
         public static final int up=0x7f0c0008;
         public static final int useLogo=0x7f0c001a;
+        public static final int userImg=0x7f0c00ae;
+        public static final int userPseudo=0x7f0c00ad;
+        public static final int userStatus=0x7f0c00af;
         public static final int wide=0x7f0c002e;
         public static final int withText=0x7f0c002b;
         public static final int wrap=0x7f0c000b;
@@ -2680,7 +2688,9 @@ containing a value of this type.
         public static final int select_dialog_item_material=0x7f040030;
         public static final int select_dialog_multichoice_material=0x7f040031;
         public static final int select_dialog_singlechoice_material=0x7f040032;
-        public static final int support_simple_spinner_dropdown_item=0x7f040033;
+        public static final int social_layout=0x7f040033;
+        public static final int support_simple_spinner_dropdown_item=0x7f040034;
+        public static final int tweet_update=0x7f040035;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

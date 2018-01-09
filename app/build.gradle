@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.polyjoule.ylebourlout.apriou.polygame"
         minSdkVersion 14 //21
@@ -30,5 +31,7 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:9.2.1'
     compile 'com.google.firebase:firebase-database:9.2.1'
     //compile 'com.koushikdutta.ion:ion:2.2.1'
+    compile files('twitter4j-core-4.0.4.jar')
+    compile files('twitter4j-stream-4.0.4.jar')
 }
 apply plugin: 'com.google.gms.google-services'

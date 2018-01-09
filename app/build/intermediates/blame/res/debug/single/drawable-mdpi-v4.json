@@ -152,12 +152,12 @@
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_disabled.9.png",
-        "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/drawable-mdpi-v4/common_plus_signin_btn_text_light_disabled.9.png"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bg.jpg",
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/drawable-mdpi/bg.jpg"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_disabled.9.png",
+        "source": "/Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/res/drawable-mdpi-v4/common_plus_signin_btn_text_light_disabled.9.png"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_focused_holo.9.png",

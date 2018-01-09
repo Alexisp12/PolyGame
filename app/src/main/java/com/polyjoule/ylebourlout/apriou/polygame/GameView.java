@@ -1016,7 +1016,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                             //Log.d("vitesse1+increment", Integer.toString(vitesse1 + incrementVitesse));
                             //bg.setVector(-vitesseDeplacementBG2);
                             //carburant.setVitesse(vitesseDeplacementBG2);
-                            sommeIncrementVitesse=0;
+                            sommeIncrementVitesse=sommeIncrementVitesse-1;
                         }
                     } else {
                         bg.setVector(bg.getVitesse()+bg.getVitesse()/6);
@@ -4537,7 +4537,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 if(!perdu) {
                     if (!collisionVehicule) {
                         //if (currentX + vehicule.getvehiculePlayerW() / 2 < cvW - cvW / 8 && currentX - vehicule.getvehiculePlayerW() / 2 > cvW / 8) {
-                        if (currentX + vehicule.getvehiculePlayerW() / 2 < routeB+2*vehicule.getvehiculePlayerW() && currentX - vehicule.getvehiculePlayerW() / 2 > routeH-vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerW()/4) {
+
+
+                        if(currentX - distanceDoigtVoiture < routeB+vehicule.getvehiculePlayerW() && currentX -distanceDoigtVoiture > routeH-vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerW()/4){
+                        //if (currentX + vehicule.getvehiculePlayerW() / 2 < routeB+2*vehicule.getvehiculePlayerW() && currentX - vehicule.getvehiculePlayerW() / 2 > routeH-vehicule.getvehiculePlayerW()+vehicule.getvehiculePlayerW()/4) {
                             if (canMoveVehicule) {
                                 vehicule.setX(currentX - distanceDoigtVoiture);
                             }

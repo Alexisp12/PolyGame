@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:2:1-46:12
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:2:1-50:12
 	package
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:3:5-56
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
@@ -21,7 +21,7 @@ MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/buil
 	android:name
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:7:5-44:19
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:7:5-48:19
 MERGED from [com.android.support:appcompat-v7:25.2.0] /Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.2.0] /Users/Alexis/.android/build-cache/834e3ab8c9a2d33cea27efa468b5185a06c45f2b/output/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:25.2.0] /Users/Alexis/.android/build-cache/fa306a571393143a2f9c917735e550b6241b6f73/output/AndroidManifest.xml:23:5-20
@@ -104,6 +104,16 @@ ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/mai
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:41:13-49
 	android:name
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:40:19-41
+activity#com.polyjoule.ylebourlout.apriou.polygame.Social
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:43:9-45:20
+	android:screenOrientation
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:44:13-49
+	android:name
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:43:19-41
+service#com.polyjoule.ylebourlout.apriou.polygame.TimelineService
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:46:9-52
+	android:name
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:46:18-49
 uses-sdk
 INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.2.0] /Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/AndroidManifest.xml:21:5-23:78

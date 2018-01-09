@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_black_48dp.png",

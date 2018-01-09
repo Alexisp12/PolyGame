@@ -132,19 +132,24 @@ public class Accueil extends Activity {
         This.startActivity(loginIntent);
     }
     public static void social(){
-        Handler makeToastHandler = new Handler(Looper.getMainLooper());
+//        Handler makeToastHandler = new Handler(Looper.getMainLooper());
+//
+//        makeToastHandler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (toast != null) {
+//                    toast.cancel();
+//                }
+//                toast = Toast.makeText(This, "En construction.", Toast.LENGTH_SHORT);
+//                toast.show();
+//
+//            }
+//        });
 
-        makeToastHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (toast != null) {
-                    toast.cancel();
-                }
-                toast = Toast.makeText(This, "En construction.", Toast.LENGTH_SHORT);
-                toast.show();
+        mActivity.finish();
+        Intent socialIntent = new Intent(This, Social.class);
+        This.startActivity(socialIntent);
 
-            }
-        });
     }
     public static void palmares(){
         Handler makeToastHandler = new Handler(Looper.getMainLooper());
