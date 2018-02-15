@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.polyjoule.ylebourlout.apriou.polygame"
-        minSdkVersion 14 //21
+        minSdkVersion 18 //21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"

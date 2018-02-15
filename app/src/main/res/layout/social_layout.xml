@@ -27,7 +27,19 @@
             android:textStyle="bold" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/loadingTwitter"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tweetRL"
+        android:text="Loading.."
+        android:gravity="center"
+        android:textSize="30dp"
+        android:paddingTop="20dp"
+        android:layout_height="wrap_content" />
+
+
     <RelativeLayout
+        android:id="@+id/RLlistViewTweet"
         android:layout_width="wrap_content"
         android:layout_height="210dp"
         android:layout_below="@+id/tweetRL"
@@ -39,5 +51,85 @@
             android:layout_height="wrap_content" />
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/instaRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/RLlistViewTweet"
+        >
+
+        <ImageView
+            android:id="@+id/instaIV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/instagramlogo"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/instaIV"
+            android:layout_height="wrap_content"
+            android:text="Instagram"
+            android:layout_marginLeft="10dp"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/loadingINSTA"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/instaRL"
+        android:text="Loading.."
+        android:gravity="center"
+        android:textSize="30dp"
+        android:paddingTop="20dp"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/RLlistViewInsta"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/instaRL"
+        android:paddingTop="-20dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:orientation="horizontal"
+        android:weightSum="99"
+        >
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="0dp"
+            android:layout_weight="31"
+            android:layout_height="fill_parent"/>
+        <TextView
+            android:id="@+id/espace1"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="fill_parent" />
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_weight="31"
+            android:layout_height="fill_parent"/>
+        <TextView
+            android:id="@+id/espace2"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="fill_parent" />
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="0dp"
+            android:layout_weight="31"
+            android:layout_height="fill_parent"
+          />
+        <!--<ListView android:id="@+id/listViewInsta"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+
+            <!--/>-->
+
+    </LinearLayout>
 
 </RelativeLayout>
