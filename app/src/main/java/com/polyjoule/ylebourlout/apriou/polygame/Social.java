@@ -5,8 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -23,7 +21,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -177,6 +174,7 @@ public class Social extends Activity {
         tweetRl.setOnClickListener(new View.OnClickListener(){
             public void onClick (View tweetView){
                 if(seekPP && seekStatus) {
+
                     TweetAdaptateur adapter = new TweetAdaptateur(mThis, listPseudo, listStatus, listBitmap);
                     tweetListView.setAdapter(adapter);
 
@@ -194,32 +192,44 @@ public class Social extends Activity {
                             //// Ouvre une page web
                             //Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
                             //startActivity(intent);
-
-                            Intent tweetIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                            ///tweetIntent.putExtra(Intent.EXTRA_TEXT, "This is a Test.");
-                            //tweetIntent.setType("text/plain");
-
-
-                            PackageManager packManager = getPackageManager();
-                            List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
-
-                            boolean resolved = false;
-                            for (ResolveInfo resolveInfo : resolvedInfoList) {
-                                if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
-                                    tweetIntent.setClassName(
-                                            resolveInfo.activityInfo.packageName,
-                                            resolveInfo.activityInfo.name);
-                                    resolved = true;
-                                    break;
-                                }
+                            Intent intent = null;
+                            try {
+                                // get the Twitter app if possible
+                                getPackageManager().getPackageInfo("com.twitter.android", 0);
+                                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=Polyjoule"));
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            } catch (Exception e) {
+                                // no Twitter app, revert to browser
+                                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Polyjoule"));
                             }
-                            if (resolved) {
-                                startActivity(tweetIntent);
-                            } else {
-                                Toast.makeText(mThis, "Twitter app isn't found", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                                startActivity(intent);
-                            }
+                            startActivity(intent);
+
+                            // TODO Twitter ex code
+//                            Intent tweetIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                            ///tweetIntent.putExtra(Intent.EXTRA_TEXT, "This is a Test.");
+//                            //tweetIntent.setType("text/plain");
+//
+//
+//                            PackageManager packManager = getPackageManager();
+//                            List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
+//
+//                            boolean resolved = false;
+//                            for (ResolveInfo resolveInfo : resolvedInfoList) {
+//                                if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
+//                                    tweetIntent.setClassName(
+//                                            resolveInfo.activityInfo.packageName,
+//                                            resolveInfo.activityInfo.name);
+//                                    resolved = true;
+//                                    break;
+//                                }
+//                            }
+//                            if (resolved) {
+//                                startActivity(tweetIntent);
+//                            } else {
+//                                Toast.makeText(mThis, "Twitter app isn't found", Toast.LENGTH_LONG).show();
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                                startActivity(intent);
+//                            }
                         }
                     });
                 }
@@ -309,6 +319,7 @@ public class Social extends Activity {
                                     startUrl=i;
                                 }
                             }
+
                             Log.d("startUrl",Integer.toString(startUrl));
                             if(status.getText().length()>startUrl) {
                                 listSource.add(status.getText().substring(startUrl));
@@ -342,6 +353,18 @@ public class Social extends Activity {
         mInstaApp = new InstagramApp(this, CLIENT_ID,
                 CLIENT_SECRET, CALLBACK_URL);
 
+        if(!successDone) {
+            // tvSummary.setText("Connected as " + mApp.getUserName());
+            //btnConnect.setText("Disconnect");
+            //llAfterLoginView.setVisibility(View.VISIBLE);
+            Log.d("OAuthInsta", "success");
+            userInfoHashmap = mInstaApp.getUserInfo();
+            mInstaApp.fetchUserName();
+            getAllMediaImages(instaRL);
+            successDone = true;
+            seekInstaPics=true;
+        }
+
         mInstaApp.setListener(new InstagramApp.OAuthAuthenticationListener() {
 
             @Override
@@ -353,11 +376,11 @@ public class Social extends Activity {
                     Log.d("OAuthInsta", "success");
                     userInfoHashmap = mInstaApp.getUserInfo();
                     mInstaApp.fetchUserName();
-
+                    getAllMediaImages(instaRL);
                     successDone = true;
                     seekInstaPics=true;
 
-                    getAllMediaImages(instaRL);
+
                 }
 
             }
@@ -508,8 +531,8 @@ public class Social extends Activity {
                         JSONParser jsonParser = new JSONParser();
                         JSONObject jsonObject = jsonParser
                                 .getJSONFromUrlByGet("https://api.instagram.com/v1/users/"
-                                        + userInfoHashmap.get(TAG_ID)
-                                        + "/media/recent/?access_token="+mInstaApp.getTOken());
+                                        + "7075790315"//+ userInfoHashmap.get(TAG_ID)
+                                        + "/media/recent/?access_token=7075790315.6246d01.e24643f7c1a749339b5427c6cb5592ab");//+mInstaApp.getTOken());
 //                                        + CLIENT_ID
 //                                        + "&count="
 //                                        + userInfoHashmap.get(TAG_COUNTS));
@@ -584,5 +607,4 @@ public class Social extends Activity {
             }).start();
         //}
     }
-
 }

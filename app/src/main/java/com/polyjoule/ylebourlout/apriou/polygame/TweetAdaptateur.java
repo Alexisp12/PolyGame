@@ -77,7 +77,7 @@ public class TweetAdaptateur extends BaseAdapter {
 
 
         // Gestion PP
-        iv_pp.setImageBitmap(pp.get(position));
+        iv_pp.setImageBitmap(pp.get(0));//position));
 
 //        //On retourne l'item créé.
         return layoutItem;

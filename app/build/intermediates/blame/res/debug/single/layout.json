@@ -76,6 +76,10 @@
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/layout/login.xml"
     },
     {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/palmares.xml",
+        "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/layout/palmares.xml"
+    },
+    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/tweet_update.xml",
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/layout/tweet_update.xml"
     },

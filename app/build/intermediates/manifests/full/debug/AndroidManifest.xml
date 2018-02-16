@@ -62,6 +62,10 @@
             android:name="com.polyjoule.ylebourlout.apriou.polygame.Social"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.polyjoule.ylebourlout.apriou.polygame.Palmares"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <service android:name="com.polyjoule.ylebourlout.apriou.polygame.TimelineService" />
 

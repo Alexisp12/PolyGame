@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -152,21 +150,25 @@ public class Accueil extends Activity {
 
     }
     public static void palmares(){
-        Handler makeToastHandler = new Handler(Looper.getMainLooper());
+        mActivity.finish();
+        Intent socialIntent = new Intent(This, Palmares.class);
+        This.startActivity(socialIntent);
 
-        makeToastHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (toast != null) {
-                    toast.cancel();
-                }
-
-
-                toast = Toast.makeText(This, "En construction.", Toast.LENGTH_SHORT);
-                toast.show();
-
-            }
-        });
+//        Handler makeToastHandler = new Handler(Looper.getMainLooper());
+//
+//        makeToastHandler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (toast != null) {
+//                    toast.cancel();
+//                }
+//
+//
+//                toast = Toast.makeText(This, "En construction.", Toast.LENGTH_SHORT);
+//                toast.show();
+//
+//            }
+//        });
     }
 
 //    @Override
