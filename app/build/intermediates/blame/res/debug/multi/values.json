@@ -2880,14 +2880,7 @@
                     "endOffset": 43198
                 },
                 "from": {
-                    "file": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/values/dim.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 141,
-                        "endColumn": 40,
-                        "endOffset": 177
-                    }
+                    "file": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/values/dim.xml"
                 }
             },
             {

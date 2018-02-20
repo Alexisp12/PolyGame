@@ -1,74 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/anneePalmaRL"
-        android:gravity="center_horizontal"
-        android:paddingBottom="20dp">
-        <TextView
-            android:id="@+id/textanneePalma"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Palmares "
-            android:textSize="40dp"
-            android:paddingBottom="20dp"/>
-
-        <TextView
-            android:id="@+id/anneePalma"
-            android:layout_toEndOf="@id/textanneePalma"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="XXXX"
-            android:textSize="40dp"
-            />
-
-    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:id="@+id/LLPalmaresCoupe"
+        >
 
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/anneePalmaRL">
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
-           <LinearLayout
-            android:id="@+id/LLPalmaresCoupe"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="-20dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:id="@+id/anneePalmaRL"
+            android:layout_weight="12"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:id="@+id/textanneePalma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hitlist "
+                android:textSize="40dp"
+                />
+
+            <TextView
+                android:id="@+id/anneePalma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXXX"
+                android:textSize="40dp"
+                />
+
+        </LinearLayout>
+
+
+
+       <LinearLayout
+            android:id="@+id/LLPalmaresCoupesub"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="9dp"
             android:layout_marginEnd="9dp"
             android:orientation="horizontal"
             android:gravity="center"
+           android:layout_weight="38"
             android:weightSum="99"
             >
-            <LinearLayout
+           <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="fill_parent"
                 android:layout_weight="31"
+                android:orientation="vertical"
+                android:weightSum="100"
                 android:gravity="center">
                 <TextView
                     android:id="@+id/NomTournoi1"
+                    android:layout_weight="30"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:textSize="@dimen/trophy_size"
-                    android:paddingBottom="10dp"
                     android:text="Tournoi1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
                 <ImageView
                     android:id="@+id/image1"
+                    android:layout_weight="40"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"/>
+                    android:layout_height="0dp"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="0dp"
+                   android:layout_weight="5"/>
                 <TextView
                     android:id="@+id/ValeurRecord1"
+                    android:layout_weight="10"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
+                    android:layout_height="0dp"
                     android:textSize="@dimen/record_size"
                     android:text="Record 1"/>
             </LinearLayout>
@@ -80,26 +94,36 @@
                 android:layout_height="fill_parent" />
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:orientation="vertical"
                 android:layout_weight="31"
+                android:weightSum="100"
                 android:gravity="center">
                 <TextView
                     android:id="@+id/NomTournoi2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="30"
                     android:textSize="@dimen/trophy_size"
                     android:text="Tournoi2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
                 <ImageView
                     android:id="@+id/image2"
+                    android:layout_weight="40"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"/>
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
                 <TextView
                     android:id="@+id/ValeurRecord2"
+                    android:layout_weight="10"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
+                    android:layout_height="0dp"
                     android:textSize="@dimen/record_size"
                     android:text="Record 2"/>
             </LinearLayout>
@@ -111,53 +135,269 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:orientation="vertical"
+                android:weightSum="100"
                 android:gravity="center"
                 android:layout_weight="31">
                 <TextView
                     android:id="@+id/NomTournoi3"
-                    android:paddingBottom="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="30"
                     android:textSize="@dimen/trophy_size"
                     android:text="Tournoi1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
                 <ImageView
                     android:id="@+id/image3"
+                    android:layout_weight="40"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="0dp">
                 </ImageView>
                 <TextView
-                    android:id="@+id/ValeurRecord3"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+                <TextView
+                    android:id="@+id/ValeurRecord3"
+                    android:layout_weight="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:textSize="@dimen/record_size"
                     android:text="Record 3"/>
             </LinearLayout>
 
-        </LinearLayout>
+       </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imagePalma"
-            android:layout_below="@+id/LLPalmaresCoupe"
-            android:paddingTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            />
 
-        <TextView
+       <LinearLayout
+           android:id="@+id/imagePalmaLL"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="50"
+           android:gravity="center_horizontal"
+           >
+           <ImageView
+               android:id="@+id/imagePalma"
+               android:scaleType="centerInside"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_width="match_parent"
+               android:layout_gravity="center_horizontal"
+               android:layout_height="fill_parent"
+               />
+       </LinearLayout>
+
+       <TextView
             android:id="@+id/textePalma"
             android:layout_marginLeft="9dp"
             android:layout_marginRight="9dp"
-            android:layout_below="@+id/imagePalma"
-            android:paddingTop="20dp"
+            android:layout_weight="28"
             android:textSize="@dimen/text_size"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-       </RelativeLayout>
-    </ScrollView>
+            android:layout_height="wrap_content" />
 
+       <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:weightSum="100"-->
+        <!--android:clickable="true"-->
+        <!--android:orientation="horizontal">-->
+            <!--<LinearLayout-->
+                <!--android:id="@+id/clickGaucheLL"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:clickable="true"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:layout_weight="50">-->
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+                <!--android:id="@+id/clickDroitLL"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:clickable="true"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:layout_weight="50">-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:id="@+id/LLPalmaresCoupeb"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:id="@+id/anneePalmaRLb"
+            android:layout_weight="12"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:id="@+id/textanneePalmab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hitlist "
+                android:textSize="40dp"
+                />
+
+            <TextView
+                android:id="@+id/anneePalmab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXXX"
+                android:textSize="40dp"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/LLPalmaresCoupebsub"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_weight="38"
+            android:weightSum="99"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="48"
+                android:orientation="vertical"
+                android:weightSum="100"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/NomTournoi1b"
+                    android:layout_weight="30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:textSize="@dimen/trophy_size"
+                    android:text="Tournoi1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+                <ImageView
+                    android:id="@+id/image1b"
+                    android:layout_weight="40"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+                <TextView
+                    android:id="@+id/ValeurRecord1b"
+                    android:layout_weight="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:textSize="@dimen/record_size"
+                    android:text="Record 1"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/espace1b"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="fill_parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_weight="48"
+                android:weightSum="100"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/NomTournoi2b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="30"
+                    android:textSize="@dimen/trophy_size"
+                    android:text="Tournoi2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+                <ImageView
+                    android:id="@+id/image2b"
+                    android:layout_weight="40"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
+                <TextView
+                    android:id="@+id/ValeurRecord2b"
+                    android:layout_weight="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:textSize="@dimen/record_size"
+                    android:text="Record 2"/>
+            </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/imagePalmaLLb"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:id="@+id/imagePalmab"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="fill_parent"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:clickable="true"
+    android:orientation="horizontal">
+    <LinearLayout
+    android:id="@+id/clickGaucheLL"
+    android:layout_width="0dp"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:layout_height="fill_parent"
+    android:layout_weight="50">
+    </LinearLayout>
+    <LinearLayout
+    android:id="@+id/clickDroitLL"
+    android:layout_width="0dp"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:layout_height="fill_parent"
+    android:layout_weight="50">
+    </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

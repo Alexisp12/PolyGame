@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="trophy_size">16dp</dimen>
-    <dimen name="record_size">15dp</dimen>
+    <dimen name="trophy_size">14dp</dimen>
+    <dimen name="record_size">14dp</dimen>
     <dimen name="text_size">12dp</dimen>
 
 </resources>

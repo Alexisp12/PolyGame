@@ -418,9 +418,9 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
-    <dimen name="record_size">15dp</dimen>
+    <dimen name="record_size">14dp</dimen>
     <dimen name="text_size">12dp</dimen>
-    <dimen name="trophy_size">16dp</dimen>
+    <dimen name="trophy_size">14dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="action_bar_activity_content" type="id"/>

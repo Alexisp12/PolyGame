@@ -16,6 +16,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.userInfo;
 import static com.polyjoule.ylebourlout.apriou.polygame.Accueil.users;
 import static com.polyjoule.ylebourlout.apriou.polygame.Game.COEFVEHICULESEVITES;
@@ -36,14 +39,17 @@ import static com.polyjoule.ylebourlout.apriou.polygame.Game.pause;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     // déclaration de l'objet définissant la boucle principale de déplacement et de rendu
+    private ArrayList<Integer> cptdispo;
+    private Random r;
+    private int cpt;
     private GameLoopThread gameLoopThread;
     private VehiculePlayer vehicule;
     private VehiculeEnnemi vehiculeEnnemi1;
     private VehiculeEnnemi2 vehiculeEnnemi2;
     private VehiculeEnnemi3 vehiculeEnnemi3;
     private VehiculeEnnemi4 vehiculeEnnemi4;
-    private VehiculeEnnemi vehiculeEnnemi5;
-    private VehiculeEnnemi2 vehiculeEnnemi6;
+    private VehiculeEnnemi5 vehiculeEnnemi5;
+    private VehiculeEnnemi6 vehiculeEnnemi6;
     private Carburant carburant;
     private Boolean canMoveVehicule=false;
     private Boolean initialisation=false;
@@ -187,8 +193,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         vehiculeEnnemi2 = new VehiculeEnnemi2(this.getContext());
         vehiculeEnnemi3 = new VehiculeEnnemi3(this.getContext());
         vehiculeEnnemi4 = new VehiculeEnnemi4(this.getContext());
-        vehiculeEnnemi5 = new VehiculeEnnemi(this.getContext());
-        vehiculeEnnemi6 = new VehiculeEnnemi2(this.getContext());
+        vehiculeEnnemi5 = new VehiculeEnnemi5(this.getContext());
+        vehiculeEnnemi6 = new VehiculeEnnemi6(this.getContext());
 
 
         stratEnnemiDone = new Boolean [NBENNEMIPARCOLONNEMAX];
@@ -1167,12 +1173,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             switch (stratEnnemi[colonneEnnemiAVenir]) {
                 //NBCASE = NBSTRATEGIES
                 case 0:
-                    int cpt = 0;
+//                    int cpt = 0;
+//                    for(int i =0 ; i<vehiculeDispo.length;i++){
+//                        if(vehiculeDispo[i]){
+//                            cpt=i;
+//                        }
+//                    }
+                    //int cpt[] = new int[nbVehicules];
+                    cptdispo = new ArrayList<Integer>();
+
                     for(int i =0 ; i<vehiculeDispo.length;i++){
                         if(vehiculeDispo[i]){
-                            cpt=i;
+                            cptdispo.add(i);
                         }
                     }
+                    r = new Random();
+                    cpt = cptdispo.get(r.nextInt(cptdispo.size() ));
 
                     vehiculeDispo[cpt]=false;
 
@@ -1371,13 +1387,24 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     break;
                 case 1:
                     // Choix 1ervehicule
-                    cpt1=0;
-                    cpt2=0;
+//                    cpt1=0;
+//                    cpt2=0;
+//                    for(int i =0 ; i<vehiculeDispo.length;i++){
+//                        if(vehiculeDispo[i]){
+//                            cpt1=i;
+//                        }
+//                    }
+
+                    cptdispo = new ArrayList<Integer>();
+
                     for(int i =0 ; i<vehiculeDispo.length;i++){
                         if(vehiculeDispo[i]){
-                            cpt1=i;
+                            cptdispo.add(i);
                         }
                     }
+                    r = new Random();
+                    cpt1 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
 
                     vehiculeDispo[cpt1]=false;
 
@@ -1385,11 +1412,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 0:
                             highestEnnemi=1;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -1622,11 +1659,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 1:
                             highestEnnemi=2;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
                             switch (cpt2){
                                 case 0:
@@ -1859,11 +1906,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 2:
                             highestEnnemi=3;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -2100,11 +2157,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 3:
                             highestEnnemi=4;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -2341,11 +2408,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 4:
                             highestEnnemi=5;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -2581,11 +2658,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 5:
                             highestEnnemi=6;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -2597,19 +2684,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
                                     if (distanceEntreVehiculesRand < 25) {
-                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
                                         vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
                                     } else {
                                         if (distanceEntreVehiculesRand < 50) {
-                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
                                             vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
                                         } else {
                                             if (distanceEntreVehiculesRand < 75) {
-                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
                                                 vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
                                             } else {
-                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
                                                 vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
                                             }
                                         }
                                     }
@@ -2617,16 +2704,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     positionnementV1X = (int) (Math.random() * (100 + 1));
 
                                     if (positionnementV1X < 33) {
-                                        vehiculeEnnemi1.setX(routeB);
-                                        vehiculeEnnemi6.setX(routeM);
+                                        vehiculeEnnemi6.setX(routeB);
+                                        vehiculeEnnemi1.setX(routeM);
 
                                     } else {
                                         if (positionnementV1X < 66) {
-                                            vehiculeEnnemi1.setX(routeH);
-                                            vehiculeEnnemi6.setX(routeB);
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeB);
                                         } else {
-                                            vehiculeEnnemi1.setX(routeH);
-                                            vehiculeEnnemi6.setX(routeM);
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
 
                                         }
                                     }
@@ -2825,13 +2912,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     break;
                 case 2:
                     // Choix 1ervehicule
-                    cpt1=0;
-                    cpt2=0;
+                    //cpt1=0;
+                    //cpt2=0;
+//                    for(int i =0 ; i<vehiculeDispo.length;i++){
+//                        if(vehiculeDispo[i]){
+//                            cpt1=i;
+//                        }
+//                    }
+                    cptdispo = new ArrayList<Integer>();
+
                     for(int i =0 ; i<vehiculeDispo.length;i++){
                         if(vehiculeDispo[i]){
-                            cpt1=i;
+                            cptdispo.add(i);
                         }
                     }
+                    r = new Random();
+                    cpt1 = cptdispo.get(r.nextInt(cptdispo.size() ));
 
                     vehiculeDispo[cpt1]=false;
 
@@ -2839,11 +2935,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 0:
                             highestEnnemi=1;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -3076,11 +3182,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 1:
                             highestEnnemi=2;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
                             switch (cpt2){
                                 case 0:
@@ -3313,11 +3430,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 2:
                             highestEnnemi=3;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -3554,11 +3681,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 3:
                             highestEnnemi=4;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -3795,11 +3932,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 4:
                             highestEnnemi=5;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -4035,11 +4182,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         case 5:
                             highestEnnemi=6;
                             // choix 2ème véhicule
+//                            for(int i =0 ; i<vehiculeDispo.length;i++){
+//                                if(vehiculeDispo[i]){
+//                                    cpt2=i;
+//                                }
+//                            }
+                            cptdispo = new ArrayList<Integer>();
+
                             for(int i =0 ; i<vehiculeDispo.length;i++){
                                 if(vehiculeDispo[i]){
-                                    cpt2=i;
+                                    cptdispo.add(i);
                                 }
                             }
+                            r = new Random();
+                            cpt2 = cptdispo.get(r.nextInt(cptdispo.size() ));
+
                             vehiculeDispo[cpt2]=false;
 
                             Log.d("vehiculeDispoStr2Numero",Integer.toString(cpt1));
@@ -4051,19 +4208,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     distanceEntreVehiculesRand = (int) (Math.random() * (100 + 1));
 
                                     if (distanceEntreVehiculesRand < 25) {
-                                        vehiculeEnnemi1.setY(distanceEntreVehicules1);
-                                        vehiculeEnnemi6.setY(distanceEntreVehicules1+decalage);
+                                        vehiculeEnnemi6.setY(distanceEntreVehicules1);
+                                        vehiculeEnnemi1.setY(distanceEntreVehicules1+decalage);
                                     } else {
                                         if (distanceEntreVehiculesRand < 50) {
-                                            vehiculeEnnemi1.setY(distanceEntreVehicules2);
-                                            vehiculeEnnemi6.setY(distanceEntreVehicules2+decalage);
+                                            vehiculeEnnemi6.setY(distanceEntreVehicules2);
+                                            vehiculeEnnemi1.setY(distanceEntreVehicules2+decalage);
                                         } else {
                                             if (distanceEntreVehiculesRand < 75) {
-                                                vehiculeEnnemi1.setY(distanceEntreVehicules3);
-                                                vehiculeEnnemi6.setY(distanceEntreVehicules3+decalage);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules3);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules3+decalage);
                                             } else {
-                                                vehiculeEnnemi1.setY(distanceEntreVehicules4);
-                                                vehiculeEnnemi6.setY(distanceEntreVehicules4+decalage);
+                                                vehiculeEnnemi6.setY(distanceEntreVehicules4);
+                                                vehiculeEnnemi1.setY(distanceEntreVehicules4+decalage);
                                             }
                                         }
                                     }
@@ -4071,22 +4228,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     positionnementV1X = (int) (Math.random() * (100 + 1));
 
                                     if (positionnementV1X < 33) {
-                                        vehiculeEnnemi1.setX(routeB);
-                                        vehiculeEnnemi6.setX(routeM);
+                                        vehiculeEnnemi6.setX(routeB);
+                                        vehiculeEnnemi1.setX(routeM);
 
                                     } else {
                                         if (positionnementV1X < 66) {
-                                            vehiculeEnnemi1.setX(routeH);
-                                            vehiculeEnnemi6.setX(routeB);
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeB);
                                         } else {
-                                            vehiculeEnnemi1.setX(routeH);
-                                            vehiculeEnnemi6.setX(routeM);
+                                            vehiculeEnnemi6.setX(routeH);
+                                            vehiculeEnnemi1.setX(routeM);
 
                                         }
                                     }
 
-                                    vehiculeEnnemi1.setMove(true);
                                     vehiculeEnnemi6.setMove(true);
+                                    vehiculeEnnemi1.setMove(true);
 
 
                                     break;
