@@ -22,9 +22,9 @@ MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/buil
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:5:22-64
 application
 ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:7:5-51:19
-MERGED from [com.android.support:appcompat-v7:25.2.0] /Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.2.0] /Users/Alexis/.android/build-cache/834e3ab8c9a2d33cea27efa468b5185a06c45f2b/output/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.2.0] /Users/Alexis/.android/build-cache/fa306a571393143a2f9c917735e550b6241b6f73/output/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/7f2051d9cd54684b67ca8b243e70185c0e7ea477/output/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/804c4889bd29ffbedad37ed0a3016749fef5dfdc/output/AndroidManifest.xml:7:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Alexis/.android/build-cache/917790dbb61b7b3c49e42690c99b6acc840c643e/output/AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/db03e4b176d2a5b4751c82e88138bee0e2305e22/output/AndroidManifest.xml:20:5-21:19
 MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/09ad586530e94c99f88b9a98faf91572c30d3429/output/AndroidManifest.xml:20:5-21:19
@@ -36,12 +36,7 @@ MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/buil
 MERGED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:5:5-12:19
 MERGED from [com.google.android.gms:play-services-tasks:9.2.1] /Users/Alexis/.android/build-cache/bd5e6028b2e86bd3a274791afb8034bddeaa91e4/output/AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:25.2.0] /Users/Alexis/.android/build-cache/7d3697d810502241b59b2072c471fd3fd46b9d16/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.2.0] /Users/Alexis/.android/build-cache/cf07d692ca36a364aa51b04487175498f8e1dd5c/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.2.0] /Users/Alexis/.android/build-cache/851c6f3a158793f0e4bc6aa1a7bc9f89c97b8f2f/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.2.0] /Users/Alexis/.android/build-cache/46eeb76a32675f202ea74e0a293830929c339d6f/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.2.0] /Users/Alexis/.android/build-cache/5faf250baf39ad0cffe10af963e946b17b0d66e3/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:25.2.0] /Users/Alexis/.android/build-cache/5a0dc60abe4eba71c66a486ae900ee2175695004/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build-cache/9c910924dbccff9d1a4f6eaac6de68a470241904/output/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:10:9-41
 	android:supportsRtl
@@ -122,9 +117,9 @@ ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/mai
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:49:18-49
 uses-sdk
 INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:25.2.0] /Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.2.0] /Users/Alexis/.android/build-cache/834e3ab8c9a2d33cea27efa468b5185a06c45f2b/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.2.0] /Users/Alexis/.android/build-cache/fa306a571393143a2f9c917735e550b6241b6f73/output/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/7f2051d9cd54684b67ca8b243e70185c0e7ea477/output/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/804c4889bd29ffbedad37ed0a3016749fef5dfdc/output/AndroidManifest.xml:5:5-43
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Alexis/.android/build-cache/917790dbb61b7b3c49e42690c99b6acc840c643e/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/db03e4b176d2a5b4751c82e88138bee0e2305e22/output/AndroidManifest.xml:18:5-43
 MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/09ad586530e94c99f88b9a98faf91572c30d3429/output/AndroidManifest.xml:18:5-43
@@ -139,14 +134,9 @@ MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/buil
 MERGED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-tasks:9.2.1] /Users/Alexis/.android/build-cache/bd5e6028b2e86bd3a274791afb8034bddeaa91e4/output/AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:25.2.0] /Users/Alexis/.android/build-cache/7d3697d810502241b59b2072c471fd3fd46b9d16/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.2.0] /Users/Alexis/.android/build-cache/cf07d692ca36a364aa51b04487175498f8e1dd5c/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.2.0] /Users/Alexis/.android/build-cache/851c6f3a158793f0e4bc6aa1a7bc9f89c97b8f2f/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.2.0] /Users/Alexis/.android/build-cache/46eeb76a32675f202ea74e0a293830929c339d6f/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.2.0] /Users/Alexis/.android/build-cache/5faf250baf39ad0cffe10af963e946b17b0d66e3/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.2.0] /Users/Alexis/.android/build-cache/5a0dc60abe4eba71c66a486ae900ee2175695004/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build-cache/9c910924dbccff9d1a4f6eaac6de68a470241904/output/AndroidManifest.xml:20:5-43
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.2.0] /Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml

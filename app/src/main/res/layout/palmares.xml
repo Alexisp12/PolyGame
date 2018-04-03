@@ -7,6 +7,7 @@
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/ciel"
         android:weightSum="100"
         android:id="@+id/LLPalmaresCoupe"
         >
@@ -229,6 +230,7 @@
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/ciel"
         android:weightSum="100"
         android:id="@+id/LLPalmaresCoupeb"
         >
@@ -274,7 +276,7 @@
             android:weightSum="99"
             >
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="48"
                 android:orientation="vertical"
@@ -304,9 +306,10 @@
                     android:id="@+id/ValeurRecord1b"
                     android:layout_weight="10"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:textSize="@dimen/record_size"
                     android:text="Record 1"/>
+
             </LinearLayout>
 
             <TextView
@@ -314,8 +317,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="4"
                 android:layout_height="fill_parent" />
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
                 android:layout_weight="48"
@@ -343,11 +347,12 @@
                     android:layout_weight="5"/>
                 <TextView
                     android:id="@+id/ValeurRecord2b"
-                    android:layout_weight="10"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
+                    android:layout_weight="10"
+                    android:layout_height="wrap_content"
                     android:textSize="@dimen/record_size"
                     android:text="Record 2"/>
+
             </LinearLayout>
 
             </LinearLayout>

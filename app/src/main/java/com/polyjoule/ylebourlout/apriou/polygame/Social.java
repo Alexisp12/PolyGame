@@ -135,6 +135,7 @@ public class Social extends Activity {
     private RelativeLayout tweetRL;
     private URL urlpp;
     private URL urlinstapics;
+    private List<URL> urlListInsta;
     private Boolean seekPP=false,seekStatus=false;
     private Boolean seekInstaPics=false;
 
@@ -169,6 +170,7 @@ public class Social extends Activity {
         listBitmap = new ArrayList<Bitmap>();
         listInsta = new ArrayList<Bitmap>();
         listPP = new ArrayList<String>();
+        urlListInsta = new ArrayList<URL>();
 
 
         tweetRl.setOnClickListener(new View.OnClickListener(){
@@ -406,7 +408,7 @@ public class Social extends Activity {
 
         loadInsta.setOnClickListener(new View.OnClickListener(){
             public void onClick (View tweetView) {
-                mInstaApp.authorize();
+                //mInstaApp.authorize();
             }
         });
 
@@ -416,8 +418,21 @@ public class Social extends Activity {
                 if(seekInstaPics) {
 
                     imageInsta1.setImageBitmap(listInsta.get(0));
-                    imageInsta2.setImageBitmap(listInsta.get(1));
-                    imageInsta3.setImageBitmap(listInsta.get(2));
+                    if(listInsta.get(0)!=listInsta.get(1)) {
+                        imageInsta2.setImageBitmap(listInsta.get(1));
+                        if(listInsta.get(1)!=listInsta.get(2)){
+                            imageInsta3.setImageBitmap(listInsta.get(2));
+                        } else {
+                            imageInsta3.setImageBitmap(listInsta.get(3));
+                        }
+                    } else {
+                        imageInsta2.setImageBitmap(listInsta.get(2));
+                        if(listInsta.get(2)!=listInsta.get(3)) {
+                            imageInsta3.setImageBitmap(listInsta.get(3));
+                        } else {
+                            imageInsta3.setImageBitmap(listInsta.get(4));
+                        }
+                    }
 
                     imageInsta1.setVisibility(View.VISIBLE);
                     imageInsta2.setVisibility(View.VISIBLE);
@@ -566,13 +581,18 @@ public class Social extends Activity {
 
                                             for (int i = 0; i < imageThumbList.size(); i++) {
                                                 try {
-                                                    urlinstapics = new URL(imageThumbList.get(i));
+                                                    if(!urlListInsta.contains(new URL(imageThumbList.get(i))))
+                                                    {
+                                                        urlinstapics = new URL(imageThumbList.get(i));
+                                                        urlListInsta.add(new URL(imageThumbList.get(i)));
+                                                    }
                                                 } catch (MalformedURLException e) {
                                                     e.printStackTrace();
                                                 }
                                                 try {
                                                     HttpURLConnection connection = (HttpURLConnection) (urlinstapics).openConnection();
                                                     InputStream inputStream = connection.getInputStream();
+
                                                     listInsta.add(BitmapFactory.decodeStream(inputStream));
                                                 } catch (MalformedURLException e) {
                                                     e.printStackTrace();

@@ -106,9 +106,9 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth() / cvW), false);
             }
             if(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)<1){
-                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
-            } else {
-                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titre),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)),false);
+                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
+            } else {                                                                                                                //2*
+                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)),false);
             }
 
             if(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/(cvH-solBitmap.getHeight())<1) {
@@ -238,9 +238,9 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
         vehiculeAccueil.draw(canvas);
 
-        positionYtitre=3*cvH/16;
+        positionYtitre=9*cvH/64;
         positionXtitre=2*cvW/8;
-        espacetitrebouton=cvH/7;
+        espacetitrebouton=cvH/6;
 
         posXgameButton=positionXtitre+titreBitmap.getWidth()/2-gameBitmap.getWidth()/2;
         posYgameButton=positionYtitre+espacetitrebouton;

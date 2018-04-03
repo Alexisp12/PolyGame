@@ -57,6 +57,8 @@ public class Palmares extends Activity  {
     private Bitmap orTrophy;
     private Bitmap argentTrophy;
     private Bitmap bronzeTrophy;
+    private Bitmap WRPIC;
+    private Bitmap WRPIC2;
 
 
     @Override
@@ -90,6 +92,7 @@ public class Palmares extends Activity  {
         imagePalma =(ImageView) findViewById(R.id.imagePalma);
         imagePalmab =(ImageView) findViewById(R.id.imagePalmab);
 
+
         textPalma = (TextView) findViewById(R.id.textePalma);
         //textPalmab = (TextView) findViewById(R.id.textePalmab);
 
@@ -100,6 +103,10 @@ public class Palmares extends Activity  {
         orTrophy = BitmapFactory.decodeResource(getResources(), R.drawable.ortrophy);
         argentTrophy = BitmapFactory.decodeResource(getResources(), R.drawable.argenttrophy);
         bronzeTrophy = BitmapFactory.decodeResource(getResources(), R.drawable.bronzetrophy);
+        WRPIC = BitmapFactory.decodeResource(getResources(), R.drawable.wor2);
+        WRPIC2 = BitmapFactory.decodeResource(getResources(), R.drawable.wor2);
+
+
 
         clickDroit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View droitView) {
@@ -143,6 +150,8 @@ public class Palmares extends Activity  {
     public void updateyear(){
         switch(Integer.toString(anneeTolook)){
             case "2017":
+
+
                 LLpalmaresb.setVisibility(View.GONE);
                 LLpalmares.setVisibility(View.VISIBLE);
 
@@ -175,6 +184,8 @@ public class Palmares extends Activity  {
 
                 break;
             case "2016":
+
+
                 LLpalmaresb.setVisibility(View.VISIBLE);
                 LLpalmares.setVisibility(View.GONE);
 
@@ -193,7 +204,7 @@ public class Palmares extends Activity  {
                 valeurRecord1b.setText("1205 km/lee");
                 image1b.setImageBitmap(orTrophy);
 
-                nomTournoi2b.setText("Shell Eco Marathon\nUrban Concept\n Hydrogene");
+                nomTournoi2b.setText("Shell Eco Marathon\nUrban Concept\n Hydrogen");
                 valeurRecord2b.setText("1158 km/lee");
                 image2b.setImageBitmap(orTrophy);
 
@@ -203,6 +214,8 @@ public class Palmares extends Activity  {
 
                 break;
             case "2015":
+
+
                 LLpalmaresb.setVisibility(View.VISIBLE);
                 LLpalmares.setVisibility(View.GONE);
 
@@ -218,9 +231,9 @@ public class Palmares extends Activity  {
                 anneeTolook=2015;
                 textPalmabString="";
 
-                nomTournoi1b.setText("EducEco\nUrban Concept\nPanneau solaire");
+                nomTournoi1b.setText("EducEco\nUrban Concept\nSolar pannel");
                 valeurRecord1b.setText("12 788 km/lee");
-                image1b.setImageBitmap(orTrophy);
+                image1b.setImageBitmap(WRPIC);
 
                 nomTournoi2b.setText("Shell Eco Marathon\nUrban Concept\nHydrogen");
                 valeurRecord2b.setText("1114 km/lee");
@@ -231,6 +244,7 @@ public class Palmares extends Activity  {
 
                 break;
             case "2014":
+
                 LLpalmaresb.setVisibility(View.VISIBLE);
                 LLpalmares.setVisibility(View.GONE);
 
@@ -247,11 +261,11 @@ public class Palmares extends Activity  {
 
                 nomTournoi1b.setText("EducEco\nPrototype\nHydrogen");
                 valeurRecord1b.setText("6329 km/lee");
-                image1b.setImageBitmap(orTrophy);
+                image1b.setImageBitmap(WRPIC);
 
                 nomTournoi2b.setText("Shell Eco Marathon\nUrban Concept\nHydrogen");
                 valeurRecord2b.setText("1354 km/lee");
-                image2b.setImageBitmap(orTrophy);
+                image2b.setImageBitmap(WRPIC2);
 
                 imagePalmab.setImageBitmap(photo2014);
 
@@ -282,6 +296,8 @@ public class Palmares extends Activity  {
                 imagePalmab.setImageBitmap(photo2013);
                 break;
             case "2012":
+
+
                 LLpalmaresb.setVisibility(View.VISIBLE);
                 LLpalmares.setVisibility(View.GONE);
                 imagePalmab.setVisibility(View.VISIBLE);
@@ -296,7 +312,7 @@ public class Palmares extends Activity  {
 
                 nomTournoi1b.setText("EducEco\nPrototype\nAll-electric");
                 valeurRecord1b.setText("10 017 km/lee");
-                image1b.setImageBitmap(orTrophy);
+                image1b.setImageBitmap(WRPIC);
 
                 nomTournoi2b.setText("Shell Eco Marathon\nPrototype\nHydrogen");
                 valeurRecord2b.setText("4810 km/lee");

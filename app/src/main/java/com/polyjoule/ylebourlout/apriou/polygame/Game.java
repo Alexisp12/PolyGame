@@ -50,7 +50,7 @@ public class Game extends Activity {
     public final static int COEFVEHICULESEVITES=10; // Rajoute 10 au score pour chaque véhicule évité
     public final static double RATIOTABLEAUSCORE=1.7;
     public final static double RATIOSTART=2.08;
-    public final static int DUREEAFFICHAGETOTALPANNEAUX=3; //6
+    public final static int DUREEAFFICHAGETOTALPANNEAUX=2; //6 //3
     public final static int DUREEEXPLOFINAL=0; // 70 origine
     public final static int NBENNEMIPARCOLONNEMAX=3;
     public final static int NBVEHICULESENNEMIS=6;
