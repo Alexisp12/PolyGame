@@ -399,8 +399,8 @@ public class Social extends Activity {
             @Override
             public void onFail(String error) {
                 Log.d("OAuthInsta","fail");
-                Toast.makeText(Social.this, error, Toast.LENGTH_SHORT)
-                        .show();
+                //Toast.makeText(Social.this, error, Toast.LENGTH_SHORT)
+                        //.show();
             }
         });
 
@@ -420,6 +420,23 @@ public class Social extends Activity {
                 //mInstaApp.authorize();
             }
         });
+
+        instaLL.setOnClickListener(new View.OnClickListener(){
+            public void onClick (View tweetView){
+
+
+                Intent intent = null;
+                try {
+                    // get the Twitter app if possible
+                    getPackageManager().getPackageInfo("com.instagram.android", 0);
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/polyjoule"));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                } catch (Exception e) {
+                    // no Twitter app, revert to browser
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/polyjoule/"));
+                }
+                startActivity(intent);
+        }});
 
         instaRL.setOnClickListener(new View.OnClickListener(){
             public void onClick (View tweetView){

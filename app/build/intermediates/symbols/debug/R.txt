@@ -885,7 +885,6 @@ int layout social_layout 0x7f04002b
 int layout support_simple_spinner_dropdown_item 0x7f04002c
 int layout tweet_update 0x7f04002d
 int mipmap ic_launcher 0x7f030000
-int mipmap parameters 0x7f030001
 int raw son 0x7f060000
 int string abc_action_bar_home_description 0x7f070000
 int string abc_action_bar_home_description_format 0x7f070001

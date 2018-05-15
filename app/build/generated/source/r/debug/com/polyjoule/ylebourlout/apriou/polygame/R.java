@@ -2512,7 +2512,6 @@ containing a value of this type.
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
-        public static final int parameters=0x7f030001;
     }
     public static final class raw {
         public static final int son=0x7f060000;
