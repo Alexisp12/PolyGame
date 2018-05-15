@@ -40,7 +40,7 @@ public class Game extends Activity {
     public static int nbVie = 3;
     public static int incrementCarburant = 10;
     public final static int GAINCARBURANT = 100; // En pourcentage !!! anciennement  8
-    public final static int PERTECARBURANT = 6; // En pourcentage !!! anciennement 2
+    public final static int PERTECARBURANT = 12; // En pourcentage !!! anciennement 6
     public final static int DEPLACEMENTBG = 9;
     //public final static int VITESSEDEPLACEMENTENNEMI=7;
     //public final static int VITESSEDEPLACEMENTENNEMI2=VITESSEDEPLACEMENTENNEMI;//+VITESSEDEPLACEMENTENNEMI/2;
@@ -255,7 +255,24 @@ public class Game extends Activity {
                 }
                 if (users != null) {
 
-                    toast = Toast.makeText(This, "Nouveau record personnel !!", Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(This, "Personal record !!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
+        });
+    }
+    public static void toastNoMoreCarbu() {
+        Handler makeToastHandler = new Handler(Looper.getMainLooper());
+
+        makeToastHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                if (toast != null) {
+                    toast.cancel();
+                }
+                if (users != null) {
+
+                    toast = Toast.makeText(This, "You don't have enough Hydrogen :(", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }

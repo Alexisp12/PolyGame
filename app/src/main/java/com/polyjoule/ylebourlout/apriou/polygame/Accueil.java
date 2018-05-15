@@ -81,17 +81,17 @@ public class Accueil extends Activity {
             } else {
                 builder = new AlertDialog.Builder(This);
             }
-            builder.setTitle("Joueur non authentifié")
-                    .setMessage("Souhaitez-vous accédez à la page d'authentification ?")
-                    .setMessage("Un joueur non connecté n'aura pas accès au classement général.")
-                    .setPositiveButton("Authentification", new DialogInterface.OnClickListener() {
+            builder.setTitle("Authentification")
+                    .setMessage("Do you want to log in ?")
+                    .setMessage("It is possible to play being disconected but you will not be able to see your rank :-).")
+                    .setPositiveButton("Log in", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             mActivity.finish();
                             Intent loginIntent = new Intent(This, Login.class);
                             This.startActivity(loginIntent);
                         }
                     })
-                    .setNegativeButton("Jouer", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Play", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             mActivity.finish();
                             Intent gameIntent = new Intent(This, Game.class);

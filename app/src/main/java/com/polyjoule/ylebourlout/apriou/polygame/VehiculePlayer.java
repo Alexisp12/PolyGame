@@ -82,7 +82,7 @@ public class VehiculePlayer {
         //d=null;
 
 
-        img = setImage(mContext,R.drawable.vehiculeplayer,vehiculePlayerW,vehiculePlayerH); //vehiculePlayer3
+        img = setImage(mContext,R.drawable.vehiculeplayernologo,vehiculePlayerW,vehiculePlayerH); //vehiculePlayer3
 
 
     }

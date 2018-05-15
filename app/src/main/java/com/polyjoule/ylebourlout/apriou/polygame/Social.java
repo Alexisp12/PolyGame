@@ -107,6 +107,9 @@ public class Social extends Activity {
     private ImageView imageInsta1;
     private ImageView imageInsta2;
     private ImageView imageInsta3;
+    //private ImageView imageInsta1b;
+    //private ImageView imageInsta2b;
+    //private ImageView imageInsta3b;
     private TextView loadTweet;
     private TextView loadInsta;
     private Boolean successDone=false;
@@ -135,7 +138,7 @@ public class Social extends Activity {
     private RelativeLayout tweetRL;
     private URL urlpp;
     private URL urlinstapics;
-    private List<URL> urlListInsta;
+    private List<String> urlListInsta;
     private Boolean seekPP=false,seekStatus=false;
     private Boolean seekInstaPics=false;
 
@@ -154,6 +157,9 @@ public class Social extends Activity {
         imageInsta1 = (ImageView) (findViewById(R.id.image1));
         imageInsta2 = (ImageView) (findViewById(R.id.image2));
         imageInsta3 = (ImageView) (findViewById(R.id.image3));
+        //imageInsta1b = (ImageView) (findViewById(R.id.image1b));
+        //imageInsta2b = (ImageView) (findViewById(R.id.image2b));
+        //imageInsta3b = (ImageView) (findViewById(R.id.image3b));
         loadInsta = (TextView) (findViewById(R.id.loadingINSTA));
         loadTweet = (TextView) (findViewById(R.id.loadingTwitter));
 
@@ -161,6 +167,9 @@ public class Social extends Activity {
         imageInsta1.setVisibility(View.GONE);
         imageInsta2.setVisibility(View.GONE);
         imageInsta3.setVisibility(View.GONE);
+        //imageInsta1b.setVisibility(View.GONE);
+        //imageInsta2b.setVisibility(View.GONE);
+        //imageInsta3b.setVisibility(View.GONE);
 
         mThis= this;
 
@@ -170,7 +179,7 @@ public class Social extends Activity {
         listBitmap = new ArrayList<Bitmap>();
         listInsta = new ArrayList<Bitmap>();
         listPP = new ArrayList<String>();
-        urlListInsta = new ArrayList<URL>();
+        urlListInsta = new ArrayList<String>();
 
 
         tweetRl.setOnClickListener(new View.OnClickListener(){
@@ -416,29 +425,40 @@ public class Social extends Activity {
             public void onClick (View tweetView){
 
                 if(seekInstaPics) {
+                    if(listInsta.size()!=0) {
 
-                    imageInsta1.setImageBitmap(listInsta.get(0));
-                    if(listInsta.get(0)!=listInsta.get(1)) {
-                        imageInsta2.setImageBitmap(listInsta.get(1));
-                        if(listInsta.get(1)!=listInsta.get(2)){
-                            imageInsta3.setImageBitmap(listInsta.get(2));
+                        imageInsta1.setImageBitmap(listInsta.get(0));
+                        if (!listInsta.get(0).sameAs(listInsta.get(1))) {
+                            imageInsta2.setImageBitmap(listInsta.get(1));
+                            if (!listInsta.get(1).sameAs(listInsta.get(2))) {
+                                imageInsta3.setImageBitmap(listInsta.get(2));
+                            } else {
+                                imageInsta3.setImageBitmap(listInsta.get(3));
+                            }
                         } else {
-                            imageInsta3.setImageBitmap(listInsta.get(3));
+                            imageInsta2.setImageBitmap(listInsta.get(2));
+                            if (!listInsta.get(2).sameAs(listInsta.get(3))) {
+                                if(listInsta.size()>3) imageInsta3.setImageBitmap(listInsta.get(3));
+                            } else {
+                                if(listInsta.size()>4) imageInsta3.setImageBitmap(listInsta.get(4));
+                            }
                         }
+
+
+
+                        //imageInsta1.setImageBitmap(listInsta.get(1));
+                        //imageInsta2.setImageBitmap(listInsta.get(2));
+                        //imageInsta3.setImageBitmap(listInsta.get(4));
+
+
+                        imageInsta1.setVisibility(View.VISIBLE);
+                        imageInsta2.setVisibility(View.VISIBLE);
+                        imageInsta3.setVisibility(View.VISIBLE);
+
+                        loadInsta.setVisibility(View.GONE);
                     } else {
-                        imageInsta2.setImageBitmap(listInsta.get(2));
-                        if(listInsta.get(2)!=listInsta.get(3)) {
-                            imageInsta3.setImageBitmap(listInsta.get(3));
-                        } else {
-                            imageInsta3.setImageBitmap(listInsta.get(4));
-                        }
+                        getAllMediaImages(instaRL);
                     }
-
-                    imageInsta1.setVisibility(View.VISIBLE);
-                    imageInsta2.setVisibility(View.VISIBLE);
-                    imageInsta3.setVisibility(View.VISIBLE);
-
-                    loadInsta.setVisibility(View.GONE);
 
 //                    InstagramAdaptateur adapter = new InstagramAdaptateur(mThis, listInsta);
 //                    instaListView.setAdapter(adapter);
@@ -581,10 +601,10 @@ public class Social extends Activity {
 
                                             for (int i = 0; i < imageThumbList.size(); i++) {
                                                 try {
-                                                    if(!urlListInsta.contains(new URL(imageThumbList.get(i))))
+                                                    if(!urlListInsta.contains(imageThumbList.get(i)))
                                                     {
                                                         urlinstapics = new URL(imageThumbList.get(i));
-                                                        urlListInsta.add(new URL(imageThumbList.get(i)));
+                                                        urlListInsta.add((imageThumbList.get(i)).toString());
                                                     }
                                                 } catch (MalformedURLException e) {
                                                     e.printStackTrace();

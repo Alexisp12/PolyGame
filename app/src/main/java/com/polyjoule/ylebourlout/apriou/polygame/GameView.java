@@ -110,11 +110,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private String textStart="Cliquez pour commencer";
     private String textPause="Pause";
     private String textPerdu="GAME OVER";
-    private String textHS="Record personnel : ";
+    private String textHS="Personal record : ";
     private String classementText="Classement :";
-    private String textDistance="Distance parcourue";
-    private String textVoitureEvites="Collisions évités";
-    private String textScoreTotal="Score total";
+    private String textDistance="Distance travelled";
+    private String textVoitureEvites="Crashes avoided";
+    private String textScoreTotal="Total score";
     private String textRestart="Restart !";
     private int nbVehicules=0;
     private int comptageScoreFinal=0;
@@ -155,6 +155,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Bitmap orRank;
     private Bitmap silverRank;
     private Bitmap bronzeRank;
+    private Bitmap highScoreBitmap;
     private Paint contourCarburantPaint;
     private Boolean[] stratEnnemiDone; // Une case par rang sur l'écran
     private int [] stratEnnemi;
@@ -184,6 +185,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int hauteurTops;
     private int positionGaucheTops;
     private int positionTopTops;
+    private int longueurHS;
+    private int hauteurHS;
+    private int positionGaucheHS;
+    private int positionTopHS;
     //private String textRestart="Record : ";
 
 
@@ -243,6 +248,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         float dp7=9f;// 9f
         float dp8=25f;
         float dp9=22f;
+        float dp10=11f;
+        float dp11=18f;
+        float fpixels11=metrics.density*dp11;
+        float fpixels10=metrics.density*dp10;
         float fpixels9=metrics.density*dp9;
         float fpixels8=metrics.density*dp8;
         float fpixels7=metrics.density*dp7;
@@ -261,6 +270,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         int pixels7=(int) (fpixels7+0.5f);
         int pixels8 = (int) (fpixels8 + 0.5f);
         int pixels9=(int) (fpixels9+0.5f);
+        int pixels10=(int) (fpixels10+0.5f);
+        int pixels11=(int) (fpixels11+0.5f);
         cvH = canvas.getHeight();
         cvW = canvas.getWidth();
 
@@ -343,7 +354,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             bordStartD=cvW-bordStartG;
             bordStartH=cvH/3;
             longueurStart=bordStartD-bordStartG;
-            bordStartB=bordStartH + (longueurStart/(BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart).getHeight()));   //bordStartH + ((int) Math.round( longueurStart/RATIOSTART)
+            bordStartB=bordStartH + longueurStart;//(longueurStart/(BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart).getHeight()));   //bordStartH + ((int) Math.round( longueurStart/RATIOSTART)
 
             // carburant
             levelCarburantMinInit=3*pixels3;
@@ -366,26 +377,31 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 //            longueurBarreVie=levelVie-(cvW-3*cvW/32);
 
             // tableau score
-            bordTableauGauche=cvW/32;
-            bordTableauDroit =31*cvW/32;
+            bordTableauGauche=cvW/128;
+            bordTableauDroit =127*cvW/128;
             longueurTableau = bordTableauDroit - bordTableauGauche;
-            hauteurTableau = ((int) Math.round(longueurTableau/ratio));
+            hauteurTableau = longueurTableau;//((int) Math.round(longueurTableau/ratio));
             bordTableauHaut=cvH/4;
-            bordTableauBas=bordTableauHaut+22*(longueurTableau/(BitmapFactory.decodeResource(getResources(), R.drawable.finish).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.finish).getHeight()))/32;    // 12/16;
-            bordTableauPauseBas=bordTableauHaut+22*(longueurTableau/(BitmapFactory.decodeResource(getResources(), R.drawable.tableaupause).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.tableaupause).getHeight()))/32;    // 12/16;
+            bordTableauBas=bordTableauHaut+hauteurTableau;//22*(longueurTableau/(BitmapFactory.decodeResource(getResources(), R.drawable.finish).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.finish).getHeight()))/32;    // 12/16;
+            bordTableauPauseBas=bordTableauHaut+hauteurTableau;//22*(longueurTableau/(BitmapFactory.decodeResource(getResources(), R.drawable.tableaupause).getWidth()/BitmapFactory.decodeResource(getResources(), R.drawable.tableaupause).getHeight()))/32;    // 12/16;
 
             // buttons game over
             longueurButtons = 3*cvW/32;
             bordRestartGauche = 11*cvW/32;
-            bordRestartHaut = 9*cvH/16-(longueurButtons/4);
-            bordPodiumHaut = 9*cvH/16-(longueurButtons/4);
+            bordRestartHaut = 37*cvH/64-(longueurButtons/3);
+            bordPodiumHaut = 37*cvH/64-(longueurButtons/3);
             bordPodiumGauche = bordRestartGauche+5*longueurButtons/2;
 
             // Tops
             longueurTops = 3*cvW/32;
             hauteurTops =longueurTops*(BitmapFactory.decodeResource(getResources(), R.drawable.topun).getHeight()/BitmapFactory.decodeResource(getResources(), R.drawable.topun).getWidth());  ;
-            positionGaucheTops = 5*cvW/8;
+            positionGaucheTops = 5*cvW/8+pixels10/2;
             positionTopTops = bordTableauHaut+15*longueurTops/4;
+
+            // High score bitmap
+            longueurHS = cvW/2;
+            hauteurHS =cvW/2;
+
 
             if(!gestionBitmap) {
                 cinqBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cinq), longueurStart, bordStartB - bordStartH, false);
@@ -397,9 +413,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 unBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.un), longueurStart, bordStartB - bordStartH, false);
                 goBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.go), longueurStart, bordStartB - bordStartH, false);
                 touchtostartBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.touchtostart), longueurStart, bordStartB - bordStartH, false);
-                tableauScoreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.finish), longueurTableau, bordTableauBas - bordTableauHaut, false);
-                tableauPauseBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.tableaupause), longueurTableau, bordTableauPauseBas - bordTableauHaut, false);
-                brokenBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.broken), vehicule.getvehiculePlayerW(), vehicule.getvehiculePlayerH(), false);
+                tableauScoreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.finish), longueurTableau, hauteurTableau, false);
+                tableauPauseBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.tableaupause), longueurTableau, hauteurTableau, false);
+                brokenBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.brokennologo), vehicule.getvehiculePlayerW(), vehicule.getvehiculePlayerH(), false);
                 restartButtonBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.restart), longueurButtons, longueurButtons, false);
                 podiumBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.podium), longueurButtons, longueurButtons, false);
 
@@ -415,6 +431,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 orRank = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.topun), longueurTops, hauteurTops, false);
                 silverRank = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.topdeux), longueurTops, hauteurTops, false);
                 bronzeRank = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.troptrois), longueurTops, hauteurTops, false);
+
+                highScoreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pr), longueurHS, hauteurHS, false);
+
+
 
                 for(int j=0;j<levelCarburantBitmapInit.getHeight();j++) {
                     for (int i = 0; i < levelCarburantBitmapInit.getWidth(); i++) {
@@ -791,13 +811,17 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 // ScoreText
                 if(toastHSdone){
                     TextPaint textPaintScorehs = new TextPaint();
-                    textPaintScorehs.setTextSize(pixels5);
-                    textPaintScorehs.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                    textPaintScorehs.setTextSize(pixels11);
+                    Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(), "fonts/comicstrip.ttf");
+                    textPaintScorehs.setTypeface(typeface);
                     textPaintScorehs.setColor(ContextCompat.getColor(this.getContext(), R.color.newhs));
                     canvas.drawText(Integer.toString(score), pixels3 / 2, 2 * pixels3, textPaintScorehs);
                 } else {
                     TextPaint textPaintScore = new TextPaint();
-                    textPaintScore.setTextSize(pixels5);
+                    textPaintScore.setTextSize(pixels11);
+                    Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(), "fonts/comicstrip.ttf");
+                    textPaintScore.setTypeface(typeface);
+
                     textPaintScore.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
                     canvas.drawText(Integer.toString(score), pixels3 / 2, 2 * pixels3, textPaintScore);
                 }
@@ -809,7 +833,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
                 // Bouton pause
-                if(!pause) {
+                if(!pause && !perdu) {
                     Drawable pauseDraw = ContextCompat.getDrawable(this.getContext(), R.drawable.pause);
                     //d.setHotspot(canvas.getWidth()-2*pixels,canvas.getHeight()-pixels);
                     pauseDraw.setBounds(coinGPause, coinHPause, coinDPause, coinBPause);
@@ -836,6 +860,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
                         TextPaint textPaintHS = new TextPaint();
                         textPaintHS.setTextSize(pixels6);
+                        Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(), "fonts/comicstrip.ttf");
+                        textPaintHS.setTypeface(typeface);
                         textPaintHS.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
 
                         if (userInfo != null) {
@@ -951,20 +977,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
 
-            tailleTexte=pixels6;
+            tailleTexte=pixels10; //6
             int espaceTexte=pixels7;
             TextPaint textPaintTableauAffichage = new TextPaint();
             //TODO FONT
-            //Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(), "font.ttf");
-            //textPaintTableauAffichage.setTypeface(typeface);
+            Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(), "fonts/comicstrip.ttf");
+            textPaintTableauAffichage.setTypeface(typeface);
             textPaintTableauAffichage.setTextSize(tailleTexte);
-            textPaintTableauAffichage.setColor(ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark));
+            textPaintTableauAffichage.setColor(ContextCompat.getColor(this.getContext(), R.color.finishcolor));
             // Distance
-            canvas.drawText(textDistance+" : "+comptageDistance,cvW/4+tailleTexte,30*cvH/64-espaceTexte,textPaintTableauAffichage); //cvH/2-espacetexte
+            canvas.drawText(textDistance+" : "+comptageDistance,cvW/4+tailleTexte/4,60*cvH/128-espaceTexte,textPaintTableauAffichage); //cvH/2-espacetexte
             // Collision évités
-            canvas.drawText(textVoitureEvites+" : "+Integer.toString(comptageCollision),cvW/4+tailleTexte,30*cvH/64+tailleTexte+espaceTexte-espaceTexte,textPaintTableauAffichage);
+            canvas.drawText(textVoitureEvites+" : "+Integer.toString(comptageCollision),cvW/4+tailleTexte/4,60*cvH/128-espaceTexte+2*tailleTexte,textPaintTableauAffichage);
             // Score Total
-            canvas.drawText(textScoreTotal+" : "+comptageScoreFinal,cvW/4+tailleTexte,30*cvH/64+2*(tailleTexte+3*tailleTexte/4)-espaceTexte,textPaintTableauAffichage);
+            canvas.drawText(textScoreTotal+" : "+comptageScoreFinal,cvW/4+tailleTexte/4,60*cvH/128-espaceTexte+4*tailleTexte,textPaintTableauAffichage);
 
 
             if(restartEnable){
@@ -973,9 +999,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 //                textPaintRang.setColor(ContextCompat.getColor(this.getContext(), R.color.accent_material_dark_1));
 
 
-                canvas.drawBitmap(restartButtonBitmap,bordRestartGauche,bordRestartHaut,null);
-                canvas.drawBitmap(podiumBitmap,bordPodiumGauche,bordPodiumHaut,null);
+                canvas.drawBitmap(restartButtonBitmap,bordRestartGauche,60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurButtons/2,null);
+                canvas.drawBitmap(podiumBitmap,bordPodiumGauche,60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurButtons/2,null);
 
+                //positionTopTops =60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurTops;
                 if(rangScore!=-1) {
                     if (rangScore == 1) {
 //                        canvas.drawText(rangScore + "er", cvW / 2 + 3 * tailleTexte, 30*cvH/64 + 2 * (tailleTexte + tailleTexte), textPaintRang);
@@ -994,6 +1021,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     //TODO Only for testing
                     //canvas.drawBitmap(orRank,positionGaucheTops,positionTopTops,null);
 
+                }
+                if(toastHSdone){
+                    canvas.drawBitmap(highScoreBitmap,0,cvH-highScoreBitmap.getHeight(),null);
                 }
 
 
@@ -1097,7 +1127,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     if (levelCarburant - PERTECARBURANT * longueurBarreCarburant / 100 > levelCarburantMinInit) {
                         levelCarburant = levelCarburant - PERTECARBURANT * longueurBarreCarburant / 100;
                     } else {
+                        levelCarburant = levelCarburantMinInit+1;
                         perdu=true;
+                        Game.toastNoMoreCarbu();
                         Log.d("NoMoreCarbu","perdu");
                     }
                     baisseCarburant = true;
@@ -4706,7 +4738,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                         Game.seeClassement();
                                     }
                                 } else {
-                                    if (currentX >= vehicule.getX() - vehicule.getvehiculePlayerW() / 8 && currentX <= vehicule.getX() + vehicule.getvehiculePlayerW() + vehicule.getvehiculePlayerW() / 8) {
+                                    if (currentX >= vehicule.getX() - vehicule.getvehiculePlayerW() / 4 && currentX <= vehicule.getX() + vehicule.getvehiculePlayerW() + vehicule.getvehiculePlayerW() / 4) {
                                         canMoveVehicule = true;
                                         distanceDoigtVoiture = currentX - vehicule.getX();
                                     } else {

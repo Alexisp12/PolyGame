@@ -12,4 +12,6 @@
     <color name="top2">#357AB7</color>
     <color name="top3">#6495ED</color>
     <color name="newhs">#BFA100</color>
+
+    <color name="finishcolor">#FF2D00</color>
 </resources>

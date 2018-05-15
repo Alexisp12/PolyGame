@@ -29,10 +29,23 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     public static int cvH; // canva heigh
    // private int deplacementPanneauNantes;
     private int exSizePanneauNantes;
-    private int posPanneaNantesInit;
+    private int exSizePanneauLondon;
+    private int exSizePanneauNougaro;
+    private int exSizePanneauRoterdam;
+    private int exSizePanneauValencienne;
+    private int posPanneauNantesInit;
+    private int posPanneauNougaroInit;
+    private int posPanneauRoterdamInit;
+    private int posPanneauValencienneInit;
+    private int posPanneauLondonInit;
+
     private Pointilles pointillesF;
     private Pointilles pointillesS;
     private PanneauNantes panneauNantes;
+    private PanneauNougaro panneauNougaro;
+    private PanneauRoterdam panneauRoterdam;
+    private PanneauValencienne panneauValencienne;
+    private PanneauLondon panneauLondon;
     private VehiculeAccueil vehiculeAccueil;
     //private FondAccueil fond;
     private Bitmap solBitmap;
@@ -44,6 +57,10 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private Bitmap cacheBitmap;
     private Bitmap paramBitmap;
     private Boolean monteePanneauNantes=false;
+    private Boolean monteePanneauNougaro=false;
+    private Boolean monteePanneauRoterdam=false;
+    private Boolean monteePanneauValencienne=false;
+    private Boolean monteePanneauLondon=false;
     private Boolean roadStarted=false;
     private Boolean uploadBitmap=true;
     private Boolean stopMenu=false;
@@ -63,6 +80,8 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private int longueurButtonParam;
     private int showStorage=0;
 
+    //private enum Panneau {NANTES,LONDON,ROTERDAM,VALENCIENNE,NOUGARO}
+    private int Panneau;
 
 
 
@@ -76,6 +95,10 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         pointillesF = new Pointilles(this.getContext());
         pointillesS = new Pointilles(this.getContext());
         panneauNantes = new PanneauNantes(this.getContext());
+        panneauNougaro = new PanneauNougaro(this.getContext());
+        panneauRoterdam = new PanneauRoterdam(this.getContext());
+        panneauValencienne = new PanneauValencienne(this.getContext());
+        panneauLondon = new PanneauLondon(this.getContext());
         vehiculeAccueil = new VehiculeAccueil(this.getContext());
 
 
@@ -98,6 +121,15 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             longueurButtonParam=cvW/8;
 
 
+
+            Log.d("LongueurEcran",Integer.toString(cvW));
+            Log.d("NewLongueurButton",Integer.toString(cvW/3));
+            Log.d("LongueurButtonOrigin",Integer.toString(BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()));
+            Log.d("LongueurOri/NewLongueur",Integer.toString((BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth())/(cvW/3)));
+            Log.d("HauteurOri",Integer.toString(BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()));
+            Log.d("HauteurCalculé",Integer.toString((BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() / (longueurButton))));
+
+
             cielBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ciel), cvW, cvH, false);
 
             if(BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth()/cvW<1){
@@ -105,11 +137,13 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             } else {
                 solBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sol), cvW, (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.sol).getWidth() / cvW), false);
             }
-            if(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)<1){
-                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
-            } else {                                                                                                                //2*
-                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,2*(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)),false);
-            }
+            titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,cvW/2,false);
+
+//            if(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)<1){
+//                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())*((cvW/2)/BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()),false);
+//            } else {                                                                                                                //2*
+//                titreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.titredeux),cvW/2,(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.titre).getWidth()/(cvW/2)),false);
+//            }
 
             if(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()/(cvH-solBitmap.getHeight())<1) {
                 cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache), (BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth()) * (cvH-solBitmap.getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight()), cvH - solBitmap.getHeight(), false);
@@ -117,27 +151,31 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                 cacheBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cache), (BitmapFactory.decodeResource(getResources(), R.drawable.cache).getWidth()) / (BitmapFactory.decodeResource(getResources(), R.drawable.cache).getHeight() / (cvH-solBitmap.getHeight())), cvH - solBitmap.getHeight(), false);
             }
 
-            if((BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(longueurButton)<1)) {
-                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() ) / 16, false);
-            } else {
-                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() / (longueurButton)) / 16, false);
-            }
-            if((BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton)<1)) {
-                socialBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth() ) / 16, false);
-            } else {
-                socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, 12*(BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton))/16, false);
-            }
-            if((BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))<1) {
-                palmaresBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton, 12 * (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth() ) / 16, false);
-            } else {
-                palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton,12* (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))/16, false);
-            }
+                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton,  longueurButton, false);
 
-            if((BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()/(longueurButtonParam))<1){
-                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 15 * ( (longueurButtonParam) / BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()) / 16, false);
-            } else {
-                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, 31 * (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth() / (longueurButtonParam)) / 32, false);
-            }
+                socialBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton,  longueurButton, false);
+
+                palmaresBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton, longueurButton,false);
+
+//            if((BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth()/(longueurButton)<1)) {
+//                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, (BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() ), false);
+//            } else {
+//                gameBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game), longueurButton, (BitmapFactory.decodeResource(getResources(), R.drawable.game).getHeight()) / (BitmapFactory.decodeResource(getResources(), R.drawable.game).getWidth() / (longueurButton)), false);
+//            }
+//            if((BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton)<1)) {
+//                socialBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton,  (BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth() ) , false);
+//            } else {
+//                socialBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.social), longueurButton, (BitmapFactory.decodeResource(getResources(), R.drawable.social).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.social).getWidth()/(longueurButton)), false);
+//            }
+//            if((BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton))<1) {
+//                palmaresBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton, (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight()) * ((longueurButton)/BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth() ), false);
+//            } else {
+//                palmaresBitmap =  Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.classement), longueurButton, (BitmapFactory.decodeResource(getResources(), R.drawable.classement).getHeight())/(BitmapFactory.decodeResource(getResources(), R.drawable.classement).getWidth()/(longueurButton)), false);
+//            }
+
+            //if((BitmapFactory.decodeResource(getResources(), R.drawable.parameters).getWidth()/(longueurButtonParam))<1){
+                paramBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.parameters), longueurButtonParam, longueurButtonParam, false);
+
 
             pointillesF.setX(cvW/2-pointillesF.getpointillesW()/2);
             pointillesF.setY(cvH-pointillesF.getpointillesH());
@@ -152,10 +190,43 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             panneauNantes.setRotate(ROTATENANTESINIT);
             panneauNantes.setY((cvH- 17 * solBitmap.getHeight() / 20)-panneauNantes.getpanneauNantesH());
             panneauNantes.setMove(false);
-            posPanneaNantesInit=panneauNantes.getX();
+            posPanneauNantesInit=panneauNantes.getX();
             //deplacementPanneauNantes=panneauNantes.getpanneauNantesW()/45;
             monteePanneauNantes=false;
 
+            panneauLondon.setX(cvW/4-17*panneauLondon.getpanneauNantesW()/16);
+            panneauLondon.setRotate(ROTATENANTESINIT);
+            panneauLondon.setY(cvH);
+            panneauLondon.setMove(false);
+            posPanneauLondonInit=panneauLondon.getX();
+            //deplacementPanneauNantes=panneauNantes.getpanneauNantesW()/45;
+            monteePanneauLondon=true;
+
+            panneauNougaro.setX(cvW/4-17*panneauNougaro.getpanneauNantesW()/16);
+            panneauNougaro.setRotate(ROTATENANTESINIT);
+            panneauNougaro.setY(cvH);
+            panneauNougaro.setMove(false);
+            posPanneauNougaroInit=panneauNougaro.getX();
+            //deplacementPanneauNantes=panneauNantes.getpanneauNantesW()/45;
+            monteePanneauNougaro=true;
+
+            panneauRoterdam.setX(cvW/4-17*panneauRoterdam.getpanneauNantesW()/16);
+            panneauRoterdam.setRotate(ROTATENANTESINIT);
+            panneauRoterdam.setY(cvH);
+            panneauRoterdam.setMove(false);
+            posPanneauRoterdamInit=panneauRoterdam.getX();
+            //deplacementPanneauNantes=panneauNantes.getpanneauNantesW()/45;
+            monteePanneauRoterdam=true;
+
+            panneauValencienne.setX(cvW/4-17*panneauValencienne.getpanneauNantesW()/16);
+            panneauValencienne.setRotate(ROTATENANTESINIT);
+            panneauValencienne.setY(cvH);
+            panneauValencienne.setMove(false);
+            posPanneauValencienneInit=panneauValencienne.getX();
+            //deplacementPanneauNantes=panneauNantes.getpanneauNantesW()/45;
+            monteePanneauValencienne=true;
+
+            Panneau = 0;
 
 //                quatreBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.quatre), longueurStart, bordStartB - bordStartH, false);
 //
@@ -183,50 +254,301 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
 
         if(stopMenu){return;}
 
-        if(monteePanneauNantes) {
-            panneauNantes.draw(canvas);
+        switch (Panneau)
+        {
+            case 0 :
+                if (monteePanneauNantes) {
+
+                    Log.d("monteePanneauNantes", "true");
+                    panneauNantes.draw(canvas);
 
 
-            canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
 
 
-            if (panneauNantes.getY() + panneauNantes.getpanneauNantesH() <= (cvH- 17 * solBitmap.getHeight() / 20)) {
-                monteePanneauNantes=false;
-                nbZoom=0;
-            }
-        } else {
+                    if (panneauNantes.getY() + panneauNantes.getpanneauNantesH() <= (cvH - 17 * solBitmap.getHeight() / 20)) {
+                        monteePanneauNantes = false;
+                        nbZoom = 0;
+                    }
+                } else {
+                    Log.d("monteePanneauNantes", "false");
 
-            canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
 
-            if(panneauNantes.isMoving()) {
-                if (nbZoom % FREQUENCEZOOMNANTES == 0) {
-                    nbZoom++;
-                    exSizePanneauNantes = panneauNantes.getpanneauNantesW();
-                    panneauNantes.zoom();
-                    if (panneauNantes.getRotate() != 0) {
-                        if (panneauNantes.getRotate() + INCREMENTROTATENANTES > 0) {
-                            panneauNantes.setRotate(0);
+                    if (panneauNantes.isMoving()) {
+                        if (nbZoom % FREQUENCEZOOMNANTES == 0) {
+                            nbZoom++;
+                            exSizePanneauNantes = panneauNantes.getpanneauNantesW();
+                            panneauNantes.zoom();
+                            if (panneauNantes.getRotate() != 0) {
+                                if (panneauNantes.getRotate() + INCREMENTROTATENANTES > 0) {
+                                    panneauNantes.setRotate(0);
+                                } else {
+                                    panneauNantes.setRotate(panneauNantes.getRotate() + INCREMENTROTATENANTES);
+                                }
+                            }
+                            panneauNantes.setX(panneauNantes.getX() - (panneauNantes.getpanneauNantesW() - exSizePanneauNantes));
+
                         } else {
-                            panneauNantes.setRotate(panneauNantes.getRotate() + INCREMENTROTATENANTES);
+                            nbZoom++;
                         }
                     }
-                    panneauNantes.setX(panneauNantes.getX() - (panneauNantes.getpanneauNantesW() - exSizePanneauNantes));
 
-                } else {
-                    nbZoom++;
+                    panneauNantes.draw(canvas);
+
+                    if (panneauNantes.getY() > cvH) {
+                        //panneauNantes.setMove(false); //TODO Décommenter lors de l'ajout de nouveaux éléments
+
+                        //panneauLondon.setMove(true);
+
+
+                        panneauNantes.resetSize();
+                        panneauNantes.setRotate(ROTATENANTESINIT);
+                        panneauNantes.setX(posPanneauNantesInit);
+                        panneauNantes.setMove(false);
+                        Panneau=1;
+
+                        panneauLondon.setMove(true);
+                    }
                 }
-            }
+                break;
+            case 1 :
+                if (monteePanneauLondon) {
 
-            panneauNantes.draw(canvas);
+                    Log.d("monteePanneauLondon", "true");
+                    panneauLondon.draw(canvas);
 
-            if(panneauNantes.getY()>cvH){
-                //panneauNantes.setMove(false); //TODO Décommenter lors de l'ajout de nouveaux éléments
-                monteePanneauNantes=true;
-                panneauNantes.resetSize();
-                panneauNantes.setRotate(ROTATENANTESINIT);
-                panneauNantes.setX(posPanneaNantesInit);
 
-            }
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+
+                    if (panneauLondon.getY() + panneauLondon.getpanneauNantesH() <= (cvH - 17 * solBitmap.getHeight() / 20)) {
+                        monteePanneauLondon = false;
+                        nbZoom = 0;
+                    }
+                } else {
+                    Log.d("monteePanneauLondon", "false");
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+                    if (panneauLondon.isMoving()) {
+                        if (nbZoom % FREQUENCEZOOMNANTES == 0) {
+                            nbZoom++;
+                            exSizePanneauLondon = panneauLondon.getpanneauNantesW();
+                            panneauLondon.zoom();
+                            if (panneauLondon.getRotate() != 0) {
+                                if (panneauLondon.getRotate() + INCREMENTROTATENANTES > 0) {
+                                    panneauLondon.setRotate(0);
+                                } else {
+                                    panneauLondon.setRotate(panneauLondon.getRotate() + INCREMENTROTATENANTES);
+                                }
+                            }
+                            panneauLondon.setX(panneauLondon.getX() - (panneauLondon.getpanneauNantesW() - exSizePanneauLondon));
+
+                        } else {
+                            nbZoom++;
+                        }
+                    }
+
+                    panneauLondon.draw(canvas);
+
+                    if (panneauLondon.getY() > cvH) {
+
+                        //panneauLondon.setMove(true);
+
+
+                        panneauLondon.resetSize();
+                        panneauLondon.setRotate(ROTATENANTESINIT);
+                        panneauLondon.setX(posPanneauLondonInit);
+
+                        panneauLondon.setMove(false); //TODO Décommenter lors de l'ajout de nouveaux éléments
+
+                        Panneau=2;
+                        panneauRoterdam.setMove(true);
+                    }
+                }
+                break;
+            case 2 :
+                if (monteePanneauRoterdam) {
+
+                    Log.d("monteePanneauNantes", "true");
+                    panneauRoterdam.draw(canvas);
+
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+
+                    if (panneauRoterdam.getY() + panneauRoterdam.getpanneauNantesH() <= (cvH - 17 * solBitmap.getHeight() / 20)) {
+                        monteePanneauRoterdam = false;
+                        nbZoom = 0;
+                    }
+                } else {
+                    Log.d("monteePanneauNantes", "false");
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+                    if (panneauRoterdam.isMoving()) {
+                        if (nbZoom % FREQUENCEZOOMNANTES == 0) {
+                            nbZoom++;
+                            exSizePanneauRoterdam = panneauRoterdam.getpanneauNantesW();
+                            panneauRoterdam.zoom();
+                            if (panneauRoterdam.getRotate() != 0) {
+                                if (panneauRoterdam.getRotate() + INCREMENTROTATENANTES > 0) {
+                                    panneauRoterdam.setRotate(0);
+                                } else {
+                                    panneauRoterdam.setRotate(panneauRoterdam.getRotate() + INCREMENTROTATENANTES);
+                                }
+                            }
+                            panneauRoterdam.setX(panneauRoterdam.getX() - (panneauRoterdam.getpanneauNantesW() - exSizePanneauRoterdam));
+
+                        } else {
+                            nbZoom++;
+                        }
+                    }
+
+                    panneauRoterdam.draw(canvas);
+
+                    if (panneauRoterdam.getY() > cvH) {
+
+                        //panneauLondon.setMove(true);
+
+
+                        panneauRoterdam.resetSize();
+                        panneauRoterdam.setRotate(ROTATENANTESINIT);
+                        panneauRoterdam.setX(posPanneauRoterdamInit);
+
+                        Panneau=3;
+                        panneauNougaro.setMove(true);
+                        panneauRoterdam.setMove(false); //TODO Décommenter lors de l'ajout de nouveaux éléments
+
+                    }
+                }
+                break;
+            case 3 :
+                if (monteePanneauNougaro) {
+
+                    Log.d("monteePanneauNougaro", "true");
+                    panneauNougaro.draw(canvas);
+
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+
+                    if (panneauNougaro.getY() + panneauNougaro.getpanneauNantesH() <= (cvH - 17 * solBitmap.getHeight() / 20)) {
+                        monteePanneauNougaro = false;
+                        nbZoom = 0;
+                    }
+                } else {
+                    Log.d("monteePanneauNougaro", "false");
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+                    if (panneauNougaro.isMoving()) {
+                        if (nbZoom % FREQUENCEZOOMNANTES == 0) {
+                            nbZoom++;
+                            exSizePanneauNougaro = panneauNougaro.getpanneauNantesW();
+                            panneauNougaro.zoom();
+                            if (panneauNougaro.getRotate() != 0) {
+                                if (panneauNougaro.getRotate() + INCREMENTROTATENANTES > 0) {
+                                    panneauNougaro.setRotate(0);
+                                } else {
+                                    panneauNougaro.setRotate(panneauNougaro.getRotate() + INCREMENTROTATENANTES);
+                                }
+                            }
+                            panneauNougaro.setX(panneauNougaro.getX() - (panneauNougaro.getpanneauNantesW() - exSizePanneauNougaro));
+
+                        } else {
+                            nbZoom++;
+                        }
+                    }
+
+                    panneauNougaro.draw(canvas);
+
+                    if (panneauNougaro.getY() > cvH) {
+
+                        //panneauLondon.setMove(true);
+
+
+                        panneauNougaro.resetSize();
+                        panneauNougaro.setRotate(ROTATENANTESINIT);
+                        panneauNougaro.setX(posPanneauNougaroInit);
+                        panneauNougaro.setMove(false); //TODO Décommenter lors de l'ajout de nouveaux éléments
+                        panneauValencienne.setMove(true);
+                        Panneau =4;
+
+                    }
+                }
+                break;
+            case 4 :
+                if (monteePanneauValencienne) {
+
+                    Log.d("monteePanneauValenc", "true");
+                    panneauValencienne.draw(canvas);
+
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+
+                    if (panneauValencienne.getY() + panneauValencienne.getpanneauNantesH() <= (cvH - 17 * solBitmap.getHeight() / 20)) {
+                        monteePanneauValencienne = false;
+                        nbZoom = 0;
+                    }
+                } else {
+                    Log.d("monteePanneauValenc", "false");
+
+                    canvas.drawBitmap(solBitmap, 0, cvH - solBitmap.getHeight(), null);
+
+                    if (panneauValencienne.isMoving()) {
+                        if (nbZoom % FREQUENCEZOOMNANTES == 0) {
+                            nbZoom++;
+                            exSizePanneauValencienne = panneauValencienne.getpanneauNantesW();
+                            panneauValencienne.zoom();
+                            if (panneauValencienne.getRotate() != 0) {
+                                if (panneauValencienne.getRotate() + INCREMENTROTATENANTES > 0) {
+                                    panneauValencienne.setRotate(0);
+                                } else {
+                                    panneauValencienne.setRotate(panneauValencienne.getRotate() + INCREMENTROTATENANTES);
+                                }
+                            }
+                            panneauValencienne.setX(panneauValencienne.getX() - (panneauValencienne.getpanneauNantesW() - exSizePanneauValencienne));
+
+                        } else {
+                            nbZoom++;
+                        }
+                    }
+
+                    panneauValencienne.draw(canvas);
+
+                    if (panneauValencienne.getY() > cvH) {
+
+                        //panneauLondon.setMove(true);
+
+
+                        panneauValencienne.resetSize();
+                        panneauValencienne.setRotate(ROTATENANTESINIT);
+                        panneauValencienne.setX(posPanneauValencienneInit);
+                        panneauValencienne.setMove(false); //TODO Décommenter lors de l'ajout de nouveaux éléments
+                        panneauNantes.setMove(true);
+                        Panneau =0;
+                        monteePanneauNantes=true;
+                        monteePanneauLondon=true;
+                        monteePanneauRoterdam=true;
+                        monteePanneauNougaro=true;
+                        monteePanneauValencienne=true;
+                        panneauNantes.setY(cvH);
+                        panneauRoterdam.setY(cvH);
+                        panneauValencienne.setY(cvH);
+                        panneauLondon.setY(cvH);
+                        panneauNougaro.setY(cvH);
+//                        panneauNantes.setY(cvH);
+//                        panneauValencienne.setY(cvH);
+//                        panneauNougaro.setY(cvH);
+//                        panneauLondon.setY(cvH);
+//                        panneauRoterdam.setY(cvH);
+
+                    }
+                }
+                break;
         }
 
 
@@ -265,6 +587,10 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         pointillesF.setVitesse(cvW/200);
         pointillesS.setVitesse(cvW/200);
         panneauNantes.setVitesse(cvW/200);
+        panneauLondon.setVitesse(cvW/200);
+        panneauNougaro.setVitesse(cvW/200);
+        panneauValencienne.setVitesse(cvW/200);
+        panneauRoterdam.setVitesse(cvW/200);
         vehiculeAccueil.setVitesse(cvW/400);
 
 
@@ -300,6 +626,26 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
             panneauNantes.moveUp();
         } else {
             panneauNantes.moveDown();
+        }
+        if(monteePanneauValencienne) {
+            panneauValencienne.moveUp();
+        } else {
+            panneauValencienne.moveDown();
+        }
+        if(monteePanneauNougaro) {
+            panneauNougaro.moveUp();
+        } else {
+            panneauNougaro.moveDown();
+        }
+        if(monteePanneauLondon) {
+            panneauLondon.moveUp();
+        } else {
+            panneauLondon.moveDown();
+        }
+        if(monteePanneauRoterdam) {
+            panneauRoterdam.moveUp();
+        } else {
+            panneauRoterdam.moveDown();
         }
 
         if(pointillesF.getY()+pointillesF.getpointillesH()>cvH){
@@ -451,6 +797,10 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
         pointillesF.resize(w, h);
         pointillesS.resize(w, h);
         panneauNantes.resize(w,h);
+        panneauLondon.resize(w,h);
+        panneauValencienne.resize(w,h);
+        panneauNougaro.resize(w,h);
+        panneauRoterdam.resize(w,h);
         vehiculeAccueil.resize(w,h);
     }
 

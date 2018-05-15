@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "275440190359",
-    "firebase_url": "https://polygame-d6fe7.firebaseio.com",
-    "project_id": "polygame-d6fe7",
-    "storage_bucket": "polygame-d6fe7.appspot.com"
+    "project_number": "100478211043",
+    "firebase_url": "https://polyjoule-8bd7e.firebaseio.com",
+    "project_id": "polyjoule-8bd7e",
+    "storage_bucket": "polyjoule-8bd7e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:275440190359:android:5b77c02f02d7993c",
+        "mobilesdk_app_id": "1:100478211043:android:5b77c02f02d7993c",
         "android_client_info": {
           "package_name": "com.polyjoule.ylebourlout.apriou.polygame"
         }
       },
       "oauth_client": [
         {
-          "client_id": "275440190359-u37bh7rvptnnmb7lbe1fpii97j8u7qe5.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.polyjoule.ylebourlout.apriou.polygame",
-            "certificate_hash": "20e111554a10fa5cd878f92878ae2e08d1519958"
-          }
-        },
-        {
-          "client_id": "275440190359-5un4r53jfq62spmi796c087vea9b7vhi.apps.googleusercontent.com",
+          "client_id": "100478211043-nn8o895q0p4h5ldto5h0ckci9gsp7cv0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-l1y3SUex-TZTHqHVDhTRQNzOg7HBpmY"
+          "current_key": "AIzaSyATtuCWtvXrnLGOfWmHZdOF4Sl9GVtg7FA"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "275440190359-5un4r53jfq62spmi796c087vea9b7vhi.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

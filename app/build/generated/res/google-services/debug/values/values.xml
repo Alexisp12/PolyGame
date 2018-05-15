@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">275440190359-5un4r53jfq62spmi796c087vea9b7vhi.apps.googleusercontent.com</string>
-    <string name="firebase_database_url" translatable="false">https://polygame-d6fe7.firebaseio.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">275440190359</string>
-    <string name="google_api_key" translatable="false">AIzaSyB-l1y3SUex-TZTHqHVDhTRQNzOg7HBpmY</string>
-    <string name="google_app_id" translatable="false">1:275440190359:android:5b77c02f02d7993c</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB-l1y3SUex-TZTHqHVDhTRQNzOg7HBpmY</string>
-    <string name="google_storage_bucket" translatable="false">polygame-d6fe7.appspot.com</string>
-    <string name="project_id" translatable="false">polygame-d6fe7</string>
+    <string name="default_web_client_id" translatable="false">100478211043-nn8o895q0p4h5ldto5h0ckci9gsp7cv0.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://polyjoule-8bd7e.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">100478211043</string>
+    <string name="google_api_key" translatable="false">AIzaSyATtuCWtvXrnLGOfWmHZdOF4Sl9GVtg7FA</string>
+    <string name="google_app_id" translatable="false">1:100478211043:android:5b77c02f02d7993c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyATtuCWtvXrnLGOfWmHZdOF4Sl9GVtg7FA</string>
+    <string name="google_storage_bucket" translatable="false">polyjoule-8bd7e.appspot.com</string>
+    <string name="project_id" translatable="false">polyjoule-8bd7e</string>
 </resources>
