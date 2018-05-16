@@ -7,11 +7,14 @@
     <color name="primary_dark_material_dark_1">#000000</color>
     <color name="accent_material_dark_1">#80cbc4</color>
 
-
+    <color name="DarkBluePolytech">#004877</color>
+    <color name="BluePolytech">#009AE1</color>
     <color name="top1">#003366</color>
     <color name="top2">#357AB7</color>
     <color name="top3">#6495ED</color>
     <color name="newhs">#BFA100</color>
+
+    <color name="white">#FFFFFF</color>
 
     <color name="finishcolor">#FF2D00</color>
 </resources>

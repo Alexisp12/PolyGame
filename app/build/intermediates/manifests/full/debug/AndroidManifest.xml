@@ -51,10 +51,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.polyjoule.ylebourlout.apriou.polygame.Classement"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.polyjoule.ylebourlout.apriou.polygame.Profil"
             android:screenOrientation="portrait" >
         </activity>
@@ -66,9 +62,6 @@
             android:name="com.polyjoule.ylebourlout.apriou.polygame.Palmares"
             android:screenOrientation="portrait" >
         </activity>
-
-        <service android:name="com.polyjoule.ylebourlout.apriou.polygame.TimelineService" />
-
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

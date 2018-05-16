@@ -164,7 +164,9 @@ public class Palmares extends Activity  {
                 textPalmabString="";
 
                 anneeTolook=2017;
-                textPalmaString="For this year, the team tried to keep his rank with Cityjoule at the Shell Eco Marathon. But with old fuel cells, had to settle for second place just behind Green Team Twente. Moreover, just after winning the Drive Europe Championship, Cityjoule achivied the second best time for qualification of Driver World Championship. It's this time who has set the final ranking, because the race have not been completed due to bad weather in London";
+                //textPalmaString="For this year, the team tried to keep his rank with Cityjoule at the Shell Eco Marathon. But with old fuel cells, had to settle for second place just behind Green Team Twente. Moreover, just after winning the Drive Europe Championship, Cityjoule achivied the second best time for qualification of Driver World Championship. It's this time who has set the final ranking, because the race have not been completed due to bad weather in London";
+
+                //textPalmabString="Click to see an other year ! :P";
 
                 nomTournoi1.setText("EducEco\nUrban Concept\nHydrogen");
                 valeurRecord1.setText("949 Km/lee");

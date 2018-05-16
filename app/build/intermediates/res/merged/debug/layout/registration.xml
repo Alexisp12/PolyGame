@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/DarkBluePolytech">
     <LinearLayout
         android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
 
@@ -15,7 +17,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="User Registration"
             android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -23,13 +26,18 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter email"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/editTextPseudo"
             android:layout_width="match_parent"
+            android:maxLength="13"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:hint="Enter pseudo"
             />
 
@@ -39,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter password"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:inputType="textPassword" />
 
         <Button
@@ -46,15 +56,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:background="@color/BluePolytech"
+            android:textColor="@color/white"
             android:text="Signup" />
 
         <TextView
-            android:text="Already Registered? Signin Here"
+            android:text="Already Registered ? Signin Here"
             android:id="@+id/textViewSignin"
             android:textAlignment="center"
             android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/BluePolytech"/>
 
     </LinearLayout>
 

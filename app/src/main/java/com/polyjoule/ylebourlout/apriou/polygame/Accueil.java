@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,6 +45,8 @@ public class Accueil extends Activity {
     public static DatabaseReference databaseReference;
     public static List<UserInformation> users = new ArrayList<UserInformation>();
 
+    private static MediaPlayer fondSonore = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,9 @@ public class Accueil extends Activity {
         This=this;
         mActivity=this;
 
+        fondSonore = null;
+        playSound(R.raw.accueil);
+
         userInfo = new UserInformation();
 
         //getting the database reference
@@ -68,6 +74,16 @@ public class Accueil extends Activity {
         recupData();
 
 
+    }
+    private void playSound(int resId) {
+        if (fondSonore != null) {
+            fondSonore.stop();
+            fondSonore.release();
+        }
+        fondSonore = MediaPlayer.create(this, resId);
+        fondSonore.setLooping(true);
+
+        fondSonore.start();
     }
 
     public static void game(){
@@ -82,10 +98,14 @@ public class Accueil extends Activity {
                 builder = new AlertDialog.Builder(This);
             }
             builder.setTitle("Authentification")
-                    .setMessage("Do you want to log in ?")
-                    .setMessage("It is possible to play being disconected but you will not be able to see your rank :-).")
+                    //.setMessage("Do you want to log in ?")
+                    .setMessage("It is possible to play being disconected but you will not be able to see your rank :-)")
                     .setPositiveButton("Log in", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            if(fondSonore!=null) {
+                                fondSonore.stop();
+                            }
+                            fondSonore = null;
                             mActivity.finish();
                             Intent loginIntent = new Intent(This, Login.class);
                             This.startActivity(loginIntent);
@@ -93,12 +113,16 @@ public class Accueil extends Activity {
                     })
                     .setNegativeButton("Play", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            if(fondSonore!=null) {
+                                fondSonore.stop();
+                            }
+                            fondSonore = null;
                             mActivity.finish();
                             Intent gameIntent = new Intent(This, Game.class);
                             This.startActivity(gameIntent);
                         }
                     })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    //.setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         } else {
             SharedPreferences settings = This.getSharedPreferences(SETS, 0);
@@ -113,7 +137,10 @@ public class Accueil extends Activity {
                     Log.d("highscore-1","oui");
                 }
             }
-
+            if(fondSonore!=null) {
+                fondSonore.stop();
+            }
+            fondSonore = null;
             mActivity.finish();
             Intent gameIntent = new Intent(This, Game.class);
             This.startActivity(gameIntent);

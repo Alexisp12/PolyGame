@@ -868,7 +868,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                             if (userInfo.getHighScore() != -1) {
                                 canvas.drawText(textHS + userInfo.getHighScore(), 11 * cvW / 40, 29 * cvH / 64, textPaintHS);
                             } else {
-                                canvas.drawText(textHS + "0", 9 * cvW / 40, 29 * cvH / 64, textPaintHS);
+                                canvas.drawText(textHS + "0",  11 * cvW / 40, 29 * cvH / 64, textPaintHS);
                             }
                         }
                     }

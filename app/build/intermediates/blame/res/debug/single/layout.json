@@ -4,20 +4,20 @@
         "source": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/res/layout/alertdialogchoixpseudo.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/notification_media_cancel_action.xml"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/layout/notification_template_media_custom.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
-        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/abc_action_mode_bar.xml"
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/notification_media_cancel_action.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
         "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/abc_action_mode_bar.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
@@ -32,20 +32,20 @@
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/layout/notification_action.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
-        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
         "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/support_simple_spinner_dropdown_item.xml"
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/abc_list_menu_item_icon.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
         "source": "/Users/Alexis/.android/build-cache/e371bd9917f2764d928aff578d21b69a2ab41522/output/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",

@@ -114,6 +114,7 @@ public class Game extends Activity {
         }
         fondSonore = MediaPlayer.create(this, resId);
         fondSonore.setLooping(true);
+
         fondSonore.start();
     }
 
@@ -255,7 +256,7 @@ public class Game extends Activity {
                 }
                 if (users != null) {
 
-                    toast = Toast.makeText(This, "Personal record !!", Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(This, "New record !!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
