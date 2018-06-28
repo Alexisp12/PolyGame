@@ -83,7 +83,7 @@ public class VehiculeEnnemi4 {
 
 
 
-        img = setImage(mContext,R.drawable.h2polito,vehiculeEnnemiW,vehiculeEnnemiH); //vehiculeEnnemi3
+        img = setImage(mContext,R.drawable.h2politonologo,vehiculeEnnemiW,vehiculeEnnemiH); //vehiculeEnnemi3
 
 
     }

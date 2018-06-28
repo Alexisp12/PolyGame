@@ -152,31 +152,31 @@ public class Accueil extends Activity {
 
     }
     public static void param(){
+
+        if(fondSonore!=null) {
+            fondSonore.stop();
+        }
+        fondSonore = null;
         mActivity.finish();
         Intent loginIntent = new Intent(This, Login.class);
         This.startActivity(loginIntent);
     }
     public static void social(){
-//        Handler makeToastHandler = new Handler(Looper.getMainLooper());
-//
-//        makeToastHandler.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (toast != null) {
-//                    toast.cancel();
-//                }
-//                toast = Toast.makeText(This, "En construction.", Toast.LENGTH_SHORT);
-//                toast.show();
-//
-//            }
-//        });
 
+        if(fondSonore!=null) {
+            fondSonore.stop();
+        }
+        fondSonore = null;
         mActivity.finish();
-        Intent socialIntent = new Intent(This, Social.class);
+        Intent socialIntent = new Intent(This, SocialActivity.class);
         This.startActivity(socialIntent);
 
     }
     public static void palmares(){
+        if(fondSonore!=null) {
+            fondSonore.stop();
+        }
+        fondSonore = null;
         mActivity.finish();
         Intent socialIntent = new Intent(This, Palmares.class);
         This.startActivity(socialIntent);
@@ -216,9 +216,9 @@ public class Accueil extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-
-                userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
-
+                if(usr!=null) {
+                    userInfo = dataSnapshot.child("users").child(usr.getUid()).getValue(UserInformation.class);
+                }
 
                 if(userInfo!=null) {
                     if (userInfo.getPseudo() == null) {
@@ -252,5 +252,23 @@ public class Accueil extends Activity {
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        fondSonore.start();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if(fondSonore!=null) {
+            fondSonore.pause();
+        }
+        //fondSonore = null;
+
     }
 }

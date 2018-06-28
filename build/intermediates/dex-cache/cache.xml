@@ -3,21 +3,111 @@
 
     <item
         is-multidex="false"
-        jar="/Users/Alexis/.android/build-cache/804c4889bd29ffbedad37ed0a3016749fef5dfdc/output/jars/classes.jar"
+        jar="/Users/Alexis/.android/build-cache/4d882506c4220ad0434e930a5220a172d23ac660/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="05d2e01f33fb2097b51fce3f938dc37a75fe2d6b">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_163e500e69e82fbd3c94903639d1403f6ed45569.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_ddd863d520be40ab9c73c97f0ec6070729174223.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/45ab3a2c0463d73c3d45bdc28f914b5d59ac1201/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="35a01d7cb4ff6b5976777bf5827fd8f206fb8757">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_cd175163aaea28c28320227779d8abe5a57f217d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/963dff96d49db89f9e5ea331f34f1f7498e6d90c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_ae00c280388963df8e52bec0fa340c74f19eaf74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6a0f2d219f82db499ac03d5a985c4eb3e83fc422">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_5ae81345c06c0e907d140e56e90d4483896a28e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/b012051e58bc1886605201cdfc126031144a5ab7/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6b896c1067633db41e9c10a3a5d0919c5c4cfc8c">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_8eededf7c9490dfc706c99820af41e7cab997951.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/9f221de930c8c28e4502cf700943ea9cd0aa268d/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="292a9fa091757208efa65e77eef63088247e51f3">
-        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_c0d4c5ff61f99b3a289200999a0a13cee929bfb8.jar" />
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_df81f5c7bd5221adec4de9209bae7b5add115e9f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/jars/classes.jar"
+        jar="/Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d41b5d21cc9dd7d210f0ae82ac509ba7f091d611">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_d1f1a650823607e57d702784448afab5aeac803e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/79498cda8f2a940a65baaf420960c2355e243da2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_a65ac46fb4b909e5f0097d44f89e2edcbffad98c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5337354083e89ed67151859ab0b6b80935c60eaf">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_c80b366a4d3da7a71659e9dd0868176c7da893e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/06d9939e9e7c54218110dd12c1dd428e63155522/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
-        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_6aba364d75bdc8d3eb4e56ee1c45586991e6b3f8.jar" />
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_c8ebcbd4481cd5f53cc63a0fddd2d31e9c8897eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/04f377b6d416300295cee72a17957ec96f8709bb/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_3b6717caab49ccfa80253956c43427af9b4ebe85.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,30 +120,39 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Alexis/.android/build-cache/9c910924dbccff9d1a4f6eaac6de68a470241904/output/jars/libs/internal_impl-23.2.0.jar"
+        jar="/Users/Alexis/.android/build-cache/a302d0c3688cdd4948421e1b336af1ef6d9ec0d5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee409046028e5657a2a69edaa2eba00d6511a74c">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_3a9b66b5bb8940e95d0c448ab73f372be200a061.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_9d4305e1707ec1cd6cf2ad92944734268977de2c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/043b737f58ca7710bc8eaa723568fd20c07d4c5b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f06a0705d7b8b9d18b00d056fe0e07bec75514e6">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_b69e8b68f5c96c92d880fca4cf8650867aa522da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/79498cda8f2a940a65baaf420960c2355e243da2/output/jars/libs/internal_impl-23.2.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="6e239441500605809818997dd63b62a947195f8c">
-        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0_9d423346c0e6d8fa5567a31d2702e5d32b06a95a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Alexis/.android/build-cache/7f2051d9cd54684b67ca8b243e70185c0e7ea477/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
-        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_06f4040445bb4cae6cfc83372f0112dd006f3f22.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Alexis/.android/build-cache/9c910924dbccff9d1a4f6eaac6de68a470241904/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
-        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_18f4280b1c8681afcf3be029febafa640db10925.jar" />
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0_cebe42af9404f0900545623d185cb6d8afc03a5c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -63,6 +162,15 @@
         revision="25.0.2"
         sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
         <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.0_31f74391c46eb1a5afd8b5c394e75060ae5da8c9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Alexis/.android/build-cache/4ff53a9f85092f7cd24bdc03cbc3e3948b369dd0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2506c5893e125e2f9cfc522378e893620c21b109">
+        <dex dex="/Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/build/intermediates/pre-dexed/debug/classes_045cd70c9ed1fc096f5d0e6bce28553e6a77357c.jar" />
     </item>
     <item
         is-multidex="false"

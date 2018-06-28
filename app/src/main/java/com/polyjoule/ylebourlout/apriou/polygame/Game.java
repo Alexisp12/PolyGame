@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -38,6 +42,7 @@ public class Game extends Activity {
     private static Context context;
     private static Context This;
     public static int nbVie = 3;
+    private static SoundPool mSound;
     public static int incrementCarburant = 10;
     public final static int GAINCARBURANT = 100; // En pourcentage !!! anciennement  8
     public final static int PERTECARBURANT = 12; // En pourcentage !!! anciennement 6
@@ -61,6 +66,17 @@ public class Game extends Activity {
     public static Toast toast;
     public static int rangJoueur;
     private static Activity mActivity;
+    private static int soundCrash;
+    private static int soundNoCarbu;
+    private static int soundCarbuTaken;
+    private static int soundNewRecord;
+    private static boolean crashSoundDone=false;
+
+    private static boolean newRecordSoundDone=false;
+    private static boolean noMoreCarbuSoundDone=false;
+    // Active ou desactive les bruitages
+    private static boolean soundActivated = true;
+
 
     //firebase auth object
     //private static FirebaseAuth firebaseAuth;
@@ -87,7 +103,27 @@ public class Game extends Activity {
         mActivity=this;
 
         fondSonore = null;
-        playSound(R.raw.son);
+        playSound(R.raw.gamesound);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            AudioAttributes audioAttrib = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+            mSound = new SoundPool.Builder().setAudioAttributes(audioAttrib).setMaxStreams(6).build();
+        }
+        else {
+            mSound = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+        }
+
+
+
+        soundCrash = mSound.load(this, R.raw.soundcrash, 1);
+        soundNoCarbu = mSound.load(this, R.raw.soundnoarbu, 1);
+        soundCarbuTaken = mSound.load(this, R.raw.soundcarbutaken, 1);
+        soundNewRecord = mSound.load(this, R.raw.soundnewrecord, 1);
 
 
         if(userInfo!=null) {
@@ -105,6 +141,69 @@ public class Game extends Activity {
         //Game.saveUserInformation(userInfo);
 
 
+    }
+
+    public static void GameOverCrashSound(){
+        // Getting the user sound settings
+        if(soundActivated) {
+            if(!crashSoundDone) {
+                AudioManager audioManager = (AudioManager) mActivity.getSystemService(AUDIO_SERVICE);
+                float actualVolume = (float) audioManager
+                        .getStreamVolume(AudioManager.STREAM_MUSIC);
+                float maxVolume = (float) audioManager
+                        .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                float volume = actualVolume / maxVolume;
+                mSound.play(soundCrash, volume, volume, 1, 0, 1f);
+
+                crashSoundDone = true;
+
+            }
+        }
+    }
+    public static void NoMoreCarbuSound(){
+        if(soundActivated) {
+            if(!noMoreCarbuSoundDone) {
+                // Getting the user sound settings
+                AudioManager audioManager = (AudioManager) mActivity.getSystemService(AUDIO_SERVICE);
+                float actualVolume = (float) audioManager
+                        .getStreamVolume(AudioManager.STREAM_MUSIC);
+                float maxVolume = (float) audioManager
+                        .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                float volume = actualVolume / maxVolume;
+                mSound.play(soundNoCarbu, volume, volume, 1, 0, 1f);
+                noMoreCarbuSoundDone=true;
+            }
+        }
+    }
+    public static void CarbuTakenSound(){
+        if(soundActivated) {
+            // Getting the user sound settings
+            AudioManager audioManager = (AudioManager) mActivity.getSystemService(AUDIO_SERVICE);
+            float actualVolume = (float) audioManager
+                    .getStreamVolume(AudioManager.STREAM_MUSIC);
+            float maxVolume = (float) audioManager
+                    .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+            float volume = actualVolume / maxVolume;
+            mSound.play(soundCarbuTaken, volume, volume, 1, 0, 1f);
+        }
+    }
+    public static void NewRecordSound(){
+        if(soundActivated) {
+            if(!newRecordSoundDone) {
+                // Getting the user sound settings
+                AudioManager audioManager = (AudioManager) mActivity.getSystemService(AUDIO_SERVICE);
+                float actualVolume = (float) audioManager
+                        .getStreamVolume(AudioManager.STREAM_MUSIC);
+                float maxVolume = (float) audioManager
+                        .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                float volume = actualVolume / maxVolume;
+                mSound.play(soundNewRecord, volume, volume, 1, 0, 1f);
+
+                if(crashSoundDone || noMoreCarbuSoundDone) {
+                    newRecordSoundDone = true;
+                }
+            }
+        }
     }
 
     private void playSound(int resId) {
@@ -128,6 +227,12 @@ public class Game extends Activity {
         mActivity.finish();
         Intent restart = new Intent(This, Game.class);
         This.startActivity(restart);
+    }
+
+    public static void rezetAllDoneSounds(){
+        newRecordSoundDone=false;
+        crashSoundDone=false;
+        noMoreCarbuSoundDone=false;
     }
 
     public static void update(int highScore) {
@@ -262,6 +367,10 @@ public class Game extends Activity {
             }
         });
     }
+
+
+
+
     public static void toastNoMoreCarbu() {
         Handler makeToastHandler = new Handler(Looper.getMainLooper());
 
@@ -294,6 +403,14 @@ public class Game extends Activity {
 
         This.startActivity(seeClassementIntent);
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+    }
+
+
 
     @Override
     public void onBackPressed() {

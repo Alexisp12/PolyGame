@@ -2,10 +2,12 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +31,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewSignup;
+    private TextView contactus;
+
 
 
     //firebase auth object
@@ -63,12 +67,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn = (Button) findViewById(R.id.buttonSignin);
         textViewSignup  = (TextView) findViewById(R.id.textViewSignUp);
+        contactus = (TextView) findViewById(R.id.contactus);
 
         progressDialog = new ProgressDialog(this);
 
         //attaching click listener
         buttonSignIn.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);
+        contactus.setOnClickListener(this);
     }
 
     //method for user login
@@ -176,6 +182,39 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         if(view == textViewSignup){
             finish();
             startActivity(new Intent(this, Registration.class));
+        }
+
+        if(view == contactus){
+//            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+//
+//            emailIntent.setData(Uri.parse("mailto:polyjoule@univ-nantes.fr"));
+//            emailIntent.putExtra(Intent.EXTRA_EMAIL, "polyjoule@univ-nantes.fr");
+//            //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "[Application mobile]");
+//
+//            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+//                startActivity(emailIntent);
+//                //startActivity(Intent.createChooser(emailIntent, "Contact us"));
+//
+//            } else {
+//                Log.d("emailIntent","null");
+//            }
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            //, Uri.fromParts(
+            //"mailto","polyjoule@univ-nantes.fr", null));
+            //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "[Application mobile]");
+            //mailIntent.putExtra(Intent.EXTRA_EMAIL, "polyjoule@univ-nantes.fr");
+
+            emailIntent.setData(Uri.parse("mailto:polyjoule@univ-nantes.fr"));
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, "polyjoule@univ-nantes.fr");
+            //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "[Application mobile]");
+
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(emailIntent);
+                //startActivity(Intent.createChooser(emailIntent, "Contact us"));
+
+            } else {
+                Log.d("emailIntent","null");
+            }
         }
     }
     @Override

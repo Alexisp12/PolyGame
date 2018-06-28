@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DEF3FF"
+    tools:context="com.polyjoule.ylebourlout.apriou.polygame.Social">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Social media"
+                android:textAlignment="center"
+                android:background="@color/DarkBluePolytech"
+                android:padding="10dp"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/Title"
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/twitterButton"
+                android:text="Twitter"
+                android:background="@color/BluePolytech"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/instagramButton"
+                android:text="Instagram"
+                android:background="@color/BluePolytech"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textAllCaps="false"
+                android:layout_width="0dp"
+                android:layout_weight="1"/>
+            <!--<Button-->
+                <!--android:id="@+id/depenses"-->
+                <!--android:text="Dépenses"-->
+                <!--android:layout_toRightOf="@+id/solde"-->
+                <!--android:background="@color/BluePolytech"-->
+                <!--android:layout_width="240px"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="3"/>-->
+        </LinearLayout>
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/layout_twitter"
+            android:layout_below="@id/buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <include layout="@layout/content_layout_twitter" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_instagram"
+            android:layout_below="@id/buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <include layout="@layout/content_layout_instagram" />
+        </RelativeLayout>
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/layout_depenses"-->
+            <!--android:layout_below="@id/date_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<include layout="@layout/content_layout_depenses" />-->
+        <!--</RelativeLayout>-->
+    </RelativeLayout>
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/ajout_revenu"-->
+        <!--android:layout_width="55dp"-->
+        <!--android:layout_height="55dp"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--app:srcCompat="@drawable/plus2" />-->
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/ajout_depense"-->
+        <!--android:layout_width="55dp"-->
+        <!--android:layout_height="55dp"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--app:srcCompat="@drawable/moins2" />-->
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/ajout"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--app:srcCompat="@android:drawable/ic_input_add" />-->
+
+</LinearLayout>

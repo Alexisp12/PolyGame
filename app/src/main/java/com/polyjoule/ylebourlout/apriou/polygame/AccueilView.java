@@ -25,6 +25,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
     private AccueilLoopThread accueilLoopThread;
     private Boolean initialisation=false;
     private Boolean gestionBitmap=false;
+    //private bool menuPaused=false;
     public static int cvW; // canva width
     public static int cvH; // canva heigh
    // private int deplacementPanneauNantes;
@@ -725,7 +726,7 @@ public class AccueilView  extends SurfaceView implements SurfaceHolder.Callback 
                     //socialBitmap=null;
                     //cacheBitmap=null;
                     //cielBitmap=null;
-                    stopMenu=true;
+                    //stopMenu=true;
  //                   .finish();
 //                    cacheBitmap.recycle();
 //                    solBitmap.recycle();

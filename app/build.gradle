@@ -8,8 +8,8 @@ android {
         applicationId "com.polyjoule.ylebourlout.apriou.polygame"
         minSdkVersion 18 //21
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 8
+        versionName "1.12"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:2:1-49:12
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:2:1-52:12
 	package
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:3:5-56
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
@@ -15,28 +15,28 @@ ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/mai
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:5:5-67
-MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:21:5-67
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:21:5-67
-MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:21:5-67
 	android:name
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:7:5-47:19
-MERGED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/7f2051d9cd54684b67ca8b243e70185c0e7ea477/output/AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/804c4889bd29ffbedad37ed0a3016749fef5dfdc/output/AndroidManifest.xml:7:5-20
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:7:5-50:19
+MERGED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/06d9939e9e7c54218110dd12c1dd428e63155522/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/963dff96d49db89f9e5ea331f34f1f7498e6d90c/output/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/9f221de930c8c28e4502cf700943ea9cd0aa268d/output/AndroidManifest.xml:7:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Alexis/.android/build-cache/917790dbb61b7b3c49e42690c99b6acc840c643e/output/AndroidManifest.xml:9:5-20
-MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/db03e4b176d2a5b4751c82e88138bee0e2305e22/output/AndroidManifest.xml:20:5-21:19
-MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/09ad586530e94c99f88b9a98faf91572c30d3429/output/AndroidManifest.xml:20:5-21:19
-MERGED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.firebase:firebase-core:9.2.1] /Users/Alexis/.android/build-cache/295f8528818eb050fa12adefae360412b978fdae/output/AndroidManifest.xml:5:5-20
-MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:26:5-41:19
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:26:5-41:19
-MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:30:5-59:19
-MERGED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:5:5-12:19
-MERGED from [com.google.android.gms:play-services-tasks:9.2.1] /Users/Alexis/.android/build-cache/bd5e6028b2e86bd3a274791afb8034bddeaa91e4/output/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build-cache/9c910924dbccff9d1a4f6eaac6de68a470241904/output/AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/4ff53a9f85092f7cd24bdc03cbc3e3948b369dd0/output/AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/a302d0c3688cdd4948421e1b336af1ef6d9ec0d5/output/AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.firebase:firebase-core:9.2.1] /Users/Alexis/.android/build-cache/e07274eb7b1a537441539385560617790a4791d2/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:30:5-59:19
+MERGED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] /Users/Alexis/.android/build-cache/04f377b6d416300295cee72a17957ec96f8709bb/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/b012051e58bc1886605201cdfc126031144a5ab7/output/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build-cache/79498cda8f2a940a65baaf420960c2355e243da2/output/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:10:9-41
 	android:supportsRtl
@@ -99,34 +99,40 @@ ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/mai
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:41:13-49
 	android:name
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:40:19-41
-activity#com.polyjoule.ylebourlout.apriou.polygame.Palmares
+activity#com.polyjoule.ylebourlout.apriou.polygame.SocialActivity
 ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:43:9-45:20
 	android:screenOrientation
 		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:44:13-49
 	android:name
-		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:43:19-43
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:43:19-49
+activity#com.polyjoule.ylebourlout.apriou.polygame.Palmares
+ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:46:9-48:20
+	android:screenOrientation
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:47:13-49
+	android:name
+		ADDED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml:46:19-43
 uses-sdk
 INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/7f2051d9cd54684b67ca8b243e70185c0e7ea477/output/AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:support-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/804c4889bd29ffbedad37ed0a3016749fef5dfdc/output/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/06d9939e9e7c54218110dd12c1dd428e63155522/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/963dff96d49db89f9e5ea331f34f1f7498e6d90c/output/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.0] /Users/Alexis/.android/build-cache/9f221de930c8c28e4502cf700943ea9cd0aa268d/output/AndroidManifest.xml:5:5-43
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Alexis/.android/build-cache/917790dbb61b7b3c49e42690c99b6acc840c643e/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/db03e4b176d2a5b4751c82e88138bee0e2305e22/output/AndroidManifest.xml:18:5-43
-MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/09ad586530e94c99f88b9a98faf91572c30d3429/output/AndroidManifest.xml:18:5-43
-MERGED from [com.google.firebase:firebase-auth-module:9.2.1] /Users/Alexis/.android/build-cache/fb6153b4dd1a485ae5c2e1a7e96f73745848800c/output/AndroidManifest.xml:4:5-43
-MERGED from [com.google.firebase:firebase-database:9.2.1] /Users/Alexis/.android/build-cache/e3adabbb98374ebe83f107ac9eec4da61344ae30/output/AndroidManifest.xml:5:5-43
-MERGED from [com.google.firebase:firebase-database-connection:9.2.1] /Users/Alexis/.android/build-cache/5ea3691ff90198e3fbb0457ca092ff1e80eb7299/output/AndroidManifest.xml:5:5-43
-MERGED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:18:5-42
-MERGED from [com.google.firebase:firebase-core:9.2.1] /Users/Alexis/.android/build-cache/295f8528818eb050fa12adefae360412b978fdae/output/AndroidManifest.xml:4:5-42
-MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:18:5-42
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:18:5-42
-MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:18:5-42
-MERGED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks:9.2.1] /Users/Alexis/.android/build-cache/bd5e6028b2e86bd3a274791afb8034bddeaa91e4/output/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build-cache/9c910924dbccff9d1a4f6eaac6de68a470241904/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-auth:9.2.1] /Users/Alexis/.android/build-cache/4ff53a9f85092f7cd24bdc03cbc3e3948b369dd0/output/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] /Users/Alexis/.android/build-cache/a302d0c3688cdd4948421e1b336af1ef6d9ec0d5/output/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-module:9.2.1] /Users/Alexis/.android/build-cache/45ab3a2c0463d73c3d45bdc28f914b5d59ac1201/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-database:9.2.1] /Users/Alexis/.android/build-cache/043b737f58ca7710bc8eaa723568fd20c07d4c5b/output/AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-database-connection:9.2.1] /Users/Alexis/.android/build-cache/4d882506c4220ad0434e930a5220a172d23ac660/output/AndroidManifest.xml:5:5-43
+MERGED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-core:9.2.1] /Users/Alexis/.android/build-cache/e07274eb7b1a537441539385560617790a4791d2/output/AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] /Users/Alexis/.android/build-cache/04f377b6d416300295cee72a17957ec96f8709bb/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/b012051e58bc1886605201cdfc126031144a5ab7/output/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build-cache/79498cda8f2a940a65baaf420960c2355e243da2/output/AndroidManifest.xml:20:5-43
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/a3652124968551a325b0e3bd6c63f93fd2672be1/output/AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:23.2.0] /Users/Alexis/.android/build-cache/06d9939e9e7c54218110dd12c1dd428e63155522/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
@@ -134,116 +140,116 @@ MERGED from [com.android.support:support-v4:23.2.0] /Users/Alexis/.android/build
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Alexis/Documents/Android_Studio/Workspace/Polygame/app/src/main/AndroidManifest.xml
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:20:9-22:45
+ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/AndroidManifest.xml:20:9-22:45
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:22:19-43
+		ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/AndroidManifest.xml:22:19-43
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:21:19-78
+		ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/AndroidManifest.xml:21:19-78
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/ff08b9256d94c726cd2f1f3079e533b7b9bddf36/output/AndroidManifest.xml:20:19-85
+		ADDED from [com.google.android.gms:play-services-base:9.2.1] /Users/Alexis/.android/build-cache/dafd517fb894e172288273e909510bda23080508/output/AndroidManifest.xml:20:19-85
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:20:5-79
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:20:5-79
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:22:22-76
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:22:22-76
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:24:5-67
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:24:5-67
-MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:22:5-68
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:22:5-68
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:24:22-65
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:24:22-65
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
-ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:28:7-34:18
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:28:7-34:18
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:28:7-34:18
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:28:7-34:18
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:30:11-33
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:30:11-33
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:29:11-83
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:29:11-83
 intent-filter#com.google.android.gms.measurement.UPLOAD
-ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:31:9-33:25
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:31:9-33:25
 action#com.google.android.gms.measurement.UPLOAD
-ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:32:11-77
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:32:11-77
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:32:19-75
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:32:19-75
 service#com.google.android.gms.measurement.AppMeasurementService
-ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:36:7-39:37
-MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/41fdbbcacafb9704274545380c0d53185b62c430/output/AndroidManifest.xml:36:7-39:37
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:36:7-39:37
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] /Users/Alexis/.android/build-cache/5eb23aeea418b6da5d7a46675e76dab09994516c/output/AndroidManifest.xml:36:7-39:37
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:38:11-33
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:38:11-33
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:39:11-35
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:39:11-35
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/c1497e7246e6d1ad697bdc951a7cadc71da5ea64/output/AndroidManifest.xml:37:11-82
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] /Users/Alexis/.android/build-cache/571d6f2474b1ddf9e2ad06b50264a58467895767/output/AndroidManifest.xml:37:11-82
 uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:23:5-82
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:23:5-82
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:23:22-79
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:23:22-79
 permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:25:5-26:47
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:25:5-26:47
 	android:protectionLevel
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:26:9-44
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:26:9-44
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:25:17-71
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:25:17-71
 uses-permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:28:5-79
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:28:5-79
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:28:22-76
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:28:22-76
 receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:32:9-41:20
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:32:9-41:20
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:34:13-36
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:34:13-36
 	android:permission
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:35:13-73
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:35:13-73
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:33:13-78
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:33:13-78
 intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:36:13-40:29
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:36:13-40:29
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:37:17-81
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:37:17-81
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:37:25-78
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:37:25-78
 action#com.google.android.c2dm.intent.REGISTRATION
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:38:17-86
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:38:17-86
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:38:25-83
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:38:25-83
 category#${applicationId}
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:39:17-61
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:39:17-61
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:39:27-58
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:39:27-58
 receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:45:9-47:40
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:45:9-47:40
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:47:13-37
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:47:13-37
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:46:13-86
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:46:13-86
 service#com.google.firebase.iid.FirebaseInstanceIdService
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:51:9-57:19
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:51:9-57:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:53:13-36
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:53:13-36
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:52:13-77
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:52:13-77
 intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:54:13-56:29
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:54:13-56:29
 	android:priority
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:54:28-51
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:54:28-51
 action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:55:17-80
+ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:55:17-80
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/9298cb2ca33436b6ee7f5d1fd2f1285ba14ab2c4/output/AndroidManifest.xml:55:25-77
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] /Users/Alexis/.android/build-cache/1742fdea796555424c5ab4981aba80bc56fb642a/output/AndroidManifest.xml:55:25-77
 provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:7:9-11:39
+ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:7:9-11:39
 	android:authorities
-		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:8:13-72
+		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:8:13-72
 	android:exported
-		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:10:13-37
+		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:10:13-37
 	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:11:13-36
+		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:11:13-36
 	android:name
-		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/9debacec9fd8edb877eeea494bfdf7b72aa8949b/output/AndroidManifest.xml:9:13-58
+		ADDED from [com.google.firebase:firebase-common:9.2.1] /Users/Alexis/.android/build-cache/dfa97fe863a6aa35bb2165b661425ae8afd6c4ce/output/AndroidManifest.xml:9:13-58
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:21:9-23:69
+ADDED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/b012051e58bc1886605201cdfc126031144a5ab7/output/AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:23:13-66
+		ADDED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/b012051e58bc1886605201cdfc126031144a5ab7/output/AndroidManifest.xml:23:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/2e0fd41bbd1608c43c7d8671681cc49e4fca72ab/output/AndroidManifest.xml:22:13-58
+		ADDED from [com.google.android.gms:play-services-basement:9.2.1] /Users/Alexis/.android/build-cache/b012051e58bc1886605201cdfc126031144a5ab7/output/AndroidManifest.xml:22:13-58

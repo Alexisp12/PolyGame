@@ -879,6 +879,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
         if(collisionVehicule){
+            Game.GameOverCrashSound();
             Game.pauseMusique();
             if(dureeExplo!=DUREEEXPLOFINAL) {
 //                Drawable explo = ContextCompat.getDrawable(this.getContext(), R.drawable.explo);
@@ -999,8 +1000,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 //                textPaintRang.setColor(ContextCompat.getColor(this.getContext(), R.color.accent_material_dark_1));
 
 
-                canvas.drawBitmap(restartButtonBitmap,bordRestartGauche,60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurButtons/2,null);
-                canvas.drawBitmap(podiumBitmap,bordPodiumGauche,60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurButtons/2,null);
+                canvas.drawBitmap(restartButtonBitmap,bordRestartGauche,60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurButtons/4,null);
+                canvas.drawBitmap(podiumBitmap,bordPodiumGauche,60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurButtons/4,null);
 
                 //positionTopTops =60*cvH/128+2*tailleTexte+pixels6/2+espaceTexte+longueurTops;
                 if(rangScore!=-1) {
@@ -1022,7 +1023,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     //canvas.drawBitmap(orRank,positionGaucheTops,positionTopTops,null);
 
                 }
+
                 if(toastHSdone){
+                    Game.NewRecordSound();
                     canvas.drawBitmap(highScoreBitmap,0,cvH-highScoreBitmap.getHeight(),null);
                 }
 
@@ -1071,6 +1074,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     if ((score + (nbVehicules - 1) * COEFVEHICULESEVITES )> userInfo.getHighScore() && userInfo.getHighScore()!=-1) {
                         if (!toastHSdone) {
                             Game.toastHS();
+                            Game.NewRecordSound();
                             toastHSdone = true;
                         }
                     }
@@ -1129,6 +1133,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     } else {
                         levelCarburant = levelCarburantMinInit+1;
                         perdu=true;
+                        Game.NoMoreCarbuSound();
                         Game.toastNoMoreCarbu();
                         Log.d("NoMoreCarbu","perdu");
                     }
@@ -1203,6 +1208,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         if(vehicule.hasBeenTouchedbyCarb(carburant.getX(),carburant.getY(),carburant.getcarburantW(),carburant.getcarburantH())){
             carburant.disparition();
+            Game.CarbuTakenSound();
             if(levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100<levelCarburantMaxInit) {
                 levelCarburant = levelCarburant + GAINCARBURANT * longueurBarreCarburant / 100;
             } else {
@@ -4710,7 +4716,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 if(!start){
                     if(currentX>bordStartG && currentX<bordStartD && currentY<bordStartB && currentY>bordStartH) {
                         depart=true;
+                        Game.rezetAllDoneSounds();
                         toastHSdone = false;
+
                     }
                     if (currentX < coinDClassementInit + cvW / 32 && currentX > coinGClassementInit - cvW / 32 && currentY < coinBClassementInit + cvW / 32 && currentY > coinHClassementInit - cvW / 32) {
                         Game.seeClassement();
@@ -4727,7 +4735,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                     pause = false;
                                     bg.setMove(true);
                                     bg.setVector(vitesseDeplacementBGActuel);
-                                    carburant.setVitesse(vitesseDeplacementBGActuel);
+                                    carburant.setVitesse(-vitesseDeplacementBGActuel);
                                     Log.d("Pause","false");
                                     //bg.setVector(-vitesseDeplacementBG);
                                     Game.startMusique();
@@ -4738,12 +4746,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                                         Game.seeClassement();
                                     }
                                 } else {
-                                    if (currentX >= vehicule.getX() - vehicule.getvehiculePlayerW() / 4 && currentX <= vehicule.getX() + vehicule.getvehiculePlayerW() + vehicule.getvehiculePlayerW() / 4) {
+                                    //if (currentX >= vehicule.getX() - vehicule.getvehiculePlayerW() / 4 && currentX <= vehicule.getX() + vehicule.getvehiculePlayerW() + vehicule.getvehiculePlayerW() / 4) {
                                         canMoveVehicule = true;
                                         distanceDoigtVoiture = currentX - vehicule.getX();
-                                    } else {
-                                        canMoveVehicule = false;
-                                    }
+                                    //} else {
+                                     //   canMoveVehicule = false;
+                                    //}
                                     break;
                                 }
                             }

@@ -6,7 +6,7 @@
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ciel"
+        android:background="@color/DarkBluePolytech"
         android:weightSum="100"
         android:id="@+id/LLPalmaresCoupe"
         >
@@ -24,8 +24,9 @@
                 android:id="@+id/textanneePalma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hitlist "
-                android:textSize="40dp"
+                android:text="Achievements "
+                android:textColor="@color/white"
+                android:textSize="30dp"
                 />
 
             <TextView
@@ -33,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XXXX"
-                android:textSize="40dp"
+                android:textColor="@color/white"
+                android:textSize="30dp"
                 />
 
         </LinearLayout>
@@ -64,6 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:textSize="@dimen/trophy_size"
+                    android:textColor="@color/white"
                     android:text="Tournoi1"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,6 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:textSize="@dimen/record_size"
+                    android:textColor="@color/white"
                     android:text="Record 1"/>
             </LinearLayout>
 
@@ -105,6 +109,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="30"
                     android:textSize="@dimen/trophy_size"
+                    android:textColor="@color/white"
                     android:text="Tournoi2"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -125,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:textSize="@dimen/record_size"
+                    android:textColor="@color/white"
                     android:text="Record 2"/>
             </LinearLayout>
             <TextView
@@ -146,6 +152,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="30"
                     android:textSize="@dimen/trophy_size"
+                    android:textColor="@color/white"
                     android:text="Tournoi1"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -167,6 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:textSize="@dimen/record_size"
+                    android:textColor="@color/white"
                     android:text="Record 3"/>
             </LinearLayout>
 
@@ -229,7 +237,7 @@
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ciel"
+        android:background="@color/DarkBluePolytech"
         android:weightSum="100"
         android:id="@+id/LLPalmaresCoupeb"
         >
@@ -247,8 +255,9 @@
                 android:id="@+id/textanneePalmab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hitlist "
-                android:textSize="40dp"
+                android:text="Achievements "
+                android:textColor="@color/white"
+                android:textSize="30dp"
                 />
 
             <TextView
@@ -256,7 +265,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XXXX"
-                android:textSize="40dp"
+                android:textColor="@color/white"
+                android:textSize="30dp"
                 />
 
         </LinearLayout>
@@ -287,6 +297,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:textSize="@dimen/trophy_size"
+                    android:textColor="@color/white"
                     android:text="Tournoi1"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -307,6 +318,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/record_size"
+                    android:textColor="@color/white"
                     android:text="Record 1"/>
 
             </LinearLayout>
@@ -330,6 +342,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="30"
                     android:textSize="@dimen/trophy_size"
+                    android:textColor="@color/white"
                     android:text="Tournoi2"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -350,6 +363,7 @@
                     android:layout_weight="10"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/record_size"
+                    android:textColor="@color/white"
                     android:text="Record 2"/>
 
             </LinearLayout>

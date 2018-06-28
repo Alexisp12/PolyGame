@@ -40,6 +40,9 @@
         <activity android:name=".Social"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".SocialActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".Palmares"
             android:screenOrientation="portrait">
         </activity>

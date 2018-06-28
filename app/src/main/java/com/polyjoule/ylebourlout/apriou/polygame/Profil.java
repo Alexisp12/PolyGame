@@ -2,6 +2,7 @@ package com.polyjoule.ylebourlout.apriou.polygame;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,6 +28,7 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
     private TextView emailView;
     private TextView pseudoView;
     private TextView signout;
+    private TextView contactus;
     private DatabaseReference databaseReference;
     private String problemeData="Error 404, please contact your administrator";
 
@@ -43,9 +45,11 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
         emailView = (TextView) findViewById(R.id.email);
         pseudoView = (TextView) findViewById(R.id.pseudo);
         signout = (TextView) findViewById(R.id.signout);
-
+        contactus = (TextView) findViewById(R.id.contactus);
 
         signout.setOnClickListener(this);
+
+        contactus.setOnClickListener(this);
 
         //getting the current logged in user
 
@@ -141,6 +145,26 @@ public class Profil extends AppCompatActivity implements View.OnClickListener {
         if (view == signout) {
             firebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, Login.class));
+        }
+
+        if(view == contactus){
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            //, Uri.fromParts(
+            //"mailto","polyjoule@univ-nantes.fr", null));
+            //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "[Application mobile]");
+            //mailIntent.putExtra(Intent.EXTRA_EMAIL, "polyjoule@univ-nantes.fr");
+
+            emailIntent.setData(Uri.parse("mailto:polyjoule@univ-nantes.fr"));
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, "polyjoule@univ-nantes.fr");
+            //emailIntent.putExtra(Intent.EXTRA_SUBJECT, "[Application mobile]");
+
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(emailIntent);
+                //startActivity(Intent.createChooser(emailIntent, "Contact us"));
+
+            } else {
+                Log.d("emailIntent","null");
+            }
         }
 
     }

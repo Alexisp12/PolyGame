@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:background="@color/DarkBluePolytech">
+    android:background="@color/DarkBluePolytech"
+    android:layout_alignParentEnd="true">
 
     <TextView
         android:id="@+id/titre"
@@ -44,7 +45,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/pseudotext"
@@ -62,16 +65,36 @@
             android:textSize="20dp"/>
 
     </LinearLayout>
-
     <TextView
         android:id="@+id/signout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="Log out"
+        android:text="LOG OUT"
         android:gravity="center"
-        android:textStyle="italic"
-        android:textColor="@color/BluePolytech"/>
+        android:layout_gravity="center"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:background="@color/BluePolytech"
+        android:textColor="@color/white"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/contactus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:text="Any remarks ? Click to get in touch with Polyjoule ! :-)"
+            android:textStyle="italic"
+            android:gravity="bottom|center"
+            android:textColor="@color/BluePolytech"/>
+    </RelativeLayout>
+
+
 
 
 </LinearLayout>

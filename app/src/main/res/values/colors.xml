@@ -16,5 +16,9 @@
 
     <color name="white">#FFFFFF</color>
 
+
+    <color name="colorClick">#004877</color>
+    <color name="colorButton">#009AE1</color>
+
     <color name="finishcolor">#FF2D00</color>
 </resources>
